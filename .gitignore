@@ -1,0 +1,17 @@
+# 音訊資料（版權屬 Koei Tecmo / Gust，且體積過大，不進版控）
+wav/
+battle_voice/
+ryza_battle/
+ryza_main/
+
+# 模型權重（可重新下載，83MB）
+tools/spk_model/*.ckpt
+
+# 中間產物與暫存
+tools/chunks/
+tools/embeddings.npy
+tools/encode_log.txt
+tools/encode_driver.log
+tools/__pycache__/
+__pycache__/
+*.pyc
