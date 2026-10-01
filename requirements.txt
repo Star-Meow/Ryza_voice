@@ -1,0 +1,15 @@
+# voice-scan 樣本排序取樣階段所需套件
+#
+# tools/select_samples.py 僅使用 Python 標準庫
+# （argparse / csv / os / sys），不需任何第三方套件。
+#
+# 以下為專案環境已安裝的版本，供後續階段（嵌入 / SVM）參考，
+# 本階段不會 import 它們，也不需安裝。
+
+# Python 3.10.11（執行環境）
+
+# --- 以下非本階段所需，僅記錄專案環境版本 ---
+numpy==2.2.6        # tools/embeddings.npy 載入與向量運算（後續階段）
+scikit-learn==1.7.2  # LinearSVC svm_dec 來源（後續階段，本階段不重訓）
+scipy==1.15.3       # scikit-learn 依賴
+pandas==2.3.3       # CSV 分析用（選用）
