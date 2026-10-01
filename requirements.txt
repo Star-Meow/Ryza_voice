@@ -4,20 +4,37 @@
 # 以下為 pipeline 各階段實際 import 的第三方套件與實測版本。
 #
 # Python 3.10.11（執行環境）
+#
+# torch/torchaudio 必須從 PyTorch CUDA index 安裝：
+#   pip install -r requirements.txt \
+#     --index-url https://download.pytorch.org/whl/cu126 \
+#     --extra-index-url https://pypi.org/simple
+
+# --- 逐字稿轉錄（Whisper large-v3）---
+openai-whisper==20250625       # large-v3 轉錄；sdist 但純 Python，無需編譯
+                               # 模型權重約 3GB，首次使用時自動下載
+numba==0.68.0                  # whisper 依賴（解碼加速）；要求 numpy<2.6
+llvmlite==0.50.0               # numba 依賴
+tiktoken==0.14.0               # whisper tokenizer
+more-itertools==11.1.0         # whisper 依賴
 
 # --- 說話者嵌入（tools/spk_model.py, encode_all.py）---
-torch==2.14.0+cu126           # ECAPA-TDNN 推論；GPU-only（本機 RTX 3060）
-                              # 注意：TF32 必須關閉，否則本機 GPU 會出現 CUDA 記憶體損壞
-                              # 新環境若無 NVIDIA GPU，需改用 CPU 版 torch 並改 spk_model.py 的 DEVICE
-hyperpyyaml==1.2.3            # 載入 spk_model/hyperparams.yaml（ECAPA hyperparams）
+torch==2.14.0+cu126            # ECAPA-TDNN + Whisper 推論；GPU-only
+                               # 注意：TF32 必須關閉，否則本機 GPU 會出現 CUDA 記憶體損壞
+                               # 新環境若無 NVIDIA GPU，需改用 CPU 版 torch 並改 spk_model.py 的 DEVICE
+torchaudio==2.11.0+cu126       # speechbrain 硬依賴；cu126 無 2.14.0，故用 2.11.0 配對
+                               # 專案腳本不直接 import torchaudio，僅 speechbrain 內部使用
+speechbrain==1.1.1             # ECAPA-TDNN 模型框架；hyperparams.yaml 以 !new:speechbrain.* 引用
+                               # 先前為未宣告的隱藏依賴，現已補入
+hyperpyyaml==1.2.3             # 載入 spk_model/hyperparams.yaml（ECAPA hyperparams）
 
 # --- SVM 分類（tools/refine_labels.py, cluster_ryza.py）---
-scikit-learn==1.7.2           # LinearSVC：svm_dec / margin_to_neg 的來源
-                              # refine_labels.py 以 A_high(92正) vs WRONG(23負) 訓練
-scipy==1.15.3                 # scikit-learn 依賴；spk_feats.py 亦用 scipy.io.wavfile + fftpack.dct
+scikit-learn==1.7.2            # LinearSVC：svm_dec / margin_to_neg 的來源
+                               # refine_labels.py 以 A_high(92正) vs WRONG(23負) 訓練
+scipy==1.15.3                  # scikit-learn 依賴；spk_feats.py 亦用 scipy.io.wavfile + fftpack.dct
 
 # --- 向量運算（幾乎全部腳本）---
-numpy==2.2.6                  # embeddings.npy（9569×192）載入與運算
+numpy==2.2.6                   # embeddings.npy（9569×192）載入與運算
 
 # --- 分析用（選用，未在任何 tools/*.py 直接 import）---
-pandas==2.3.3                # CSV 分析便利用；現有腳本皆用 csv 標準庫
+pandas==2.3.3                 # CSV 分析便利用；現有腳本皆用 csv 標準庫
