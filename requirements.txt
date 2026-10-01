@@ -1,15 +1,23 @@
-# voice-scan 樣本排序取樣階段所需套件
+# voice-scan 專案依賴套件
 #
-# tools/select_samples.py 僅使用 Python 標準庫
-# （argparse / csv / os / sys），不需任何第三方套件。
+# tools/select_samples.py（本階段排序取樣）僅用 Python 標準庫。
+# 以下為 pipeline 各階段實際 import 的第三方套件與實測版本。
 #
-# 以下為專案環境已安裝的版本，供後續階段（嵌入 / SVM）參考，
-# 本階段不會 import 它們，也不需安裝。
-
 # Python 3.10.11（執行環境）
 
-# --- 以下非本階段所需，僅記錄專案環境版本 ---
-numpy==2.2.6        # tools/embeddings.npy 載入與向量運算（後續階段）
-scikit-learn==1.7.2  # LinearSVC svm_dec 來源（後續階段，本階段不重訓）
-scipy==1.15.3       # scikit-learn 依賴
-pandas==2.3.3       # CSV 分析用（選用）
+# --- 說話者嵌入（tools/spk_model.py, encode_all.py）---
+torch==2.14.0+cu126           # ECAPA-TDNN 推論；GPU-only（本機 RTX 3060）
+                              # 注意：TF32 必須關閉，否則本機 GPU 會出現 CUDA 記憶體損壞
+                              # 新環境若無 NVIDIA GPU，需改用 CPU 版 torch 並改 spk_model.py 的 DEVICE
+hyperpyyaml==1.2.3            # 載入 spk_model/hyperparams.yaml（ECAPA hyperparams）
+
+# --- SVM 分類（tools/refine_labels.py, cluster_ryza.py）---
+scikit-learn==1.7.2           # LinearSVC：svm_dec / margin_to_neg 的來源
+                              # refine_labels.py 以 A_high(92正) vs WRONG(23負) 訓練
+scipy==1.15.3                 # scikit-learn 依賴；spk_feats.py 亦用 scipy.io.wavfile + fftpack.dct
+
+# --- 向量運算（幾乎全部腳本）---
+numpy==2.2.6                  # embeddings.npy（9569×192）載入與運算
+
+# --- 分析用（選用，未在任何 tools/*.py 直接 import）---
+pandas==2.3.3                # CSV 分析便利用；現有腳本皆用 csv 標準庫
