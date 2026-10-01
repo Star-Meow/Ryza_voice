@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""依 svm_dec 由高至低排序，產出ライザ候選語音清單。
+"""依 svm_dec 由高至低排序，產出ライザ候選語音清單，並可將選取段
+複製到獨立資料夾供人工篩選。
 
 規則（voice-scan 任務）：
 - A_high 全部採用，不參與排序。
@@ -20,11 +21,13 @@
         --sort-dir ryza_main/B_review \
         --sort-dir ryza_main/D_flagged \
         --output ryza_train.list \
-        --limit 500
+        --limit 500 \
+        --copy-dir ryza_main/top500
 """
 import argparse
 import csv
 import os
+import shutil
 import sys
 
 
@@ -118,6 +121,7 @@ def main():
                     help='參與排序的資料夾（可多次指定，順序即候選序列順序）')
     ap.add_argument('--output', required=True, help='輸出清單路徑')
     ap.add_argument('--limit', type=int, default=500, help='取前 N 段（0 = 不限）')
+    ap.add_argument('--copy-dir', help='將選取段以序號前綴複製到此資料夾（供人工篩選）')
     ap.add_argument('--label', default='ryza', help='清單第二欄（角色標籤）')
     ap.add_argument('--lang', default='ja', help='清單第三欄（語言）')
     args = ap.parse_args()
@@ -144,6 +148,17 @@ def main():
             rel = os.path.relpath(os.path.join(directory, filename), args.repo_root)
             f.write(f'{rel.replace(os.sep, "/")}|{args.label}|{args.lang}|\n')
 
+    # 將選取段複製到獨立資料夾，檔名加 4 位序號前綴（0001_<原檔名>），
+    # 讓檔案管理員直接依 svm_dec 順序排列，方便人工逐段篩選。
+    copied = 0
+    if args.copy_dir:
+        os.makedirs(args.copy_dir, exist_ok=True)
+        for rank, (directory, filename) in enumerate(selected, start=1):
+            src = os.path.join(directory, filename)
+            dst = os.path.join(args.copy_dir, f'{rank:04d}_{filename}')
+            shutil.copy2(src, dst)
+            copied += 1
+
     # ---- 回報 ----
     print('各層統計：')
     for directory, kind, count in stats:
@@ -153,6 +168,8 @@ def main():
     for directory, filename in dropped[:10]:
         print(f'  剔除 {os.path.join(directory, filename)}')
     print(f'選取：{len(selected)} 段 -> {args.output}')
+    if args.copy_dir:
+        print(f'複製：{copied} 段 -> {args.copy_dir}（序號前綴 0001_ 起）')
     if args.limit > 0 and total < args.limit:
         print(f'警告：不足 {args.limit} 段，缺少 {args.limit - total} 段')
     if selected:
