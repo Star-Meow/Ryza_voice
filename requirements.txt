@@ -10,16 +10,17 @@
 #     --index-url https://download.pytorch.org/whl/cu126 \
 #     --extra-index-url https://pypi.org/simple
 
-# --- 逐字稿轉錄（Whisper large-v3）---
-openai-whisper==20250625       # large-v3 轉錄；sdist 但純 Python，無需編譯
-                               # 模型權重約 3GB，首次使用時自動下載
-numba==0.68.0                  # whisper 依賴（解碼加速）；要求 numpy<2.6
-llvmlite==0.50.0               # numba 依賴
-tiktoken==0.14.0               # whisper tokenizer
-more-itertools==11.1.0         # whisper 依賴
+# --- 逐字稿轉錄（ASR：Whisper large-v3，經 faster-whisper）---
+faster-whisper==1.2.1         # CTranslate2 版 Whisper 實作；載入 large-v3 權重
+                               # transcribe(vad_filter=True) 以 Silero VAD 排除雜訊段
+                               # GPU 經 ctranslate2 自帶 CUDA，與 torch 的 CUDA 互不衝突
+ctranslate2==4.8.2             # faster-whisper 推論後端；支援 float16/int8 加速
+onnxruntime==1.23.2            # Silero VAD 模型執行（雜訊排除用）
+tokenizers==0.23.2             # faster-whisper tokenizer
+av==17.1.0                     # faster-whisper 音訊解碼（PyAV）
 
 # --- 說話者嵌入（tools/spk_model.py, encode_all.py）---
-torch==2.14.0+cu126            # ECAPA-TDNN + Whisper 推論；GPU-only
+torch==2.14.0+cu126            # ECAPA-TDNN 推論；GPU-only
                                # 注意：TF32 必須關閉，否則本機 GPU 會出現 CUDA 記憶體損壞
                                # 新環境若無 NVIDIA GPU，需改用 CPU 版 torch 並改 spk_model.py 的 DEVICE
 torchaudio==2.11.0+cu126       # speechbrain 硬依賴；cu126 無 2.14.0，故用 2.11.0 配對
