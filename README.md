@@ -14,9 +14,9 @@
 | `tools/` | 解包工具與解析器（說明見下） |
 | `ryza_main/` | 主庫ライザ候選（分級 A/B/C，見下節） |
 | `ryza_main/top500/` | 依 svm_dec 排序的 top500 候選音訊（實際 497 檔，剔除 3 個人工確認負樣本；STT 階段輸入，見下節） |
-| `ryza_main/wrong/` | 已人工確認非ライザ的負樣本音檔 |
-| `data/` | GPT-SoVITS 格式訓練清單（見「ASR 語音轉文字處理」） |
-| `reports/` | ASR 報告（本次暫緩，尚未建立） |
+| `ryza_main/wrong/` | 已人工確認非ライザ的負樣本音檔（22 檔；對應 `WRONG[]` 23 筆，其中 `01120` 未匯出音檔） |
+| `data/ryza_train.list` | GPT-SoVITS 格式訓練清單（491 行，見「ASR 語音轉文字（STT）資料處理」） |
+| `reports/` | ASR 報告與 CER 抽查：`asr_report.md`、`cer_report.md`、`cer_sample.csv` |
 | `ryza_main_index.csv` | 主庫全檔之說話者相似度排序索引 |
 
 ## 兩種語音庫的差別（重要）
@@ -84,10 +84,10 @@
 |---|---|
 | `ryza_main_index.csv` | 主庫全 9569 檔依 consensus 分數排序，含各錨點 cos、min3、戰鬥庫參考分 |
 | `ryza_main/A_high/` | 92 檔，consensus ≥ 0.80（**已全部人工確認為ライザ**） |
-| `ryza_main/B_likely/` | 401 檔，0.76–0.80（部分已確認，見下） |
+| `ryza_main/B_likely/` | 383 檔，0.76–0.80（部分已確認，見下） |
 | `ryza_main/B_review/` | 40 檔，SVM 判別值最低、最可疑，優先待審 |
-| `ryza_main/C_possible/` | 894 檔，0.72–0.76 |
-| `ryza_main/wrong/` | 5 檔已確認錯誤（00108/01120/01819/01916/03033） |
+| `ryza_main/C_possible/` | 728 檔，0.72–0.76 |
+| `ryza_main/wrong/` | 22 檔已確認錯誤（對應 `WRONG[]` 23 筆，其中 `01120` 未匯出音檔） |
 
 ### 使用者回饋精煉（兩輪）
 
@@ -105,11 +105,12 @@
 | 資料夾 | 檔數 | 判斷 |
 |---|---|---|
 | `A_high/` | 92 | 已人工確認為ライザ |
-| `B_likely/` | 386 | svm_dec > −0.433，可能正確 |
-| `C_possible/` | 729 | svm_dec > −0.433，不確定 |
+| `B_likely/` | 383 | svm_dec > −0.433，可能正確 |
+| `C_possible/` | 728 | svm_dec > −0.433，不確定 |
 | `D_flagged/` | 165 | svm_dec < −0.433（比任何確認誤判都更負），強烈疑似錯誤 |
 | `B_review/` | 40 | 剩餘檔中 svm_dec 最低，優先待審（`ryza_main_review.csv`） |
-| `wrong/` | 20 | 已確認錯誤 |
+| `wrong/` | 22 | 已確認錯誤 |
+| `top500/` | 497 | 依 svm_dec 排序的 top500（序號 0365/0442/0484 已剔除，見下節） |
 
 > 戰鬥庫角色 centroid 無法用於此精煉：正負樣本在戰鬥空間的最佳匹配
 > 皆為 TAO（領域偏移）。負樣本嵌入位於正樣本聚類內部，kNN 無效；
@@ -142,7 +143,7 @@
 | `tools/validate_pos_label.py` | 三處一致性驗證 |
 | `tools/make_cer_sample.py` | CER 抽查：固定 seed 從 json 隨機抽段產清單 |
 | `tools/cer_report.py` | CER 抽查：對人工校對結果算字元錯誤率（純標準庫 Levenshtein） |
-| `reports/cer_sample.csv` | CER 抽樣清單（50 段，reference 欄待人工校對填入） |
+| `reports/cer_sample.csv` | CER 抽樣清單（50 段，reference 欄為人工校對後文字） |
 | `data/ryza_train.list` | GPT-SoVITS 格式訓練清單：`路徑\|ryza\|ja\|文字` |
 | `reports/asr_report.md` | 統計、參數、CER、專有名詞校正分析 |
 
@@ -198,7 +199,8 @@
         │       └─► data/ryza_train.list（491 行）
         │
         ▼
-[reports/asr_report.md] ← 本次暫緩，待後續
+[reports/asr_report.md] 模型參數、過濾統計、有效時長
+[reports/cer_report.md] CER 抽查（50 段，平均 1.0%）
 ```
 
 ### 文本去重
@@ -225,11 +227,15 @@
 pos_label.py SVM_DEC[]        = 491
 asr_screening.json PASS       = 491
 data/ryza_train.list          = 491
-neg_labels.py WRONG           = 3   （top500 內人工剔除）
+neg_labels.py WRONG           = 23  （全庫人工確認非ライザ；top500 內佔 3 筆）
 neg_labels.py DUPLICATE       = 6   （ASR 文本重複）
 ```
 
-數量關係：`500（top500）− 3（WRONG）= 497（造冊）− 6（DUPLICATE）= 491（清單）`。
+數量關係：`500（top500）− 3（top500 內 WRONG）= 497（造冊）− 6（DUPLICATE）
+= 491（清單）`。`WRONG[]` 的其餘 20 筆落在 top500 之外，不影響本階段計算。
+
+> `WRONG[]` 23 筆但 `ryza_main/wrong/` 僅 22 檔：`01120` 未匯出音檔，
+> 兩處數量差 1 屬正常。
 
 由 `tools/validate_pos_label.py` 從來源獨立推導期望值交叉檢查
 （長度 / 唯一 / 範圍 / 音檔存在 / 順序 / 三處一致）。
@@ -284,7 +290,11 @@ git rm ryza_train.list
 | `transcribe.py` | 步驟 7 專責產 `data/ryza_train.list` | 已完成（純標準庫） |
 | `validate_pos_label.py` | 三處一致性驗證 | 已完成（`--source-dir` 與交叉檢查） |
 | `neg_labels.py` | `WRONG[]` + `DUPLICATE[]` | 已完成（`DUPLICATE[]` 6 筆） |
-| `asr_filter_report.md` | 現行篩選報告（根目錄） | `reports/asr_report.md` 暫緩，此檔維持現狀 |
+| `asr_filter_report.md` | 舊版篩選報告（根目錄，`screen_asr.py` 未指定 `--report` 時產生） | 已被 `reports/asr_report.md` 取代，保留作為歷史紀錄 |
+| `make_cer_sample.py` | CER 抽查：固定 seed 從 json 隨機抽段產清單 | 已完成（50 段） |
+| `cer_report.py` | CER 抽查：對人工校對結果算字元錯誤率（標準庫 Levenshtein） | 已完成（平均 1.0%） |
+| `glossary.py` | 專有名詞詞庫（`PROPER_NOUNS`）與已確認誤聽修正（`CORRECTIONS`） | 已完成（6 條修正） |
+| `apply_glossary.py` | 將 `CORRECTIONS` 套用至 `asr_screening.json` 並重算 `core` | 已完成（14 筆修正） |
 
 ### 目前進度
 
@@ -295,8 +305,9 @@ git rm ryza_train.list
 | 步驟 6–7 | ✅ 同步至 491、`transcribe.py` 產 `data/ryza_train.list`（491 行） |
 | 步驟 8–9 | ✅ 三處驗證通過、`git rm ryza_train.list` |
 | `data/` 目錄 | ✅ 已建立（`data/ryza_train.list`） |
-| `reports/cer_sample.csv` | ✅ 50 段抽樣清單已產生（reference 待人工校對） |
+| `reports/cer_sample.csv` | ✅ 50 段抽樣已校對完畢（6 段修正、44 段無異常） |
 | `reports/asr_report.md` | ✅ 已產生（模型參數、過濾統計、有效時長、CER 抽查 1.0%） |
+| 專有名詞校正 | ✅ `glossary.py` 6 條確認誤聽已套用，14 筆逐字稿修正、`core` 已重算 |
 
 > 驗收條件：有效轉譯段數 ≥ 450（目標 491），且全數人工確認為ライザ。
 > 目前 491 段已全數通過 ASR 過濾；**人工確認為ライザ**尚待試聽
@@ -330,8 +341,18 @@ seed 為各庫檔案偏移 0x0c 的 `audio_id`（本作固定為 `0xAF4905A9`）
 | `encode_chunk.py` / `run_encode.sh` | 分段 GPU 編碼（崩潰重試，不退 CPU） |
 | `encode_all.py` | 單進程完整編碼（穩定環境用） |
 | `final_index.py` / `export_ryza.py` | 評分、索引產出、分級子集匯出 |
+| `refine_labels.py` | 依 SVM 邊界重整 `ryza_main/` 分級（`WRONG[]` 為其負樣本輸入） |
 | `embeddings.npy` | 9569 檔的 192 維說話者嵌入 |
-| `select_samples.py` / `screen_asr.py` / `build_pos_label.py` / `validate_pos_label.py` | STT 階段：top500 排序、ASR 過濾、造冊、三處一致性驗證（見「ASR 語音轉文字（STT）資料處理」） |
+| `select_samples.py` | top500 依 svm_dec 排序、`sound_id` 編號正規化（v 前綴剝除） |
+| `screen_asr.py` | faster-whisper ASR 與過濾（時長／空輸出／幻覺／重複），產 `asr_screening.json` |
+| `build_pos_label.py` | 自 `ryza_main/top500/` 造冊 `pos_label.py`（`--exclude-from`／`--prune-raw`） |
+| `transcribe.py` | 由 ASR 結果產 GPT-SoVITS 清單 `data/ryza_train.list`（純標準庫） |
+| `validate_pos_label.py` | 三處編號集合一致性驗證（長度／唯一／範圍／順序／交集） |
+| `make_cer_sample.py` / `cer_report.py` | CER 抽查：隨機抽段清單、對人工校對結果算字元錯誤率 |
+| `pos_label.py` / `neg_labels.py` | 編號清單資料檔：正樣本 `SVM_DEC[]`、負樣本 `WRONG[]` 與重複排除 `DUPLICATE[]` |
+
+> STT 階段的完整資料流與執行順序見
+> 「[ASR 語音轉文字（STT）資料處理](#asr-語音轉文字stt資料處理)」。
 
 ### 重新解出（如需）
 
