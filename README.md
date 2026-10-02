@@ -16,7 +16,7 @@
 | `ryza_main/top500/` | 依 svm_dec 排序的 top500 候選音訊（實際 497 檔，剔除 3 個人工確認負樣本；STT 階段輸入，見下節） |
 | `ryza_main/wrong/` | 已人工確認非ライザ的負樣本音檔（22 檔；對應 `WRONG[]` 23 筆，其中 `01120` 未匯出音檔） |
 | `data/ryza_train.list` | GPT-SoVITS 格式訓練清單（491 行，見「ASR 語音轉文字（STT）資料處理」） |
-| `reports/` | ASR 報告與 CER 抽查：`asr_report.md`、`cer_report.md`、`cer_sample.csv` |
+| `reports/` | ASR 報告與 CER 抽查：`asr_report.md`、`cer_sample.csv`、`correction_diff.md` |
 | `ryza_main_index.csv` | 主庫全檔之說話者相似度排序索引 |
 
 ## 兩種語音庫的差別（重要）
@@ -199,8 +199,8 @@
         │       └─► data/ryza_train.list（491 行）
         │
         ▼
-[reports/asr_report.md] 模型參數、過濾統計、有效時長
-[reports/cer_report.md] CER 抽查（50 段，平均 1.0%）
+[reports/asr_report.md] 模型參數、過濾統計、有效時長、CER 抽查
+[reports/correction_diff.md] 專有名詞校正前後對照（14 段）
 ```
 
 ### 文本去重
