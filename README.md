@@ -144,7 +144,7 @@
 | `tools/cer_report.py` | CER 抽查：對人工校對結果算字元錯誤率（純標準庫 Levenshtein） |
 | `reports/cer_sample.csv` | CER 抽樣清單（50 段，reference 欄待人工校對填入） |
 | `data/ryza_train.list` | GPT-SoVITS 格式訓練清單：`路徑\|ryza\|ja\|文字` |
-| `reports/asr_report.md` | 統計、參數、CER、專有名詞校正（**本次暫緩**，待後續） |
+| `reports/asr_report.md` | 統計、參數、CER、專有名詞校正分析 |
 
 ### 編號正規化（v 前綴）
 
@@ -296,7 +296,7 @@ git rm ryza_train.list
 | 步驟 8–9 | ✅ 三處驗證通過、`git rm ryza_train.list` |
 | `data/` 目錄 | ✅ 已建立（`data/ryza_train.list`） |
 | `reports/cer_sample.csv` | ✅ 50 段抽樣清單已產生（reference 待人工校對） |
-| `reports/asr_report.md` | ⬜ 本次暫緩（CER 與專有名詞校正待後續） |
+| `reports/asr_report.md` | ✅ 已產生（模型參數、過濾統計、有效時長、CER 抽查 1.0%） |
 
 > 驗收條件：有效轉譯段數 ≥ 450（目標 491），且全數人工確認為ライザ。
 > 目前 491 段已全數通過 ASR 過濾；**人工確認為ライザ**尚待試聽

@@ -63,8 +63,11 @@ def main():
     for r in rows:
         ref = (r.get('reference') or '').strip()
         if not ref:
-            pending.append(r)
-            continue
+            # 填寫約定：留空 = 無異常，reference 視同 whisper_text
+            ref = (r.get('whisper_text') or '').strip()
+            if not ref:
+                pending.append(r)
+                continue
         hyp = core_text(r.get('whisper_text', ''))
         ref_c = core_text(ref)
         dist = levenshtein(ref_c, hyp)
@@ -73,8 +76,12 @@ def main():
         r['_hyp'] = hyp
         r['_dist'] = dist
         r['_cer'] = cer
+        # 有無異常：reference 與 whisper_text 完全相同（含標點）視為無異常
+        r['_corrected'] = ref != (r.get('whisper_text') or '').strip()
         scored.append(r)
 
+    n_fixed = sum(1 for r in scored if r['_corrected'])
+    n_ok = sum(1 for r in scored if not r['_corrected'])
     n_total = len(rows)
     out_dir = os.path.dirname(os.path.abspath(args.output)) or '.'
     os.makedirs(out_dir, exist_ok=True)
@@ -82,7 +89,10 @@ def main():
         w = f.write
         w('# CER 抽查報告\n\n')
         w(f'- 抽樣：`{args.input}`（{n_total} 段）\n')
-        w(f'- 已校對：**{len(scored)}** 段｜待校對：{len(pending)} 段\n\n')
+        w(f'- 已校對：**{len(scored)}** 段（修正 {n_fixed} 段、無異常 {n_ok} 段）'
+          f'｜未校對：{len(pending)} 段\n')
+        w('- 填寫約定：reference 留空 = 無異常（視同 whisper_text）；'
+          '有填 = 修正後的正確文字\n\n')
 
         if scored:
             mean = sum(r['_cer'] for r in scored) / len(scored)
@@ -93,23 +103,29 @@ def main():
             zero = sum(1 for r in scored if r['_cer'] == 0)
             w(f'- 完全正確（CER=0）：{zero} 段\n\n')
 
-            w(f'## 逐段 CER\n\n')
-            w('| # | 音檔 | 參考（校對） | Whisper 輸出 | 編輯距離 | CER |\n')
-            w('|---|---|---|---|---|---|\n')
-            for r in scored:
-                ref_s = r['_ref_c'][:18].replace('|', '\\|')
-                hyp_s = r['_hyp'][:18].replace('|', '\\|')
-                w(f"| {r['id']} | `{r['path']}` | {ref_s} | {hyp_s} "
-                  f"| {r['_dist']} | **{r['_cer']:.1%}** |\n")
-            w('\n')
+            w(f'## 有錯誤的段（{n_fixed}）\n\n')
+            fixed = [r for r in scored if r['_corrected']]
+            if fixed:
+                w('| # | 音檔 | 參考（校對） | Whisper 輸出 | 編輯距離 | CER |\n')
+                w('|---|---|---|---|---|---|\n')
+                for r in fixed:
+                    ref_s = r['_ref_c'][:18].replace('|', '\\|')
+                    hyp_s = r['_hyp'][:18].replace('|', '\\|')
+                    w(f"| {r['id']} | `{r['path']}` | {ref_s} | {hyp_s} "
+                      f"| {r['_dist']} | **{r['_cer']:.1%}** |\n")
+                w('\n')
+            else:
+                w('（無修正段）\n\n')
 
             worst = sorted(scored, key=lambda r: -r['_cer'])[:args.worst]
-            w(f'## 最差 {len(worst)} 段\n\n')
-            for r in worst:
-                w(f"### `{r['path']}`（CER {r['_cer']:.1%}）\n")
-                w(f"- 參考：{r['_ref_c']}\n")
-                w(f"- Whisper：{r['_hyp']}\n")
-                w(f"- 編輯距離 {r['_dist']} / 參考 {len(r['_ref_c'])} 字元\n\n")
+            worst = [r for r in worst if r['_cer'] > 0]
+            if worst:
+                w(f'## 最差 {len(worst)} 段\n\n')
+                for r in worst:
+                    w(f"### `{r['path']}`（CER {r['_cer']:.1%}）\n")
+                    w(f"- 參考：{r['_ref_c']}\n")
+                    w(f"- Whisper：{r['_hyp']}\n")
+                    w(f"- 編輯距離 {r['_dist']} / 參考 {len(r['_ref_c'])} 字元\n\n")
 
         if pending:
             w(f'## 待校對（{len(pending)} 段）\n\n')
@@ -120,10 +136,12 @@ def main():
 
     if scored:
         mean = sum(r['_cer'] for r in scored) / len(scored)
-        print(f'{args.output}：{len(scored)} 段已算，平均 CER {mean:.1%}，'
-              f'{len(pending)} 段待校對')
+        fixed = sum(1 for r in scored if r['_corrected'])
+        print(f'{args.output}：{len(scored)} 段已算（修正 {fixed} 段、'
+              f'無異常 {len(scored) - fixed} 段），平均 CER {mean:.1%}，'
+              f'{len(pending)} 段未校對')
     else:
-        print(f'{args.output}：尚無已校對段落（{len(pending)} 段待校對）')
+        print(f'{args.output}：尚無已校對段落（{len(pending)} 段未校對）')
 
 
 if __name__ == '__main__':
