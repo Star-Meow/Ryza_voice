@@ -15,3 +15,6 @@ tools/encode_driver.log
 tools/__pycache__/
 __pycache__/
 *.pyc
+
+# Python 虛擬環境（本機 .venv，不進版控）
+.venv/

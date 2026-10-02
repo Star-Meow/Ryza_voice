@@ -1,0 +1,41 @@
+# voice-scan 專案依賴套件
+#
+# tools/select_samples.py（本階段排序取樣）僅用 Python 標準庫。
+# 以下為 pipeline 各階段實際 import 的第三方套件與實測版本。
+#
+# Python 3.10.11（執行環境）
+#
+# torch/torchaudio 必須從 PyTorch CUDA index 安裝：
+#   pip install -r requirements.txt \
+#     --index-url https://download.pytorch.org/whl/cu126 \
+#     --extra-index-url https://pypi.org/simple
+
+# --- 逐字稿轉錄（ASR：Whisper large-v3，經 faster-whisper）---
+faster-whisper==1.2.1         # CTranslate2 版 Whisper 實作；載入 large-v3 權重
+                               # transcribe(vad_filter=True) 以 Silero VAD 排除雜訊段
+                               # GPU 經 ctranslate2 自帶 CUDA，與 torch 的 CUDA 互不衝突
+ctranslate2==4.8.2             # faster-whisper 推論後端；支援 float16/int8 加速
+onnxruntime==1.23.2            # Silero VAD 模型執行（雜訊排除用）
+tokenizers==0.23.2             # faster-whisper tokenizer
+av==17.1.0                     # faster-whisper 音訊解碼（PyAV）
+
+# --- 說話者嵌入（tools/spk_model.py, encode_all.py）---
+torch==2.14.0+cu126            # ECAPA-TDNN 推論；GPU-only
+                               # 注意：TF32 必須關閉，否則本機 GPU 會出現 CUDA 記憶體損壞
+                               # 新環境若無 NVIDIA GPU，需改用 CPU 版 torch 並改 spk_model.py 的 DEVICE
+torchaudio==2.11.0+cu126       # speechbrain 硬依賴；cu126 無 2.14.0，故用 2.11.0 配對
+                               # 專案腳本不直接 import torchaudio，僅 speechbrain 內部使用
+speechbrain==1.1.1             # ECAPA-TDNN 模型框架；hyperparams.yaml 以 !new:speechbrain.* 引用
+                               # 先前為未宣告的隱藏依賴，現已補入
+hyperpyyaml==1.2.3             # 載入 spk_model/hyperparams.yaml（ECAPA hyperparams）
+
+# --- SVM 分類（tools/refine_labels.py, cluster_ryza.py）---
+scikit-learn==1.7.2            # LinearSVC：svm_dec / margin_to_neg 的來源
+                               # refine_labels.py 以 A_high(92正) vs WRONG(23負) 訓練
+scipy==1.15.3                  # scikit-learn 依賴；spk_feats.py 亦用 scipy.io.wavfile + fftpack.dct
+
+# --- 向量運算（幾乎全部腳本）---
+numpy==2.2.6                   # embeddings.npy（9569×192）載入與運算
+
+# --- 分析用（選用，未在任何 tools/*.py 直接 import）---
+pandas==2.3.3                 # CSV 分析便利用；現有腳本皆用 csv 標準庫
