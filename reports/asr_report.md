@@ -1,0 +1,134 @@
+# ASR 語音轉文字報告（STT 階段）
+
+> 產生日期：2026-10-02
+> 資料鏈：`ryza_main/top500/` → `tools/pos_label.py` → `tools/asr_screening.json` → `data/ryza_train.list`
+
+## 1. 模型與參數
+
+| 項目 | 設定 |
+|---|---|
+| ASR 模型 | faster-whisper **large-v3**（CTranslate2 後端） |
+| 推論裝置 / 精度 | CUDA（RTX 4070S 12G）/ **float16** |
+| **beam size** | **5** |
+| **temperature** | **梯度 fallback（0.0 → 1.0，faster-whisper 預設）** |
+| VAD | 開啟（Silero VAD，經 onnxruntime） |
+| 語言 | `ja`（固定，不偵測） |
+| 時長門檻 | 2.0s ~ 15.0s（免模型，讀 WAV header） |
+| initial_prompt | 無 |
+| 音訊來源 | `wav/`（48kHz / 16bit / mono） |
+
+> **temperature 未固定的選擇理由**：實測固定 `temperature=0.0` 時，`wav/04493.wav` 會陷入 `……` 無限重複幻覺（compression_ratio 20.34，被 HIGH_COMPRESSION 規則捕捉）。改回預設梯度 fallback 後該段恢復為正常文字「せめて、何かきっかけでも作れれば…ん?」。代價是重跑結果可能有少數段差異，故採預設梯度。
+
+## 2. 處理量與過濾統計
+
+### 資料漏斗
+
+```
+500  top500（依 svm_dec 排序）
+ -3  WRONG（人工確認非ライザ）          → neg_labels.py WRONG[]
+ ────
+497  ASR 輸入（pos_label.py SVM_DEC[]）
+ -6  DUPLICATE_TEXT（跨檔文本重複）      → neg_labels.py DUPLICATE[]
+ ────
+491  有效段數（data/ryza_train.list）
+```
+
+### Issue 過濾規則觸發統計
+
+Issue 要求的過濾條件為：時長 <2s 或 >15s、非說話聲、ASR 輸出為空、重複或明顯幻覺。對應實作如下：
+
+| 規則 | 門檻 | 觸發數 | 對應 Issue 條件 |
+|---|---|---|---|
+| DURATION_SHORT | < 2.0s | 0 | 時長 <2s |
+| DURATION_LONG | > 15.0s | 0 | 時長 >15s |
+| EMPTY | VAD 後無文字 | 0 | ASR 輸出為空 |
+| HALLUCINATION | 命中已知幻覺句 | 0 | 明顯幻覺（Whisper 常見幻覺輸出） |
+| REPETITION | 同字元連續 ≥4 | 0 | **重複**（指 ASR 輸出的重複幻覺） |
+| NON_SPEECH | core 為感嘆詞 | 0（REVIEW） | 非說話聲（喘氣、吶喊等短促感嘆） |
+
+**Issue 要求的過濾規則全數未觸發**（0 排除），497 段音訊在這些條件下品質乾淨。
+
+### 額外過濾（非 Issue 要求）
+
+以下為超出 Issue 要求的額外過濾規則，本專案基於 TTS 訓練需求加入，與 Issue 的「重複」是不同概念：
+
+| 規則 | 門檻 | 觸發數 | 說明 |
+|---|---|---|---|
+| HIGH_COMPRESSION | compression_ratio > 3.0 | 0（REVIEW） | Whisper 幻覺指標；實測最高僅 1.54。與 Issue「明顯幻覺」為不同實作，Issue 對應的是 HALLUCINATION 規則 |
+| **DUPLICATE_TEXT** | **core 跨檔 ≥2** | **6（EXCLUDE）** | **跨檔同一台詞重複錄製** |
+
+> **DUPLICATE_TEXT ≠ Issue 的「重複」**：Issue 的「重複」指單一檔案內 ASR 輸出的重複幻覺（上表 REPETITION，觸發 0）；DUPLICATE_TEXT 指的是**不同音檔收錄了同一句台詞**（遊戲多個 cue 引用同一段語音）。
+>
+> 排除 6 段的理由：這 10 個音檔 MD5 互不相同、時長些微相差，是同一句台詞的重複錄製，**對 TTS 訓練保留一個版本即可**。
+
+### 被排除的 6 段（DUPLICATE_TEXT）
+
+| 音檔 | 與下列檔案文本重複 | 台詞 |
+|---|---|---|
+| `wav/04253.wav` | `wav/06332.wav` | あれ?扉が開いてる。あんなしっかり閉まってたのに。 |
+| `wav/07018.wav` | `wav/06332.wav` | （同上） |
+| `wav/02998.wav` | `wav/01036.wav` | まだだよ。まだ諦めない |
+| `wav/07718.wav` | `wav/05676.wav` | 扉、閉じちゃってるね。どうやって開けるんだろう。 |
+| `wav/08413.wav` | `wav/05676.wav` | （同上） |
+| `wav/01991.wav` | `wav/01359.wav` | 私さ、そろそろ島に帰ろうかなって思うんだ。 |
+
+（操作性錯誤 MISSING / READ_ERROR / ASR_ERROR 各 0，無檔案缺漏或解碼失敗。）
+
+### 有效總時長（491 段）
+
+- **合計 51.5 分鐘**
+- 平均 6.3s｜最短 2.4s｜最長 12.0s
+
+## 3. 品質抽查：50 段人工校對 CER
+
+### 抽查方法
+
+- 自 491 段以 Python `random`（**seed=42**）隨機抽 **50 段**（佔 10.2%，seed 固定可重現）
+- 每段提供 Whisper 轉換後的逐字稿，由**人工逐段檢視音檔比對**
+- 人工留空 = 該段 Whisper 原始輸出經檢視後**判定無異常**
+- 人工修正 6 段 = 該段 Whisper 輸出**有誤**，已填入正確文字
+- **CER = Levenshtein(reference, whisper) / len(reference)**，計算基準為 **Whisper 原始輸出**
+- 比對前兩邊都過 core 正規化（去標點、只保留日文/英數字元），避免標點差異干擾
+
+### 結果
+
+| 指標 | 數值 |
+|---|---|
+| **平均 CER** | **1.0%**（人工校對後的實測值，非預設值） |
+| 字元錯誤總數 | 10 / 1114 字元 |
+| 完全正確（CER = 0） | 44 / 50 段（88%） |
+| 有錯誤 | 6 / 50 段（12%） |
+
+### 6 段錯誤明細
+
+| # | 音檔 | Whisper 輸出 | 正確（人工校對） | 編輯距離 | CER |
+|---|---|---|---|---|---|
+| 13 | `wav/01124.wav` | オート | 王都 | 3 | 10.3% |
+| 16 | `wav/01552.wav` | タレジャー | トレジャー | 1 | 2.9% |
+| 32 | `wav/09557.wav` | 諸子 | 書庫 | 2 | 11.1% |
+| 38 | `wav/05954.wav` | セイリさん | セリさん | 1 | 5.6% |
+| 40 | `wav/08204.wav` | な男子学生 | 男子学生 | 1 | 4.2% |
+| 50 | `wav/03173.wav` | ピー | フィー | 2 | 18.2% |
+
+### 錯誤類型分析
+
+6 段錯誤**全數為專有名詞／固定詞組的聽寫偏差**，無文法或語意錯誤：
+
+- **同音異字**：オート→王都（おうと）、諸子→書庫（しょこ）
+- **清濁音／長音／母音**：タレジャー→トレジャー、セイリ→セリ、ピー→フィー
+- **語頭語氣詞**：多了「な」
+
+Whisper large-v3 對**一般句子的辨識接近完美**（44/50 完全正確），1.0% 的錯誤全由遊戲專有名詞造成。
+
+## 4. 本階段涵蓋範圍
+
+**本報告涵蓋**：ASR 轉譯、過濾統計、有效時長、CER 抽查、錯誤類型分析。
+
+**本階段未涵蓋**：專有名詞人工校正、校正後清單、校正後 CER。
+
+- `data/ryza_train.list` 的逐字稿為 **Whisper 原始輸出**，未套用專有名詞校正
+- `tools/asr_screening.json` 為 491 筆 PASS 結果；6 筆 DUPLICATE_TEXT 記錄已精簡，明細見 `asr_filter_report.md` 與本報告第 2 節
+
+## 附錄：相關檔案
+
+- CER 抽查原始資料：`reports/cer_sample.csv`（50 段，含人工校對結果）

@@ -3,6 +3,7 @@ wav/
 battle_voice/
 ryza_battle/
 ryza_main/
+reports/cer_samples/
 
 # 模型權重（可重新下載，83MB）
 tools/spk_model/*.ckpt
@@ -18,3 +19,6 @@ __pycache__/
 
 # Python 虛擬環境（本機 .venv，不進版控）
 .venv/
+
+# ZCode agent session 資料（計畫暫存，非專案內容）
+.zcode/
