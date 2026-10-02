@@ -50,11 +50,11 @@ Issue 要求的過濾條件為：時長 <2s 或 >15s、非說話聲、ASR 輸出
 
 ### 額外過濾（非 Issue 要求）
 
-以下為本專案自行加入、超出 Issue 要求的過濾，與 Issue 的「重複」是不同概念：
+以下為超出 Issue 要求的額外過濾規則，本專案基於 TTS 訓練需求加入，與 Issue 的「重複」是不同概念：
 
 | 規則 | 門檻 | 觸發數 | 說明 |
 |---|---|---|---|
-| HIGH_COMPRESSION | compression_ratio > 3.0 | 0（REVIEW） | Whisper 幻覺指標；實測最高僅 1.54 |
+| HIGH_COMPRESSION | compression_ratio > 3.0 | 0（REVIEW） | Whisper 幻覺指標；實測最高僅 1.54。與 Issue「明顯幻覺」為不同實作，Issue 對應的是 HALLUCINATION 規則 |
 | **DUPLICATE_TEXT** | **core 跨檔 ≥2** | **6（EXCLUDE）** | **跨檔同一台詞重複錄製** |
 
 > **DUPLICATE_TEXT ≠ Issue 的「重複」**：Issue 的「重複」指單一檔案內 ASR 輸出的重複幻覺（上表 REPETITION，觸發 0）；DUPLICATE_TEXT 指的是**不同音檔收錄了同一句台詞**（遊戲多個 cue 引用同一段語音）。
@@ -128,4 +128,7 @@ Whisper large-v3 對**一般句子的辨識接近完美**（44/50 完全正確�
 
 - `data/ryza_train.list` 的逐字稿為 **Whisper 原始輸出**，未套用專有名詞校正
 - `tools/asr_screening.json` 為 491 筆 PASS 結果；6 筆 DUPLICATE_TEXT 記錄已精簡，明細見 `asr_filter_report.md` 與本報告第 2 節
+
+## 附錄：相關檔案
+
 - CER 抽查原始資料：`reports/cer_sample.csv`（50 段，含人工校對結果）
