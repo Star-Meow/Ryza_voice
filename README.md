@@ -140,6 +140,9 @@
 | `tools/screen_asr.py` | ASR 與過濾，產 `asr_screening.json` |
 | `tools/transcribe.py` | 專責產 `data/ryza_train.list`（純標準庫，不重跑 ASR） |
 | `tools/validate_pos_label.py` | 三處一致性驗證 |
+| `tools/make_cer_sample.py` | CER 抽查：固定 seed 從 json 隨機抽段產清單 |
+| `tools/cer_report.py` | CER 抽查：對人工校對結果算字元錯誤率（純標準庫 Levenshtein） |
+| `reports/cer_sample.csv` | CER 抽樣清單（50 段，reference 欄待人工校對填入） |
 | `data/ryza_train.list` | GPT-SoVITS 格式訓練清單：`路徑\|ryza\|ja\|文字` |
 | `reports/asr_report.md` | 統計、參數、CER、專有名詞校正（**本次暫緩**，待後續） |
 
@@ -292,6 +295,7 @@ git rm ryza_train.list
 | 步驟 6–7 | ✅ 同步至 491、`transcribe.py` 產 `data/ryza_train.list`（491 行） |
 | 步驟 8–9 | ✅ 三處驗證通過、`git rm ryza_train.list` |
 | `data/` 目錄 | ✅ 已建立（`data/ryza_train.list`） |
+| `reports/cer_sample.csv` | ✅ 50 段抽樣清單已產生（reference 待人工校對） |
 | `reports/asr_report.md` | ⬜ 本次暫緩（CER 與專有名詞校正待後續） |
 
 > 驗收條件：有效轉譯段數 ≥ 450（目標 491），且全數人工確認為ライザ。
