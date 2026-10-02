@@ -18,3 +18,6 @@ __pycache__/
 
 # Python 虛擬環境（本機 .venv，不進版控）
 .venv/
+
+# ZCode agent session 資料（計畫暫存，非專案內容）
+.zcode/
