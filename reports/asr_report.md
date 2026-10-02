@@ -17,7 +17,7 @@
 | initial_prompt | 無 |
 | 音訊來源 | `wav/`（48kHz / 16bit / mono） |
 
-> **temperature 未固定的原因**：實測固定 `temperature=0.0` 時，`wav/04493.wav` 會陷入 `……` 無限重複幻覺（compression_ratio 20.34，被 HIGH_COMPRESSION 規則捕捉）。改回預設梯度 fallback 後該段恢復為正常文字「せめて、何かきっかけでも作れれば…ん?」。代價是重跑結果可能有少數段差異。
+> **temperature 未固定的選擇理由**：實測固定 `temperature=0.0` 時，`wav/04493.wav` 會陷入 `……` 無限重複幻覺（compression_ratio 20.34，被 HIGH_COMPRESSION 規則捕捉）。改回預設梯度 fallback 後該段恢復為正常文字「せめて、何かきっかけでも作れれば…ん?」。代價是重跑結果可能有少數段差異，故採預設梯度。
 
 ## 2. 處理量與過濾統計
 
@@ -33,21 +33,33 @@
 491  有效段數（data/ryza_train.list）
 ```
 
-### 過濾規則觸發統計
+### Issue 過濾規則觸發統計
+
+Issue 要求的過濾條件為：時長 <2s 或 >15s、非說話聲、ASR 輸出為空、重複或明顯幻覺。對應實作如下：
+
+| 規則 | 門檻 | 觸發數 | 對應 Issue 條件 |
+|---|---|---|---|
+| DURATION_SHORT | < 2.0s | 0 | 時長 <2s |
+| DURATION_LONG | > 15.0s | 0 | 時長 >15s |
+| EMPTY | VAD 後無文字 | 0 | ASR 輸出為空 |
+| HALLUCINATION | 命中已知幻覺句 | 0 | 明顯幻覺（Whisper 常見幻覺輸出） |
+| REPETITION | 同字元連續 ≥4 | 0 | **重複**（指 ASR 輸出的重複幻覺） |
+| NON_SPEECH | core 為感嘆詞 | 0（REVIEW） | 非說話聲（喘氣、吶喊等短促感嘆） |
+
+**Issue 要求的過濾規則全數未觸發**（0 排除），497 段音訊在這些條件下品質乾淨。
+
+### 額外過濾（非 Issue 要求）
+
+以下為本專案自行加入、超出 Issue 要求的過濾，與 Issue 的「重複」是不同概念：
 
 | 規則 | 門檻 | 觸發數 | 說明 |
 |---|---|---|---|
-| DURATION_SHORT | < 2.0s | 0 | 免模型，讀 WAV header |
-| DURATION_LONG | > 15.0s | 0 | 同上 |
-| EMPTY | VAD 後無文字 | 0 | ASR 空輸出 |
-| HALLUCINATION | 命中已知幻覺句 | 0 | 英/日 Whisper 常見幻覺 |
-| REPETITION | 同字元連續 ≥4 | 0 | 單字重複 |
-| NON_SPEECH | core 為感嘆詞 | 0（REVIEW） | 喘氣、吶喊等短促感嘆 |
-| HIGH_COMPRESSION | compression_ratio > 3.0 | 0（REVIEW） | 幻覺指標；實測最高僅 1.54 |
-| **DUPLICATE_TEXT** | **core 跨檔 ≥2** | **6（EXCLUDE）** | **保留首次出現者** |
-| MISSING / READ_ERROR / ASR_ERROR | — | 0 | 檔案不存在與解碼錯誤 |
+| HIGH_COMPRESSION | compression_ratio > 3.0 | 0（REVIEW） | Whisper 幻覺指標；實測最高僅 1.54 |
+| **DUPLICATE_TEXT** | **core 跨檔 ≥2** | **6（EXCLUDE）** | **跨檔同一台詞重複錄製** |
 
-**結論**：單檔規則（時長、空輸出、幻覺、重複、感嘆詞、壓縮比）**全數未觸發**，497 段音訊品質乾淨；唯一生效的是跨檔文本去重，排除 6 段同一台詞的重複錄製。
+> **DUPLICATE_TEXT ≠ Issue 的「重複」**：Issue 的「重複」指單一檔案內 ASR 輸出的重複幻覺（上表 REPETITION，觸發 0）；DUPLICATE_TEXT 指的是**不同音檔收錄了同一句台詞**（遊戲多個 cue 引用同一段語音）。
+>
+> 排除 6 段的理由：這 10 個音檔 MD5 互不相同、時長些微相差，是同一句台詞的重複錄製，**對 TTS 訓練保留一個版本即可**。
 
 ### 被排除的 6 段（DUPLICATE_TEXT）
 
@@ -60,7 +72,7 @@
 | `wav/08413.wav` | `wav/05676.wav` | （同上） |
 | `wav/01991.wav` | `wav/01359.wav` | 私さ、そろそろ島に帰ろうかなって思うんだ。 |
 
-> 這 10 個音檔 MD5 互不相同、時長些微相差，是**同一句台詞的重複錄製**（遊戲多個 cue 引用同一段語音），非 Whisper 幻覺。對 TTS 訓練而言保留一個版本即可。
+（操作性錯誤 MISSING / READ_ERROR / ASR_ERROR 各 0，無檔案缺漏或解碼失敗。）
 
 ### 有效總時長（491 段）
 
@@ -71,16 +83,18 @@
 
 ### 抽查方法
 
-- 自 491 段以固定 **seed=42** 隨機抽 **50 段**（佔 10.2%，可重現）
-- 人工逐段播放音檔，將正確台詞填入 `reference` 欄；無異常的段落留空（視同 Whisper 輸出正確）
-- **CER = Levenshtein(reference, whisper) / len(reference)**，此處記錄的是 **Whisper 原始輸出**的錯誤率
+- 自 491 段以 Python `random`（**seed=42**）隨機抽 **50 段**（佔 10.2%，seed 固定可重現）
+- 每段提供 Whisper 轉換後的逐字稿，由**人工逐段檢視音檔比對**
+- 人工留空 = 該段 Whisper 原始輸出經檢視後**判定無異常**
+- 人工修正 6 段 = 該段 Whisper 輸出**有誤**，已填入正確文字
+- **CER = Levenshtein(reference, whisper) / len(reference)**，計算基準為 **Whisper 原始輸出**
 - 比對前兩邊都過 core 正規化（去標點、只保留日文/英數字元），避免標點差異干擾
 
 ### 結果
 
 | 指標 | 數值 |
 |---|---|
-| **平均 CER** | **1.0%** |
+| **平均 CER** | **1.0%**（人工校對後的實測值，非預設值） |
 | 字元錯誤總數 | 10 / 1114 字元 |
 | 完全正確（CER = 0） | 44 / 50 段（88%） |
 | 有錯誤 | 6 / 50 段（12%） |
@@ -104,23 +118,14 @@
 - **清濁音／長音／母音**：タレジャー→トレジャー、セイリ→セリ、ピー→フィー
 - **語頭語氣詞**：多了「な」
 
-> **解讀**：Whisper large-v3 對**一般句子的辨識接近完美**（44/50 完全正確），1.0% 的錯誤幾乎全由遊戲專有名詞造成。這類錯誤可透過建立遊戲詞表（王都 / トレジャー / 書庫 / セリ / フィー 等）在轉錄後統一校正，預期校正後 CER 降至 ~0%。
->
-> 抽樣僅 50 段就發現 6 個錯誤詞，491 段全文可能還有同類未發現的專有名詞偏差，建議詞表建立後對全文掃描一遍。
+Whisper large-v3 對**一般句子的辨識接近完美**（44/50 完全正確），1.0% 的錯誤全由遊戲專有名詞造成。
 
-## 4. 後續工作
+## 4. 本階段涵蓋範圍
 
-- [ ] 建立遊戲專有名詞詞表，對 491 段逐字稿套用校正
-- [ ] 校正後重算 CER，於本報告補「校正後 CER」對照欄（預期 ~0%）
-- [ ] 人工試聽確認 491 段皆為ライザ（目前僅 A_high 92 段已人工確認）
+**本報告涵蓋**：ASR 轉譯、過濾統計、有效時長、CER 抽查、錯誤類型分析。
 
-## 附錄：相關檔案
+**本階段未涵蓋**：專有名詞人工校正、校正後清單、校正後 CER。
 
-| 檔案 | 內容 |
-|---|---|
-| `tools/asr_screening.json` | 491 筆 ASR 結果（全 PASS；6 筆 EXCLUDE 記錄已精簡，明細見 `asr_filter_report.md`） |
-| `data/ryza_train.list` | 491 行 GPT-SoVITS 訓練清單 |
-| `reports/cer_sample.csv` | 50 段抽查清單（含人工校對結果） |
-| `reports/cer_report.md` | CER 逐段計算明細 |
-| `asr_filter_report.md` | 預篩報告（含 6 段 EXCLUDE 明細） |
-| `tools/screen_asr.py` | ASR 執行與過濾規則 |
+- `data/ryza_train.list` 的逐字稿為 **Whisper 原始輸出**，未套用專有名詞校正
+- `tools/asr_screening.json` 為 491 筆 PASS 結果；6 筆 DUPLICATE_TEXT 記錄已精簡，明細見 `asr_filter_report.md` 與本報告第 2 節
+- CER 抽查原始資料：`reports/cer_sample.csv`（50 段，含人工校對結果）
