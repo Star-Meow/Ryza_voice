@@ -18,6 +18,7 @@
 | 音訊來源 | `wav/`（48kHz / 16bit / mono） |
 
 > **temperature 未固定的選擇理由**：實測固定 `temperature=0.0` 時，`wav/04493.wav` 會陷入 `……` 無限重複幻覺（compression_ratio 20.34，被 HIGH_COMPRESSION 規則捕捉）。改回預設梯度 fallback 後該段恢復為正常文字「せめて、何かきっかけでも作れれば…ん?」。代價是重跑結果可能有少數段差異，故採預設梯度。
+> **ASR 模型**本階段使用 faster-whisper（CTranslate2 後端）載入 Whisper large-v3 權重。faster-whisper 為 Whisper large-v3 的推理框架實作，模型權重相同，差異在於推論速度與顯存佔用（原環境 RTX 3060 6G 顯存不足，遷移至 RTX 4070S 12G 後採用 faster-whisper 以提升吞吐）。若需以 openai-whisper 重現，載入同一份 large-v3 權重即可。
 
 ## 2. 處理量與過濾統計
 
