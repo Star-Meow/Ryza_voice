@@ -1,0 +1,9841 @@
+{
+ "sample": 491,
+ "total": 491,
+ "seed": 0,
+ "cover": {
+  "front": 164,
+  "mid": 164,
+  "back": 163
+ },
+ "ltas": {
+  "4k": -6.6,
+  "8k": -12.2,
+  "12k": -14.7,
+  "14k": -20.1,
+  "16k": -24.7,
+  "18k": -31.3,
+  "20k": -39.1
+ },
+ "results": [
+  {
+   "path": "wav/00028.wav",
+   "sr": 48000,
+   "duration": 5.96,
+   "ltas_rel_db": {
+    "4k": -8.1,
+    "8k": -13.9,
+    "12k": -16.6,
+    "14k": -17.2,
+    "16k": -23.6,
+    "18k": -32.7,
+    "20k": -40.8
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 7.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.2,
+   "quiet_high_db": -32.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00030.wav",
+   "sr": 48000,
+   "duration": 3.43,
+   "ltas_rel_db": {
+    "4k": -11.4,
+    "8k": -12.0,
+    "12k": -12.3,
+    "14k": -22.5,
+    "16k": -29.0,
+    "18k": -43.0,
+    "20k": -48.7
+   },
+   "bw60_hz": 23180.0,
+   "cliff_db": 14.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -42.1,
+   "quiet_high_db": -41.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00042.wav",
+   "sr": 48000,
+   "duration": 7.12,
+   "ltas_rel_db": {
+    "4k": -7.2,
+    "8k": -15.3,
+    "12k": -19.0,
+    "14k": -26.5,
+    "16k": -32.5,
+    "18k": -40.4,
+    "20k": -49.9
+   },
+   "bw60_hz": 22992.0,
+   "cliff_db": 7.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -49.6,
+   "quiet_high_db": -27.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00053.wav",
+   "sr": 48000,
+   "duration": 7.13,
+   "ltas_rel_db": {
+    "4k": -11.9,
+    "8k": -15.2,
+    "12k": -21.8,
+    "14k": -29.9,
+    "16k": -36.0,
+    "18k": -45.2,
+    "20k": -56.5
+   },
+   "bw60_hz": 21809.0,
+   "cliff_db": 16.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.7,
+   "quiet_high_db": -32.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00205.wav",
+   "sr": 48000,
+   "duration": 5.93,
+   "ltas_rel_db": {
+    "4k": -3.3,
+    "8k": -6.9,
+    "12k": -18.2,
+    "14k": -19.0,
+    "16k": -25.0,
+    "18k": -30.9,
+    "20k": -40.6
+   },
+   "bw60_hz": 22113.0,
+   "cliff_db": 15.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.0,
+   "quiet_high_db": -44.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00442.wav",
+   "sr": 48000,
+   "duration": 5.66,
+   "ltas_rel_db": {
+    "4k": -7.0,
+    "8k": -10.5,
+    "12k": -17.8,
+    "14k": -17.9,
+    "16k": -26.1,
+    "18k": -35.7,
+    "20k": -44.6
+   },
+   "bw60_hz": 23930.0,
+   "cliff_db": 7.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.4,
+   "quiet_high_db": -50.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00456.wav",
+   "sr": 48000,
+   "duration": 9.66,
+   "ltas_rel_db": {
+    "4k": -5.7,
+    "8k": -2.0,
+    "12k": -7.4,
+    "14k": -10.9,
+    "16k": -20.5,
+    "18k": -29.3,
+    "20k": -34.6
+   },
+   "bw60_hz": 23578.0,
+   "cliff_db": 8.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.7,
+   "quiet_high_db": -32.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00541.wav",
+   "sr": 48000,
+   "duration": 7.59,
+   "ltas_rel_db": {
+    "4k": -10.0,
+    "8k": -9.5,
+    "12k": -14.4,
+    "14k": -17.4,
+    "16k": -18.1,
+    "18k": -26.8,
+    "20k": -42.5
+   },
+   "bw60_hz": 23988.0,
+   "cliff_db": 13.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -44.0,
+   "quiet_high_db": -48.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00817.wav",
+   "sr": 48000,
+   "duration": 6.39,
+   "ltas_rel_db": {
+    "4k": -11.4,
+    "8k": -12.6,
+    "12k": -18.0,
+    "14k": -22.2,
+    "16k": -24.0,
+    "18k": -35.1,
+    "20k": -43.0
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 14.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.9,
+   "quiet_high_db": -35.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00990.wav",
+   "sr": 48000,
+   "duration": 8.64,
+   "ltas_rel_db": {
+    "4k": -5.9,
+    "8k": -8.1,
+    "12k": -15.3,
+    "14k": -17.2,
+    "16k": -31.9,
+    "18k": -37.7,
+    "20k": -47.0
+   },
+   "bw60_hz": 21984.0,
+   "cliff_db": 11.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.6,
+   "quiet_high_db": -21.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01318.wav",
+   "sr": 48000,
+   "duration": 6.62,
+   "ltas_rel_db": {
+    "4k": -4.3,
+    "8k": -9.1,
+    "12k": -7.8,
+    "14k": -10.8,
+    "16k": -15.4,
+    "18k": -23.3,
+    "20k": -29.2
+   },
+   "bw60_hz": 23977.0,
+   "cliff_db": 13.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.2,
+   "quiet_high_db": -35.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01346.wav",
+   "sr": 48000,
+   "duration": 8.08,
+   "ltas_rel_db": {
+    "4k": -6.2,
+    "8k": -12.8,
+    "12k": -14.2,
+    "14k": -19.7,
+    "16k": -33.5,
+    "18k": -35.8,
+    "20k": -39.1
+   },
+   "bw60_hz": 23719.0,
+   "cliff_db": 9.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.0,
+   "quiet_high_db": -35.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01359.wav",
+   "sr": 48000,
+   "duration": 5.11,
+   "ltas_rel_db": {
+    "4k": -7.3,
+    "8k": -9.7,
+    "12k": -14.8,
+    "14k": -15.7,
+    "16k": -22.5,
+    "18k": -27.2,
+    "20k": -39.3
+   },
+   "bw60_hz": 23941.0,
+   "cliff_db": 16.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -45.7,
+   "quiet_high_db": -44.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01528.wav",
+   "sr": 48000,
+   "duration": 8.75,
+   "ltas_rel_db": {
+    "4k": -7.6,
+    "8k": -6.7,
+    "12k": -11.1,
+    "14k": -17.9,
+    "16k": -22.4,
+    "18k": -25.3,
+    "20k": -40.9
+   },
+   "bw60_hz": 22242.0,
+   "cliff_db": 10.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.1,
+   "quiet_high_db": -36.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01573.wav",
+   "sr": 48000,
+   "duration": 6.58,
+   "ltas_rel_db": {
+    "4k": -6.2,
+    "8k": -17.5,
+    "12k": -20.1,
+    "14k": -21.4,
+    "16k": -36.2,
+    "18k": -36.1,
+    "20k": -43.8
+   },
+   "bw60_hz": 23941.0,
+   "cliff_db": 9.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.8,
+   "quiet_high_db": -32.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01822.wav",
+   "sr": 48000,
+   "duration": 7.38,
+   "ltas_rel_db": {
+    "4k": -7.7,
+    "8k": -9.5,
+    "12k": -13.5,
+    "14k": -23.3,
+    "16k": -23.7,
+    "18k": -41.1,
+    "20k": -44.5
+   },
+   "bw60_hz": 23930.0,
+   "cliff_db": 13.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.5,
+   "quiet_high_db": -30.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01881.wav",
+   "sr": 48000,
+   "duration": 8.43,
+   "ltas_rel_db": {
+    "4k": -4.2,
+    "8k": -13.2,
+    "12k": -15.5,
+    "14k": -15.6,
+    "16k": -24.7,
+    "18k": -28.0,
+    "20k": -44.1
+   },
+   "bw60_hz": 22969.0,
+   "cliff_db": 10.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.5,
+   "quiet_high_db": -44.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01995.wav",
+   "sr": 48000,
+   "duration": 5.32,
+   "ltas_rel_db": {
+    "4k": -1.9,
+    "8k": -5.4,
+    "12k": -6.8,
+    "14k": -19.8,
+    "16k": -26.3,
+    "18k": -32.9,
+    "20k": -40.4
+   },
+   "bw60_hz": 22547.0,
+   "cliff_db": 9.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.7,
+   "quiet_high_db": -35.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02022.wav",
+   "sr": 48000,
+   "duration": 6.74,
+   "ltas_rel_db": {
+    "4k": -10.4,
+    "8k": -8.5,
+    "12k": -15.1,
+    "14k": -12.3,
+    "16k": -23.4,
+    "18k": -29.2,
+    "20k": -37.6
+   },
+   "bw60_hz": 23543.0,
+   "cliff_db": 15.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.7,
+   "quiet_high_db": -36.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02099.wav",
+   "sr": 48000,
+   "duration": 4.26,
+   "ltas_rel_db": {
+    "4k": -4.8,
+    "8k": -15.0,
+    "12k": -22.8,
+    "14k": -20.7,
+    "16k": -22.5,
+    "18k": -31.1,
+    "20k": -43.1
+   },
+   "bw60_hz": 23965.0,
+   "cliff_db": 13.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -44.2,
+   "quiet_high_db": -49.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02286.wav",
+   "sr": 48000,
+   "duration": 7.26,
+   "ltas_rel_db": {
+    "4k": -4.6,
+    "8k": -11.6,
+    "12k": -9.8,
+    "14k": -16.5,
+    "16k": -16.1,
+    "18k": -24.3,
+    "20k": -37.4
+   },
+   "bw60_hz": 23930.0,
+   "cliff_db": 11.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.4,
+   "quiet_high_db": -34.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02287.wav",
+   "sr": 48000,
+   "duration": 8.01,
+   "ltas_rel_db": {
+    "4k": -5.9,
+    "8k": -14.9,
+    "12k": -17.8,
+    "14k": -24.7,
+    "16k": -34.9,
+    "18k": -41.4,
+    "20k": -49.9
+   },
+   "bw60_hz": 22898.0,
+   "cliff_db": 7.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.3,
+   "quiet_high_db": -34.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02296.wav",
+   "sr": 48000,
+   "duration": 9.5,
+   "ltas_rel_db": {
+    "4k": -7.0,
+    "8k": -15.1,
+    "12k": -15.5,
+    "14k": -18.0,
+    "16k": -27.8,
+    "18k": -39.2,
+    "20k": -43.8
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 10.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.3,
+   "quiet_high_db": -27.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02412.wav",
+   "sr": 48000,
+   "duration": 9.97,
+   "ltas_rel_db": {
+    "4k": -6.1,
+    "8k": -7.8,
+    "12k": -14.2,
+    "14k": -17.2,
+    "16k": -23.0,
+    "18k": -27.9,
+    "20k": -36.2
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 6.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.2,
+   "quiet_high_db": -31.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02466.wav",
+   "sr": 48000,
+   "duration": 8.37,
+   "ltas_rel_db": {
+    "4k": -8.8,
+    "8k": -10.9,
+    "12k": -14.3,
+    "14k": -23.5,
+    "16k": -30.3,
+    "18k": -29.1,
+    "20k": -49.0
+   },
+   "bw60_hz": 21855.0,
+   "cliff_db": 17.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.1,
+   "quiet_high_db": -31.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02487.wav",
+   "sr": 48000,
+   "duration": 8.2,
+   "ltas_rel_db": {
+    "4k": -4.8,
+    "8k": -9.3,
+    "12k": -11.0,
+    "14k": -27.1,
+    "16k": -33.9,
+    "18k": -30.3,
+    "20k": -39.0
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 10.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.9,
+   "quiet_high_db": -28.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02554.wav",
+   "sr": 48000,
+   "duration": 7.4,
+   "ltas_rel_db": {
+    "4k": -6.4,
+    "8k": -13.0,
+    "12k": -21.0,
+    "14k": -29.1,
+    "16k": -35.3,
+    "18k": -39.1,
+    "20k": -49.2
+   },
+   "bw60_hz": 22922.0,
+   "cliff_db": 9.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -40.0,
+   "quiet_high_db": -36.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02580.wav",
+   "sr": 48000,
+   "duration": 8.01,
+   "ltas_rel_db": {
+    "4k": -5.4,
+    "8k": -10.4,
+    "12k": -18.9,
+    "14k": -21.3,
+    "16k": -24.9,
+    "18k": -32.0,
+    "20k": -37.1
+   },
+   "bw60_hz": 22781.0,
+   "cliff_db": 10.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.2,
+   "quiet_high_db": -43.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02657.wav",
+   "sr": 48000,
+   "duration": 9.61,
+   "ltas_rel_db": {
+    "4k": -0.7,
+    "8k": -2.8,
+    "12k": -17.1,
+    "14k": -22.0,
+    "16k": -22.7,
+    "18k": -33.4,
+    "20k": -46.0
+   },
+   "bw60_hz": 23414.0,
+   "cliff_db": 13.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.3,
+   "quiet_high_db": -36.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02731.wav",
+   "sr": 48000,
+   "duration": 6.09,
+   "ltas_rel_db": {
+    "4k": -7.6,
+    "8k": -9.6,
+    "12k": -20.2,
+    "14k": -23.9,
+    "16k": -32.3,
+    "18k": -39.5,
+    "20k": -48.0
+   },
+   "bw60_hz": 21316.0,
+   "cliff_db": 9.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -26.4,
+   "quiet_high_db": -40.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02743.wav",
+   "sr": 48000,
+   "duration": 6.09,
+   "ltas_rel_db": {
+    "4k": -6.2,
+    "8k": -16.9,
+    "12k": -16.4,
+    "14k": -25.1,
+    "16k": -32.1,
+    "18k": -38.8,
+    "20k": -47.3
+   },
+   "bw60_hz": 22160.0,
+   "cliff_db": 8.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.2,
+   "quiet_high_db": -37.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02779.wav",
+   "sr": 48000,
+   "duration": 6.76,
+   "ltas_rel_db": {
+    "4k": -9.5,
+    "8k": -15.9,
+    "12k": -16.5,
+    "14k": -15.9,
+    "16k": -20.7,
+    "18k": -28.4,
+    "20k": -32.1
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 12.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.2,
+   "quiet_high_db": -40.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02780.wav",
+   "sr": 48000,
+   "duration": 9.81,
+   "ltas_rel_db": {
+    "4k": -9.3,
+    "8k": -7.3,
+    "12k": -12.7,
+    "14k": -12.4,
+    "16k": -26.7,
+    "18k": -26.1,
+    "20k": -35.6
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 13.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -24.3,
+   "quiet_high_db": -28.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03005.wav",
+   "sr": 48000,
+   "duration": 6.13,
+   "ltas_rel_db": {
+    "4k": -7.7,
+    "8k": -14.1,
+    "12k": -9.3,
+    "14k": -15.4,
+    "16k": -20.9,
+    "18k": -29.1,
+    "20k": -36.7
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.3,
+   "quiet_high_db": -33.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03008.wav",
+   "sr": 48000,
+   "duration": 3.76,
+   "ltas_rel_db": {
+    "4k": -9.2,
+    "8k": -17.0,
+    "12k": -21.8,
+    "14k": -30.1,
+    "16k": -38.6,
+    "18k": -44.1,
+    "20k": -56.5
+   },
+   "bw60_hz": 21797.0,
+   "cliff_db": 8.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.5,
+   "quiet_high_db": -43.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03477.wav",
+   "sr": 48000,
+   "duration": 6.65,
+   "ltas_rel_db": {
+    "4k": 2.7,
+    "8k": -8.5,
+    "12k": -16.0,
+    "14k": -21.8,
+    "16k": -26.6,
+    "18k": -28.1,
+    "20k": -36.7
+   },
+   "bw60_hz": 23543.0,
+   "cliff_db": 13.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.7,
+   "quiet_high_db": -25.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03536.wav",
+   "sr": 48000,
+   "duration": 6.21,
+   "ltas_rel_db": {
+    "4k": -7.4,
+    "8k": -15.7,
+    "12k": -22.5,
+    "14k": -31.6,
+    "16k": -30.3,
+    "18k": -37.7,
+    "20k": -41.8
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 9.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.5,
+   "quiet_high_db": -32.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03827.wav",
+   "sr": 48000,
+   "duration": 7.71,
+   "ltas_rel_db": {
+    "4k": -6.0,
+    "8k": -9.4,
+    "12k": -14.9,
+    "14k": -16.6,
+    "16k": -26.1,
+    "18k": -31.6,
+    "20k": -41.7
+   },
+   "bw60_hz": 23215.0,
+   "cliff_db": 9.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -48.1,
+   "quiet_high_db": -51.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04041.wav",
+   "sr": 48000,
+   "duration": 6.12,
+   "ltas_rel_db": {
+    "4k": -5.6,
+    "8k": -10.1,
+    "12k": -12.4,
+    "14k": -17.2,
+    "16k": -13.6,
+    "18k": -27.1,
+    "20k": -29.5
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 10.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -41.9,
+   "quiet_high_db": -50.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04102.wav",
+   "sr": 48000,
+   "duration": 6.05,
+   "ltas_rel_db": {
+    "4k": -5.0,
+    "8k": -9.4,
+    "12k": -9.3,
+    "14k": -21.0,
+    "16k": -25.6,
+    "18k": -37.3,
+    "20k": -45.7
+   },
+   "bw60_hz": 22652.0,
+   "cliff_db": 8.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -27.5,
+   "quiet_high_db": -27.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04170.wav",
+   "sr": 48000,
+   "duration": 6.04,
+   "ltas_rel_db": {
+    "4k": -9.7,
+    "8k": -17.3,
+    "12k": -21.6,
+    "14k": -24.4,
+    "16k": -33.2,
+    "18k": -37.3,
+    "20k": -43.5
+   },
+   "bw60_hz": 22242.0,
+   "cliff_db": 11.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.1,
+   "quiet_high_db": -28.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04262.wav",
+   "sr": 48000,
+   "duration": 5.54,
+   "ltas_rel_db": {
+    "4k": -10.4,
+    "8k": -14.3,
+    "12k": -10.7,
+    "14k": -21.5,
+    "16k": -15.5,
+    "18k": -31.1,
+    "20k": -36.1
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 11.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.7,
+   "quiet_high_db": -43.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04493.wav",
+   "sr": 48000,
+   "duration": 6.05,
+   "ltas_rel_db": {
+    "4k": -10.0,
+    "8k": -7.4,
+    "12k": -5.9,
+    "14k": -7.0,
+    "16k": -11.4,
+    "18k": -28.4,
+    "20k": -32.9
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 12.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.6,
+   "quiet_high_db": -32.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04556.wav",
+   "sr": 48000,
+   "duration": 7.43,
+   "ltas_rel_db": {
+    "4k": -6.5,
+    "8k": -8.8,
+    "12k": -11.0,
+    "14k": -20.3,
+    "16k": -29.5,
+    "18k": -32.7,
+    "20k": -36.5
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -26.2,
+   "quiet_high_db": -27.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04646.wav",
+   "sr": 48000,
+   "duration": 7.17,
+   "ltas_rel_db": {
+    "4k": -2.5,
+    "8k": -10.9,
+    "12k": -16.8,
+    "14k": -17.8,
+    "16k": -25.2,
+    "18k": -30.1,
+    "20k": -48.1
+   },
+   "bw60_hz": 22758.0,
+   "cliff_db": 13.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -40.5,
+   "quiet_high_db": -30.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04672.wav",
+   "sr": 48000,
+   "duration": 9.48,
+   "ltas_rel_db": {
+    "4k": -8.4,
+    "8k": -15.4,
+    "12k": -16.9,
+    "14k": -23.9,
+    "16k": -31.2,
+    "18k": -38.7,
+    "20k": -48.0
+   },
+   "bw60_hz": 22723.0,
+   "cliff_db": 10.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.0,
+   "quiet_high_db": -32.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04697.wav",
+   "sr": 48000,
+   "duration": 8.41,
+   "ltas_rel_db": {
+    "4k": -6.4,
+    "8k": -5.8,
+    "12k": -13.6,
+    "14k": -14.2,
+    "16k": -15.4,
+    "18k": -27.0,
+    "20k": -35.7
+   },
+   "bw60_hz": 23941.0,
+   "cliff_db": 9.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.6,
+   "quiet_high_db": -42.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04718.wav",
+   "sr": 48000,
+   "duration": 9.38,
+   "ltas_rel_db": {
+    "4k": -13.0,
+    "8k": -5.4,
+    "12k": -12.8,
+    "14k": -16.4,
+    "16k": -22.3,
+    "18k": -26.9,
+    "20k": -29.2
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.6,
+   "quiet_high_db": -30.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04864.wav",
+   "sr": 48000,
+   "duration": 7.35,
+   "ltas_rel_db": {
+    "4k": -3.8,
+    "8k": -8.9,
+    "12k": -10.0,
+    "14k": -17.8,
+    "16k": -22.5,
+    "18k": -27.6,
+    "20k": -37.3
+   },
+   "bw60_hz": 23953.0,
+   "cliff_db": 15.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.1,
+   "quiet_high_db": -40.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04908.wav",
+   "sr": 48000,
+   "duration": 5.43,
+   "ltas_rel_db": {
+    "4k": -1.8,
+    "8k": -9.5,
+    "12k": -15.8,
+    "14k": -21.4,
+    "16k": -25.7,
+    "18k": -28.0,
+    "20k": -35.1
+   },
+   "bw60_hz": 23719.0,
+   "cliff_db": 15.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.2,
+   "quiet_high_db": -38.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04976.wav",
+   "sr": 48000,
+   "duration": 3.95,
+   "ltas_rel_db": {
+    "4k": -7.0,
+    "8k": -16.6,
+    "12k": -23.0,
+    "14k": -23.6,
+    "16k": -35.5,
+    "18k": -36.0,
+    "20k": -47.3
+   },
+   "bw60_hz": 23156.0,
+   "cliff_db": 11.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -28.1,
+   "quiet_high_db": -32.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05110.wav",
+   "sr": 48000,
+   "duration": 6.97,
+   "ltas_rel_db": {
+    "4k": -2.3,
+    "8k": -3.7,
+    "12k": -6.3,
+    "14k": -15.9,
+    "16k": -19.5,
+    "18k": -26.7,
+    "20k": -36.0
+   },
+   "bw60_hz": 23977.0,
+   "cliff_db": 12.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.4,
+   "quiet_high_db": -26.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05221.wav",
+   "sr": 48000,
+   "duration": 12.02,
+   "ltas_rel_db": {
+    "4k": -3.8,
+    "8k": -3.5,
+    "12k": -14.4,
+    "14k": -20.6,
+    "16k": -26.3,
+    "18k": -32.7,
+    "20k": -38.6
+   },
+   "bw60_hz": 22852.0,
+   "cliff_db": 8.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.5,
+   "quiet_high_db": -26.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05378.wav",
+   "sr": 48000,
+   "duration": 6.52,
+   "ltas_rel_db": {
+    "4k": -2.4,
+    "8k": -6.8,
+    "12k": -16.3,
+    "14k": -19.3,
+    "16k": -27.3,
+    "18k": -32.3,
+    "20k": -45.4
+   },
+   "bw60_hz": 23672.0,
+   "cliff_db": 13.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -41.0,
+   "quiet_high_db": -28.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05491.wav",
+   "sr": 48000,
+   "duration": 6.14,
+   "ltas_rel_db": {
+    "4k": -2.8,
+    "8k": -7.9,
+    "12k": -8.6,
+    "14k": -14.6,
+    "16k": -18.2,
+    "18k": -21.8,
+    "20k": -38.6
+   },
+   "bw60_hz": 23953.0,
+   "cliff_db": 11.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.0,
+   "quiet_high_db": -38.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05544.wav",
+   "sr": 48000,
+   "duration": 5.21,
+   "ltas_rel_db": {
+    "4k": -8.5,
+    "8k": -12.4,
+    "12k": -18.5,
+    "14k": -18.5,
+    "16k": -25.3,
+    "18k": -34.6,
+    "20k": -57.7
+   },
+   "bw60_hz": 23344.0,
+   "cliff_db": 14.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.7,
+   "quiet_high_db": -33.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05625.wav",
+   "sr": 48000,
+   "duration": 6.86,
+   "ltas_rel_db": {
+    "4k": -5.9,
+    "8k": -4.9,
+    "12k": -6.7,
+    "14k": -13.5,
+    "16k": -13.4,
+    "18k": -25.1,
+    "20k": -37.7
+   },
+   "bw60_hz": 23742.0,
+   "cliff_db": 16.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.2,
+   "quiet_high_db": -25.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05653.wav",
+   "sr": 48000,
+   "duration": 6.8,
+   "ltas_rel_db": {
+    "4k": -8.4,
+    "8k": -10.7,
+    "12k": -12.1,
+    "14k": -23.2,
+    "16k": -27.4,
+    "18k": -35.0,
+    "20k": -40.9
+   },
+   "bw60_hz": 23473.0,
+   "cliff_db": 10.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.6,
+   "quiet_high_db": -39.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05782.wav",
+   "sr": 48000,
+   "duration": 4.46,
+   "ltas_rel_db": {
+    "4k": -5.3,
+    "8k": -10.1,
+    "12k": -4.2,
+    "14k": -19.3,
+    "16k": -26.0,
+    "18k": -25.1,
+    "20k": -44.7
+   },
+   "bw60_hz": 23742.0,
+   "cliff_db": 22.1,
+   "n_cliff_windows": 1,
+   "quiet_low_db": -38.6,
+   "quiet_high_db": -39.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06090.wav",
+   "sr": 48000,
+   "duration": 6.5,
+   "ltas_rel_db": {
+    "4k": -6.0,
+    "8k": -6.4,
+    "12k": -11.2,
+    "14k": -18.5,
+    "16k": -30.8,
+    "18k": -29.5,
+    "20k": -38.5
+   },
+   "bw60_hz": 22980.0,
+   "cliff_db": 11.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -42.0,
+   "quiet_high_db": -40.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06125.wav",
+   "sr": 48000,
+   "duration": 10.56,
+   "ltas_rel_db": {
+    "4k": -5.0,
+    "8k": -13.2,
+    "12k": -21.5,
+    "14k": -31.5,
+    "16k": -34.2,
+    "18k": -45.4,
+    "20k": -53.6
+   },
+   "bw60_hz": 21340.0,
+   "cliff_db": 8.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.0,
+   "quiet_high_db": -28.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06458.wav",
+   "sr": 48000,
+   "duration": 5.58,
+   "ltas_rel_db": {
+    "4k": -2.3,
+    "8k": -10.3,
+    "12k": -19.6,
+    "14k": -28.7,
+    "16k": -28.2,
+    "18k": -35.3,
+    "20k": -49.0
+   },
+   "bw60_hz": 22488.0,
+   "cliff_db": 17.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.3,
+   "quiet_high_db": -38.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06658.wav",
+   "sr": 48000,
+   "duration": 7.61,
+   "ltas_rel_db": {
+    "4k": -3.7,
+    "8k": -15.7,
+    "12k": -19.5,
+    "14k": -21.7,
+    "16k": -25.5,
+    "18k": -35.3,
+    "20k": -42.0
+   },
+   "bw60_hz": 23836.0,
+   "cliff_db": 7.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.6,
+   "quiet_high_db": -36.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06682.wav",
+   "sr": 48000,
+   "duration": 5.89,
+   "ltas_rel_db": {
+    "4k": -3.9,
+    "8k": -13.1,
+    "12k": -18.0,
+    "14k": -28.4,
+    "16k": -28.0,
+    "18k": -34.2,
+    "20k": -45.1
+   },
+   "bw60_hz": 22816.0,
+   "cliff_db": 26.2,
+   "n_cliff_windows": 1,
+   "quiet_low_db": -30.9,
+   "quiet_high_db": -31.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06817.wav",
+   "sr": 48000,
+   "duration": 6.08,
+   "ltas_rel_db": {
+    "4k": -4.7,
+    "8k": -13.3,
+    "12k": -21.3,
+    "14k": -31.1,
+    "16k": -33.7,
+    "18k": -37.7,
+    "20k": -40.9
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.7,
+   "quiet_high_db": -33.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06849.wav",
+   "sr": 48000,
+   "duration": 9.1,
+   "ltas_rel_db": {
+    "4k": -5.2,
+    "8k": -9.2,
+    "12k": -15.6,
+    "14k": -22.6,
+    "16k": -28.1,
+    "18k": -34.1,
+    "20k": -43.4
+   },
+   "bw60_hz": 21832.0,
+   "cliff_db": 8.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.3,
+   "quiet_high_db": -44.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06968.wav",
+   "sr": 48000,
+   "duration": 5.55,
+   "ltas_rel_db": {
+    "4k": -8.0,
+    "8k": -18.4,
+    "12k": -10.8,
+    "14k": -24.0,
+    "16k": -25.3,
+    "18k": -27.7,
+    "20k": -48.2
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 12.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.8,
+   "quiet_high_db": -36.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07124.wav",
+   "sr": 48000,
+   "duration": 5.36,
+   "ltas_rel_db": {
+    "4k": -9.6,
+    "8k": -10.3,
+    "12k": -12.7,
+    "14k": -20.2,
+    "16k": -29.7,
+    "18k": -35.2,
+    "20k": -44.2
+   },
+   "bw60_hz": 21914.0,
+   "cliff_db": 8.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.5,
+   "quiet_high_db": -28.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07174.wav",
+   "sr": 48000,
+   "duration": 10.19,
+   "ltas_rel_db": {
+    "4k": -8.7,
+    "8k": -10.0,
+    "12k": -13.7,
+    "14k": -12.3,
+    "16k": -17.6,
+    "18k": -27.4,
+    "20k": -32.6
+   },
+   "bw60_hz": 23883.0,
+   "cliff_db": 13.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.2,
+   "quiet_high_db": -36.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07195.wav",
+   "sr": 48000,
+   "duration": 6.14,
+   "ltas_rel_db": {
+    "4k": -4.2,
+    "8k": -14.3,
+    "12k": -22.9,
+    "14k": -24.1,
+    "16k": -32.8,
+    "18k": -38.1,
+    "20k": -50.0
+   },
+   "bw60_hz": 23168.0,
+   "cliff_db": 12.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.3,
+   "quiet_high_db": -38.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07484.wav",
+   "sr": 48000,
+   "duration": 6.73,
+   "ltas_rel_db": {
+    "4k": -3.5,
+    "8k": -9.6,
+    "12k": -17.4,
+    "14k": -24.3,
+    "16k": -24.6,
+    "18k": -33.5,
+    "20k": -45.4
+   },
+   "bw60_hz": 23180.0,
+   "cliff_db": 14.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.4,
+   "quiet_high_db": -26.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07530.wav",
+   "sr": 48000,
+   "duration": 7.81,
+   "ltas_rel_db": {
+    "4k": -7.0,
+    "8k": -14.8,
+    "12k": -22.3,
+    "14k": -26.1,
+    "16k": -31.5,
+    "18k": -34.6,
+    "20k": -43.5
+   },
+   "bw60_hz": 23988.0,
+   "cliff_db": 11.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.8,
+   "quiet_high_db": -38.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07533.wav",
+   "sr": 48000,
+   "duration": 7.95,
+   "ltas_rel_db": {
+    "4k": -7.2,
+    "8k": -18.2,
+    "12k": -21.0,
+    "14k": -33.5,
+    "16k": -35.6,
+    "18k": -39.0,
+    "20k": -59.2
+   },
+   "bw60_hz": 21820.0,
+   "cliff_db": 16.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.1,
+   "quiet_high_db": -31.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07598.wav",
+   "sr": 48000,
+   "duration": 11.07,
+   "ltas_rel_db": {
+    "4k": -5.5,
+    "8k": -9.9,
+    "12k": -14.0,
+    "14k": -20.2,
+    "16k": -25.5,
+    "18k": -28.5,
+    "20k": -43.0
+   },
+   "bw60_hz": 23133.0,
+   "cliff_db": 14.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.7,
+   "quiet_high_db": -28.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07637.wav",
+   "sr": 48000,
+   "duration": 9.94,
+   "ltas_rel_db": {
+    "4k": -3.2,
+    "8k": -8.6,
+    "12k": -13.1,
+    "14k": -19.9,
+    "16k": -26.5,
+    "18k": -33.4,
+    "20k": -46.6
+   },
+   "bw60_hz": 23461.0,
+   "cliff_db": 9.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.7,
+   "quiet_high_db": -30.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07822.wav",
+   "sr": 48000,
+   "duration": 7.06,
+   "ltas_rel_db": {
+    "4k": -8.5,
+    "8k": -10.4,
+    "12k": -16.8,
+    "14k": -18.3,
+    "16k": -23.0,
+    "18k": -30.3,
+    "20k": -38.7
+   },
+   "bw60_hz": 23895.0,
+   "cliff_db": 9.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.7,
+   "quiet_high_db": -41.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07849.wav",
+   "sr": 48000,
+   "duration": 6.98,
+   "ltas_rel_db": {
+    "4k": -5.2,
+    "8k": -11.4,
+    "12k": -11.6,
+    "14k": -13.6,
+    "16k": -17.9,
+    "18k": -26.2,
+    "20k": -28.3
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 10.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.1,
+   "quiet_high_db": -37.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07942.wav",
+   "sr": 48000,
+   "duration": 7.7,
+   "ltas_rel_db": {
+    "4k": -9.4,
+    "8k": -8.4,
+    "12k": -10.7,
+    "14k": -16.4,
+    "16k": -15.8,
+    "18k": -23.9,
+    "20k": -39.4
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 14.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.9,
+   "quiet_high_db": -38.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07958.wav",
+   "sr": 48000,
+   "duration": 10.22,
+   "ltas_rel_db": {
+    "4k": -2.5,
+    "8k": -8.6,
+    "12k": -14.3,
+    "14k": -16.3,
+    "16k": -26.6,
+    "18k": -33.6,
+    "20k": -35.8
+   },
+   "bw60_hz": 23801.0,
+   "cliff_db": 6.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -41.6,
+   "quiet_high_db": -41.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08004.wav",
+   "sr": 48000,
+   "duration": 9.87,
+   "ltas_rel_db": {
+    "4k": -5.0,
+    "8k": -4.9,
+    "12k": -6.5,
+    "14k": -8.8,
+    "16k": -16.3,
+    "18k": -22.1,
+    "20k": -33.8
+   },
+   "bw60_hz": 23648.0,
+   "cliff_db": 9.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.3,
+   "quiet_high_db": -39.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08181.wav",
+   "sr": 48000,
+   "duration": 4.42,
+   "ltas_rel_db": {
+    "4k": -0.7,
+    "8k": -8.5,
+    "12k": -8.1,
+    "14k": -15.6,
+    "16k": -17.7,
+    "18k": -28.4,
+    "20k": -36.6
+   },
+   "bw60_hz": 23754.0,
+   "cliff_db": 11.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.8,
+   "quiet_high_db": -36.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08204.wav",
+   "sr": 48000,
+   "duration": 7.83,
+   "ltas_rel_db": {
+    "4k": -5.0,
+    "8k": -9.4,
+    "12k": -9.3,
+    "14k": -17.0,
+    "16k": -20.8,
+    "18k": -29.5,
+    "20k": -34.5
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 9.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.6,
+   "quiet_high_db": -39.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08220.wav",
+   "sr": 48000,
+   "duration": 6.89,
+   "ltas_rel_db": {
+    "4k": -4.7,
+    "8k": -10.2,
+    "12k": -11.7,
+    "14k": -14.0,
+    "16k": -21.5,
+    "18k": -27.5,
+    "20k": -38.4
+   },
+   "bw60_hz": 23238.0,
+   "cliff_db": 15.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.4,
+   "quiet_high_db": -27.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08276.wav",
+   "sr": 48000,
+   "duration": 10.28,
+   "ltas_rel_db": {
+    "4k": -3.4,
+    "8k": -6.9,
+    "12k": -11.1,
+    "14k": -15.8,
+    "16k": -17.6,
+    "18k": -18.5,
+    "20k": -25.9
+   },
+   "bw60_hz": 23414.0,
+   "cliff_db": 16.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.0,
+   "quiet_high_db": -33.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08591.wav",
+   "sr": 48000,
+   "duration": 5.72,
+   "ltas_rel_db": {
+    "4k": -0.3,
+    "8k": -6.0,
+    "12k": -13.6,
+    "14k": -21.9,
+    "16k": -26.9,
+    "18k": -32.8,
+    "20k": -38.6
+   },
+   "bw60_hz": 23988.0,
+   "cliff_db": 10.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.9,
+   "quiet_high_db": -38.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08669.wav",
+   "sr": 48000,
+   "duration": 9.11,
+   "ltas_rel_db": {
+    "4k": -8.5,
+    "8k": -8.8,
+    "12k": -13.2,
+    "14k": -21.3,
+    "16k": -28.0,
+    "18k": -28.0,
+    "20k": -42.8
+   },
+   "bw60_hz": 22828.0,
+   "cliff_db": 8.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.8,
+   "quiet_high_db": -31.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08955.wav",
+   "sr": 48000,
+   "duration": 6.81,
+   "ltas_rel_db": {
+    "4k": -10.1,
+    "8k": -13.2,
+    "12k": -22.5,
+    "14k": -26.7,
+    "16k": -35.6,
+    "18k": -34.1,
+    "20k": -48.1
+   },
+   "bw60_hz": 23801.0,
+   "cliff_db": 9.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.7,
+   "quiet_high_db": -38.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09010.wav",
+   "sr": 48000,
+   "duration": 8.28,
+   "ltas_rel_db": {
+    "4k": -12.4,
+    "8k": -16.4,
+    "12k": -24.2,
+    "14k": -28.1,
+    "16k": -33.9,
+    "18k": -40.1,
+    "20k": -46.9
+   },
+   "bw60_hz": 22945.0,
+   "cliff_db": 6.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.6,
+   "quiet_high_db": -28.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09303.wav",
+   "sr": 48000,
+   "duration": 8.05,
+   "ltas_rel_db": {
+    "4k": -5.5,
+    "8k": -8.1,
+    "12k": -16.7,
+    "14k": -11.2,
+    "16k": -22.4,
+    "18k": -21.9,
+    "20k": -33.6
+   },
+   "bw60_hz": 23766.0,
+   "cliff_db": 14.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.4,
+   "quiet_high_db": -35.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09311.wav",
+   "sr": 48000,
+   "duration": 4.54,
+   "ltas_rel_db": {
+    "4k": -7.6,
+    "8k": -6.2,
+    "12k": -14.6,
+    "14k": -20.9,
+    "16k": -25.3,
+    "18k": -34.7,
+    "20k": -46.4
+   },
+   "bw60_hz": 22207.0,
+   "cliff_db": 8.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.4,
+   "quiet_high_db": -33.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09329.wav",
+   "sr": 48000,
+   "duration": 8.19,
+   "ltas_rel_db": {
+    "4k": -0.3,
+    "8k": -10.2,
+    "12k": -14.4,
+    "14k": -22.1,
+    "16k": -28.6,
+    "18k": -34.2,
+    "20k": -44.3
+   },
+   "bw60_hz": 22781.0,
+   "cliff_db": 10.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.4,
+   "quiet_high_db": -35.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09452.wav",
+   "sr": 48000,
+   "duration": 6.77,
+   "ltas_rel_db": {
+    "4k": 1.2,
+    "8k": -11.3,
+    "12k": -6.5,
+    "14k": -23.0,
+    "16k": -19.6,
+    "18k": -31.4,
+    "20k": -34.1
+   },
+   "bw60_hz": 23953.0,
+   "cliff_db": 11.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.3,
+   "quiet_high_db": -38.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00086.wav",
+   "sr": 48000,
+   "duration": 5.45,
+   "ltas_rel_db": {
+    "4k": -11.8,
+    "8k": -14.0,
+    "12k": -15.5,
+    "14k": -20.8,
+    "16k": -26.5,
+    "18k": -34.3,
+    "20k": -40.2
+   },
+   "bw60_hz": 23637.0,
+   "cliff_db": 9.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.6,
+   "quiet_high_db": -32.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00105.wav",
+   "sr": 48000,
+   "duration": 4.86,
+   "ltas_rel_db": {
+    "4k": -5.8,
+    "8k": -7.9,
+    "12k": -9.4,
+    "14k": -9.5,
+    "16k": -22.7,
+    "18k": -28.3,
+    "20k": -32.5
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.9,
+   "quiet_high_db": -52.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00142.wav",
+   "sr": 48000,
+   "duration": 2.63,
+   "ltas_rel_db": {
+    "4k": -1.1,
+    "8k": -3.5,
+    "12k": -2.3,
+    "14k": -10.3,
+    "16k": -22.9,
+    "18k": -19.9,
+    "20k": -30.0
+   },
+   "bw60_hz": 23391.0,
+   "cliff_db": 14.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.1,
+   "quiet_high_db": -52.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00339.wav",
+   "sr": 48000,
+   "duration": 5.72,
+   "ltas_rel_db": {
+    "4k": -8.3,
+    "8k": -18.1,
+    "12k": -20.8,
+    "14k": -34.2,
+    "16k": -36.1,
+    "18k": -42.4,
+    "20k": -48.3
+   },
+   "bw60_hz": 22699.0,
+   "cliff_db": 13.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.6,
+   "quiet_high_db": -40.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00596.wav",
+   "sr": 48000,
+   "duration": 7.02,
+   "ltas_rel_db": {
+    "4k": -2.7,
+    "8k": -3.1,
+    "12k": -4.2,
+    "14k": -11.4,
+    "16k": -17.5,
+    "18k": -23.6,
+    "20k": -31.2
+   },
+   "bw60_hz": 22816.0,
+   "cliff_db": 9.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -25.2,
+   "quiet_high_db": -34.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09508.wav",
+   "sr": 48000,
+   "duration": 4.86,
+   "ltas_rel_db": {
+    "4k": 3.3,
+    "8k": -10.9,
+    "12k": -14.5,
+    "14k": -18.2,
+    "16k": -26.6,
+    "18k": -30.7,
+    "20k": -35.2
+   },
+   "bw60_hz": 23672.0,
+   "cliff_db": 10.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.6,
+   "quiet_high_db": -38.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08299.wav",
+   "sr": 48000,
+   "duration": 7.06,
+   "ltas_rel_db": {
+    "4k": 0.8,
+    "8k": -13.5,
+    "12k": -17.1,
+    "14k": -22.9,
+    "16k": -32.4,
+    "18k": -39.9,
+    "20k": -36.2
+   },
+   "bw60_hz": 22664.0,
+   "cliff_db": 10.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.5,
+   "quiet_high_db": -31.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03498.wav",
+   "sr": 48000,
+   "duration": 4.25,
+   "ltas_rel_db": {
+    "4k": -4.6,
+    "8k": -7.5,
+    "12k": -1.8,
+    "14k": -11.6,
+    "16k": -15.3,
+    "18k": -19.8,
+    "20k": -24.2
+   },
+   "bw60_hz": 23930.0,
+   "cliff_db": 12.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.5,
+   "quiet_high_db": -34.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05889.wav",
+   "sr": 48000,
+   "duration": 5.22,
+   "ltas_rel_db": {
+    "4k": -5.8,
+    "8k": -13.4,
+    "12k": -19.0,
+    "14k": -24.3,
+    "16k": -26.8,
+    "18k": -33.0,
+    "20k": -46.2
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 10.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.8,
+   "quiet_high_db": -27.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00683.wav",
+   "sr": 48000,
+   "duration": 5.1,
+   "ltas_rel_db": {
+    "4k": -3.5,
+    "8k": -12.1,
+    "12k": -12.7,
+    "14k": -20.6,
+    "16k": -23.0,
+    "18k": -28.8,
+    "20k": -36.6
+   },
+   "bw60_hz": 22875.0,
+   "cliff_db": 9.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -42.7,
+   "quiet_high_db": -50.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01355.wav",
+   "sr": 48000,
+   "duration": 6.41,
+   "ltas_rel_db": {
+    "4k": -2.6,
+    "8k": -6.7,
+    "12k": -11.1,
+    "14k": -15.9,
+    "16k": -24.6,
+    "18k": -29.7,
+    "20k": -41.6
+   },
+   "bw60_hz": 23543.0,
+   "cliff_db": 11.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -25.2,
+   "quiet_high_db": -22.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02884.wav",
+   "sr": 48000,
+   "duration": 10.09,
+   "ltas_rel_db": {
+    "4k": -5.4,
+    "8k": -1.6,
+    "12k": -9.3,
+    "14k": -15.9,
+    "16k": -25.4,
+    "18k": -21.8,
+    "20k": -33.4
+   },
+   "bw60_hz": 23578.0,
+   "cliff_db": 12.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -28.5,
+   "quiet_high_db": -26.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02893.wav",
+   "sr": 48000,
+   "duration": 7.49,
+   "ltas_rel_db": {
+    "4k": 0.0,
+    "8k": -9.9,
+    "12k": -14.8,
+    "14k": -22.8,
+    "16k": -28.1,
+    "18k": -38.6,
+    "20k": -49.7
+   },
+   "bw60_hz": 22898.0,
+   "cliff_db": 9.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.0,
+   "quiet_high_db": -33.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05794.wav",
+   "sr": 48000,
+   "duration": 2.77,
+   "ltas_rel_db": {
+    "4k": -4.0,
+    "8k": -3.2,
+    "12k": -6.0,
+    "14k": -18.4,
+    "16k": -24.0,
+    "18k": -28.5,
+    "20k": -34.7
+   },
+   "bw60_hz": 21750.0,
+   "cliff_db": 9.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.2,
+   "quiet_high_db": -44.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03181.wav",
+   "sr": 48000,
+   "duration": 5.68,
+   "ltas_rel_db": {
+    "4k": -12.6,
+    "8k": -14.0,
+    "12k": -22.0,
+    "14k": -27.6,
+    "16k": -31.8,
+    "18k": -37.7,
+    "20k": -45.7
+   },
+   "bw60_hz": 23648.0,
+   "cliff_db": 8.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.5,
+   "quiet_high_db": -33.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03384.wav",
+   "sr": 48000,
+   "duration": 9.77,
+   "ltas_rel_db": {
+    "4k": -3.9,
+    "8k": -3.0,
+    "12k": -6.1,
+    "14k": -15.0,
+    "16k": -21.8,
+    "18k": -22.6,
+    "20k": -33.4
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 9.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.2,
+   "quiet_high_db": -46.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05990.wav",
+   "sr": 48000,
+   "duration": 6.23,
+   "ltas_rel_db": {
+    "4k": -9.5,
+    "8k": -11.7,
+    "12k": -19.1,
+    "14k": -21.9,
+    "16k": -31.4,
+    "18k": -35.3,
+    "20k": -46.9
+   },
+   "bw60_hz": 22992.0,
+   "cliff_db": 10.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.5,
+   "quiet_high_db": -27.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07580.wav",
+   "sr": 48000,
+   "duration": 4.41,
+   "ltas_rel_db": {
+    "4k": -2.5,
+    "8k": -5.9,
+    "12k": -8.8,
+    "14k": -21.1,
+    "16k": -25.3,
+    "18k": -29.0,
+    "20k": -39.9
+   },
+   "bw60_hz": 22207.0,
+   "cliff_db": 19.2,
+   "n_cliff_windows": 1,
+   "quiet_low_db": -33.0,
+   "quiet_high_db": -32.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03003.wav",
+   "sr": 48000,
+   "duration": 7.35,
+   "ltas_rel_db": {
+    "4k": -5.4,
+    "8k": -4.8,
+    "12k": -10.0,
+    "14k": -16.0,
+    "16k": -20.0,
+    "18k": -29.9,
+    "20k": -40.2
+   },
+   "bw60_hz": 23871.0,
+   "cliff_db": 10.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.8,
+   "quiet_high_db": -32.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05421.wav",
+   "sr": 48000,
+   "duration": 6.18,
+   "ltas_rel_db": {
+    "4k": -1.3,
+    "8k": -10.1,
+    "12k": -12.3,
+    "14k": -24.0,
+    "16k": -24.4,
+    "18k": -33.2,
+    "20k": -39.6
+   },
+   "bw60_hz": 22992.0,
+   "cliff_db": 11.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.7,
+   "quiet_high_db": -45.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03056.wav",
+   "sr": 48000,
+   "duration": 7.63,
+   "ltas_rel_db": {
+    "4k": -2.8,
+    "8k": -7.5,
+    "12k": -11.1,
+    "14k": -10.6,
+    "16k": -23.3,
+    "18k": -35.7,
+    "20k": -39.7
+   },
+   "bw60_hz": 21773.0,
+   "cliff_db": 12.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -40.0,
+   "quiet_high_db": -35.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05892.wav",
+   "sr": 48000,
+   "duration": 8.55,
+   "ltas_rel_db": {
+    "4k": -11.0,
+    "8k": -15.7,
+    "12k": -24.4,
+    "14k": -33.1,
+    "16k": -35.9,
+    "18k": -42.0,
+    "20k": -49.6
+   },
+   "bw60_hz": 22910.0,
+   "cliff_db": 8.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.8,
+   "quiet_high_db": -37.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09308.wav",
+   "sr": 48000,
+   "duration": 3.34,
+   "ltas_rel_db": {
+    "4k": -8.8,
+    "8k": -9.4,
+    "12k": -18.8,
+    "14k": -27.8,
+    "16k": -30.3,
+    "18k": -39.8,
+    "20k": -48.3
+   },
+   "bw60_hz": 21738.0,
+   "cliff_db": 9.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.3,
+   "quiet_high_db": -32.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00406.wav",
+   "sr": 48000,
+   "duration": 10.62,
+   "ltas_rel_db": {
+    "4k": 2.8,
+    "8k": -3.6,
+    "12k": -9.0,
+    "14k": -15.0,
+    "16k": -18.2,
+    "18k": -27.2,
+    "20k": -31.3
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 7.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.7,
+   "quiet_high_db": -29.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03147.wav",
+   "sr": 48000,
+   "duration": 7.34,
+   "ltas_rel_db": {
+    "4k": -9.0,
+    "8k": -6.3,
+    "12k": -5.8,
+    "14k": -7.6,
+    "16k": -12.8,
+    "18k": -16.3,
+    "20k": -23.8
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 10.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -28.8,
+   "quiet_high_db": -28.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08648.wav",
+   "sr": 48000,
+   "duration": 4.81,
+   "ltas_rel_db": {
+    "4k": 2.1,
+    "8k": -12.4,
+    "12k": -4.0,
+    "14k": -25.0,
+    "16k": -24.0,
+    "18k": -32.5,
+    "20k": -42.1
+   },
+   "bw60_hz": 23320.0,
+   "cliff_db": 13.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -25.4,
+   "quiet_high_db": -24.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06332.wav",
+   "sr": 48000,
+   "duration": 5.66,
+   "ltas_rel_db": {
+    "4k": -1.5,
+    "8k": -0.5,
+    "12k": -6.4,
+    "14k": -16.7,
+    "16k": -27.6,
+    "18k": -29.3,
+    "20k": -36.4
+   },
+   "bw60_hz": 21762.0,
+   "cliff_db": 9.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.8,
+   "quiet_high_db": -47.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04971.wav",
+   "sr": 48000,
+   "duration": 3.58,
+   "ltas_rel_db": {
+    "4k": -4.7,
+    "8k": 0.3,
+    "12k": -15.6,
+    "14k": -26.1,
+    "16k": -23.8,
+    "18k": -31.8,
+    "20k": -41.5
+   },
+   "bw60_hz": 23379.0,
+   "cliff_db": 11.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -41.1,
+   "quiet_high_db": -43.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08154.wav",
+   "sr": 48000,
+   "duration": 6.33,
+   "ltas_rel_db": {
+    "4k": -11.1,
+    "8k": -19.2,
+    "12k": -18.9,
+    "14k": -25.6,
+    "16k": -27.6,
+    "18k": -38.1,
+    "20k": -47.3
+   },
+   "bw60_hz": 22828.0,
+   "cliff_db": 6.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.7,
+   "quiet_high_db": -32.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04365.wav",
+   "sr": 48000,
+   "duration": 2.77,
+   "ltas_rel_db": {
+    "4k": -3.1,
+    "8k": 3.4,
+    "12k": -11.6,
+    "14k": -17.2,
+    "16k": -28.3,
+    "18k": -34.1,
+    "20k": -39.3
+   },
+   "bw60_hz": 21480.0,
+   "cliff_db": 16.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.5,
+   "quiet_high_db": -32.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02700.wav",
+   "sr": 48000,
+   "duration": 8.65,
+   "ltas_rel_db": {
+    "4k": 1.6,
+    "8k": -7.0,
+    "12k": -11.8,
+    "14k": -12.3,
+    "16k": -21.2,
+    "18k": -33.2,
+    "20k": -40.8
+   },
+   "bw60_hz": 22957.0,
+   "cliff_db": 11.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.8,
+   "quiet_high_db": -35.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03118.wav",
+   "sr": 48000,
+   "duration": 4.89,
+   "ltas_rel_db": {
+    "4k": -8.4,
+    "8k": -17.1,
+    "12k": -21.0,
+    "14k": -25.7,
+    "16k": -34.6,
+    "18k": -37.9,
+    "20k": -59.4
+   },
+   "bw60_hz": 20426.0,
+   "cliff_db": 16.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.8,
+   "quiet_high_db": -39.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03960.wav",
+   "sr": 48000,
+   "duration": 5.86,
+   "ltas_rel_db": {
+    "4k": -6.0,
+    "8k": -9.2,
+    "12k": -7.8,
+    "14k": -17.3,
+    "16k": -22.1,
+    "18k": -32.8,
+    "20k": -41.5
+   },
+   "bw60_hz": 23402.0,
+   "cliff_db": 13.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.2,
+   "quiet_high_db": -33.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09279.wav",
+   "sr": 48000,
+   "duration": 3.94,
+   "ltas_rel_db": {
+    "4k": -7.9,
+    "8k": -9.6,
+    "12k": -11.8,
+    "14k": -17.4,
+    "16k": -26.7,
+    "18k": -30.7,
+    "20k": -43.6
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 11.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -47.7,
+   "quiet_high_db": -59.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04844.wav",
+   "sr": 48000,
+   "duration": 6.2,
+   "ltas_rel_db": {
+    "4k": 2.2,
+    "8k": -12.0,
+    "12k": -12.7,
+    "14k": -18.9,
+    "16k": -25.8,
+    "18k": -33.2,
+    "20k": -40.6
+   },
+   "bw60_hz": 23508.0,
+   "cliff_db": 10.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.3,
+   "quiet_high_db": -34.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02465.wav",
+   "sr": 48000,
+   "duration": 4.83,
+   "ltas_rel_db": {
+    "4k": -11.2,
+    "8k": -2.1,
+    "12k": -10.7,
+    "14k": -24.7,
+    "16k": -21.7,
+    "18k": -33.3,
+    "20k": -41.8
+   },
+   "bw60_hz": 21797.0,
+   "cliff_db": 13.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.1,
+   "quiet_high_db": -39.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08568.wav",
+   "sr": 48000,
+   "duration": 6.77,
+   "ltas_rel_db": {
+    "4k": -1.5,
+    "8k": -8.2,
+    "12k": -8.7,
+    "14k": -17.0,
+    "16k": -22.9,
+    "18k": -31.8,
+    "20k": -44.0
+   },
+   "bw60_hz": 23438.0,
+   "cliff_db": 10.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.0,
+   "quiet_high_db": -29.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06844.wav",
+   "sr": 48000,
+   "duration": 9.34,
+   "ltas_rel_db": {
+    "4k": -0.5,
+    "8k": -7.3,
+    "12k": -7.8,
+    "14k": -11.5,
+    "16k": -22.7,
+    "18k": -25.5,
+    "20k": -36.5
+   },
+   "bw60_hz": 23531.0,
+   "cliff_db": 10.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.7,
+   "quiet_high_db": -35.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07703.wav",
+   "sr": 48000,
+   "duration": 6.45,
+   "ltas_rel_db": {
+    "4k": -7.2,
+    "8k": -8.2,
+    "12k": -8.7,
+    "14k": -14.1,
+    "16k": -18.8,
+    "18k": -28.4,
+    "20k": -41.9
+   },
+   "bw60_hz": 23930.0,
+   "cliff_db": 15.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -51.2,
+   "quiet_high_db": -54.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00637.wav",
+   "sr": 48000,
+   "duration": 8.61,
+   "ltas_rel_db": {
+    "4k": -4.8,
+    "8k": -6.5,
+    "12k": -18.4,
+    "14k": -24.1,
+    "16k": -24.3,
+    "18k": -34.0,
+    "20k": -38.8
+   },
+   "bw60_hz": 23367.0,
+   "cliff_db": 7.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.0,
+   "quiet_high_db": -31.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07295.wav",
+   "sr": 48000,
+   "duration": 9.81,
+   "ltas_rel_db": {
+    "4k": -3.3,
+    "8k": -5.1,
+    "12k": -14.4,
+    "14k": -24.1,
+    "16k": -27.0,
+    "18k": -34.0,
+    "20k": -39.3
+   },
+   "bw60_hz": 23766.0,
+   "cliff_db": 8.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -28.9,
+   "quiet_high_db": -24.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01476.wav",
+   "sr": 48000,
+   "duration": 7.13,
+   "ltas_rel_db": {
+    "4k": -5.6,
+    "8k": -8.0,
+    "12k": -8.4,
+    "14k": -19.6,
+    "16k": -22.9,
+    "18k": -29.6,
+    "20k": -40.9
+   },
+   "bw60_hz": 23297.0,
+   "cliff_db": 10.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.3,
+   "quiet_high_db": -41.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02434.wav",
+   "sr": 48000,
+   "duration": 5.98,
+   "ltas_rel_db": {
+    "4k": -0.8,
+    "8k": -6.6,
+    "12k": -11.6,
+    "14k": -17.7,
+    "16k": -28.4,
+    "18k": -29.5,
+    "20k": -33.3
+   },
+   "bw60_hz": 23742.0,
+   "cliff_db": 10.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.2,
+   "quiet_high_db": -33.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00304.wav",
+   "sr": 48000,
+   "duration": 6.06,
+   "ltas_rel_db": {
+    "4k": -3.2,
+    "8k": -4.4,
+    "12k": -11.8,
+    "14k": -19.5,
+    "16k": -29.1,
+    "18k": -25.6,
+    "20k": -31.5
+   },
+   "bw60_hz": 23859.0,
+   "cliff_db": 11.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.9,
+   "quiet_high_db": -32.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03678.wav",
+   "sr": 48000,
+   "duration": 6.19,
+   "ltas_rel_db": {
+    "4k": -1.9,
+    "8k": -9.1,
+    "12k": -9.2,
+    "14k": -17.2,
+    "16k": -24.7,
+    "18k": -35.5,
+    "20k": -36.7
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 9.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -41.3,
+   "quiet_high_db": -35.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06912.wav",
+   "sr": 48000,
+   "duration": 8.14,
+   "ltas_rel_db": {
+    "4k": -1.9,
+    "8k": -7.6,
+    "12k": -7.8,
+    "14k": -17.5,
+    "16k": -22.1,
+    "18k": -28.7,
+    "20k": -38.6
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 6.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.4,
+   "quiet_high_db": -35.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00652.wav",
+   "sr": 48000,
+   "duration": 7.22,
+   "ltas_rel_db": {
+    "4k": -4.4,
+    "8k": -14.8,
+    "12k": -19.4,
+    "14k": -23.0,
+    "16k": -32.0,
+    "18k": -36.1,
+    "20k": -40.9
+   },
+   "bw60_hz": 21539.0,
+   "cliff_db": 7.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.3,
+   "quiet_high_db": -39.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09002.wav",
+   "sr": 48000,
+   "duration": 5.13,
+   "ltas_rel_db": {
+    "4k": -7.5,
+    "8k": -11.8,
+    "12k": -20.6,
+    "14k": -30.1,
+    "16k": -27.9,
+    "18k": -37.3,
+    "20k": -37.7
+   },
+   "bw60_hz": 23754.0,
+   "cliff_db": 14.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -42.0,
+   "quiet_high_db": -41.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07144.wav",
+   "sr": 48000,
+   "duration": 6.05,
+   "ltas_rel_db": {
+    "4k": -6.3,
+    "8k": -12.5,
+    "12k": -19.1,
+    "14k": -19.8,
+    "16k": -28.7,
+    "18k": -41.9,
+    "20k": -49.5
+   },
+   "bw60_hz": 20965.0,
+   "cliff_db": 13.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.4,
+   "quiet_high_db": -22.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02493.wav",
+   "sr": 48000,
+   "duration": 6.87,
+   "ltas_rel_db": {
+    "4k": -10.6,
+    "8k": -18.4,
+    "12k": -20.4,
+    "14k": -26.9,
+    "16k": -33.2,
+    "18k": -39.8,
+    "20k": -55.5
+   },
+   "bw60_hz": 22629.0,
+   "cliff_db": 10.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.8,
+   "quiet_high_db": -27.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09368.wav",
+   "sr": 48000,
+   "duration": 7.31,
+   "ltas_rel_db": {
+    "4k": 5.8,
+    "8k": -3.5,
+    "12k": -8.4,
+    "14k": -13.0,
+    "16k": -23.4,
+    "18k": -33.8,
+    "20k": -37.2
+   },
+   "bw60_hz": 23543.0,
+   "cliff_db": 9.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.6,
+   "quiet_high_db": -25.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03826.wav",
+   "sr": 48000,
+   "duration": 7.99,
+   "ltas_rel_db": {
+    "4k": -4.8,
+    "8k": -10.3,
+    "12k": -14.4,
+    "14k": -18.5,
+    "16k": -22.8,
+    "18k": -29.1,
+    "20k": -38.6
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 6.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -25.6,
+   "quiet_high_db": -24.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07736.wav",
+   "sr": 48000,
+   "duration": 7.58,
+   "ltas_rel_db": {
+    "4k": -2.7,
+    "8k": -5.4,
+    "12k": -7.5,
+    "14k": -17.7,
+    "16k": -22.2,
+    "18k": -27.6,
+    "20k": -38.0
+   },
+   "bw60_hz": 22641.0,
+   "cliff_db": 9.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -44.9,
+   "quiet_high_db": -42.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05671.wav",
+   "sr": 48000,
+   "duration": 9.34,
+   "ltas_rel_db": {
+    "4k": -4.8,
+    "8k": -7.3,
+    "12k": -11.8,
+    "14k": -17.7,
+    "16k": -29.4,
+    "18k": -29.2,
+    "20k": -35.9
+   },
+   "bw60_hz": 23004.0,
+   "cliff_db": 7.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.2,
+   "quiet_high_db": -29.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08894.wav",
+   "sr": 48000,
+   "duration": 9.14,
+   "ltas_rel_db": {
+    "4k": -9.9,
+    "8k": -14.5,
+    "12k": -10.5,
+    "14k": -21.1,
+    "16k": -25.8,
+    "18k": -26.9,
+    "20k": -28.1
+   },
+   "bw60_hz": 23977.0,
+   "cliff_db": 9.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.4,
+   "quiet_high_db": -33.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03688.wav",
+   "sr": 48000,
+   "duration": 5.74,
+   "ltas_rel_db": {
+    "4k": -3.2,
+    "8k": -10.6,
+    "12k": -11.3,
+    "14k": -18.3,
+    "16k": -23.3,
+    "18k": -32.1,
+    "20k": -41.0
+   },
+   "bw60_hz": 23074.0,
+   "cliff_db": 8.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.0,
+   "quiet_high_db": -29.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05916.wav",
+   "sr": 48000,
+   "duration": 4.58,
+   "ltas_rel_db": {
+    "4k": -4.1,
+    "8k": -19.0,
+    "12k": -19.4,
+    "14k": -24.7,
+    "16k": -28.2,
+    "18k": -41.6,
+    "20k": -47.5
+   },
+   "bw60_hz": 22348.0,
+   "cliff_db": 10.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.0,
+   "quiet_high_db": -32.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04127.wav",
+   "sr": 48000,
+   "duration": 5.89,
+   "ltas_rel_db": {
+    "4k": -9.0,
+    "8k": -12.9,
+    "12k": -18.9,
+    "14k": -24.7,
+    "16k": -31.6,
+    "18k": -41.4,
+    "20k": -44.7
+   },
+   "bw60_hz": 21059.0,
+   "cliff_db": 8.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.5,
+   "quiet_high_db": -28.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04567.wav",
+   "sr": 48000,
+   "duration": 3.38,
+   "ltas_rel_db": {
+    "4k": -10.0,
+    "8k": -15.7,
+    "12k": -19.5,
+    "14k": -25.7,
+    "16k": -25.3,
+    "18k": -40.9,
+    "20k": -47.9
+   },
+   "bw60_hz": 23730.0,
+   "cliff_db": 9.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -24.2,
+   "quiet_high_db": -32.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07502.wav",
+   "sr": 48000,
+   "duration": 4.35,
+   "ltas_rel_db": {
+    "4k": -9.3,
+    "8k": -14.7,
+    "12k": -15.8,
+    "14k": -22.3,
+    "16k": -30.5,
+    "18k": -39.2,
+    "20k": -43.8
+   },
+   "bw60_hz": 23145.0,
+   "cliff_db": 8.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.0,
+   "quiet_high_db": -28.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01929.wav",
+   "sr": 48000,
+   "duration": 7.93,
+   "ltas_rel_db": {
+    "4k": -6.2,
+    "8k": -4.5,
+    "12k": -11.3,
+    "14k": -14.5,
+    "16k": -20.8,
+    "18k": -29.3,
+    "20k": -34.0
+   },
+   "bw60_hz": 23086.0,
+   "cliff_db": 12.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -41.5,
+   "quiet_high_db": -34.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07459.wav",
+   "sr": 48000,
+   "duration": 9.7,
+   "ltas_rel_db": {
+    "4k": -12.1,
+    "8k": -5.6,
+    "12k": -13.3,
+    "14k": -15.7,
+    "16k": -22.7,
+    "18k": -32.8,
+    "20k": -37.3
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 6.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.8,
+   "quiet_high_db": -34.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06109.wav",
+   "sr": 48000,
+   "duration": 7.63,
+   "ltas_rel_db": {
+    "4k": -9.1,
+    "8k": -12.3,
+    "12k": -13.4,
+    "14k": -19.4,
+    "16k": -20.7,
+    "18k": -31.7,
+    "20k": -35.9
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 10.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.4,
+   "quiet_high_db": -43.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06336.wav",
+   "sr": 48000,
+   "duration": 7.75,
+   "ltas_rel_db": {
+    "4k": -6.5,
+    "8k": -1.5,
+    "12k": -8.1,
+    "14k": -13.8,
+    "16k": -19.4,
+    "18k": -22.0,
+    "20k": -31.3
+   },
+   "bw60_hz": 23977.0,
+   "cliff_db": 10.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.6,
+   "quiet_high_db": -25.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08237.wav",
+   "sr": 48000,
+   "duration": 4.76,
+   "ltas_rel_db": {
+    "4k": -4.0,
+    "8k": -10.0,
+    "12k": -11.4,
+    "14k": -15.5,
+    "16k": -25.7,
+    "18k": -34.0,
+    "20k": -40.2
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 10.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.1,
+   "quiet_high_db": -46.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00355.wav",
+   "sr": 48000,
+   "duration": 6.05,
+   "ltas_rel_db": {
+    "4k": -7.6,
+    "8k": -15.0,
+    "12k": -16.9,
+    "14k": -17.8,
+    "16k": -29.8,
+    "18k": -35.9,
+    "20k": -43.7
+   },
+   "bw60_hz": 23309.0,
+   "cliff_db": 14.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -40.0,
+   "quiet_high_db": -40.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03931.wav",
+   "sr": 48000,
+   "duration": 4.08,
+   "ltas_rel_db": {
+    "4k": 1.4,
+    "8k": -7.5,
+    "12k": -6.3,
+    "14k": -15.6,
+    "16k": -15.1,
+    "18k": -32.7,
+    "20k": -40.3
+   },
+   "bw60_hz": 22887.0,
+   "cliff_db": 11.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.0,
+   "quiet_high_db": -39.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08884.wav",
+   "sr": 48000,
+   "duration": 3.53,
+   "ltas_rel_db": {
+    "4k": -2.7,
+    "8k": -5.2,
+    "12k": -16.8,
+    "14k": -16.1,
+    "16k": -29.4,
+    "18k": -35.9,
+    "20k": -41.5
+   },
+   "bw60_hz": 22430.0,
+   "cliff_db": 20.3,
+   "n_cliff_windows": 1,
+   "quiet_low_db": -50.0,
+   "quiet_high_db": -51.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07745.wav",
+   "sr": 48000,
+   "duration": 5.79,
+   "ltas_rel_db": {
+    "4k": -6.0,
+    "8k": -11.2,
+    "12k": -17.0,
+    "14k": -24.2,
+    "16k": -31.2,
+    "18k": -37.1,
+    "20k": -43.4
+   },
+   "bw60_hz": 22277.0,
+   "cliff_db": 6.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.7,
+   "quiet_high_db": -35.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08630.wav",
+   "sr": 48000,
+   "duration": 5.18,
+   "ltas_rel_db": {
+    "4k": -8.4,
+    "8k": -8.0,
+    "12k": -10.8,
+    "14k": -10.3,
+    "16k": -15.4,
+    "18k": -19.7,
+    "20k": -35.5
+   },
+   "bw60_hz": 23062.0,
+   "cliff_db": 13.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.2,
+   "quiet_high_db": -39.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01013.wav",
+   "sr": 48000,
+   "duration": 5.45,
+   "ltas_rel_db": {
+    "4k": -0.8,
+    "8k": -1.8,
+    "12k": -11.7,
+    "14k": -21.2,
+    "16k": -25.9,
+    "18k": -32.6,
+    "20k": -38.8
+   },
+   "bw60_hz": 23344.0,
+   "cliff_db": 9.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.8,
+   "quiet_high_db": -27.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07337.wav",
+   "sr": 48000,
+   "duration": 6.1,
+   "ltas_rel_db": {
+    "4k": -3.9,
+    "8k": -9.7,
+    "12k": -14.2,
+    "14k": -19.4,
+    "16k": -26.5,
+    "18k": -31.5,
+    "20k": -41.8
+   },
+   "bw60_hz": 23531.0,
+   "cliff_db": 8.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -28.3,
+   "quiet_high_db": -30.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08583.wav",
+   "sr": 48000,
+   "duration": 4.64,
+   "ltas_rel_db": {
+    "4k": -5.2,
+    "8k": -3.9,
+    "12k": -4.8,
+    "14k": -10.2,
+    "16k": -10.6,
+    "18k": -19.5,
+    "20k": -30.5
+   },
+   "bw60_hz": 23965.0,
+   "cliff_db": 11.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -40.6,
+   "quiet_high_db": -38.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08682.wav",
+   "sr": 48000,
+   "duration": 4.74,
+   "ltas_rel_db": {
+    "4k": 9.3,
+    "8k": -1.0,
+    "12k": -5.5,
+    "14k": -13.6,
+    "16k": -21.1,
+    "18k": -24.4,
+    "20k": -41.3
+   },
+   "bw60_hz": 21750.0,
+   "cliff_db": 14.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.7,
+   "quiet_high_db": -37.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09103.wav",
+   "sr": 48000,
+   "duration": 2.83,
+   "ltas_rel_db": {
+    "4k": -13.5,
+    "8k": -14.2,
+    "12k": -15.8,
+    "14k": -16.5,
+    "16k": -14.7,
+    "18k": -21.4,
+    "20k": -58.2
+   },
+   "bw60_hz": 23590.0,
+   "cliff_db": 24.4,
+   "n_cliff_windows": 1,
+   "quiet_low_db": -40.9,
+   "quiet_high_db": -44.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02039.wav",
+   "sr": 48000,
+   "duration": 3.03,
+   "ltas_rel_db": {
+    "4k": -9.7,
+    "8k": -17.1,
+    "12k": -17.3,
+    "14k": -16.8,
+    "16k": -31.2,
+    "18k": -35.9,
+    "20k": -54.9
+   },
+   "bw60_hz": 22688.0,
+   "cliff_db": 15.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.9,
+   "quiet_high_db": -37.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00679.wav",
+   "sr": 48000,
+   "duration": 5.69,
+   "ltas_rel_db": {
+    "4k": -8.7,
+    "8k": -13.3,
+    "12k": -17.5,
+    "14k": -21.0,
+    "16k": -28.6,
+    "18k": -35.7,
+    "20k": -42.6
+   },
+   "bw60_hz": 23121.0,
+   "cliff_db": 12.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.0,
+   "quiet_high_db": -29.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05273.wav",
+   "sr": 48000,
+   "duration": 4.6,
+   "ltas_rel_db": {
+    "4k": -0.5,
+    "8k": -15.1,
+    "12k": -15.1,
+    "14k": -27.7,
+    "16k": -34.1,
+    "18k": -34.9,
+    "20k": -46.1
+   },
+   "bw60_hz": 21270.0,
+   "cliff_db": 13.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.7,
+   "quiet_high_db": -32.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05514.wav",
+   "sr": 48000,
+   "duration": 4.57,
+   "ltas_rel_db": {
+    "4k": -4.0,
+    "8k": -13.3,
+    "12k": -20.1,
+    "14k": -25.6,
+    "16k": -30.3,
+    "18k": -41.6,
+    "20k": -49.3
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.6,
+   "quiet_high_db": -41.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04334.wav",
+   "sr": 48000,
+   "duration": 4.25,
+   "ltas_rel_db": {
+    "4k": 2.4,
+    "8k": -7.3,
+    "12k": -11.4,
+    "14k": -17.3,
+    "16k": -17.2,
+    "18k": -24.0,
+    "20k": -37.5
+   },
+   "bw60_hz": 23977.0,
+   "cliff_db": 11.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.7,
+   "quiet_high_db": -37.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08877.wav",
+   "sr": 48000,
+   "duration": 5.47,
+   "ltas_rel_db": {
+    "4k": -4.8,
+    "8k": -15.0,
+    "12k": -11.5,
+    "14k": -19.8,
+    "16k": -20.6,
+    "18k": -37.5,
+    "20k": -38.2
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 16.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.4,
+   "quiet_high_db": -24.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08217.wav",
+   "sr": 48000,
+   "duration": 5.57,
+   "ltas_rel_db": {
+    "4k": -7.5,
+    "8k": -1.9,
+    "12k": -10.0,
+    "14k": -14.1,
+    "16k": -18.5,
+    "18k": -25.7,
+    "20k": -31.7
+   },
+   "bw60_hz": 23965.0,
+   "cliff_db": 6.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -43.3,
+   "quiet_high_db": -46.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00938.wav",
+   "sr": 48000,
+   "duration": 4.66,
+   "ltas_rel_db": {
+    "4k": -5.7,
+    "8k": -9.7,
+    "12k": -14.1,
+    "14k": -17.8,
+    "16k": -27.3,
+    "18k": -33.4,
+    "20k": -40.6
+   },
+   "bw60_hz": 23895.0,
+   "cliff_db": 10.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -42.2,
+   "quiet_high_db": -37.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07452.wav",
+   "sr": 48000,
+   "duration": 4.69,
+   "ltas_rel_db": {
+    "4k": -3.9,
+    "8k": -11.3,
+    "12k": -14.4,
+    "14k": -24.1,
+    "16k": -30.4,
+    "18k": -40.7,
+    "20k": -47.8
+   },
+   "bw60_hz": 22770.0,
+   "cliff_db": 10.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -48.4,
+   "quiet_high_db": -47.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04666.wav",
+   "sr": 48000,
+   "duration": 6.18,
+   "ltas_rel_db": {
+    "4k": -7.7,
+    "8k": -9.2,
+    "12k": -9.5,
+    "14k": -18.4,
+    "16k": -20.1,
+    "18k": -31.1,
+    "20k": -34.3
+   },
+   "bw60_hz": 23484.0,
+   "cliff_db": 12.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.6,
+   "quiet_high_db": -37.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00984.wav",
+   "sr": 48000,
+   "duration": 5.52,
+   "ltas_rel_db": {
+    "4k": -1.5,
+    "8k": -1.9,
+    "12k": -16.8,
+    "14k": -19.4,
+    "16k": -28.2,
+    "18k": -32.3,
+    "20k": -34.5
+   },
+   "bw60_hz": 22160.0,
+   "cliff_db": 7.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.1,
+   "quiet_high_db": -42.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01023.wav",
+   "sr": 48000,
+   "duration": 6.95,
+   "ltas_rel_db": {
+    "4k": -6.2,
+    "8k": -15.7,
+    "12k": -24.3,
+    "14k": -25.8,
+    "16k": -30.3,
+    "18k": -43.0,
+    "20k": -50.3
+   },
+   "bw60_hz": 23953.0,
+   "cliff_db": 8.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.6,
+   "quiet_high_db": -33.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02125.wav",
+   "sr": 48000,
+   "duration": 4.68,
+   "ltas_rel_db": {
+    "4k": -5.6,
+    "8k": -10.1,
+    "12k": -13.7,
+    "14k": -11.2,
+    "16k": -19.5,
+    "18k": -30.6,
+    "20k": -53.8
+   },
+   "bw60_hz": 23004.0,
+   "cliff_db": 16.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.0,
+   "quiet_high_db": -33.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04098.wav",
+   "sr": 48000,
+   "duration": 8.07,
+   "ltas_rel_db": {
+    "4k": -4.4,
+    "8k": -8.5,
+    "12k": -9.1,
+    "14k": -14.1,
+    "16k": -22.6,
+    "18k": -29.7,
+    "20k": -39.8
+   },
+   "bw60_hz": 22816.0,
+   "cliff_db": 10.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -43.4,
+   "quiet_high_db": -51.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03502.wav",
+   "sr": 48000,
+   "duration": 6.61,
+   "ltas_rel_db": {
+    "4k": -8.8,
+    "8k": -10.2,
+    "12k": -15.9,
+    "14k": -22.0,
+    "16k": -26.4,
+    "18k": -36.7,
+    "20k": -39.9
+   },
+   "bw60_hz": 23953.0,
+   "cliff_db": 7.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.2,
+   "quiet_high_db": -36.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06802.wav",
+   "sr": 48000,
+   "duration": 8.01,
+   "ltas_rel_db": {
+    "4k": -5.8,
+    "8k": -4.3,
+    "12k": -1.4,
+    "14k": -12.2,
+    "16k": -15.4,
+    "18k": -24.9,
+    "20k": -30.5
+   },
+   "bw60_hz": 23684.0,
+   "cliff_db": 8.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -28.3,
+   "quiet_high_db": -23.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03173.wav",
+   "sr": 48000,
+   "duration": 3.96,
+   "ltas_rel_db": {
+    "4k": -7.4,
+    "8k": -11.7,
+    "12k": -14.2,
+    "14k": -21.3,
+    "16k": -35.2,
+    "18k": -40.4,
+    "20k": -57.9
+   },
+   "bw60_hz": 20625.0,
+   "cliff_db": 17.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -20.2,
+   "quiet_high_db": -29.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02406.wav",
+   "sr": 48000,
+   "duration": 3.52,
+   "ltas_rel_db": {
+    "4k": 0.8,
+    "8k": -3.7,
+    "12k": -18.9,
+    "14k": -20.8,
+    "16k": -26.6,
+    "18k": -29.3,
+    "20k": -38.6
+   },
+   "bw60_hz": 21328.0,
+   "cliff_db": 26.9,
+   "n_cliff_windows": 1,
+   "quiet_low_db": -30.8,
+   "quiet_high_db": -20.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00050.wav",
+   "sr": 48000,
+   "duration": 6.68,
+   "ltas_rel_db": {
+    "4k": -6.7,
+    "8k": -12.6,
+    "12k": -20.5,
+    "14k": -22.0,
+    "16k": -31.7,
+    "18k": -36.5,
+    "20k": -42.3
+   },
+   "bw60_hz": 22230.0,
+   "cliff_db": 12.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.1,
+   "quiet_high_db": -25.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04540.wav",
+   "sr": 48000,
+   "duration": 5.22,
+   "ltas_rel_db": {
+    "4k": -3.7,
+    "8k": -11.1,
+    "12k": -14.8,
+    "14k": -17.4,
+    "16k": -27.8,
+    "18k": -34.3,
+    "20k": -40.9
+   },
+   "bw60_hz": 23309.0,
+   "cliff_db": 7.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.2,
+   "quiet_high_db": -36.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00045.wav",
+   "sr": 48000,
+   "duration": 5.92,
+   "ltas_rel_db": {
+    "4k": -7.2,
+    "8k": -15.9,
+    "12k": -13.2,
+    "14k": -18.7,
+    "16k": -17.2,
+    "18k": -27.9,
+    "20k": -33.1
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 9.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.2,
+   "quiet_high_db": -34.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03128.wav",
+   "sr": 48000,
+   "duration": 6.54,
+   "ltas_rel_db": {
+    "4k": -6.1,
+    "8k": -2.7,
+    "12k": -11.6,
+    "14k": -19.7,
+    "16k": -30.5,
+    "18k": -32.7,
+    "20k": -46.6
+   },
+   "bw60_hz": 22699.0,
+   "cliff_db": 15.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.5,
+   "quiet_high_db": -15.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04827.wav",
+   "sr": 48000,
+   "duration": 3.13,
+   "ltas_rel_db": {
+    "4k": -10.6,
+    "8k": -10.8,
+    "12k": -14.7,
+    "14k": -22.5,
+    "16k": -18.5,
+    "18k": -29.6,
+    "20k": -50.7
+   },
+   "bw60_hz": 23883.0,
+   "cliff_db": 21.5,
+   "n_cliff_windows": 1,
+   "quiet_low_db": -37.9,
+   "quiet_high_db": -50.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00704.wav",
+   "sr": 48000,
+   "duration": 5.15,
+   "ltas_rel_db": {
+    "4k": 2.1,
+    "8k": -6.6,
+    "12k": -4.4,
+    "14k": -6.8,
+    "16k": -8.7,
+    "18k": -18.1,
+    "20k": -30.1
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 13.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -24.1,
+   "quiet_high_db": -32.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03579.wav",
+   "sr": 48000,
+   "duration": 6.91,
+   "ltas_rel_db": {
+    "4k": -6.4,
+    "8k": -7.8,
+    "12k": -5.8,
+    "14k": -11.4,
+    "16k": -19.4,
+    "18k": -26.0,
+    "20k": -33.8
+   },
+   "bw60_hz": 22816.0,
+   "cliff_db": 9.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -27.0,
+   "quiet_high_db": -25.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02463.wav",
+   "sr": 48000,
+   "duration": 4.91,
+   "ltas_rel_db": {
+    "4k": -7.2,
+    "8k": -3.2,
+    "12k": -8.5,
+    "14k": -18.0,
+    "16k": -21.8,
+    "18k": -29.1,
+    "20k": -44.8
+   },
+   "bw60_hz": 23977.0,
+   "cliff_db": 17.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.7,
+   "quiet_high_db": -36.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05969.wav",
+   "sr": 48000,
+   "duration": 4.65,
+   "ltas_rel_db": {
+    "4k": -7.2,
+    "8k": -14.1,
+    "12k": -19.7,
+    "14k": -26.7,
+    "16k": -40.9,
+    "18k": -46.3,
+    "20k": -53.6
+   },
+   "bw60_hz": 21914.0,
+   "cliff_db": 14.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.1,
+   "quiet_high_db": -27.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07197.wav",
+   "sr": 48000,
+   "duration": 5.08,
+   "ltas_rel_db": {
+    "4k": -2.1,
+    "8k": -7.3,
+    "12k": -15.6,
+    "14k": -18.7,
+    "16k": -25.2,
+    "18k": -33.1,
+    "20k": -41.9
+   },
+   "bw60_hz": 23215.0,
+   "cliff_db": 16.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.2,
+   "quiet_high_db": -25.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04745.wav",
+   "sr": 48000,
+   "duration": 8.6,
+   "ltas_rel_db": {
+    "4k": -3.7,
+    "8k": -3.8,
+    "12k": -15.6,
+    "14k": -22.1,
+    "16k": -31.9,
+    "18k": -34.2,
+    "20k": -42.7
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -40.0,
+   "quiet_high_db": -39.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09399.wav",
+   "sr": 48000,
+   "duration": 5.06,
+   "ltas_rel_db": {
+    "4k": -2.5,
+    "8k": -8.5,
+    "12k": -14.5,
+    "14k": -19.4,
+    "16k": -25.8,
+    "18k": -36.6,
+    "20k": -35.6
+   },
+   "bw60_hz": 23098.0,
+   "cliff_db": 9.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.6,
+   "quiet_high_db": -27.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03124.wav",
+   "sr": 48000,
+   "duration": 4.58,
+   "ltas_rel_db": {
+    "4k": -3.9,
+    "8k": -16.1,
+    "12k": -23.9,
+    "14k": -29.2,
+    "16k": -37.5,
+    "18k": -44.7,
+    "20k": -47.4
+   },
+   "bw60_hz": 23824.0,
+   "cliff_db": 11.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.0,
+   "quiet_high_db": -32.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03166.wav",
+   "sr": 48000,
+   "duration": 12.04,
+   "ltas_rel_db": {
+    "4k": -1.8,
+    "8k": -8.2,
+    "12k": -17.1,
+    "14k": -19.5,
+    "16k": -23.9,
+    "18k": -27.9,
+    "20k": -34.1
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.4,
+   "quiet_high_db": -25.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01642.wav",
+   "sr": 48000,
+   "duration": 8.92,
+   "ltas_rel_db": {
+    "4k": -1.1,
+    "8k": -3.9,
+    "12k": -13.9,
+    "14k": -16.4,
+    "16k": -29.0,
+    "18k": -32.4,
+    "20k": -34.4
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.7,
+   "quiet_high_db": -30.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00084.wav",
+   "sr": 48000,
+   "duration": 6.55,
+   "ltas_rel_db": {
+    "4k": -0.9,
+    "8k": -4.8,
+    "12k": -8.3,
+    "14k": -10.7,
+    "16k": -17.0,
+    "18k": -21.7,
+    "20k": -29.4
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 5.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.8,
+   "quiet_high_db": -32.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08221.wav",
+   "sr": 48000,
+   "duration": 4.47,
+   "ltas_rel_db": {
+    "4k": -4.9,
+    "8k": -16.1,
+    "12k": -9.6,
+    "14k": -11.4,
+    "16k": -18.3,
+    "18k": -25.1,
+    "20k": -36.6
+   },
+   "bw60_hz": 23941.0,
+   "cliff_db": 9.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -22.8,
+   "quiet_high_db": -43.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00285.wav",
+   "sr": 48000,
+   "duration": 3.52,
+   "ltas_rel_db": {
+    "4k": -6.3,
+    "8k": -18.5,
+    "12k": -25.9,
+    "14k": -29.5,
+    "16k": -28.0,
+    "18k": -43.1,
+    "20k": -43.9
+   },
+   "bw60_hz": 23156.0,
+   "cliff_db": 14.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.2,
+   "quiet_high_db": -43.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02183.wav",
+   "sr": 48000,
+   "duration": 7.4,
+   "ltas_rel_db": {
+    "4k": 0.4,
+    "8k": -14.9,
+    "12k": -12.7,
+    "14k": -16.5,
+    "16k": -32.8,
+    "18k": -38.9,
+    "20k": -47.4
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.3,
+   "quiet_high_db": -37.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06560.wav",
+   "sr": 48000,
+   "duration": 3.95,
+   "ltas_rel_db": {
+    "4k": -7.1,
+    "8k": -13.3,
+    "12k": -17.5,
+    "14k": -26.8,
+    "16k": -28.3,
+    "18k": -39.9,
+    "20k": -42.1
+   },
+   "bw60_hz": 22629.0,
+   "cliff_db": 12.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.9,
+   "quiet_high_db": -32.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06468.wav",
+   "sr": 48000,
+   "duration": 3.72,
+   "ltas_rel_db": {
+    "4k": 0.9,
+    "8k": -5.6,
+    "12k": -9.3,
+    "14k": -14.0,
+    "16k": -17.7,
+    "18k": -28.1,
+    "20k": -38.1
+   },
+   "bw60_hz": 22500.0,
+   "cliff_db": 9.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.1,
+   "quiet_high_db": -25.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08728.wav",
+   "sr": 48000,
+   "duration": 7.77,
+   "ltas_rel_db": {
+    "4k": -5.9,
+    "8k": -12.7,
+    "12k": -17.4,
+    "14k": -28.8,
+    "16k": -22.7,
+    "18k": -34.0,
+    "20k": -42.4
+   },
+   "bw60_hz": 23977.0,
+   "cliff_db": 12.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.7,
+   "quiet_high_db": -25.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04419.wav",
+   "sr": 48000,
+   "duration": 4.71,
+   "ltas_rel_db": {
+    "4k": -5.5,
+    "8k": -14.4,
+    "12k": -5.0,
+    "14k": -20.5,
+    "16k": -31.1,
+    "18k": -38.6,
+    "20k": -43.3
+   },
+   "bw60_hz": 23320.0,
+   "cliff_db": 11.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.2,
+   "quiet_high_db": -40.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00387.wav",
+   "sr": 48000,
+   "duration": 5.71,
+   "ltas_rel_db": {
+    "4k": -9.2,
+    "8k": -12.2,
+    "12k": -17.9,
+    "14k": -17.8,
+    "16k": -24.5,
+    "18k": -28.8,
+    "20k": -46.7
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 15.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.7,
+   "quiet_high_db": -26.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03723.wav",
+   "sr": 48000,
+   "duration": 4.16,
+   "ltas_rel_db": {
+    "4k": -4.7,
+    "8k": -4.8,
+    "12k": -12.7,
+    "14k": -17.8,
+    "16k": -29.2,
+    "18k": -27.8,
+    "20k": -34.6
+   },
+   "bw60_hz": 22770.0,
+   "cliff_db": 9.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.8,
+   "quiet_high_db": -45.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00324.wav",
+   "sr": 48000,
+   "duration": 7.58,
+   "ltas_rel_db": {
+    "4k": -4.5,
+    "8k": -4.4,
+    "12k": -6.1,
+    "14k": -16.4,
+    "16k": -18.6,
+    "18k": -27.9,
+    "20k": -33.1
+   },
+   "bw60_hz": 23988.0,
+   "cliff_db": 10.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.3,
+   "quiet_high_db": -26.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04473.wav",
+   "sr": 48000,
+   "duration": 5.15,
+   "ltas_rel_db": {
+    "4k": -4.3,
+    "8k": -7.7,
+    "12k": -9.8,
+    "14k": -19.1,
+    "16k": -25.1,
+    "18k": -29.0,
+    "20k": -35.7
+   },
+   "bw60_hz": 23766.0,
+   "cliff_db": 15.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.7,
+   "quiet_high_db": -34.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00760.wav",
+   "sr": 48000,
+   "duration": 5.58,
+   "ltas_rel_db": {
+    "4k": -7.0,
+    "8k": -4.1,
+    "12k": -11.7,
+    "14k": -18.2,
+    "16k": -28.2,
+    "18k": -36.4,
+    "20k": -39.0
+   },
+   "bw60_hz": 22805.0,
+   "cliff_db": 14.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.0,
+   "quiet_high_db": -51.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00619.wav",
+   "sr": 48000,
+   "duration": 3.56,
+   "ltas_rel_db": {
+    "4k": -2.2,
+    "8k": -10.6,
+    "12k": -21.9,
+    "14k": -26.8,
+    "16k": -35.1,
+    "18k": -33.8,
+    "20k": -49.9
+   },
+   "bw60_hz": 21879.0,
+   "cliff_db": 11.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -40.8,
+   "quiet_high_db": -28.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05369.wav",
+   "sr": 48000,
+   "duration": 4.76,
+   "ltas_rel_db": {
+    "4k": -4.4,
+    "8k": -3.3,
+    "12k": -7.2,
+    "14k": -8.2,
+    "16k": -18.3,
+    "18k": -26.3,
+    "20k": -31.8
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 11.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.8,
+   "quiet_high_db": -53.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05770.wav",
+   "sr": 48000,
+   "duration": 3.18,
+   "ltas_rel_db": {
+    "4k": -5.9,
+    "8k": -10.9,
+    "12k": -17.2,
+    "14k": -14.3,
+    "16k": -20.2,
+    "18k": -29.5,
+    "20k": -32.9
+   },
+   "bw60_hz": 23859.0,
+   "cliff_db": 13.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.0,
+   "quiet_high_db": -37.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01552.wav",
+   "sr": 48000,
+   "duration": 6.64,
+   "ltas_rel_db": {
+    "4k": -9.6,
+    "8k": -16.0,
+    "12k": -16.4,
+    "14k": -22.0,
+    "16k": -28.0,
+    "18k": -39.0,
+    "20k": -44.8
+   },
+   "bw60_hz": 22863.0,
+   "cliff_db": 10.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.8,
+   "quiet_high_db": -34.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00325.wav",
+   "sr": 48000,
+   "duration": 5.49,
+   "ltas_rel_db": {
+    "4k": -4.0,
+    "8k": -7.8,
+    "12k": -11.7,
+    "14k": -16.7,
+    "16k": -27.5,
+    "18k": -38.9,
+    "20k": -41.0
+   },
+   "bw60_hz": 23344.0,
+   "cliff_db": 12.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.3,
+   "quiet_high_db": -32.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09350.wav",
+   "sr": 48000,
+   "duration": 5.22,
+   "ltas_rel_db": {
+    "4k": -6.7,
+    "8k": -12.6,
+    "12k": -17.2,
+    "14k": -23.5,
+    "16k": -28.3,
+    "18k": -34.6,
+    "20k": -39.1
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 13.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.0,
+   "quiet_high_db": -41.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07294.wav",
+   "sr": 48000,
+   "duration": 7.83,
+   "ltas_rel_db": {
+    "4k": -2.4,
+    "8k": -6.6,
+    "12k": -10.9,
+    "14k": -9.9,
+    "16k": -16.6,
+    "18k": -22.9,
+    "20k": -30.6
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 10.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.6,
+   "quiet_high_db": -20.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06506.wav",
+   "sr": 48000,
+   "duration": 8.21,
+   "ltas_rel_db": {
+    "4k": -10.6,
+    "8k": -10.8,
+    "12k": -13.7,
+    "14k": -20.4,
+    "16k": -27.1,
+    "18k": -32.1,
+    "20k": -39.1
+   },
+   "bw60_hz": 22980.0,
+   "cliff_db": 7.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.0,
+   "quiet_high_db": -24.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01593.wav",
+   "sr": 48000,
+   "duration": 8.69,
+   "ltas_rel_db": {
+    "4k": -2.3,
+    "8k": -12.9,
+    "12k": -19.6,
+    "14k": -23.0,
+    "16k": -25.1,
+    "18k": -36.1,
+    "20k": -48.9
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 11.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.4,
+   "quiet_high_db": -39.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06072.wav",
+   "sr": 48000,
+   "duration": 3.33,
+   "ltas_rel_db": {
+    "4k": -7.8,
+    "8k": -13.2,
+    "12k": -21.7,
+    "14k": -25.5,
+    "16k": -33.8,
+    "18k": -38.7,
+    "20k": -46.7
+   },
+   "bw60_hz": 23203.0,
+   "cliff_db": 9.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -40.0,
+   "quiet_high_db": -56.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01301.wav",
+   "sr": 48000,
+   "duration": 2.98,
+   "ltas_rel_db": {
+    "4k": -6.8,
+    "8k": -7.6,
+    "12k": -7.5,
+    "14k": -20.4,
+    "16k": -28.9,
+    "18k": -28.7,
+    "20k": -46.5
+   },
+   "bw60_hz": 22465.0,
+   "cliff_db": 10.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.2,
+   "quiet_high_db": -30.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02652.wav",
+   "sr": 48000,
+   "duration": 5.4,
+   "ltas_rel_db": {
+    "4k": -9.2,
+    "8k": -12.7,
+    "12k": -12.6,
+    "14k": -14.8,
+    "16k": -18.4,
+    "18k": -23.1,
+    "20k": -47.9
+   },
+   "bw60_hz": 22840.0,
+   "cliff_db": 18.3,
+   "n_cliff_windows": 1,
+   "quiet_low_db": -39.8,
+   "quiet_high_db": -43.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02579.wav",
+   "sr": 48000,
+   "duration": 4.97,
+   "ltas_rel_db": {
+    "4k": -11.0,
+    "8k": -13.3,
+    "12k": -10.8,
+    "14k": -12.4,
+    "16k": -19.6,
+    "18k": -27.8,
+    "20k": -33.1
+   },
+   "bw60_hz": 23965.0,
+   "cliff_db": 7.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -28.6,
+   "quiet_high_db": -36.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06927.wav",
+   "sr": 48000,
+   "duration": 9.37,
+   "ltas_rel_db": {
+    "4k": -3.3,
+    "8k": -15.5,
+    "12k": -13.9,
+    "14k": -22.5,
+    "16k": -27.0,
+    "18k": -38.8,
+    "20k": -43.3
+   },
+   "bw60_hz": 23355.0,
+   "cliff_db": 10.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.2,
+   "quiet_high_db": -38.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09351.wav",
+   "sr": 48000,
+   "duration": 4.82,
+   "ltas_rel_db": {
+    "4k": -4.8,
+    "8k": -9.9,
+    "12k": -16.0,
+    "14k": -17.0,
+    "16k": -19.8,
+    "18k": -28.2,
+    "20k": -36.8
+   },
+   "bw60_hz": 23836.0,
+   "cliff_db": 12.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -58.1,
+   "quiet_high_db": -54.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02739.wav",
+   "sr": 48000,
+   "duration": 7.28,
+   "ltas_rel_db": {
+    "4k": -7.1,
+    "8k": -11.5,
+    "12k": -10.2,
+    "14k": -18.5,
+    "16k": -24.7,
+    "18k": -30.6,
+    "20k": -37.2
+   },
+   "bw60_hz": 23871.0,
+   "cliff_db": 8.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.5,
+   "quiet_high_db": -31.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09557.wav",
+   "sr": 48000,
+   "duration": 6.11,
+   "ltas_rel_db": {
+    "4k": -0.2,
+    "8k": -5.3,
+    "12k": -17.3,
+    "14k": -20.3,
+    "16k": -23.6,
+    "18k": -27.6,
+    "20k": -37.5
+   },
+   "bw60_hz": 22547.0,
+   "cliff_db": 10.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -43.6,
+   "quiet_high_db": -36.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04186.wav",
+   "sr": 48000,
+   "duration": 7.24,
+   "ltas_rel_db": {
+    "4k": -3.8,
+    "8k": -13.3,
+    "12k": -16.5,
+    "14k": -24.1,
+    "16k": -28.1,
+    "18k": -36.3,
+    "20k": -47.3
+   },
+   "bw60_hz": 22934.0,
+   "cliff_db": 11.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.9,
+   "quiet_high_db": -32.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08405.wav",
+   "sr": 48000,
+   "duration": 6.34,
+   "ltas_rel_db": {
+    "4k": -5.9,
+    "8k": -18.1,
+    "12k": -23.9,
+    "14k": -24.1,
+    "16k": -32.3,
+    "18k": -38.4,
+    "20k": -43.0
+   },
+   "bw60_hz": 23777.0,
+   "cliff_db": 10.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.6,
+   "quiet_high_db": -30.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04566.wav",
+   "sr": 48000,
+   "duration": 6.08,
+   "ltas_rel_db": {
+    "4k": -4.9,
+    "8k": -2.5,
+    "12k": -14.8,
+    "14k": -20.2,
+    "16k": -27.5,
+    "18k": -34.7,
+    "20k": -39.3
+   },
+   "bw60_hz": 22898.0,
+   "cliff_db": 7.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.2,
+   "quiet_high_db": -56.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07605.wav",
+   "sr": 48000,
+   "duration": 8.98,
+   "ltas_rel_db": {
+    "4k": -3.9,
+    "8k": -14.8,
+    "12k": -20.2,
+    "14k": -24.3,
+    "16k": -31.5,
+    "18k": -35.3,
+    "20k": -47.0
+   },
+   "bw60_hz": 21750.0,
+   "cliff_db": 10.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.1,
+   "quiet_high_db": -28.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06799.wav",
+   "sr": 48000,
+   "duration": 4.04,
+   "ltas_rel_db": {
+    "4k": -8.2,
+    "8k": -17.4,
+    "12k": -26.1,
+    "14k": -27.6,
+    "16k": -33.9,
+    "18k": -45.9,
+    "20k": -55.5
+   },
+   "bw60_hz": 21832.0,
+   "cliff_db": 7.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -41.0,
+   "quiet_high_db": -40.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00378.wav",
+   "sr": 48000,
+   "duration": 7.91,
+   "ltas_rel_db": {
+    "4k": -8.9,
+    "8k": -19.6,
+    "12k": -19.9,
+    "14k": -28.8,
+    "16k": -31.3,
+    "18k": -37.8,
+    "20k": -57.1
+   },
+   "bw60_hz": 22523.0,
+   "cliff_db": 11.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.2,
+   "quiet_high_db": -27.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08376.wav",
+   "sr": 48000,
+   "duration": 5.18,
+   "ltas_rel_db": {
+    "4k": -5.3,
+    "8k": -12.8,
+    "12k": -22.0,
+    "14k": -27.6,
+    "16k": -31.9,
+    "18k": -41.1,
+    "20k": -52.2
+   },
+   "bw60_hz": 22430.0,
+   "cliff_db": 9.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.7,
+   "quiet_high_db": -35.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06505.wav",
+   "sr": 48000,
+   "duration": 2.65,
+   "ltas_rel_db": {
+    "4k": -5.0,
+    "8k": 0.0,
+    "12k": -13.2,
+    "14k": -5.8,
+    "16k": -14.9,
+    "18k": -34.4,
+    "20k": -29.3
+   },
+   "bw60_hz": 23109.0,
+   "cliff_db": 14.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.5,
+   "quiet_high_db": -33.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05543.wav",
+   "sr": 48000,
+   "duration": 8.03,
+   "ltas_rel_db": {
+    "4k": -2.9,
+    "8k": -6.5,
+    "12k": -5.0,
+    "14k": -7.2,
+    "16k": -17.7,
+    "18k": -28.6,
+    "20k": -31.9
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 9.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.8,
+   "quiet_high_db": -42.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00458.wav",
+   "sr": 48000,
+   "duration": 8.37,
+   "ltas_rel_db": {
+    "4k": 0.0,
+    "8k": -14.4,
+    "12k": -19.5,
+    "14k": -29.1,
+    "16k": -31.8,
+    "18k": -35.9,
+    "20k": -47.9
+   },
+   "bw60_hz": 23719.0,
+   "cliff_db": 8.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.2,
+   "quiet_high_db": -38.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07437.wav",
+   "sr": 48000,
+   "duration": 8.33,
+   "ltas_rel_db": {
+    "4k": -6.0,
+    "8k": -3.6,
+    "12k": -0.7,
+    "14k": -7.7,
+    "16k": -15.3,
+    "18k": -20.3,
+    "20k": -28.2
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -27.1,
+   "quiet_high_db": -35.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02882.wav",
+   "sr": 48000,
+   "duration": 4.65,
+   "ltas_rel_db": {
+    "4k": -5.3,
+    "8k": -8.9,
+    "12k": -13.7,
+    "14k": -15.7,
+    "16k": -21.2,
+    "18k": -30.5,
+    "20k": -38.6
+   },
+   "bw60_hz": 23684.0,
+   "cliff_db": 9.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.2,
+   "quiet_high_db": -41.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04783.wav",
+   "sr": 48000,
+   "duration": 4.04,
+   "ltas_rel_db": {
+    "4k": -2.4,
+    "8k": -15.9,
+    "12k": -16.0,
+    "14k": -22.5,
+    "16k": -24.7,
+    "18k": -37.8,
+    "20k": -43.6
+   },
+   "bw60_hz": 22254.0,
+   "cliff_db": 19.2,
+   "n_cliff_windows": 1,
+   "quiet_low_db": -38.0,
+   "quiet_high_db": -40.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04406.wav",
+   "sr": 48000,
+   "duration": 4.63,
+   "ltas_rel_db": {
+    "4k": -10.5,
+    "8k": -17.7,
+    "12k": -11.9,
+    "14k": -28.3,
+    "16k": -26.7,
+    "18k": -31.6,
+    "20k": -40.7
+   },
+   "bw60_hz": 23379.0,
+   "cliff_db": 14.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -28.8,
+   "quiet_high_db": -31.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00151.wav",
+   "sr": 48000,
+   "duration": 7.01,
+   "ltas_rel_db": {
+    "4k": 0.8,
+    "8k": -8.1,
+    "12k": -11.9,
+    "14k": -17.6,
+    "16k": -23.0,
+    "18k": -22.9,
+    "20k": -39.9
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 14.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.3,
+   "quiet_high_db": -34.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02741.wav",
+   "sr": 48000,
+   "duration": 7.87,
+   "ltas_rel_db": {
+    "4k": -4.4,
+    "8k": -8.7,
+    "12k": -7.1,
+    "14k": -16.7,
+    "16k": -23.0,
+    "18k": -28.6,
+    "20k": -37.7
+   },
+   "bw60_hz": 23227.0,
+   "cliff_db": 11.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.2,
+   "quiet_high_db": -23.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05325.wav",
+   "sr": 48000,
+   "duration": 7.6,
+   "ltas_rel_db": {
+    "4k": -8.2,
+    "8k": -20.2,
+    "12k": -20.0,
+    "14k": -24.9,
+    "16k": -34.7,
+    "18k": -37.5,
+    "20k": -51.3
+   },
+   "bw60_hz": 23988.0,
+   "cliff_db": 12.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.7,
+   "quiet_high_db": -28.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08655.wav",
+   "sr": 48000,
+   "duration": 7.06,
+   "ltas_rel_db": {
+    "4k": -1.7,
+    "8k": -4.9,
+    "12k": -1.1,
+    "14k": -16.1,
+    "16k": -24.0,
+    "18k": -25.5,
+    "20k": -31.3
+   },
+   "bw60_hz": 23414.0,
+   "cliff_db": 13.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.2,
+   "quiet_high_db": -32.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01036.wav",
+   "sr": 48000,
+   "duration": 3.85,
+   "ltas_rel_db": {
+    "4k": -6.5,
+    "8k": -17.7,
+    "12k": -29.2,
+    "14k": -35.1,
+    "16k": -40.4,
+    "18k": -45.5,
+    "20k": -62.0
+   },
+   "bw60_hz": 19289.0,
+   "cliff_db": 15.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -27.5,
+   "quiet_high_db": -26.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07529.wav",
+   "sr": 48000,
+   "duration": 8.31,
+   "ltas_rel_db": {
+    "4k": -7.2,
+    "8k": -9.6,
+    "12k": -12.6,
+    "14k": -13.2,
+    "16k": -15.7,
+    "18k": -25.0,
+    "20k": -38.0
+   },
+   "bw60_hz": 22934.0,
+   "cliff_db": 8.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.8,
+   "quiet_high_db": -24.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08690.wav",
+   "sr": 48000,
+   "duration": 7.36,
+   "ltas_rel_db": {
+    "4k": 3.1,
+    "8k": -7.3,
+    "12k": -14.7,
+    "14k": -20.2,
+    "16k": -27.6,
+    "18k": -31.8,
+    "20k": -43.3
+   },
+   "bw60_hz": 22266.0,
+   "cliff_db": 8.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.7,
+   "quiet_high_db": -33.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01537.wav",
+   "sr": 48000,
+   "duration": 7.86,
+   "ltas_rel_db": {
+    "4k": -9.2,
+    "8k": -8.3,
+    "12k": -7.3,
+    "14k": -10.9,
+    "16k": -13.3,
+    "18k": -21.4,
+    "20k": -25.7
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 10.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -25.8,
+   "quiet_high_db": -34.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06503.wav",
+   "sr": 48000,
+   "duration": 7.49,
+   "ltas_rel_db": {
+    "4k": -3.0,
+    "8k": -14.0,
+    "12k": -22.0,
+    "14k": -29.4,
+    "16k": -33.9,
+    "18k": -38.6,
+    "20k": -53.2
+   },
+   "bw60_hz": 20918.0,
+   "cliff_db": 12.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.7,
+   "quiet_high_db": -24.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08824.wav",
+   "sr": 48000,
+   "duration": 6.06,
+   "ltas_rel_db": {
+    "4k": -9.2,
+    "8k": -10.5,
+    "12k": -11.1,
+    "14k": -15.0,
+    "16k": -22.2,
+    "18k": -30.1,
+    "20k": -43.9
+   },
+   "bw60_hz": 23273.0,
+   "cliff_db": 10.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.3,
+   "quiet_high_db": -35.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06382.wav",
+   "sr": 48000,
+   "duration": 11.93,
+   "ltas_rel_db": {
+    "4k": -0.0,
+    "8k": -7.6,
+    "12k": -10.3,
+    "14k": -10.9,
+    "16k": -30.4,
+    "18k": -38.8,
+    "20k": -44.9
+   },
+   "bw60_hz": 22535.0,
+   "cliff_db": 10.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.5,
+   "quiet_high_db": -23.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03652.wav",
+   "sr": 48000,
+   "duration": 5.14,
+   "ltas_rel_db": {
+    "4k": -7.2,
+    "8k": -12.5,
+    "12k": -10.4,
+    "14k": -11.1,
+    "16k": -17.1,
+    "18k": -27.3,
+    "20k": -28.9
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 9.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.9,
+   "quiet_high_db": -29.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05386.wav",
+   "sr": 48000,
+   "duration": 3.83,
+   "ltas_rel_db": {
+    "4k": -9.9,
+    "8k": -12.7,
+    "12k": -17.2,
+    "14k": -21.1,
+    "16k": -29.1,
+    "18k": -31.3,
+    "20k": -47.0
+   },
+   "bw60_hz": 23379.0,
+   "cliff_db": 14.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.5,
+   "quiet_high_db": -47.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03338.wav",
+   "sr": 48000,
+   "duration": 7.91,
+   "ltas_rel_db": {
+    "4k": -1.7,
+    "8k": -6.4,
+    "12k": -6.2,
+    "14k": -14.4,
+    "16k": -20.6,
+    "18k": -36.5,
+    "20k": -33.7
+   },
+   "bw60_hz": 23695.0,
+   "cliff_db": 10.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.7,
+   "quiet_high_db": -27.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06686.wav",
+   "sr": 48000,
+   "duration": 6.95,
+   "ltas_rel_db": {
+    "4k": -4.1,
+    "8k": -13.8,
+    "12k": -15.6,
+    "14k": -24.0,
+    "16k": -31.9,
+    "18k": -36.9,
+    "20k": -41.0
+   },
+   "bw60_hz": 23555.0,
+   "cliff_db": 9.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.6,
+   "quiet_high_db": -24.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05324.wav",
+   "sr": 48000,
+   "duration": 5.24,
+   "ltas_rel_db": {
+    "4k": -7.6,
+    "8k": -9.4,
+    "12k": -8.3,
+    "14k": -11.1,
+    "16k": -22.9,
+    "18k": -24.0,
+    "20k": -31.4
+   },
+   "bw60_hz": 23977.0,
+   "cliff_db": 8.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.3,
+   "quiet_high_db": -44.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00567.wav",
+   "sr": 48000,
+   "duration": 5.08,
+   "ltas_rel_db": {
+    "4k": -10.5,
+    "8k": -18.5,
+    "12k": -20.8,
+    "14k": -29.8,
+    "16k": -35.4,
+    "18k": -35.0,
+    "20k": -47.2
+   },
+   "bw60_hz": 22523.0,
+   "cliff_db": 12.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.0,
+   "quiet_high_db": -38.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05769.wav",
+   "sr": 48000,
+   "duration": 4.3,
+   "ltas_rel_db": {
+    "4k": -0.5,
+    "8k": -11.5,
+    "12k": -13.4,
+    "14k": -21.7,
+    "16k": -28.1,
+    "18k": -32.6,
+    "20k": -37.5
+   },
+   "bw60_hz": 23016.0,
+   "cliff_db": 12.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.9,
+   "quiet_high_db": -30.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05492.wav",
+   "sr": 48000,
+   "duration": 6.68,
+   "ltas_rel_db": {
+    "4k": -5.8,
+    "8k": -15.3,
+    "12k": -17.1,
+    "14k": -22.3,
+    "16k": -27.4,
+    "18k": -38.8,
+    "20k": -41.7
+   },
+   "bw60_hz": 23965.0,
+   "cliff_db": 6.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.7,
+   "quiet_high_db": -48.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06639.wav",
+   "sr": 48000,
+   "duration": 9.47,
+   "ltas_rel_db": {
+    "4k": -8.0,
+    "8k": -7.3,
+    "12k": -10.4,
+    "14k": -15.0,
+    "16k": -14.9,
+    "18k": -27.2,
+    "20k": -36.0
+   },
+   "bw60_hz": 23461.0,
+   "cliff_db": 11.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.9,
+   "quiet_high_db": -29.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02297.wav",
+   "sr": 48000,
+   "duration": 3.81,
+   "ltas_rel_db": {
+    "4k": -13.0,
+    "8k": -13.0,
+    "12k": -14.3,
+    "14k": -19.0,
+    "16k": -27.2,
+    "18k": -33.2,
+    "20k": -39.4
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 16.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.3,
+   "quiet_high_db": -26.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04603.wav",
+   "sr": 48000,
+   "duration": 5.36,
+   "ltas_rel_db": {
+    "4k": 0.7,
+    "8k": -2.6,
+    "12k": -10.2,
+    "14k": -22.3,
+    "16k": -25.6,
+    "18k": -38.0,
+    "20k": -43.6
+   },
+   "bw60_hz": 23086.0,
+   "cliff_db": 10.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.8,
+   "quiet_high_db": -27.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02469.wav",
+   "sr": 48000,
+   "duration": 9.73,
+   "ltas_rel_db": {
+    "4k": -13.4,
+    "8k": -20.6,
+    "12k": -16.9,
+    "14k": -27.5,
+    "16k": -32.3,
+    "18k": -34.7,
+    "20k": -45.5
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 10.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.8,
+   "quiet_high_db": -29.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08608.wav",
+   "sr": 48000,
+   "duration": 9.35,
+   "ltas_rel_db": {
+    "4k": -5.7,
+    "8k": -13.8,
+    "12k": -15.7,
+    "14k": -12.3,
+    "16k": -16.6,
+    "18k": -31.5,
+    "20k": -38.5
+   },
+   "bw60_hz": 23777.0,
+   "cliff_db": 14.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.0,
+   "quiet_high_db": -28.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05368.wav",
+   "sr": 48000,
+   "duration": 9.05,
+   "ltas_rel_db": {
+    "4k": -2.5,
+    "8k": -7.4,
+    "12k": -15.5,
+    "14k": -18.2,
+    "16k": -29.1,
+    "18k": -35.7,
+    "20k": -39.1
+   },
+   "bw60_hz": 23156.0,
+   "cliff_db": 10.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.6,
+   "quiet_high_db": -29.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07271.wav",
+   "sr": 48000,
+   "duration": 7.54,
+   "ltas_rel_db": {
+    "4k": -11.0,
+    "8k": -20.4,
+    "12k": -20.7,
+    "14k": -26.8,
+    "16k": -32.5,
+    "18k": -39.2,
+    "20k": -50.9
+   },
+   "bw60_hz": 23227.0,
+   "cliff_db": 8.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.7,
+   "quiet_high_db": -31.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07008.wav",
+   "sr": 48000,
+   "duration": 5.62,
+   "ltas_rel_db": {
+    "4k": -6.5,
+    "8k": -8.5,
+    "12k": -14.4,
+    "14k": -17.7,
+    "16k": -19.8,
+    "18k": -29.6,
+    "20k": -40.3
+   },
+   "bw60_hz": 23836.0,
+   "cliff_db": 9.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.7,
+   "quiet_high_db": -50.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04195.wav",
+   "sr": 48000,
+   "duration": 3.36,
+   "ltas_rel_db": {
+    "4k": -3.5,
+    "8k": -0.4,
+    "12k": -2.2,
+    "14k": -10.9,
+    "16k": -15.7,
+    "18k": -26.1,
+    "20k": -29.0
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.4,
+   "quiet_high_db": -36.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03346.wav",
+   "sr": 48000,
+   "duration": 7.44,
+   "ltas_rel_db": {
+    "4k": -9.5,
+    "8k": -13.0,
+    "12k": -14.6,
+    "14k": -21.8,
+    "16k": -26.1,
+    "18k": -31.7,
+    "20k": -41.7
+   },
+   "bw60_hz": 23496.0,
+   "cliff_db": 11.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.0,
+   "quiet_high_db": -35.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07861.wav",
+   "sr": 48000,
+   "duration": 4.67,
+   "ltas_rel_db": {
+    "4k": -4.8,
+    "8k": -17.1,
+    "12k": -16.2,
+    "14k": -31.3,
+    "16k": -30.4,
+    "18k": -37.0,
+    "20k": -44.6
+   },
+   "bw60_hz": 23531.0,
+   "cliff_db": 13.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.2,
+   "quiet_high_db": -26.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05412.wav",
+   "sr": 48000,
+   "duration": 7.82,
+   "ltas_rel_db": {
+    "4k": -9.0,
+    "8k": -11.7,
+    "12k": -19.7,
+    "14k": -23.6,
+    "16k": -29.6,
+    "18k": -36.1,
+    "20k": -38.8
+   },
+   "bw60_hz": 23660.0,
+   "cliff_db": 7.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -41.8,
+   "quiet_high_db": -35.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02764.wav",
+   "sr": 48000,
+   "duration": 6.41,
+   "ltas_rel_db": {
+    "4k": -7.5,
+    "8k": -7.9,
+    "12k": -12.3,
+    "14k": -16.4,
+    "16k": -25.3,
+    "18k": -26.6,
+    "20k": -39.7
+   },
+   "bw60_hz": 23871.0,
+   "cliff_db": 12.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.6,
+   "quiet_high_db": -34.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01963.wav",
+   "sr": 48000,
+   "duration": 3.72,
+   "ltas_rel_db": {
+    "4k": -8.6,
+    "8k": -2.8,
+    "12k": -4.6,
+    "14k": -13.2,
+    "16k": -9.6,
+    "18k": -19.7,
+    "20k": -26.9
+   },
+   "bw60_hz": 23965.0,
+   "cliff_db": 12.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.8,
+   "quiet_high_db": -47.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05801.wav",
+   "sr": 48000,
+   "duration": 8.2,
+   "ltas_rel_db": {
+    "4k": -7.9,
+    "8k": -11.0,
+    "12k": -14.2,
+    "14k": -16.3,
+    "16k": -22.8,
+    "18k": -28.5,
+    "20k": -35.4
+   },
+   "bw60_hz": 23977.0,
+   "cliff_db": 7.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.5,
+   "quiet_high_db": -35.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05474.wav",
+   "sr": 48000,
+   "duration": 8.2,
+   "ltas_rel_db": {
+    "4k": -8.5,
+    "8k": -15.3,
+    "12k": -18.3,
+    "14k": -32.1,
+    "16k": -36.5,
+    "18k": -38.4,
+    "20k": -44.2
+   },
+   "bw60_hz": 23555.0,
+   "cliff_db": 11.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.7,
+   "quiet_high_db": -24.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01124.wav",
+   "sr": 48000,
+   "duration": 7.65,
+   "ltas_rel_db": {
+    "4k": 1.3,
+    "8k": -6.5,
+    "12k": -11.7,
+    "14k": -14.7,
+    "16k": -16.7,
+    "18k": -24.8,
+    "20k": -43.4
+   },
+   "bw60_hz": 23555.0,
+   "cliff_db": 14.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.5,
+   "quiet_high_db": -33.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06055.wav",
+   "sr": 48000,
+   "duration": 9.12,
+   "ltas_rel_db": {
+    "4k": -11.0,
+    "8k": -7.9,
+    "12k": -14.1,
+    "14k": -17.4,
+    "16k": -27.5,
+    "18k": -38.3,
+    "20k": -47.4
+   },
+   "bw60_hz": 23930.0,
+   "cliff_db": 9.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.7,
+   "quiet_high_db": -34.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01493.wav",
+   "sr": 48000,
+   "duration": 6.1,
+   "ltas_rel_db": {
+    "4k": -10.1,
+    "8k": -15.4,
+    "12k": -21.2,
+    "14k": -28.8,
+    "16k": -24.4,
+    "18k": -39.5,
+    "20k": -44.7
+   },
+   "bw60_hz": 22781.0,
+   "cliff_db": 16.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.2,
+   "quiet_high_db": -39.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01875.wav",
+   "sr": 48000,
+   "duration": 5.8,
+   "ltas_rel_db": {
+    "4k": -7.2,
+    "8k": -13.6,
+    "12k": -17.9,
+    "14k": -24.4,
+    "16k": -34.7,
+    "18k": -36.7,
+    "20k": -46.3
+   },
+   "bw60_hz": 23391.0,
+   "cliff_db": 8.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.4,
+   "quiet_high_db": -48.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07558.wav",
+   "sr": 48000,
+   "duration": 9.83,
+   "ltas_rel_db": {
+    "4k": -9.7,
+    "8k": -13.6,
+    "12k": -14.9,
+    "14k": -23.4,
+    "16k": -27.6,
+    "18k": -31.5,
+    "20k": -42.1
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 7.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.7,
+   "quiet_high_db": -22.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09044.wav",
+   "sr": 48000,
+   "duration": 10.29,
+   "ltas_rel_db": {
+    "4k": -4.6,
+    "8k": -10.5,
+    "12k": -20.5,
+    "14k": -28.7,
+    "16k": -32.8,
+    "18k": -40.6,
+    "20k": -45.5
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 7.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.5,
+   "quiet_high_db": -27.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07143.wav",
+   "sr": 48000,
+   "duration": 7.26,
+   "ltas_rel_db": {
+    "4k": -4.6,
+    "8k": -8.5,
+    "12k": -12.8,
+    "14k": -18.0,
+    "16k": -24.9,
+    "18k": -34.8,
+    "20k": -38.6
+   },
+   "bw60_hz": 23520.0,
+   "cliff_db": 10.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.5,
+   "quiet_high_db": -36.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05798.wav",
+   "sr": 48000,
+   "duration": 6.54,
+   "ltas_rel_db": {
+    "4k": -13.0,
+    "8k": -16.1,
+    "12k": -18.6,
+    "14k": -17.7,
+    "16k": -23.2,
+    "18k": -25.5,
+    "20k": -45.4
+   },
+   "bw60_hz": 23133.0,
+   "cliff_db": 19.0,
+   "n_cliff_windows": 1,
+   "quiet_low_db": -37.4,
+   "quiet_high_db": -29.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08079.wav",
+   "sr": 48000,
+   "duration": 5.47,
+   "ltas_rel_db": {
+    "4k": -5.8,
+    "8k": -12.6,
+    "12k": -19.5,
+    "14k": -13.2,
+    "16k": -28.6,
+    "18k": -33.7,
+    "20k": -48.6
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 14.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.1,
+   "quiet_high_db": -36.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04826.wav",
+   "sr": 48000,
+   "duration": 7.79,
+   "ltas_rel_db": {
+    "4k": -1.3,
+    "8k": -5.9,
+    "12k": -13.0,
+    "14k": -15.9,
+    "16k": -25.1,
+    "18k": -30.3,
+    "20k": -36.4
+   },
+   "bw60_hz": 23719.0,
+   "cliff_db": 15.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.7,
+   "quiet_high_db": -39.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03738.wav",
+   "sr": 48000,
+   "duration": 5.7,
+   "ltas_rel_db": {
+    "4k": 0.1,
+    "8k": -9.0,
+    "12k": -11.6,
+    "14k": -18.9,
+    "16k": -28.3,
+    "18k": -27.4,
+    "20k": -42.5
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.8,
+   "quiet_high_db": -37.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01625.wav",
+   "sr": 48000,
+   "duration": 5.73,
+   "ltas_rel_db": {
+    "4k": -2.3,
+    "8k": -3.6,
+    "12k": -12.9,
+    "14k": -15.8,
+    "16k": -24.4,
+    "18k": -35.3,
+    "20k": -37.4
+   },
+   "bw60_hz": 23344.0,
+   "cliff_db": 7.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.7,
+   "quiet_high_db": -39.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06723.wav",
+   "sr": 48000,
+   "duration": 4.67,
+   "ltas_rel_db": {
+    "4k": -2.3,
+    "8k": -2.7,
+    "12k": -8.4,
+    "14k": -12.0,
+    "16k": -15.8,
+    "18k": -23.0,
+    "20k": -34.8
+   },
+   "bw60_hz": 23508.0,
+   "cliff_db": 12.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.7,
+   "quiet_high_db": -36.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01744.wav",
+   "sr": 48000,
+   "duration": 4.52,
+   "ltas_rel_db": {
+    "4k": -2.6,
+    "8k": -11.2,
+    "12k": -18.6,
+    "14k": -25.4,
+    "16k": -31.0,
+    "18k": -38.3,
+    "20k": -52.3
+   },
+   "bw60_hz": 21422.0,
+   "cliff_db": 14.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.4,
+   "quiet_high_db": -31.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01836.wav",
+   "sr": 48000,
+   "duration": 10.18,
+   "ltas_rel_db": {
+    "4k": -3.5,
+    "8k": -7.3,
+    "12k": -5.4,
+    "14k": -18.5,
+    "16k": -15.4,
+    "18k": -20.6,
+    "20k": -35.4
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -22.6,
+   "quiet_high_db": -25.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08780.wav",
+   "sr": 48000,
+   "duration": 4.46,
+   "ltas_rel_db": {
+    "4k": 3.2,
+    "8k": -5.4,
+    "12k": -12.4,
+    "14k": -27.6,
+    "16k": -23.7,
+    "18k": -28.4,
+    "20k": -43.7
+   },
+   "bw60_hz": 22488.0,
+   "cliff_db": 12.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.9,
+   "quiet_high_db": -35.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04063.wav",
+   "sr": 48000,
+   "duration": 6.0,
+   "ltas_rel_db": {
+    "4k": -5.3,
+    "8k": -12.1,
+    "12k": -17.2,
+    "14k": -18.9,
+    "16k": -22.0,
+    "18k": -30.6,
+    "20k": -36.1
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -44.1,
+   "quiet_high_db": -36.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08970.wav",
+   "sr": 48000,
+   "duration": 6.79,
+   "ltas_rel_db": {
+    "4k": -3.2,
+    "8k": -10.7,
+    "12k": -8.9,
+    "14k": -11.0,
+    "16k": -12.0,
+    "18k": -22.6,
+    "20k": -30.8
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 16.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.4,
+   "quiet_high_db": -31.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07055.wav",
+   "sr": 48000,
+   "duration": 9.19,
+   "ltas_rel_db": {
+    "4k": -0.3,
+    "8k": -13.1,
+    "12k": -10.9,
+    "14k": -17.9,
+    "16k": -23.0,
+    "18k": -34.1,
+    "20k": -37.8
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.8,
+   "quiet_high_db": -43.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03258.wav",
+   "sr": 48000,
+   "duration": 3.66,
+   "ltas_rel_db": {
+    "4k": -4.2,
+    "8k": -15.9,
+    "12k": -19.5,
+    "14k": -24.8,
+    "16k": -30.2,
+    "18k": -40.4,
+    "20k": -48.6
+   },
+   "bw60_hz": 22828.0,
+   "cliff_db": 8.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.7,
+   "quiet_high_db": -21.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00305.wav",
+   "sr": 48000,
+   "duration": 6.94,
+   "ltas_rel_db": {
+    "4k": 0.8,
+    "8k": -6.9,
+    "12k": -10.7,
+    "14k": -15.0,
+    "16k": -22.3,
+    "18k": -26.0,
+    "20k": -38.2
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 10.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.9,
+   "quiet_high_db": -32.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02595.wav",
+   "sr": 48000,
+   "duration": 5.72,
+   "ltas_rel_db": {
+    "4k": -2.0,
+    "8k": -5.4,
+    "12k": -8.0,
+    "14k": -18.1,
+    "16k": -24.2,
+    "18k": -33.0,
+    "20k": -38.8
+   },
+   "bw60_hz": 22758.0,
+   "cliff_db": 9.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.0,
+   "quiet_high_db": -26.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00638.wav",
+   "sr": 48000,
+   "duration": 8.75,
+   "ltas_rel_db": {
+    "4k": -13.9,
+    "8k": -13.7,
+    "12k": -12.8,
+    "14k": -22.3,
+    "16k": -24.5,
+    "18k": -24.6,
+    "20k": -36.4
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 13.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -45.0,
+   "quiet_high_db": -46.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00077.wav",
+   "sr": 48000,
+   "duration": 4.06,
+   "ltas_rel_db": {
+    "4k": -6.2,
+    "8k": -13.7,
+    "12k": -18.8,
+    "14k": -21.2,
+    "16k": -33.2,
+    "18k": -38.3,
+    "20k": -60.5
+   },
+   "bw60_hz": 21141.0,
+   "cliff_db": 19.1,
+   "n_cliff_windows": 1,
+   "quiet_low_db": -33.4,
+   "quiet_high_db": -35.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00772.wav",
+   "sr": 48000,
+   "duration": 4.71,
+   "ltas_rel_db": {
+    "4k": -5.0,
+    "8k": -11.8,
+    "12k": -19.1,
+    "14k": -22.7,
+    "16k": -28.5,
+    "18k": -38.8,
+    "20k": -49.8
+   },
+   "bw60_hz": 21609.0,
+   "cliff_db": 14.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.0,
+   "quiet_high_db": -22.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05084.wav",
+   "sr": 48000,
+   "duration": 3.88,
+   "ltas_rel_db": {
+    "4k": -5.4,
+    "8k": -15.4,
+    "12k": -16.4,
+    "14k": -25.9,
+    "16k": -33.2,
+    "18k": -41.8,
+    "20k": -45.2
+   },
+   "bw60_hz": 22617.0,
+   "cliff_db": 9.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.9,
+   "quiet_high_db": -29.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07935.wav",
+   "sr": 48000,
+   "duration": 2.41,
+   "ltas_rel_db": {
+    "4k": -2.4,
+    "8k": -4.2,
+    "12k": 3.1,
+    "14k": -29.0,
+    "16k": -14.5,
+    "18k": -26.0,
+    "20k": -23.1
+   },
+   "bw60_hz": 23227.0,
+   "cliff_db": 22.1,
+   "n_cliff_windows": 1,
+   "quiet_low_db": -79.6,
+   "quiet_high_db": -85.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08365.wav",
+   "sr": 48000,
+   "duration": 8.46,
+   "ltas_rel_db": {
+    "4k": -7.7,
+    "8k": -6.2,
+    "12k": -10.8,
+    "14k": -15.5,
+    "16k": -21.9,
+    "18k": -24.4,
+    "20k": -32.6
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 7.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.9,
+   "quiet_high_db": -30.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06449.wav",
+   "sr": 48000,
+   "duration": 4.83,
+   "ltas_rel_db": {
+    "4k": -14.0,
+    "8k": -13.2,
+    "12k": -13.7,
+    "14k": -18.9,
+    "16k": -28.9,
+    "18k": -31.8,
+    "20k": -40.8
+   },
+   "bw60_hz": 22641.0,
+   "cliff_db": 10.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.4,
+   "quiet_high_db": -31.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07139.wav",
+   "sr": 48000,
+   "duration": 8.88,
+   "ltas_rel_db": {
+    "4k": -0.5,
+    "8k": 5.8,
+    "12k": -9.9,
+    "14k": -16.3,
+    "16k": -21.7,
+    "18k": -29.5,
+    "20k": -39.4
+   },
+   "bw60_hz": 23473.0,
+   "cliff_db": 12.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.8,
+   "quiet_high_db": -39.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05846.wav",
+   "sr": 48000,
+   "duration": 6.08,
+   "ltas_rel_db": {
+    "4k": -2.2,
+    "8k": -12.6,
+    "12k": -14.7,
+    "14k": -20.9,
+    "16k": -30.3,
+    "18k": -34.9,
+    "20k": -37.4
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 7.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -42.6,
+   "quiet_high_db": -57.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09033.wav",
+   "sr": 48000,
+   "duration": 6.16,
+   "ltas_rel_db": {
+    "4k": -2.6,
+    "8k": -10.6,
+    "12k": -17.6,
+    "14k": -21.5,
+    "16k": -30.7,
+    "18k": -34.7,
+    "20k": -40.5
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 7.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.3,
+   "quiet_high_db": -29.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01297.wav",
+   "sr": 48000,
+   "duration": 3.36,
+   "ltas_rel_db": {
+    "4k": -3.7,
+    "8k": -2.7,
+    "12k": -6.0,
+    "14k": -8.6,
+    "16k": -9.0,
+    "18k": -19.4,
+    "20k": -35.5
+   },
+   "bw60_hz": 23133.0,
+   "cliff_db": 10.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -25.9,
+   "quiet_high_db": -30.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04423.wav",
+   "sr": 48000,
+   "duration": 9.72,
+   "ltas_rel_db": {
+    "4k": -10.2,
+    "8k": -19.3,
+    "12k": -19.4,
+    "14k": -22.4,
+    "16k": -23.7,
+    "18k": -32.2,
+    "20k": -43.2
+   },
+   "bw60_hz": 23777.0,
+   "cliff_db": 7.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.2,
+   "quiet_high_db": -31.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08255.wav",
+   "sr": 48000,
+   "duration": 6.04,
+   "ltas_rel_db": {
+    "4k": -2.6,
+    "8k": -9.6,
+    "12k": -10.4,
+    "14k": -13.5,
+    "16k": -12.0,
+    "18k": -20.1,
+    "20k": -23.0
+   },
+   "bw60_hz": 23379.0,
+   "cliff_db": 10.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.1,
+   "quiet_high_db": -38.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08683.wav",
+   "sr": 48000,
+   "duration": 7.88,
+   "ltas_rel_db": {
+    "4k": -1.9,
+    "8k": -4.0,
+    "12k": -3.6,
+    "14k": -11.4,
+    "16k": -19.5,
+    "18k": -25.6,
+    "20k": -32.0
+   },
+   "bw60_hz": 23555.0,
+   "cliff_db": 7.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.2,
+   "quiet_high_db": -36.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02175.wav",
+   "sr": 48000,
+   "duration": 7.8,
+   "ltas_rel_db": {
+    "4k": -0.4,
+    "8k": -9.7,
+    "12k": -14.2,
+    "14k": -17.8,
+    "16k": -24.5,
+    "18k": -29.6,
+    "20k": -38.4
+   },
+   "bw60_hz": 22617.0,
+   "cliff_db": 15.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.3,
+   "quiet_high_db": -33.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03116.wav",
+   "sr": 48000,
+   "duration": 6.28,
+   "ltas_rel_db": {
+    "4k": -7.9,
+    "8k": -16.5,
+    "12k": -16.4,
+    "14k": -20.2,
+    "16k": -28.1,
+    "18k": -26.6,
+    "20k": -31.8
+   },
+   "bw60_hz": 22523.0,
+   "cliff_db": 9.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.5,
+   "quiet_high_db": -46.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06936.wav",
+   "sr": 48000,
+   "duration": 3.97,
+   "ltas_rel_db": {
+    "4k": -0.7,
+    "8k": -14.6,
+    "12k": -18.7,
+    "14k": -27.0,
+    "16k": -29.8,
+    "18k": -37.7,
+    "20k": -42.6
+   },
+   "bw60_hz": 22207.0,
+   "cliff_db": 11.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.7,
+   "quiet_high_db": -33.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07531.wav",
+   "sr": 48000,
+   "duration": 4.98,
+   "ltas_rel_db": {
+    "4k": -9.9,
+    "8k": -8.1,
+    "12k": -15.2,
+    "14k": -11.8,
+    "16k": -23.2,
+    "18k": -28.3,
+    "20k": -31.0
+   },
+   "bw60_hz": 23953.0,
+   "cliff_db": 14.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -44.4,
+   "quiet_high_db": -45.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07705.wav",
+   "sr": 48000,
+   "duration": 8.91,
+   "ltas_rel_db": {
+    "4k": -0.2,
+    "8k": -9.6,
+    "12k": -11.3,
+    "14k": -15.2,
+    "16k": -23.5,
+    "18k": -25.8,
+    "20k": -36.7
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.8,
+   "quiet_high_db": -35.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00991.wav",
+   "sr": 48000,
+   "duration": 7.51,
+   "ltas_rel_db": {
+    "4k": -9.2,
+    "8k": -11.9,
+    "12k": -13.4,
+    "14k": -26.5,
+    "16k": -27.8,
+    "18k": -39.3,
+    "20k": -44.4
+   },
+   "bw60_hz": 22605.0,
+   "cliff_db": 11.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.8,
+   "quiet_high_db": -30.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01555.wav",
+   "sr": 48000,
+   "duration": 4.27,
+   "ltas_rel_db": {
+    "4k": -3.0,
+    "8k": -13.4,
+    "12k": -14.0,
+    "14k": -14.9,
+    "16k": -23.4,
+    "18k": -31.6,
+    "20k": -43.9
+   },
+   "bw60_hz": 23730.0,
+   "cliff_db": 13.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.0,
+   "quiet_high_db": -44.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09112.wav",
+   "sr": 48000,
+   "duration": 8.26,
+   "ltas_rel_db": {
+    "4k": -5.9,
+    "8k": -12.8,
+    "12k": -15.3,
+    "14k": -26.1,
+    "16k": -27.3,
+    "18k": -33.5,
+    "20k": -46.2
+   },
+   "bw60_hz": 23977.0,
+   "cliff_db": 8.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.2,
+   "quiet_high_db": -32.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01979.wav",
+   "sr": 48000,
+   "duration": 3.51,
+   "ltas_rel_db": {
+    "4k": -3.6,
+    "8k": -12.2,
+    "12k": -13.9,
+    "14k": -17.9,
+    "16k": -21.1,
+    "18k": -30.8,
+    "20k": -54.6
+   },
+   "bw60_hz": 22629.0,
+   "cliff_db": 23.8,
+   "n_cliff_windows": 2,
+   "quiet_low_db": -41.1,
+   "quiet_high_db": -37.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04719.wav",
+   "sr": 48000,
+   "duration": 5.22,
+   "ltas_rel_db": {
+    "4k": -4.6,
+    "8k": -14.1,
+    "12k": -17.4,
+    "14k": -22.9,
+    "16k": -29.8,
+    "18k": -39.2,
+    "20k": -48.6
+   },
+   "bw60_hz": 23754.0,
+   "cliff_db": 9.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.1,
+   "quiet_high_db": -29.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08419.wav",
+   "sr": 48000,
+   "duration": 5.43,
+   "ltas_rel_db": {
+    "4k": 1.7,
+    "8k": -9.6,
+    "12k": -14.7,
+    "14k": -20.9,
+    "16k": -34.4,
+    "18k": -36.0,
+    "20k": -39.3
+   },
+   "bw60_hz": 23297.0,
+   "cliff_db": 10.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.0,
+   "quiet_high_db": -30.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04417.wav",
+   "sr": 48000,
+   "duration": 4.9,
+   "ltas_rel_db": {
+    "4k": -5.9,
+    "8k": -11.5,
+    "12k": -9.9,
+    "14k": -13.2,
+    "16k": -16.5,
+    "18k": -25.1,
+    "20k": -43.3
+   },
+   "bw60_hz": 23977.0,
+   "cliff_db": 10.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -45.6,
+   "quiet_high_db": -33.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04815.wav",
+   "sr": 48000,
+   "duration": 5.29,
+   "ltas_rel_db": {
+    "4k": -0.0,
+    "8k": -6.9,
+    "12k": -7.3,
+    "14k": -20.8,
+    "16k": -33.7,
+    "18k": -33.2,
+    "20k": -43.6
+   },
+   "bw60_hz": 23531.0,
+   "cliff_db": 11.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.4,
+   "quiet_high_db": -34.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00983.wav",
+   "sr": 48000,
+   "duration": 4.11,
+   "ltas_rel_db": {
+    "4k": -4.3,
+    "8k": -9.1,
+    "12k": -11.5,
+    "14k": -20.3,
+    "16k": -27.1,
+    "18k": -30.5,
+    "20k": -39.2
+   },
+   "bw60_hz": 23262.0,
+   "cliff_db": 7.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.9,
+   "quiet_high_db": -38.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02932.wav",
+   "sr": 48000,
+   "duration": 6.58,
+   "ltas_rel_db": {
+    "4k": -1.7,
+    "8k": -10.8,
+    "12k": -11.1,
+    "14k": -21.3,
+    "16k": -28.0,
+    "18k": -34.4,
+    "20k": -42.8
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 9.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -24.1,
+   "quiet_high_db": -36.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04270.wav",
+   "sr": 48000,
+   "duration": 3.78,
+   "ltas_rel_db": {
+    "4k": -7.9,
+    "8k": -12.6,
+    "12k": -20.6,
+    "14k": -25.7,
+    "16k": -29.1,
+    "18k": -35.2,
+    "20k": -43.6
+   },
+   "bw60_hz": 21750.0,
+   "cliff_db": 10.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.9,
+   "quiet_high_db": -37.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01649.wav",
+   "sr": 48000,
+   "duration": 5.13,
+   "ltas_rel_db": {
+    "4k": -6.4,
+    "8k": -8.8,
+    "12k": -10.3,
+    "14k": -14.6,
+    "16k": -23.7,
+    "18k": -27.8,
+    "20k": -40.2
+   },
+   "bw60_hz": 22465.0,
+   "cliff_db": 6.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -40.9,
+   "quiet_high_db": -16.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07280.wav",
+   "sr": 48000,
+   "duration": 7.71,
+   "ltas_rel_db": {
+    "4k": -6.2,
+    "8k": -6.9,
+    "12k": -10.9,
+    "14k": -15.2,
+    "16k": -20.5,
+    "18k": -25.2,
+    "20k": -39.1
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 11.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -40.4,
+   "quiet_high_db": -25.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06792.wav",
+   "sr": 48000,
+   "duration": 3.7,
+   "ltas_rel_db": {
+    "4k": -6.6,
+    "8k": -7.9,
+    "12k": -11.1,
+    "14k": -19.3,
+    "16k": -26.1,
+    "18k": -26.3,
+    "20k": -40.7
+   },
+   "bw60_hz": 23379.0,
+   "cliff_db": 8.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.7,
+   "quiet_high_db": -37.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05736.wav",
+   "sr": 48000,
+   "duration": 7.34,
+   "ltas_rel_db": {
+    "4k": -4.6,
+    "8k": -7.1,
+    "12k": -8.1,
+    "14k": -20.2,
+    "16k": -19.4,
+    "18k": -29.3,
+    "20k": -32.7
+   },
+   "bw60_hz": 23543.0,
+   "cliff_db": 11.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -28.0,
+   "quiet_high_db": -37.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04332.wav",
+   "sr": 48000,
+   "duration": 7.46,
+   "ltas_rel_db": {
+    "4k": -5.0,
+    "8k": -12.9,
+    "12k": -14.3,
+    "14k": -24.7,
+    "16k": -29.2,
+    "18k": -31.4,
+    "20k": -42.0
+   },
+   "bw60_hz": 22582.0,
+   "cliff_db": 12.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.1,
+   "quiet_high_db": -33.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05847.wav",
+   "sr": 48000,
+   "duration": 6.56,
+   "ltas_rel_db": {
+    "4k": -8.4,
+    "8k": -14.4,
+    "12k": -8.9,
+    "14k": -16.4,
+    "16k": -21.0,
+    "18k": -25.6,
+    "20k": -34.4
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 16.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.6,
+   "quiet_high_db": -29.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05029.wav",
+   "sr": 48000,
+   "duration": 8.1,
+   "ltas_rel_db": {
+    "4k": -1.5,
+    "8k": -10.5,
+    "12k": -9.8,
+    "14k": -17.5,
+    "16k": -19.5,
+    "18k": -27.7,
+    "20k": -34.9
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 11.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.8,
+   "quiet_high_db": -34.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02870.wav",
+   "sr": 48000,
+   "duration": 6.3,
+   "ltas_rel_db": {
+    "4k": -5.6,
+    "8k": -0.5,
+    "12k": -5.3,
+    "14k": -10.8,
+    "16k": -12.8,
+    "18k": -17.5,
+    "20k": -30.5
+   },
+   "bw60_hz": 23977.0,
+   "cliff_db": 8.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.1,
+   "quiet_high_db": -31.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07764.wav",
+   "sr": 48000,
+   "duration": 4.76,
+   "ltas_rel_db": {
+    "4k": -2.1,
+    "8k": -9.8,
+    "12k": -12.3,
+    "14k": -17.5,
+    "16k": -24.9,
+    "18k": -26.8,
+    "20k": -41.5
+   },
+   "bw60_hz": 22805.0,
+   "cliff_db": 13.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.8,
+   "quiet_high_db": -42.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02561.wav",
+   "sr": 48000,
+   "duration": 5.9,
+   "ltas_rel_db": {
+    "4k": -3.4,
+    "8k": -9.6,
+    "12k": -8.5,
+    "14k": -15.0,
+    "16k": -20.3,
+    "18k": -27.0,
+    "20k": -32.3
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 9.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -41.6,
+   "quiet_high_db": -42.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09314.wav",
+   "sr": 48000,
+   "duration": 7.21,
+   "ltas_rel_db": {
+    "4k": -4.2,
+    "8k": -10.5,
+    "12k": -13.2,
+    "14k": -15.2,
+    "16k": -27.5,
+    "18k": -32.2,
+    "20k": -38.0
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 9.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.8,
+   "quiet_high_db": -29.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07449.wav",
+   "sr": 48000,
+   "duration": 4.4,
+   "ltas_rel_db": {
+    "4k": -4.9,
+    "8k": -13.1,
+    "12k": -19.7,
+    "14k": -27.8,
+    "16k": -31.9,
+    "18k": -33.0,
+    "20k": -46.3
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 9.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -42.7,
+   "quiet_high_db": -24.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04607.wav",
+   "sr": 48000,
+   "duration": 7.55,
+   "ltas_rel_db": {
+    "4k": -0.4,
+    "8k": -4.5,
+    "12k": -16.0,
+    "14k": -26.7,
+    "16k": -23.4,
+    "18k": -31.4,
+    "20k": -35.7
+   },
+   "bw60_hz": 23309.0,
+   "cliff_db": 8.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.5,
+   "quiet_high_db": -21.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07646.wav",
+   "sr": 48000,
+   "duration": 8.64,
+   "ltas_rel_db": {
+    "4k": -3.9,
+    "8k": -10.0,
+    "12k": -11.7,
+    "14k": -19.3,
+    "16k": -20.5,
+    "18k": -37.3,
+    "20k": -31.7
+   },
+   "bw60_hz": 23695.0,
+   "cliff_db": 8.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.1,
+   "quiet_high_db": -20.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08318.wav",
+   "sr": 48000,
+   "duration": 5.91,
+   "ltas_rel_db": {
+    "4k": -2.1,
+    "8k": -1.9,
+    "12k": -2.8,
+    "14k": -12.7,
+    "16k": -17.3,
+    "18k": -25.3,
+    "20k": -33.9
+   },
+   "bw60_hz": 23203.0,
+   "cliff_db": 12.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.6,
+   "quiet_high_db": -31.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05624.wav",
+   "sr": 48000,
+   "duration": 5.34,
+   "ltas_rel_db": {
+    "4k": -8.8,
+    "8k": -9.5,
+    "12k": -15.2,
+    "14k": -23.3,
+    "16k": -25.5,
+    "18k": -37.0,
+    "20k": -40.8
+   },
+   "bw60_hz": 22277.0,
+   "cliff_db": 9.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.5,
+   "quiet_high_db": -21.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03739.wav",
+   "sr": 48000,
+   "duration": 9.46,
+   "ltas_rel_db": {
+    "4k": -7.2,
+    "8k": -12.4,
+    "12k": -3.1,
+    "14k": -11.1,
+    "16k": -16.3,
+    "18k": -14.9,
+    "20k": -45.4
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 17.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.3,
+   "quiet_high_db": -25.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00074.wav",
+   "sr": 48000,
+   "duration": 5.8,
+   "ltas_rel_db": {
+    "4k": -7.4,
+    "8k": -16.1,
+    "12k": -20.3,
+    "14k": -29.1,
+    "16k": -26.1,
+    "18k": -38.1,
+    "20k": -52.4
+   },
+   "bw60_hz": 23824.0,
+   "cliff_db": 11.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.2,
+   "quiet_high_db": -26.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06030.wav",
+   "sr": 48000,
+   "duration": 5.21,
+   "ltas_rel_db": {
+    "4k": -7.3,
+    "8k": -15.3,
+    "12k": -19.4,
+    "14k": -24.7,
+    "16k": -34.3,
+    "18k": -38.0,
+    "20k": -45.7
+   },
+   "bw60_hz": 23754.0,
+   "cliff_db": 10.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.4,
+   "quiet_high_db": -35.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04614.wav",
+   "sr": 48000,
+   "duration": 4.89,
+   "ltas_rel_db": {
+    "4k": -0.8,
+    "8k": -12.4,
+    "12k": -17.3,
+    "14k": -27.0,
+    "16k": -32.9,
+    "18k": -33.9,
+    "20k": -35.8
+   },
+   "bw60_hz": 23988.0,
+   "cliff_db": 10.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.7,
+   "quiet_high_db": -54.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07173.wav",
+   "sr": 48000,
+   "duration": 6.41,
+   "ltas_rel_db": {
+    "4k": -3.0,
+    "8k": -7.7,
+    "12k": -15.7,
+    "14k": -17.1,
+    "16k": -24.6,
+    "18k": -28.7,
+    "20k": -39.7
+   },
+   "bw60_hz": 22863.0,
+   "cliff_db": 7.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.4,
+   "quiet_high_db": -48.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07918.wav",
+   "sr": 48000,
+   "duration": 6.26,
+   "ltas_rel_db": {
+    "4k": -9.8,
+    "8k": -13.4,
+    "12k": -12.6,
+    "14k": -16.6,
+    "16k": -21.5,
+    "18k": -32.8,
+    "20k": -36.1
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 11.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.0,
+   "quiet_high_db": -27.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06232.wav",
+   "sr": 48000,
+   "duration": 6.33,
+   "ltas_rel_db": {
+    "4k": -8.1,
+    "8k": -8.9,
+    "12k": -14.0,
+    "14k": -19.5,
+    "16k": -25.2,
+    "18k": -34.0,
+    "20k": -44.1
+   },
+   "bw60_hz": 22371.0,
+   "cliff_db": 12.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.8,
+   "quiet_high_db": -32.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07227.wav",
+   "sr": 48000,
+   "duration": 9.57,
+   "ltas_rel_db": {
+    "4k": -6.0,
+    "8k": -10.5,
+    "12k": -13.7,
+    "14k": -17.5,
+    "16k": -24.6,
+    "18k": -29.4,
+    "20k": -40.1
+   },
+   "bw60_hz": 23941.0,
+   "cliff_db": 8.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.9,
+   "quiet_high_db": -28.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09424.wav",
+   "sr": 48000,
+   "duration": 5.76,
+   "ltas_rel_db": {
+    "4k": -8.8,
+    "8k": -10.5,
+    "12k": -12.5,
+    "14k": -22.7,
+    "16k": -30.3,
+    "18k": -32.2,
+    "20k": -37.6
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 13.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -22.8,
+   "quiet_high_db": -38.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02238.wav",
+   "sr": 48000,
+   "duration": 7.76,
+   "ltas_rel_db": {
+    "4k": -7.3,
+    "8k": -12.1,
+    "12k": -13.0,
+    "14k": -19.4,
+    "16k": -26.5,
+    "18k": -27.4,
+    "20k": -40.0
+   },
+   "bw60_hz": 23871.0,
+   "cliff_db": 13.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.7,
+   "quiet_high_db": -30.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07994.wav",
+   "sr": 48000,
+   "duration": 8.9,
+   "ltas_rel_db": {
+    "4k": -8.2,
+    "8k": -14.0,
+    "12k": -18.3,
+    "14k": -25.5,
+    "16k": -34.3,
+    "18k": -41.3,
+    "20k": -45.5
+   },
+   "bw60_hz": 23227.0,
+   "cliff_db": 9.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.5,
+   "quiet_high_db": -33.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07303.wav",
+   "sr": 48000,
+   "duration": 5.65,
+   "ltas_rel_db": {
+    "4k": -1.8,
+    "8k": -5.3,
+    "12k": -5.4,
+    "14k": -16.7,
+    "16k": -26.5,
+    "18k": -31.7,
+    "20k": -40.8
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 10.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.2,
+   "quiet_high_db": -33.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08385.wav",
+   "sr": 48000,
+   "duration": 5.04,
+   "ltas_rel_db": {
+    "4k": -3.1,
+    "8k": -10.9,
+    "12k": -3.1,
+    "14k": -17.6,
+    "16k": -33.8,
+    "18k": -42.5,
+    "20k": -40.7
+   },
+   "bw60_hz": 22816.0,
+   "cliff_db": 14.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.1,
+   "quiet_high_db": -43.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07651.wav",
+   "sr": 48000,
+   "duration": 4.86,
+   "ltas_rel_db": {
+    "4k": -7.4,
+    "8k": -8.4,
+    "12k": -11.5,
+    "14k": -17.8,
+    "16k": -22.3,
+    "18k": -29.8,
+    "20k": -42.6
+   },
+   "bw60_hz": 23062.0,
+   "cliff_db": 10.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.9,
+   "quiet_high_db": -37.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03260.wav",
+   "sr": 48000,
+   "duration": 5.71,
+   "ltas_rel_db": {
+    "4k": -4.6,
+    "8k": -2.3,
+    "12k": -2.6,
+    "14k": -6.4,
+    "16k": -14.9,
+    "18k": -22.7,
+    "20k": -26.3
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 11.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.4,
+   "quiet_high_db": -32.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05439.wav",
+   "sr": 48000,
+   "duration": 4.76,
+   "ltas_rel_db": {
+    "4k": 1.8,
+    "8k": -2.6,
+    "12k": -18.4,
+    "14k": -16.8,
+    "16k": -27.8,
+    "18k": -31.6,
+    "20k": -45.6
+   },
+   "bw60_hz": 22934.0,
+   "cliff_db": 8.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.2,
+   "quiet_high_db": -34.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00044.wav",
+   "sr": 48000,
+   "duration": 4.72,
+   "ltas_rel_db": {
+    "4k": -6.9,
+    "8k": -8.0,
+    "12k": -15.7,
+    "14k": -25.1,
+    "16k": -26.2,
+    "18k": -35.1,
+    "20k": -40.5
+   },
+   "bw60_hz": 22453.0,
+   "cliff_db": 9.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.2,
+   "quiet_high_db": -38.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05781.wav",
+   "sr": 48000,
+   "duration": 5.76,
+   "ltas_rel_db": {
+    "4k": -7.6,
+    "8k": -14.7,
+    "12k": -15.6,
+    "14k": -15.1,
+    "16k": -26.9,
+    "18k": -31.4,
+    "20k": -42.6
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 11.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.6,
+   "quiet_high_db": -36.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06261.wav",
+   "sr": 48000,
+   "duration": 7.49,
+   "ltas_rel_db": {
+    "4k": -3.7,
+    "8k": -12.9,
+    "12k": -19.2,
+    "14k": -26.1,
+    "16k": -31.5,
+    "18k": -39.1,
+    "20k": -43.8
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 6.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.3,
+   "quiet_high_db": -35.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02119.wav",
+   "sr": 48000,
+   "duration": 4.12,
+   "ltas_rel_db": {
+    "4k": -5.2,
+    "8k": -11.2,
+    "12k": -3.9,
+    "14k": -15.2,
+    "16k": -14.1,
+    "18k": -25.1,
+    "20k": -39.4
+   },
+   "bw60_hz": 23930.0,
+   "cliff_db": 17.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.7,
+   "quiet_high_db": -28.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04040.wav",
+   "sr": 48000,
+   "duration": 5.25,
+   "ltas_rel_db": {
+    "4k": -6.9,
+    "8k": -15.2,
+    "12k": -24.4,
+    "14k": -27.9,
+    "16k": -31.5,
+    "18k": -31.5,
+    "20k": -39.7
+   },
+   "bw60_hz": 23238.0,
+   "cliff_db": 13.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -41.7,
+   "quiet_high_db": -47.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07156.wav",
+   "sr": 48000,
+   "duration": 5.73,
+   "ltas_rel_db": {
+    "4k": -8.0,
+    "8k": -9.9,
+    "12k": -9.4,
+    "14k": -11.9,
+    "16k": -23.4,
+    "18k": -31.0,
+    "20k": -33.9
+   },
+   "bw60_hz": 22406.0,
+   "cliff_db": 14.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.6,
+   "quiet_high_db": -33.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08563.wav",
+   "sr": 48000,
+   "duration": 5.89,
+   "ltas_rel_db": {
+    "4k": -3.0,
+    "8k": -10.5,
+    "12k": -17.5,
+    "14k": -21.7,
+    "16k": -24.0,
+    "18k": -31.0,
+    "20k": -42.3
+   },
+   "bw60_hz": 23590.0,
+   "cliff_db": 8.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.2,
+   "quiet_high_db": -25.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02903.wav",
+   "sr": 48000,
+   "duration": 7.01,
+   "ltas_rel_db": {
+    "4k": -11.6,
+    "8k": -19.2,
+    "12k": -21.2,
+    "14k": -24.6,
+    "16k": -30.8,
+    "18k": -38.6,
+    "20k": -42.5
+   },
+   "bw60_hz": 23508.0,
+   "cliff_db": 11.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.1,
+   "quiet_high_db": -23.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04229.wav",
+   "sr": 48000,
+   "duration": 4.12,
+   "ltas_rel_db": {
+    "4k": -1.2,
+    "8k": -6.3,
+    "12k": -13.1,
+    "14k": -13.1,
+    "16k": -18.2,
+    "18k": -25.0,
+    "20k": -35.2
+   },
+   "bw60_hz": 23203.0,
+   "cliff_db": 10.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.2,
+   "quiet_high_db": -30.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08340.wav",
+   "sr": 48000,
+   "duration": 3.91,
+   "ltas_rel_db": {
+    "4k": -1.8,
+    "8k": -3.6,
+    "12k": -10.1,
+    "14k": -9.4,
+    "16k": -18.3,
+    "18k": -26.2,
+    "20k": -39.7
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 11.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -42.7,
+   "quiet_high_db": -59.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07387.wav",
+   "sr": 48000,
+   "duration": 5.2,
+   "ltas_rel_db": {
+    "4k": -6.9,
+    "8k": -10.9,
+    "12k": -9.6,
+    "14k": -16.8,
+    "16k": -28.4,
+    "18k": -26.9,
+    "20k": -35.0
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 12.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.2,
+   "quiet_high_db": -37.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01550.wav",
+   "sr": 48000,
+   "duration": 8.64,
+   "ltas_rel_db": {
+    "4k": -6.7,
+    "8k": -7.3,
+    "12k": -10.1,
+    "14k": -17.1,
+    "16k": -18.0,
+    "18k": -26.6,
+    "20k": -41.0
+   },
+   "bw60_hz": 23086.0,
+   "cliff_db": 12.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.4,
+   "quiet_high_db": -32.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02462.wav",
+   "sr": 48000,
+   "duration": 4.17,
+   "ltas_rel_db": {
+    "4k": -2.6,
+    "8k": -13.0,
+    "12k": -18.0,
+    "14k": -22.7,
+    "16k": -28.3,
+    "18k": -38.0,
+    "20k": -56.4
+   },
+   "bw60_hz": 21785.0,
+   "cliff_db": 12.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.8,
+   "quiet_high_db": -18.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07189.wav",
+   "sr": 48000,
+   "duration": 6.65,
+   "ltas_rel_db": {
+    "4k": -8.1,
+    "8k": -8.5,
+    "12k": -8.6,
+    "14k": -18.0,
+    "16k": -18.5,
+    "18k": -24.1,
+    "20k": -36.2
+   },
+   "bw60_hz": 23707.0,
+   "cliff_db": 10.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.3,
+   "quiet_high_db": -36.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09423.wav",
+   "sr": 48000,
+   "duration": 3.01,
+   "ltas_rel_db": {
+    "4k": -4.2,
+    "8k": -4.9,
+    "12k": -5.4,
+    "14k": -10.6,
+    "16k": -14.1,
+    "18k": -26.9,
+    "20k": -32.8
+   },
+   "bw60_hz": 23473.0,
+   "cliff_db": 7.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -46.5,
+   "quiet_high_db": -39.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03174.wav",
+   "sr": 48000,
+   "duration": 3.78,
+   "ltas_rel_db": {
+    "4k": -1.3,
+    "8k": -1.9,
+    "12k": -7.3,
+    "14k": -23.4,
+    "16k": -25.0,
+    "18k": -30.4,
+    "20k": -41.6
+   },
+   "bw60_hz": 23496.0,
+   "cliff_db": 9.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.2,
+   "quiet_high_db": -29.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05329.wav",
+   "sr": 48000,
+   "duration": 6.89,
+   "ltas_rel_db": {
+    "4k": -6.7,
+    "8k": -13.7,
+    "12k": -15.8,
+    "14k": -30.1,
+    "16k": -31.8,
+    "18k": -46.2,
+    "20k": -52.9
+   },
+   "bw60_hz": 23484.0,
+   "cliff_db": 12.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.5,
+   "quiet_high_db": -25.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00211.wav",
+   "sr": 48000,
+   "duration": 3.27,
+   "ltas_rel_db": {
+    "4k": -4.5,
+    "8k": -15.6,
+    "12k": -18.6,
+    "14k": -24.7,
+    "16k": -29.3,
+    "18k": -40.7,
+    "20k": -42.6
+   },
+   "bw60_hz": 22406.0,
+   "cliff_db": 13.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.7,
+   "quiet_high_db": -37.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02028.wav",
+   "sr": 48000,
+   "duration": 4.8,
+   "ltas_rel_db": {
+    "4k": -7.7,
+    "8k": -1.6,
+    "12k": -8.0,
+    "14k": -10.5,
+    "16k": -24.7,
+    "18k": -29.2,
+    "20k": -40.1
+   },
+   "bw60_hz": 23672.0,
+   "cliff_db": 11.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.9,
+   "quiet_high_db": -39.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08234.wav",
+   "sr": 48000,
+   "duration": 8.16,
+   "ltas_rel_db": {
+    "4k": -1.4,
+    "8k": -10.1,
+    "12k": -13.9,
+    "14k": -20.0,
+    "16k": -27.7,
+    "18k": -30.9,
+    "20k": -39.7
+   },
+   "bw60_hz": 23988.0,
+   "cliff_db": 8.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.0,
+   "quiet_high_db": -32.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04268.wav",
+   "sr": 48000,
+   "duration": 7.8,
+   "ltas_rel_db": {
+    "4k": -7.4,
+    "8k": -9.2,
+    "12k": -11.8,
+    "14k": -16.4,
+    "16k": -21.4,
+    "18k": -31.5,
+    "20k": -34.8
+   },
+   "bw60_hz": 23977.0,
+   "cliff_db": 7.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.3,
+   "quiet_high_db": -19.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07465.wav",
+   "sr": 48000,
+   "duration": 7.57,
+   "ltas_rel_db": {
+    "4k": -3.9,
+    "8k": -6.1,
+    "12k": -7.2,
+    "14k": -13.4,
+    "16k": -22.7,
+    "18k": -30.7,
+    "20k": -34.2
+   },
+   "bw60_hz": 22254.0,
+   "cliff_db": 6.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.4,
+   "quiet_high_db": -36.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04910.wav",
+   "sr": 48000,
+   "duration": 3.58,
+   "ltas_rel_db": {
+    "4k": -1.2,
+    "8k": -11.3,
+    "12k": -22.1,
+    "14k": -27.1,
+    "16k": -35.4,
+    "18k": -40.4,
+    "20k": -46.3
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 13.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.7,
+   "quiet_high_db": -35.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05400.wav",
+   "sr": 48000,
+   "duration": 4.63,
+   "ltas_rel_db": {
+    "4k": -10.5,
+    "8k": -14.4,
+    "12k": -22.2,
+    "14k": -33.0,
+    "16k": -36.6,
+    "18k": -42.2,
+    "20k": -57.7
+   },
+   "bw60_hz": 21152.0,
+   "cliff_db": 15.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.8,
+   "quiet_high_db": -36.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02520.wav",
+   "sr": 48000,
+   "duration": 8.17,
+   "ltas_rel_db": {
+    "4k": -4.4,
+    "8k": -11.8,
+    "12k": -9.7,
+    "14k": -19.2,
+    "16k": -22.8,
+    "18k": -30.6,
+    "20k": -38.5
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 7.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.0,
+   "quiet_high_db": -27.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05954.wav",
+   "sr": 48000,
+   "duration": 4.18,
+   "ltas_rel_db": {
+    "4k": -12.5,
+    "8k": -15.7,
+    "12k": -13.3,
+    "14k": -21.4,
+    "16k": -26.0,
+    "18k": -31.7,
+    "20k": -43.8
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 16.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -40.3,
+   "quiet_high_db": -43.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01742.wav",
+   "sr": 48000,
+   "duration": 4.06,
+   "ltas_rel_db": {
+    "4k": -8.6,
+    "8k": -12.2,
+    "12k": -15.3,
+    "14k": -22.1,
+    "16k": -24.3,
+    "18k": -31.6,
+    "20k": -37.8
+   },
+   "bw60_hz": 23941.0,
+   "cliff_db": 15.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -28.6,
+   "quiet_high_db": -48.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00737.wav",
+   "sr": 48000,
+   "duration": 3.21,
+   "ltas_rel_db": {
+    "4k": -8.6,
+    "8k": -5.5,
+    "12k": -13.3,
+    "14k": -19.8,
+    "16k": -23.0,
+    "18k": -30.6,
+    "20k": -39.1
+   },
+   "bw60_hz": 23637.0,
+   "cliff_db": 12.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -43.6,
+   "quiet_high_db": -39.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00818.wav",
+   "sr": 48000,
+   "duration": 7.41,
+   "ltas_rel_db": {
+    "4k": 0.1,
+    "8k": -6.6,
+    "12k": -2.0,
+    "14k": -14.6,
+    "16k": -19.7,
+    "18k": -25.1,
+    "20k": -34.3
+   },
+   "bw60_hz": 23109.0,
+   "cliff_db": 9.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -24.9,
+   "quiet_high_db": -30.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03353.wav",
+   "sr": 48000,
+   "duration": 6.7,
+   "ltas_rel_db": {
+    "4k": -6.2,
+    "8k": -17.7,
+    "12k": -23.7,
+    "14k": -29.7,
+    "16k": -34.1,
+    "18k": -40.9,
+    "20k": -49.9
+   },
+   "bw60_hz": 22465.0,
+   "cliff_db": 8.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.3,
+   "quiet_high_db": -29.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04785.wav",
+   "sr": 48000,
+   "duration": 5.08,
+   "ltas_rel_db": {
+    "4k": -3.3,
+    "8k": -13.3,
+    "12k": -19.3,
+    "14k": -23.7,
+    "16k": -30.3,
+    "18k": -33.2,
+    "20k": -51.6
+   },
+   "bw60_hz": 22230.0,
+   "cliff_db": 12.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.8,
+   "quiet_high_db": -37.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07730.wav",
+   "sr": 48000,
+   "duration": 6.32,
+   "ltas_rel_db": {
+    "4k": -1.6,
+    "8k": -7.5,
+    "12k": -15.2,
+    "14k": -24.5,
+    "16k": -28.5,
+    "18k": -32.9,
+    "20k": -43.9
+   },
+   "bw60_hz": 23555.0,
+   "cliff_db": 16.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.9,
+   "quiet_high_db": -20.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08561.wav",
+   "sr": 48000,
+   "duration": 7.83,
+   "ltas_rel_db": {
+    "4k": -5.5,
+    "8k": -11.8,
+    "12k": -16.8,
+    "14k": -22.8,
+    "16k": -31.3,
+    "18k": -38.1,
+    "20k": -49.3
+   },
+   "bw60_hz": 22254.0,
+   "cliff_db": 8.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.6,
+   "quiet_high_db": -37.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03527.wav",
+   "sr": 48000,
+   "duration": 8.09,
+   "ltas_rel_db": {
+    "4k": -5.5,
+    "8k": -6.1,
+    "12k": -16.1,
+    "14k": -18.1,
+    "16k": -19.3,
+    "18k": -25.7,
+    "20k": -35.4
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 12.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.3,
+   "quiet_high_db": -33.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00801.wav",
+   "sr": 48000,
+   "duration": 6.76,
+   "ltas_rel_db": {
+    "4k": -7.4,
+    "8k": -14.3,
+    "12k": -20.9,
+    "14k": -29.6,
+    "16k": -33.8,
+    "18k": -36.1,
+    "20k": -45.9
+   },
+   "bw60_hz": 21656.0,
+   "cliff_db": 7.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.1,
+   "quiet_high_db": -24.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05851.wav",
+   "sr": 48000,
+   "duration": 5.89,
+   "ltas_rel_db": {
+    "4k": -0.3,
+    "8k": -9.7,
+    "12k": -17.6,
+    "14k": -12.6,
+    "16k": -27.8,
+    "18k": -33.0,
+    "20k": -39.1
+   },
+   "bw60_hz": 23355.0,
+   "cliff_db": 9.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.8,
+   "quiet_high_db": -23.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05670.wav",
+   "sr": 48000,
+   "duration": 6.34,
+   "ltas_rel_db": {
+    "4k": -3.9,
+    "8k": -10.9,
+    "12k": -15.3,
+    "14k": -14.0,
+    "16k": -30.7,
+    "18k": -34.3,
+    "20k": -32.6
+   },
+   "bw60_hz": 23965.0,
+   "cliff_db": 10.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.1,
+   "quiet_high_db": -33.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04802.wav",
+   "sr": 48000,
+   "duration": 3.21,
+   "ltas_rel_db": {
+    "4k": -7.8,
+    "8k": -7.6,
+    "12k": -11.4,
+    "14k": -22.0,
+    "16k": -23.2,
+    "18k": -31.0,
+    "20k": -43.0
+   },
+   "bw60_hz": 23590.0,
+   "cliff_db": 22.9,
+   "n_cliff_windows": 1,
+   "quiet_low_db": -39.9,
+   "quiet_high_db": -43.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02593.wav",
+   "sr": 48000,
+   "duration": 3.71,
+   "ltas_rel_db": {
+    "4k": 0.2,
+    "8k": -10.0,
+    "12k": -12.6,
+    "14k": -18.1,
+    "16k": -21.4,
+    "18k": -34.3,
+    "20k": -38.2
+   },
+   "bw60_hz": 22488.0,
+   "cliff_db": 11.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -40.2,
+   "quiet_high_db": -46.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04517.wav",
+   "sr": 48000,
+   "duration": 5.88,
+   "ltas_rel_db": {
+    "4k": -10.2,
+    "8k": -11.5,
+    "12k": -11.2,
+    "14k": -18.9,
+    "16k": -19.8,
+    "18k": -25.6,
+    "20k": -38.5
+   },
+   "bw60_hz": 23953.0,
+   "cliff_db": 9.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.9,
+   "quiet_high_db": -41.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09203.wav",
+   "sr": 48000,
+   "duration": 5.81,
+   "ltas_rel_db": {
+    "4k": -5.5,
+    "8k": -13.8,
+    "12k": -18.5,
+    "14k": -31.6,
+    "16k": -34.3,
+    "18k": -41.9,
+    "20k": -56.8
+   },
+   "bw60_hz": 21762.0,
+   "cliff_db": 14.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.2,
+   "quiet_high_db": -26.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04286.wav",
+   "sr": 48000,
+   "duration": 5.25,
+   "ltas_rel_db": {
+    "4k": -1.9,
+    "8k": -10.0,
+    "12k": -11.2,
+    "14k": -14.9,
+    "16k": -19.0,
+    "18k": -24.7,
+    "20k": -37.8
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 14.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.3,
+   "quiet_high_db": -44.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03554.wav",
+   "sr": 48000,
+   "duration": 2.56,
+   "ltas_rel_db": {
+    "4k": -6.8,
+    "8k": -7.9,
+    "12k": -16.0,
+    "14k": -13.1,
+    "16k": -15.5,
+    "18k": -23.4,
+    "20k": -28.3
+   },
+   "bw60_hz": 22699.0,
+   "cliff_db": 10.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.8,
+   "quiet_high_db": -41.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05007.wav",
+   "sr": 48000,
+   "duration": 5.31,
+   "ltas_rel_db": {
+    "4k": -3.0,
+    "8k": -9.4,
+    "12k": -17.5,
+    "14k": -26.8,
+    "16k": -26.8,
+    "18k": -32.4,
+    "20k": -40.7
+   },
+   "bw60_hz": 23273.0,
+   "cliff_db": 9.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.6,
+   "quiet_high_db": -38.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09330.wav",
+   "sr": 48000,
+   "duration": 6.69,
+   "ltas_rel_db": {
+    "4k": -2.9,
+    "8k": -6.5,
+    "12k": -9.1,
+    "14k": -16.7,
+    "16k": -19.7,
+    "18k": -23.0,
+    "20k": -39.1
+   },
+   "bw60_hz": 23719.0,
+   "cliff_db": 9.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.2,
+   "quiet_high_db": -28.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06491.wav",
+   "sr": 48000,
+   "duration": 4.72,
+   "ltas_rel_db": {
+    "4k": -9.0,
+    "8k": -13.6,
+    "12k": -11.9,
+    "14k": -20.4,
+    "16k": -17.7,
+    "18k": -19.0,
+    "20k": -41.7
+   },
+   "bw60_hz": 23953.0,
+   "cliff_db": 16.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.2,
+   "quiet_high_db": -42.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02268.wav",
+   "sr": 48000,
+   "duration": 6.16,
+   "ltas_rel_db": {
+    "4k": -6.7,
+    "8k": -15.9,
+    "12k": -17.2,
+    "14k": -22.6,
+    "16k": -29.3,
+    "18k": -38.9,
+    "20k": -49.8
+   },
+   "bw60_hz": 22746.0,
+   "cliff_db": 8.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.2,
+   "quiet_high_db": -26.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07855.wav",
+   "sr": 48000,
+   "duration": 10.66,
+   "ltas_rel_db": {
+    "4k": -2.3,
+    "8k": -10.7,
+    "12k": -10.5,
+    "14k": -19.2,
+    "16k": -23.2,
+    "18k": -31.0,
+    "20k": -35.0
+   },
+   "bw60_hz": 21867.0,
+   "cliff_db": 10.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.9,
+   "quiet_high_db": -34.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03906.wav",
+   "sr": 48000,
+   "duration": 5.88,
+   "ltas_rel_db": {
+    "4k": -2.9,
+    "8k": -6.6,
+    "12k": -8.8,
+    "14k": -25.0,
+    "16k": -30.2,
+    "18k": -32.4,
+    "20k": -40.1
+   },
+   "bw60_hz": 23414.0,
+   "cliff_db": 9.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -28.3,
+   "quiet_high_db": -46.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05690.wav",
+   "sr": 48000,
+   "duration": 6.58,
+   "ltas_rel_db": {
+    "4k": -5.1,
+    "8k": -6.4,
+    "12k": -11.5,
+    "14k": -14.0,
+    "16k": -18.7,
+    "18k": -25.8,
+    "20k": -35.4
+   },
+   "bw60_hz": 23555.0,
+   "cliff_db": 12.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.1,
+   "quiet_high_db": -39.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04800.wav",
+   "sr": 48000,
+   "duration": 8.77,
+   "ltas_rel_db": {
+    "4k": -5.4,
+    "8k": -13.0,
+    "12k": -20.3,
+    "14k": -27.1,
+    "16k": -33.1,
+    "18k": -38.0,
+    "20k": -44.5
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 11.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.7,
+   "quiet_high_db": -37.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03964.wav",
+   "sr": 48000,
+   "duration": 8.33,
+   "ltas_rel_db": {
+    "4k": -3.3,
+    "8k": -4.3,
+    "12k": -12.4,
+    "14k": -15.5,
+    "16k": -18.5,
+    "18k": -18.9,
+    "20k": -35.7
+   },
+   "bw60_hz": 23449.0,
+   "cliff_db": 16.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.3,
+   "quiet_high_db": -39.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09389.wav",
+   "sr": 48000,
+   "duration": 7.87,
+   "ltas_rel_db": {
+    "4k": 1.4,
+    "8k": -10.7,
+    "12k": -14.6,
+    "14k": -24.3,
+    "16k": -29.2,
+    "18k": -34.0,
+    "20k": -40.7
+   },
+   "bw60_hz": 23355.0,
+   "cliff_db": 9.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.7,
+   "quiet_high_db": -33.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07554.wav",
+   "sr": 48000,
+   "duration": 4.98,
+   "ltas_rel_db": {
+    "4k": -10.1,
+    "8k": -14.1,
+    "12k": -13.8,
+    "14k": -23.9,
+    "16k": -26.0,
+    "18k": -28.2,
+    "20k": -45.4
+   },
+   "bw60_hz": 23754.0,
+   "cliff_db": 9.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.8,
+   "quiet_high_db": -41.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00307.wav",
+   "sr": 48000,
+   "duration": 8.77,
+   "ltas_rel_db": {
+    "4k": -9.9,
+    "8k": -11.0,
+    "12k": -12.8,
+    "14k": -13.4,
+    "16k": -19.6,
+    "18k": -24.4,
+    "20k": -38.6
+   },
+   "bw60_hz": 23977.0,
+   "cliff_db": 9.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.5,
+   "quiet_high_db": -17.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02688.wav",
+   "sr": 48000,
+   "duration": 7.89,
+   "ltas_rel_db": {
+    "4k": -7.5,
+    "8k": -9.5,
+    "12k": -11.5,
+    "14k": -13.4,
+    "16k": -21.2,
+    "18k": -29.3,
+    "20k": -30.3
+   },
+   "bw60_hz": 23414.0,
+   "cliff_db": 10.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.2,
+   "quiet_high_db": -32.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07385.wav",
+   "sr": 48000,
+   "duration": 7.46,
+   "ltas_rel_db": {
+    "4k": -11.7,
+    "8k": -15.9,
+    "12k": -15.1,
+    "14k": -20.0,
+    "16k": -25.9,
+    "18k": -38.2,
+    "20k": -43.9
+   },
+   "bw60_hz": 23965.0,
+   "cliff_db": 7.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.8,
+   "quiet_high_db": -37.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03212.wav",
+   "sr": 48000,
+   "duration": 3.09,
+   "ltas_rel_db": {
+    "4k": -4.4,
+    "8k": -12.7,
+    "12k": -20.4,
+    "14k": -21.9,
+    "16k": -30.3,
+    "18k": -36.6,
+    "20k": -34.1
+   },
+   "bw60_hz": 21715.0,
+   "cliff_db": 12.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.2,
+   "quiet_high_db": -36.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05567.wav",
+   "sr": 48000,
+   "duration": 10.05,
+   "ltas_rel_db": {
+    "4k": -2.6,
+    "8k": -4.6,
+    "12k": -4.0,
+    "14k": -13.2,
+    "16k": -25.1,
+    "18k": -27.5,
+    "20k": -31.5
+   },
+   "bw60_hz": 22734.0,
+   "cliff_db": 13.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.4,
+   "quiet_high_db": -27.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01226.wav",
+   "sr": 48000,
+   "duration": 6.13,
+   "ltas_rel_db": {
+    "4k": -8.5,
+    "8k": -11.0,
+    "12k": -10.3,
+    "14k": -15.9,
+    "16k": -21.5,
+    "18k": -26.7,
+    "20k": -28.1
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -28.0,
+   "quiet_high_db": -32.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08149.wav",
+   "sr": 48000,
+   "duration": 8.65,
+   "ltas_rel_db": {
+    "4k": -7.2,
+    "8k": -7.1,
+    "12k": -5.6,
+    "14k": -9.7,
+    "16k": -15.0,
+    "18k": -21.5,
+    "20k": -32.4
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 11.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.2,
+   "quiet_high_db": -25.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01666.wav",
+   "sr": 48000,
+   "duration": 9.57,
+   "ltas_rel_db": {
+    "4k": -11.8,
+    "8k": -14.1,
+    "12k": -15.3,
+    "14k": -24.4,
+    "16k": -29.6,
+    "18k": -31.9,
+    "20k": -38.4
+   },
+   "bw60_hz": 23402.0,
+   "cliff_db": 6.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -28.4,
+   "quiet_high_db": -23.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03085.wav",
+   "sr": 48000,
+   "duration": 3.68,
+   "ltas_rel_db": {
+    "4k": -9.9,
+    "8k": -8.4,
+    "12k": -13.7,
+    "14k": -26.1,
+    "16k": -25.5,
+    "18k": -30.6,
+    "20k": -37.4
+   },
+   "bw60_hz": 22781.0,
+   "cliff_db": 13.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -25.1,
+   "quiet_high_db": -29.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07585.wav",
+   "sr": 48000,
+   "duration": 4.48,
+   "ltas_rel_db": {
+    "4k": -1.3,
+    "8k": -20.3,
+    "12k": -20.6,
+    "14k": -23.2,
+    "16k": -36.6,
+    "18k": -45.0,
+    "20k": -49.4
+   },
+   "bw60_hz": 23742.0,
+   "cliff_db": 11.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -26.3,
+   "quiet_high_db": -24.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01436.wav",
+   "sr": 48000,
+   "duration": 7.57,
+   "ltas_rel_db": {
+    "4k": -3.0,
+    "8k": -4.5,
+    "12k": -8.9,
+    "14k": -19.0,
+    "16k": -22.8,
+    "18k": -34.3,
+    "20k": -39.7
+   },
+   "bw60_hz": 23109.0,
+   "cliff_db": 8.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.0,
+   "quiet_high_db": -22.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03705.wav",
+   "sr": 48000,
+   "duration": 6.56,
+   "ltas_rel_db": {
+    "4k": -6.1,
+    "8k": -12.7,
+    "12k": -18.6,
+    "14k": -22.7,
+    "16k": -29.1,
+    "18k": -34.0,
+    "20k": -47.8
+   },
+   "bw60_hz": 23156.0,
+   "cliff_db": 13.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -44.0,
+   "quiet_high_db": -46.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07643.wav",
+   "sr": 48000,
+   "duration": 5.49,
+   "ltas_rel_db": {
+    "4k": -3.2,
+    "8k": -11.9,
+    "12k": -20.7,
+    "14k": -23.2,
+    "16k": -21.7,
+    "18k": -31.1,
+    "20k": -42.0
+   },
+   "bw60_hz": 23707.0,
+   "cliff_db": 12.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.3,
+   "quiet_high_db": -27.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06980.wav",
+   "sr": 48000,
+   "duration": 7.61,
+   "ltas_rel_db": {
+    "4k": -7.9,
+    "8k": -5.4,
+    "12k": -10.2,
+    "14k": -19.1,
+    "16k": -18.3,
+    "18k": -27.0,
+    "20k": -34.8
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 12.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.5,
+   "quiet_high_db": -28.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01210.wav",
+   "sr": 48000,
+   "duration": 6.51,
+   "ltas_rel_db": {
+    "4k": -1.5,
+    "8k": -2.2,
+    "12k": -6.3,
+    "14k": -16.7,
+    "16k": -23.0,
+    "18k": -30.1,
+    "20k": -36.0
+   },
+   "bw60_hz": 23344.0,
+   "cliff_db": 12.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -26.4,
+   "quiet_high_db": -34.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03279.wav",
+   "sr": 48000,
+   "duration": 2.46,
+   "ltas_rel_db": {
+    "4k": -0.4,
+    "8k": -2.1,
+    "12k": -11.9,
+    "14k": -13.7,
+    "16k": -21.8,
+    "18k": -26.0,
+    "20k": -39.0
+   },
+   "bw60_hz": 23859.0,
+   "cliff_db": 11.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -56.8,
+   "quiet_high_db": -68.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05320.wav",
+   "sr": 48000,
+   "duration": 5.55,
+   "ltas_rel_db": {
+    "4k": -8.7,
+    "8k": -13.5,
+    "12k": -7.3,
+    "14k": -15.7,
+    "16k": -19.3,
+    "18k": -25.6,
+    "20k": -30.8
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 10.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -37.7,
+   "quiet_high_db": -44.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03290.wav",
+   "sr": 48000,
+   "duration": 7.89,
+   "ltas_rel_db": {
+    "4k": -7.8,
+    "8k": -9.4,
+    "12k": -19.1,
+    "14k": -27.1,
+    "16k": -32.3,
+    "18k": -39.1,
+    "20k": -52.0
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 10.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.0,
+   "quiet_high_db": -23.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03588.wav",
+   "sr": 48000,
+   "duration": 3.91,
+   "ltas_rel_db": {
+    "4k": -7.9,
+    "8k": -4.8,
+    "12k": -12.6,
+    "14k": -14.9,
+    "16k": -24.7,
+    "18k": -29.7,
+    "20k": -35.1
+   },
+   "bw60_hz": 23777.0,
+   "cliff_db": 7.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.8,
+   "quiet_high_db": -23.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04874.wav",
+   "sr": 48000,
+   "duration": 3.46,
+   "ltas_rel_db": {
+    "4k": -2.3,
+    "8k": -16.3,
+    "12k": -21.0,
+    "14k": -19.1,
+    "16k": -28.3,
+    "18k": -34.3,
+    "20k": -49.0
+   },
+   "bw60_hz": 23191.0,
+   "cliff_db": 16.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -21.3,
+   "quiet_high_db": -36.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00899.wav",
+   "sr": 48000,
+   "duration": 5.24,
+   "ltas_rel_db": {
+    "4k": 0.7,
+    "8k": -13.8,
+    "12k": -8.2,
+    "14k": -14.5,
+    "16k": -22.7,
+    "18k": -25.1,
+    "20k": -42.4
+   },
+   "bw60_hz": 23484.0,
+   "cliff_db": 9.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.4,
+   "quiet_high_db": -27.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03478.wav",
+   "sr": 48000,
+   "duration": 4.09,
+   "ltas_rel_db": {
+    "4k": 0.1,
+    "8k": -4.3,
+    "12k": -7.0,
+    "14k": -8.2,
+    "16k": -24.0,
+    "18k": -23.9,
+    "20k": -44.5
+   },
+   "bw60_hz": 22688.0,
+   "cliff_db": 20.1,
+   "n_cliff_windows": 1,
+   "quiet_low_db": -31.3,
+   "quiet_high_db": -33.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08519.wav",
+   "sr": 48000,
+   "duration": 4.86,
+   "ltas_rel_db": {
+    "4k": -0.7,
+    "8k": -6.9,
+    "12k": -10.3,
+    "14k": -20.1,
+    "16k": -25.0,
+    "18k": -27.9,
+    "20k": -40.5
+   },
+   "bw60_hz": 23895.0,
+   "cliff_db": 11.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.6,
+   "quiet_high_db": -45.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06784.wav",
+   "sr": 48000,
+   "duration": 3.09,
+   "ltas_rel_db": {
+    "4k": -5.5,
+    "8k": -16.1,
+    "12k": -10.8,
+    "14k": -18.3,
+    "16k": -23.2,
+    "18k": -34.5,
+    "20k": -45.1
+   },
+   "bw60_hz": 22793.0,
+   "cliff_db": 12.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.5,
+   "quiet_high_db": -39.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04667.wav",
+   "sr": 48000,
+   "duration": 7.0,
+   "ltas_rel_db": {
+    "4k": 0.6,
+    "8k": -7.1,
+    "12k": -7.2,
+    "14k": -9.3,
+    "16k": -15.3,
+    "18k": -25.4,
+    "20k": -29.2
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 7.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -27.1,
+   "quiet_high_db": -29.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05433.wav",
+   "sr": 48000,
+   "duration": 7.87,
+   "ltas_rel_db": {
+    "4k": -13.7,
+    "8k": -9.8,
+    "12k": -14.1,
+    "14k": -18.9,
+    "16k": -24.2,
+    "18k": -28.0,
+    "20k": -39.6
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 11.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.9,
+   "quiet_high_db": -32.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02065.wav",
+   "sr": 48000,
+   "duration": 4.94,
+   "ltas_rel_db": {
+    "4k": 3.2,
+    "8k": 0.7,
+    "12k": -4.3,
+    "14k": -9.0,
+    "16k": -15.6,
+    "18k": -25.0,
+    "20k": -29.7
+   },
+   "bw60_hz": 23754.0,
+   "cliff_db": 8.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -27.3,
+   "quiet_high_db": -44.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00517.wav",
+   "sr": 48000,
+   "duration": 5.01,
+   "ltas_rel_db": {
+    "4k": -8.7,
+    "8k": -14.2,
+    "12k": -6.4,
+    "14k": -14.3,
+    "16k": -11.7,
+    "18k": -23.0,
+    "20k": -37.0
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 20.4,
+   "n_cliff_windows": 1,
+   "quiet_low_db": -29.5,
+   "quiet_high_db": -25.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05676.wav",
+   "sr": 48000,
+   "duration": 5.46,
+   "ltas_rel_db": {
+    "4k": -4.3,
+    "8k": -8.1,
+    "12k": -19.8,
+    "14k": -25.8,
+    "16k": -30.1,
+    "18k": -38.6,
+    "20k": -51.9
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 10.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.5,
+   "quiet_high_db": -35.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05485.wav",
+   "sr": 48000,
+   "duration": 8.67,
+   "ltas_rel_db": {
+    "4k": 1.4,
+    "8k": -4.0,
+    "12k": -14.1,
+    "14k": -16.4,
+    "16k": -26.8,
+    "18k": -29.8,
+    "20k": -38.1
+   },
+   "bw60_hz": 22500.0,
+   "cliff_db": 8.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.7,
+   "quiet_high_db": -31.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02240.wav",
+   "sr": 48000,
+   "duration": 7.78,
+   "ltas_rel_db": {
+    "4k": -7.0,
+    "8k": -7.1,
+    "12k": -10.8,
+    "14k": -16.9,
+    "16k": -23.8,
+    "18k": -25.8,
+    "20k": -41.9
+   },
+   "bw60_hz": 23836.0,
+   "cliff_db": 9.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -29.8,
+   "quiet_high_db": -28.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04965.wav",
+   "sr": 48000,
+   "duration": 6.71,
+   "ltas_rel_db": {
+    "4k": 0.8,
+    "8k": -2.2,
+    "12k": -6.5,
+    "14k": -9.0,
+    "16k": -16.4,
+    "18k": -22.9,
+    "20k": -39.1
+   },
+   "bw60_hz": 23754.0,
+   "cliff_db": 11.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.0,
+   "quiet_high_db": -40.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06824.wav",
+   "sr": 48000,
+   "duration": 6.92,
+   "ltas_rel_db": {
+    "4k": -9.7,
+    "8k": -15.9,
+    "12k": -23.5,
+    "14k": -32.3,
+    "16k": -32.7,
+    "18k": -38.7,
+    "20k": -57.0
+   },
+   "bw60_hz": 21961.0,
+   "cliff_db": 14.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.3,
+   "quiet_high_db": -27.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08798.wav",
+   "sr": 48000,
+   "duration": 9.43,
+   "ltas_rel_db": {
+    "4k": -8.8,
+    "8k": -11.8,
+    "12k": -12.9,
+    "14k": -18.6,
+    "16k": -28.6,
+    "18k": -28.4,
+    "20k": -42.7
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 11.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.5,
+   "quiet_high_db": -39.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02941.wav",
+   "sr": 48000,
+   "duration": 7.39,
+   "ltas_rel_db": {
+    "4k": -9.5,
+    "8k": -8.4,
+    "12k": -13.3,
+    "14k": -16.7,
+    "16k": -22.6,
+    "18k": -30.4,
+    "20k": -35.9
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 6.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.9,
+   "quiet_high_db": -43.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08238.wav",
+   "sr": 48000,
+   "duration": 4.76,
+   "ltas_rel_db": {
+    "4k": -0.2,
+    "8k": -6.9,
+    "12k": -7.0,
+    "14k": -12.2,
+    "16k": -13.7,
+    "18k": -19.2,
+    "20k": -23.6
+   },
+   "bw60_hz": 23941.0,
+   "cliff_db": 10.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.9,
+   "quiet_high_db": -31.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05008.wav",
+   "sr": 48000,
+   "duration": 9.84,
+   "ltas_rel_db": {
+    "4k": -2.2,
+    "8k": -6.8,
+    "12k": -9.3,
+    "14k": -17.3,
+    "16k": -22.0,
+    "18k": -25.2,
+    "20k": -34.0
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 9.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.9,
+   "quiet_high_db": -35.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07704.wav",
+   "sr": 48000,
+   "duration": 5.35,
+   "ltas_rel_db": {
+    "4k": -0.8,
+    "8k": -6.9,
+    "12k": -8.7,
+    "14k": -14.4,
+    "16k": -22.4,
+    "18k": -25.6,
+    "20k": -36.6
+   },
+   "bw60_hz": 23848.0,
+   "cliff_db": 9.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -38.0,
+   "quiet_high_db": -47.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04828.wav",
+   "sr": 48000,
+   "duration": 2.52,
+   "ltas_rel_db": {
+    "4k": 1.4,
+    "8k": -7.7,
+    "12k": -9.9,
+    "14k": -20.0,
+    "16k": -31.2,
+    "18k": -32.7,
+    "20k": -41.9
+   },
+   "bw60_hz": 22195.0,
+   "cliff_db": 9.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -28.5,
+   "quiet_high_db": -36.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01738.wav",
+   "sr": 48000,
+   "duration": 4.62,
+   "ltas_rel_db": {
+    "4k": -5.6,
+    "8k": -18.6,
+    "12k": -13.8,
+    "14k": -24.7,
+    "16k": -30.6,
+    "18k": -32.6,
+    "20k": -40.5
+   },
+   "bw60_hz": 23754.0,
+   "cliff_db": 12.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.7,
+   "quiet_high_db": -31.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/02989.wav",
+   "sr": 48000,
+   "duration": 7.25,
+   "ltas_rel_db": {
+    "4k": -0.8,
+    "8k": -12.3,
+    "12k": -12.0,
+    "14k": -24.8,
+    "16k": -21.9,
+    "18k": -28.5,
+    "20k": -30.1
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 16.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.3,
+   "quiet_high_db": -34.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09553.wav",
+   "sr": 48000,
+   "duration": 6.76,
+   "ltas_rel_db": {
+    "4k": -9.0,
+    "8k": -14.5,
+    "12k": -12.1,
+    "14k": -14.2,
+    "16k": -22.0,
+    "18k": -30.5,
+    "20k": -31.6
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 12.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -40.0,
+   "quiet_high_db": -40.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01180.wav",
+   "sr": 48000,
+   "duration": 4.56,
+   "ltas_rel_db": {
+    "4k": -4.2,
+    "8k": -11.3,
+    "12k": -15.7,
+    "14k": -12.6,
+    "16k": -20.4,
+    "18k": -29.4,
+    "20k": -37.8
+   },
+   "bw60_hz": 23109.0,
+   "cliff_db": 10.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -27.8,
+   "quiet_high_db": -28.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00196.wav",
+   "sr": 48000,
+   "duration": 4.17,
+   "ltas_rel_db": {
+    "4k": -2.3,
+    "8k": -9.1,
+    "12k": -6.4,
+    "14k": -11.5,
+    "16k": -16.8,
+    "18k": -21.3,
+    "20k": -28.1
+   },
+   "bw60_hz": 23789.0,
+   "cliff_db": 9.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -27.6,
+   "quiet_high_db": -46.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01548.wav",
+   "sr": 48000,
+   "duration": 7.95,
+   "ltas_rel_db": {
+    "4k": -7.3,
+    "8k": -10.0,
+    "12k": -15.2,
+    "14k": -18.4,
+    "16k": -27.0,
+    "18k": -30.0,
+    "20k": -34.6
+   },
+   "bw60_hz": 22488.0,
+   "cliff_db": 9.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.8,
+   "quiet_high_db": -41.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00820.wav",
+   "sr": 48000,
+   "duration": 7.82,
+   "ltas_rel_db": {
+    "4k": -2.9,
+    "8k": -5.6,
+    "12k": -8.1,
+    "14k": -14.6,
+    "16k": -12.6,
+    "18k": -20.2,
+    "20k": -31.4
+   },
+   "bw60_hz": 23906.0,
+   "cliff_db": 12.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -27.0,
+   "quiet_high_db": -31.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01522.wav",
+   "sr": 48000,
+   "duration": 4.86,
+   "ltas_rel_db": {
+    "4k": -4.7,
+    "8k": -1.0,
+    "12k": -9.5,
+    "14k": -11.7,
+    "16k": -17.5,
+    "18k": -26.5,
+    "20k": -26.1
+   },
+   "bw60_hz": 21246.0,
+   "cliff_db": 14.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.1,
+   "quiet_high_db": -39.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06972.wav",
+   "sr": 48000,
+   "duration": 4.0,
+   "ltas_rel_db": {
+    "4k": -4.9,
+    "8k": -12.8,
+    "12k": -7.4,
+    "14k": -20.6,
+    "16k": -27.2,
+    "18k": -33.5,
+    "20k": -44.6
+   },
+   "bw60_hz": 23109.0,
+   "cliff_db": 21.8,
+   "n_cliff_windows": 1,
+   "quiet_low_db": -33.6,
+   "quiet_high_db": -35.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04604.wav",
+   "sr": 48000,
+   "duration": 9.76,
+   "ltas_rel_db": {
+    "4k": -9.0,
+    "8k": -17.8,
+    "12k": -15.4,
+    "14k": -17.2,
+    "16k": -22.0,
+    "18k": -30.2,
+    "20k": -39.1
+   },
+   "bw60_hz": 23484.0,
+   "cliff_db": 6.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.7,
+   "quiet_high_db": -24.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00125.wav",
+   "sr": 48000,
+   "duration": 6.11,
+   "ltas_rel_db": {
+    "4k": -0.1,
+    "8k": -4.4,
+    "12k": -10.1,
+    "14k": -17.7,
+    "16k": -22.0,
+    "18k": -26.6,
+    "20k": -38.9
+   },
+   "bw60_hz": 22031.0,
+   "cliff_db": 10.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.9,
+   "quiet_high_db": -29.4,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09562.wav",
+   "sr": 48000,
+   "duration": 6.01,
+   "ltas_rel_db": {
+    "4k": -4.6,
+    "8k": -10.4,
+    "12k": -17.2,
+    "14k": -23.6,
+    "16k": -27.4,
+    "18k": -31.3,
+    "20k": -41.0
+   },
+   "bw60_hz": 23930.0,
+   "cliff_db": 10.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.0,
+   "quiet_high_db": -22.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08712.wav",
+   "sr": 48000,
+   "duration": 5.06,
+   "ltas_rel_db": {
+    "4k": -7.9,
+    "8k": -15.3,
+    "12k": -7.1,
+    "14k": -14.2,
+    "16k": -13.3,
+    "18k": -19.5,
+    "20k": -29.6
+   },
+   "bw60_hz": 23988.0,
+   "cliff_db": 17.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -18.7,
+   "quiet_high_db": -25.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04486.wav",
+   "sr": 48000,
+   "duration": 3.27,
+   "ltas_rel_db": {
+    "4k": -0.6,
+    "8k": -6.3,
+    "12k": -4.8,
+    "14k": -15.6,
+    "16k": -22.0,
+    "18k": -29.1,
+    "20k": -36.8
+   },
+   "bw60_hz": 23648.0,
+   "cliff_db": 14.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.0,
+   "quiet_high_db": -32.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08353.wav",
+   "sr": 48000,
+   "duration": 5.72,
+   "ltas_rel_db": {
+    "4k": -3.3,
+    "8k": -17.0,
+    "12k": -20.3,
+    "14k": -29.4,
+    "16k": -25.2,
+    "18k": -38.1,
+    "20k": -42.5
+   },
+   "bw60_hz": 23297.0,
+   "cliff_db": 17.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -34.3,
+   "quiet_high_db": -34.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07501.wav",
+   "sr": 48000,
+   "duration": 7.05,
+   "ltas_rel_db": {
+    "4k": -2.3,
+    "8k": -11.8,
+    "12k": -3.9,
+    "14k": -14.9,
+    "16k": -25.3,
+    "18k": -28.6,
+    "20k": -37.4
+   },
+   "bw60_hz": 22805.0,
+   "cliff_db": 6.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.7,
+   "quiet_high_db": -26.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03042.wav",
+   "sr": 48000,
+   "duration": 7.34,
+   "ltas_rel_db": {
+    "4k": -0.7,
+    "8k": -3.6,
+    "12k": -6.3,
+    "14k": -10.9,
+    "16k": -13.1,
+    "18k": -23.1,
+    "20k": -34.0
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.3,
+   "quiet_high_db": -33.3,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05117.wav",
+   "sr": 48000,
+   "duration": 4.12,
+   "ltas_rel_db": {
+    "4k": -8.7,
+    "8k": -4.6,
+    "12k": -12.7,
+    "14k": -17.9,
+    "16k": -25.1,
+    "18k": -29.2,
+    "20k": -38.7
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.4,
+   "quiet_high_db": -29.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/09449.wav",
+   "sr": 48000,
+   "duration": 5.95,
+   "ltas_rel_db": {
+    "4k": -5.8,
+    "8k": -13.9,
+    "12k": -14.8,
+    "14k": -20.2,
+    "16k": -28.2,
+    "18k": -30.7,
+    "20k": -35.6
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 8.1,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -30.1,
+   "quiet_high_db": -30.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07172.wav",
+   "sr": 48000,
+   "duration": 9.08,
+   "ltas_rel_db": {
+    "4k": -9.8,
+    "8k": -7.6,
+    "12k": -21.8,
+    "14k": -14.8,
+    "16k": -19.5,
+    "18k": -30.2,
+    "20k": -38.0
+   },
+   "bw60_hz": 22582.0,
+   "cliff_db": 14.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -28.8,
+   "quiet_high_db": -20.7,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08797.wav",
+   "sr": 48000,
+   "duration": 4.21,
+   "ltas_rel_db": {
+    "4k": -2.3,
+    "8k": -4.4,
+    "12k": -4.4,
+    "14k": -20.0,
+    "16k": -25.5,
+    "18k": -26.5,
+    "20k": -39.3
+   },
+   "bw60_hz": 22559.0,
+   "cliff_db": 14.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.5,
+   "quiet_high_db": -31.9,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04936.wav",
+   "sr": 48000,
+   "duration": 3.58,
+   "ltas_rel_db": {
+    "4k": -5.7,
+    "8k": -18.3,
+    "12k": -20.1,
+    "14k": -21.3,
+    "16k": -34.3,
+    "18k": -38.1,
+    "20k": -54.5
+   },
+   "bw60_hz": 22523.0,
+   "cliff_db": 12.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.9,
+   "quiet_high_db": -25.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/03991.wav",
+   "sr": 48000,
+   "duration": 4.26,
+   "ltas_rel_db": {
+    "4k": -4.8,
+    "8k": -9.1,
+    "12k": -11.8,
+    "14k": -12.6,
+    "16k": -26.7,
+    "18k": -23.0,
+    "20k": -38.3
+   },
+   "bw60_hz": 23250.0,
+   "cliff_db": 14.9,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -31.5,
+   "quiet_high_db": -36.8,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05139.wav",
+   "sr": 48000,
+   "duration": 6.83,
+   "ltas_rel_db": {
+    "4k": -1.9,
+    "8k": -1.6,
+    "12k": -12.1,
+    "14k": -12.7,
+    "16k": -23.6,
+    "18k": -28.7,
+    "20k": -35.6
+   },
+   "bw60_hz": 22992.0,
+   "cliff_db": 8.8,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.2,
+   "quiet_high_db": -32.5,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05958.wav",
+   "sr": 48000,
+   "duration": 5.47,
+   "ltas_rel_db": {
+    "4k": -4.6,
+    "8k": -11.9,
+    "12k": -13.0,
+    "14k": -21.3,
+    "16k": -27.2,
+    "18k": -35.6,
+    "20k": -43.4
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 9.4,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -33.7,
+   "quiet_high_db": -43.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05382.wav",
+   "sr": 48000,
+   "duration": 4.1,
+   "ltas_rel_db": {
+    "4k": -12.6,
+    "8k": -12.0,
+    "12k": -21.8,
+    "14k": -26.5,
+    "16k": -34.1,
+    "18k": -41.7,
+    "20k": -53.0
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 11.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.0,
+   "quiet_high_db": -27.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/00715.wav",
+   "sr": 48000,
+   "duration": 2.65,
+   "ltas_rel_db": {
+    "4k": 1.7,
+    "8k": -5.8,
+    "12k": -15.9,
+    "14k": -22.0,
+    "16k": -31.2,
+    "18k": -39.7,
+    "20k": -40.9
+   },
+   "bw60_hz": 22219.0,
+   "cliff_db": 7.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -39.1,
+   "quiet_high_db": -46.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/04205.wav",
+   "sr": 48000,
+   "duration": 3.05,
+   "ltas_rel_db": {
+    "4k": -13.5,
+    "8k": -17.1,
+    "12k": -19.1,
+    "14k": -23.2,
+    "16k": -29.7,
+    "18k": -41.2,
+    "20k": -49.3
+   },
+   "bw60_hz": 22266.0,
+   "cliff_db": 18.0,
+   "n_cliff_windows": 1,
+   "quiet_low_db": -38.1,
+   "quiet_high_db": -46.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08097.wav",
+   "sr": 48000,
+   "duration": 2.94,
+   "ltas_rel_db": {
+    "4k": -0.7,
+    "8k": -19.8,
+    "12k": -18.6,
+    "14k": -27.6,
+    "16k": -34.9,
+    "18k": -35.9,
+    "20k": -40.6
+   },
+   "bw60_hz": 23520.0,
+   "cliff_db": 14.6,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -51.9,
+   "quiet_high_db": -25.1,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/06335.wav",
+   "sr": 48000,
+   "duration": 4.81,
+   "ltas_rel_db": {
+    "4k": -1.5,
+    "8k": -8.0,
+    "12k": -12.8,
+    "14k": -24.8,
+    "16k": -29.2,
+    "18k": -35.8,
+    "20k": -51.3
+   },
+   "bw60_hz": 22969.0,
+   "cliff_db": 14.5,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -53.1,
+   "quiet_high_db": -47.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07944.wav",
+   "sr": 48000,
+   "duration": 6.06,
+   "ltas_rel_db": {
+    "4k": -7.0,
+    "8k": -9.8,
+    "12k": -14.6,
+    "14k": -21.6,
+    "16k": -29.3,
+    "18k": -30.2,
+    "20k": -43.7
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 10.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -36.5,
+   "quiet_high_db": -38.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/01498.wav",
+   "sr": 48000,
+   "duration": 2.78,
+   "ltas_rel_db": {
+    "4k": -3.3,
+    "8k": 8.2,
+    "12k": 2.3,
+    "14k": -11.1,
+    "16k": -14.8,
+    "18k": -21.1,
+    "20k": -22.9
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 11.2,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.7,
+   "quiet_high_db": -26.6,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/05455.wav",
+   "sr": 48000,
+   "duration": 5.75,
+   "ltas_rel_db": {
+    "4k": -1.3,
+    "8k": -4.5,
+    "12k": -14.6,
+    "14k": -24.1,
+    "16k": -31.6,
+    "18k": -32.5,
+    "20k": -43.4
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 12.0,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -32.5,
+   "quiet_high_db": -37.0,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/08613.wav",
+   "sr": 48000,
+   "duration": 7.59,
+   "ltas_rel_db": {
+    "4k": 3.4,
+    "8k": -8.2,
+    "12k": -11.0,
+    "14k": -17.4,
+    "16k": -24.9,
+    "18k": -32.3,
+    "20k": -36.6
+   },
+   "bw60_hz": 24000.0,
+   "cliff_db": 7.7,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -25.2,
+   "quiet_high_db": -31.2,
+   "broadband_noise": false
+  },
+  {
+   "path": "wav/07867.wav",
+   "sr": 48000,
+   "duration": 4.19,
+   "ltas_rel_db": {
+    "4k": -1.4,
+    "8k": -5.8,
+    "12k": -17.0,
+    "14k": -28.2,
+    "16k": -31.5,
+    "18k": -37.5,
+    "20k": -38.4
+   },
+   "bw60_hz": 22582.0,
+   "cliff_db": 10.3,
+   "n_cliff_windows": 0,
+   "quiet_low_db": -35.8,
+   "quiet_high_db": -34.6,
+   "broadband_noise": false
+  }
+ ]
+}
