@@ -36,7 +36,7 @@ Part 2：GPT-SoVITS finetune
 SoVITS 與 GPT 兩個階段皆須 finetune，記錄 epoch、batch size 等訓練參數。
 驗收要件
 
-新增 docs/finetune.md：從資料準備到推論的完整重現步驟，他人照做可重現。
+新增 docs/07_finetune.md：從資料準備到推論的完整重現步驟，他人照做可重現。
 
 提交訓練設定檔與訓練 log（不含模型權重）。
 

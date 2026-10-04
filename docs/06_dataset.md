@@ -6,7 +6,7 @@ Part 1 已完成語音解包、說話者篩選與 ASR 轉譯，產出 `data/ryza
 
 Part 2 以此為基礎，使用 GPT-SoVITS 微調萊莎聲線 TTS，並依 Issue 要求完成訓練、生成與驗收。環境為 RTX 4070 SUPER 12GB。
 
-本文涵蓋**從選型到資料切分**的內容。訓練與驗收的完整流程見 [`docs/finetune.md`](finetune.md)。
+本文涵蓋**從選型到資料切分**的內容。訓練與驗收的完整流程見 [`docs/07_finetune.md`](07_finetune.md)。
 
 ---
 
@@ -48,7 +48,7 @@ GPT-SoVITS 主分支可選版本為 v1 / v2 / v4 / v2Pro / v2ProPlus。篩選依
 
 **備選**：v2ProPlus。若 v4 LoRA 實測無法滿足驗收條件，再評估此路徑；屆時需先實測其實際 VRAM 使用量，並以相同資料切分與驗收流程比較。
 
-完整選型論證見 [`docs/issue_part2.md`](issue_part2.md)。
+完整選型論證見 [`docs/02_issue_part2.md`](02_issue_part2.md)。
 
 ---
 

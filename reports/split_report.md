@@ -95,7 +95,7 @@
 
 ## 風險與待確認
 
-- **清單檔名**：本切分依夜跑規格輸出 `data/finetune_train.list`、`data/finetune_test.list`、`data/finetune_eval10.list`；未追蹤的 `docs/03-01_dataset.md` 草稿曾規劃 `ryza_train_finetune.list` 等不同檔名，兩者待統一（待確認）。
+- **清單檔名**：本切分依夜跑規格輸出 `data/finetune_train.list`、`data/finetune_test.list`、`data/finetune_eval10.list`；未追蹤的 `docs/06_dataset.md` 草稿曾規劃 `ryza_train_finetune.list` 等不同檔名，兩者待統一（待確認）。
 - **清單使用絕對路徑**：為讓 GPT-SoVITS（獨立目錄）直接讀取，三份清單與 manifest 的音檔路徑為絕對路徑；manifest 另存 `source_rel` 原始相對路徑以便重建。
 - **句尾標點為情緒代理**：Q/EXCL/ELL/DECL 僅反映句尾標點，非語音情緒標註；如「どうかな? ちょっと恥ずましいんだけど」句尾非問號但語義上偏疑問，此類邊界案例未特別處理。
 - **MD5 重複**：偵測到 0 組音訊內容完全重複，本階段不剔除（Part 1 已以文字去重移除 6 段）；若需更嚴格去重，待確認是否重新切分。

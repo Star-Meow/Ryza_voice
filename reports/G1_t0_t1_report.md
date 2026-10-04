@@ -113,13 +113,13 @@ UNK 最多前 5 行：`06844.wav`(11/106)、`03166.wav`(10/104)、`08365.wav`(10
 3. **roberta safetensors 含 `bert.embeddings.position_ids`（int64）**：`from_pretrained` 內部吸收，無警告；但手動 `load_state_dict(strict=False)` 會列為 unexpected（V3 的 `load_info_b_unexpected` 有記錄）。屬預期行為，不影響數值等價（diff 0.0）。
 4. **safetensors 比 `.bin` 略大**：roberta 694 MB vs 651 MB；hubert 188.8 MB vs 188.8 MB（ 幾乎相同）。safetensors 每張量有固定 header／alignment，為正常格式差異。
 5. **共享張量只 clone 第二份**：`cls.predictions.decoder.weight`、`cls.predictions.decoder.bias` 被 clone（數值不變），`word_embeddings.weight` 等保留原樣；`from_pretrained` 會自動重新 tie，數值等價。
-6. **推論端缺 `%`／`￥` 前處理**：`1-get-text.py:92` 有 `.replace("%","-").replace("￥",",")`，`TextPreprocessor` 無。本資料集 train/eval10 含 `%` 或 `￥` 的行數皆為 0，**無實際影響**；列為觀察供 `docs\finetune.md` 易錯點使用。
+6. **推論端缺 `%`／`￥` 前處理**：`1-get-text.py:92` 有 `.replace("%","-").replace("￥",",")`，`TextPreprocessor` 無。本資料集 train/eval10 含 `%` 或 `￥` 的行數皆為 0，**無實際影響**；列為觀察供 `docs/07_finetune.md` 易錯點使用。
 
 ---
 
 ## 5. 風險與意外發現
 
-1. **ja_userdic 的 `user.dict` 未生成**：`japanese.py:61-71` 會在首次載入時以 `pyopenjtalk.mecab_dict_index` 從 `userdict.csv`（17 MB，為 `<GPT>` 追蹤檔）建立 `user.dict`，但該區塊被 `try/except ... pass` 包住，本次 G2P 跑完後 `ja_userdic\` 仍只有 `userdict.csv`，無 `user.dict`／`userdict.md5` — 推測 `mecab_dict_index` 失敗被吞掉，G2P 實際使用 pyopenjtalk 內建詞典。`git status` 確認 `<GPT>` 無新增檔案。**風險**：訓練預處理與推論若都在本環境跑會一致；但若某次成功建立 user dict，G2P 結果可能改變，是重現性觀察點，建議在 `docs\finetune.md` 記錄。
+1. **ja_userdic 的 `user.dict` 未生成**：`japanese.py:61-71` 會在首次載入時以 `pyopenjtalk.mecab_dict_index` 從 `userdict.csv`（17 MB，為 `<GPT>` 追蹤檔）建立 `user.dict`，但該區塊被 `try/except ... pass` 包住，本次 G2P 跑完後 `ja_userdic\` 仍只有 `userdict.csv`，無 `user.dict`／`userdict.md5` — 推測 `mecab_dict_index` 失敗被吞掉，G2P 實際使用 pyopenjtalk 內建詞典。`git status` 確認 `<GPT>` 無新增檔案。**風險**：訓練預處理與推論若都在本環境跑會一致；但若某次成功建立 user dict，G2P 結果可能改變，是重現性觀察點，建議在 `docs/07_finetune.md` 記錄。
 2. **`<GPT>` 為單一 squashed commit**：全庫僅 `48b1a01`（`Fix Fun-ASR-Nano Transformers requirement (#2824)`），`text/japanese.py`、`text/symbols2.py`、`text/cleaner.py` 皆於該 commit 隨初始匯入加入，`git log -S` 查無與 `#` 或 `with_prosody` 相關的其他提交，無法追溯歷史變更。
 3. **`<GPT>` 工作樹狀態**：始終只有預先存在的 `?? =0.4.1`（計畫 §2.1 已列為「工作樹乾淨」的唯一例外）；兩個 `model.safetensors` 被 `pretrained_models/.gitignore` 忽略。
 4. **TF32**：依 PM 裁定（其他環境問題、本機無視），全程未修改任何腳本，冒煙階段若出現 illegal instruction／CUBLAS 錯誤才停止回報。
