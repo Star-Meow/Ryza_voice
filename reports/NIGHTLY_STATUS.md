@@ -43,7 +43,7 @@
   - [x] vocoder.pth 存在且大小合理（57.8 MB，torch.load 194 鍵）
   - [x] BERT（651 MB）/ HuBERT（189 MB）/ s1v3.ckpt（155 MB）存在
   - [x] finetune_train.list 467 行、路徑存在、格式無誤
-  - [x] TF32 衝突已記錄（s2_train_v3_lora.py:44-45 預設開啟；本階段不 patch）
+  - [x] TF32 記錄已完成（來源標示為其他環境過往經驗，本機未發生；本階段不 patch）
 - 產出檔案：
   - reports/env_pip_freeze.txt（201 行）
   - reports/01_env_model_prep.md
@@ -57,6 +57,6 @@
 
 ## 起床後建議動作
 1. 看 reports/split_report.md（模塊一門禁 11/11）與 reports/01_env_model_prep.md（模塊二門禁 9/9）。
-2. **訓練前最高優先**：處理 TF32 衝突——s2_train_v3_lora.py:44-45 預設開啟 TF32，與本機 CUDA 損壞記錄衝突，需在訓練前補關閉（僅關 TF32，保留 cudnn 開啟）。
+2. **TF32 觀察項（不預先處理）**：s2_train_v3_lora.py:44-45 預設開啟 TF32，但 CUDA 記憶體損壞記錄屬其他環境（RTX 3060）過往經驗，**本機（RTX 4070 SUPER）未再發生**。先以官方原版設定直接訓練；若出現 CUDA 損壞徵兆再補關閉（僅關 TF32，保留 cudnn 開啟）。
 3. 確認清單檔名：夜跑規格用 finetune_*.list，docs/03-01_dataset.md 草稿用 ryza_*_finetune.list，待統一。
 4. 1Aa 首跑時觀察 clean_text 是否大量輸出 UNK（version 與符號表對應）。

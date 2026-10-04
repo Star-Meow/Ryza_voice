@@ -25,7 +25,7 @@
 - DONE（兩模塊驗收清單全過）
 
 ## 起床後第一步
-- **訓練前先處理 TF32 衝突**：`GPT_SoVITS/s2_train_v3_lora.py:44-45` 預設開啟 TF32，與本專案 `tools/spk_model.py` 記錄的本機 CUDA 損壞風險直接衝突；進入訓練前需在該處之後補上 TF32 關閉（僅關 TF32 matmul 與 cudnn TF32，保留 cudnn 開啟）。
+- **TF32 觀察項（不預先處理）**：`GPT_SoVITS/s2_train_v3_lora.py:44-45` 預設開啟 TF32。本專案 `tools/spk_model.py` 記錄的 CUDA 記憶體損壞屬**其他環境（RTX 3060）過往經驗，本機（RTX 4070 SUPER）未再發生**，故先以官方原版設定直接訓練；若出現 CUDA 損壞徵兆再補關閉（僅關 TF32 matmul 與 cudnn TF32，保留 cudnn 開啟）。
 
 ## 已知偏差（詳見 01_env_model_prep.md）
 - pyopenjtalk-prebuilt 0.3.0 替代 pyopenjtalk>=0.4.1；jieba_fast 未裝（日文路徑不需要）；opencc 用預編譯 wheel；numpy 降至 1.26.4

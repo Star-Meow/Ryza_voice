@@ -9,11 +9,12 @@ from hyperpyyaml import load_hyperpyyaml
 
 _DIR = os.path.dirname(os.path.abspath(__file__))
 _MODEL_DIR = os.path.join(_DIR, 'spk_model')
-DEVICE = 'cuda'  # GPU-only：本機 RTX 3060，禁止 CPU 回退
+DEVICE = 'cuda'  # GPU-only，禁止 CPU 回退
 if torch.cuda.is_available():
-    # TF32 matmul 在本機 GPU/driver 組合下會造成 CUDA 記憶體損壞
-    # （跑約 20~30 個檔後出現 illegal instruction / CUBLAS_STATUS_INTERNAL_ERROR），
-    # 關閉後 3200 檔連續測試穩定。
+    # TF32 matmul 曾在其他環境（RTX 3060 / 當時 driver）造成 CUDA 記憶體
+    # 損壞（跑約 20~30 個檔後 illegal instruction / CUBLAS_STATUS_INTERNAL_ERROR），
+    # 該環境關閉後 3200 檔連續測試穩定。本機（RTX 4070 SUPER）未再發生，
+    # 關閉僅為沿用既有穩定設定，非本機已確認的問題。
     torch.backends.cuda.matmul.allow_tf32 = False
     torch.backends.cudnn.allow_tf32 = False
     torch.backends.cudnn.enabled = False

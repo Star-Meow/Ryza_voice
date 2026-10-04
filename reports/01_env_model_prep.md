@@ -2,7 +2,7 @@
 
 ## 執行摘要
 
-於 `H:\git\GPT-SoVITS`（主分支 commit `48b1a01`）建立獨立 Python 3.10 虛擬環境，安裝 PyTorch cu121 與 GPT-SoVITS 全部依賴，下載 v4 預訓練權重，完成日文 G2P 驗證與 TF32 衝突記錄。
+於 `H:\git\GPT-SoVITS`（主分支 commit `48b1a01`）建立獨立 Python 3.10 虛擬環境，安裝 PyTorch cu121 與 GPT-SoVITS 全部依賴，下載 v4 預訓練權重，完成日文 G2P 驗證與 TF32 相關性記錄（來源標示為其他環境過往經驗，本機未發生）。
 
 **本階段僅準備環境與權重，尚未開始訓練，未執行任何預處理腳本。**
 
@@ -97,18 +97,18 @@ clean_text('今日も錬金術の研究を頑張るよ！', 'ja', 'v2')
 
 ## TF32 記錄（不 patch）
 
-本專案 `tools/spk_model.py:14-19` 記錄：**本機 GPU/driver 組合下 TF32 matmul 會造成 CUDA 記憶體損壞**（約 20–30 檔後 illegal instruction / CUBLAS_STATUS_INTERNAL_ERROR）。
+本專案 `tools/spk_model.py:14-19` 記錄：**TF32 matmul 曾在其他環境（RTX 3060 / 當時 driver）造成 CUDA 記憶體損壞**（約 20–30 檔後 illegal instruction / CUBLAS_STATUS_INTERNAL_ERROR）。**本機（RTX 4070 SUPER）未再發生**，該記錄屬其他環境的過往經驗，非本機已確認的問題。
 
 GPT-SoVITS 官方腳本的 TF32 設定位置：
 
 | 位置 | 設定 | 與本專案記錄的關係 |
 |---|---|---|
-| `GPT_SoVITS/s2_train_v3_lora.py:44-45` | `allow_tf32 = True`（**預設開啟**） | v4 LoRA 訓練腳本；與本機 TF32 不穩記錄直接衝突 |
+| `GPT_SoVITS/s2_train_v3_lora.py:44-45` | `allow_tf32 = True`（**預設開啟**） | v4 LoRA 訓練腳本；與過往 TF32 不穩記錄相關，本機是否重現待驗證 |
 | `GPT_SoVITS/s2_train.py:44-45` | `allow_tf32 = True` | v1/v2/v2Pro/v2ProPlus 訓練腳本 |
 | `GPT_SoVITS/s2_train_v3.py:44-45` | `allow_tf32 = True` | v3 訓練腳本 |
 | `GPT_SoVITS/TTS_infer_pack/TTS.py:210` | `allow_tf32 = False` | 推論端已關閉 |
 
-**處理方式**：依本階段約定**不 patch、僅記錄**。進入訓練階段前，此為最高優先待驗證項——訓練前需在 `s2_train_v3_lora.py` 的 TF32 設定之後補上關閉（保留 cudnn 開啟，僅關 TF32 matmul 與 cudnn TF32；`spk_model.py` 連 `cudnn.enabled` 都關是推論專用做法，訓練不可照抄）。
+**處理方式**：依本階段約定**不 patch、僅記錄**。由於本機尚未發生此問題，優先以官方原版設定直接訓練；若訓練時出現 CUDA 記憶體損壞徵兆（illegal instruction / CUBLAS_STATUS_INTERNAL_ERROR），再於 `s2_train_v3_lora.py` 的 TF32 設定之後補上關閉（保留 cudnn 開啟，僅關 TF32 matmul 與 cudnn TF32；`spk_model.py` 連 `cudnn.enabled` 都關是推論專用做法，訓練不可照抄）。
 
 ---
 
@@ -124,7 +124,7 @@ GPT-SoVITS 官方腳本的 TF32 設定位置：
 | vocoder.pth 存在且大小合理 | PASS（57.8 MB） |
 | BERT / HuBERT / s1v3.ckpt 存在 | PASS（651 MB / 189 MB / 155 MB） |
 | finetune_train.list 467 行、路徑存在 | PASS（467 行，0 缺失，4 欄格式 0 異常） |
-| TF32 衝突已記錄 | PASS（4 處位置，本階段不 patch） |
+| TF32 記錄已完成（來源標示為其他環境過往經驗） | PASS（4 處位置，本階段不 patch） |
 
 通過 9/9 項。
 
@@ -133,7 +133,7 @@ GPT-SoVITS 官方腳本的 TF32 設定位置：
 ## 風險與待確認
 
 1. **jieba_fast 缺失**：日文路徑不需要（已由 cleaner.py 延遲 import 設計驗證）；若日後需要中文（zh）或粵語（yue）路徑，`chinese.py`／`chinese2.py` 頂層 `import jieba_fast` 會直接失敗，屆時需安裝 MSVC Build Tools 或改用 jieba 相容層。
-2. **TF32 衝突（最高優先）**：`s2_train_v3_lora.py:44-45` 預設開啟 TF32，與本專案記錄的本機 CUDA 損壞風險直接衝突。訓練前必須處理（見上節）。
+2. **TF32 相容性（觀察項）**：`s2_train_v3_lora.py:44-45` 預設開啟 TF32，與其他環境（RTX 3060）過往的 CUDA 記憶體損壞記錄相關。**本機（RTX 4070 SUPER）未再發生**，故不預先 patch，先以官方原版設定訓練；若訓練時出現 CUDA 損壞徵兆再補關閉（見上節）。
 3. **pyopenjtalk-prebuilt 版本 0.3.0 < requirements 指定的 0.4.1**：API 相容且 G2P 功能驗證通過；若 0.4.1 有日文相關改進（如韻律標記處理），可能影響 1Aa 輸出品質，待訓練階段觀察。
 4. **clean_text 的 `[`／`]` 與 UNK**：需在訓練階段首次執行 1Aa 時確認 version 環境變數與符號表對應是否正確。
 5. **未下載 G2PWModel**（`GPT_SoVITS/text/G2PWModel/`，install.sh 另行下載 589 MB）：用於中文 G2P 加速；日文路徑不需要，未下載。若需中文路徑再補。
@@ -144,4 +144,4 @@ GPT-SoVITS 官方腳本的 TF32 設定位置：
 
 ## 聲明
 
-**尚未開始訓練。** 本階段完成：venv 建立、CUDA 驗證、依賴安裝、v4 預訓練權重下載、日文 G2P 驗證、TF32 衝突記錄。等待使用者確認後，才進入 GPT-SoVITS v4 LoRA 訓練配置。
+**尚未開始訓練。** 本階段完成：venv 建立、CUDA 驗證、依賴安裝、v4 預訓練權重下載、日文 G2P 驗證、TF32 記錄（來源為其他環境過往經驗）。等待使用者確認後，才進入 GPT-SoVITS v4 LoRA 訓練配置。
