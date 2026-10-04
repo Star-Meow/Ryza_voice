@@ -61,11 +61,13 @@
    `tools/spk_model/`。Pipeline：wav → Fbank(80mel) → sentence-norm
    → ECAPA-TDNN → global-norm → L2 正規化向量。
 2. **GPU 執行**：嵌入階段於 RTX 3060（CUDA）完成；後續 ASR 階段改用
-   **RTX 4070S 12G**。本機 TF32 matmul 會造成 CUDA 記憶體
+   **RTX 4070S 12G**。該 RTX 3060 環境下 TF32 matmul 會造成 CUDA 記憶體
    損壞（約 20–30 個檔後 illegal instruction / CUBLAS 錯誤），須
    `torch.backends.cuda.matmul.allow_tf32 = False`；並以
    `CUDA_LAUNCH_BLOCKING=1` + 分段進程（`tools/run_encode.sh`）吸收剩餘的
-   隨機驅動不穩。9569 檔嵌入結果：`tools/embeddings.npy`。
+   隨機驅動不穩。此為**該環境的過往經驗，本機（RTX 4070 SUPER）未再發生**；
+   關閉 TF32 的設定沿用至今，非本機已確認的問題。
+   9569 檔嵌入結果：`tools/embeddings.npy`。
 3. **評分**：`consensus_score` = 與 `00030`、`00042` 兩個乾淨錨點的 cos 平均。
    （`00025` 背景噪音較多、在嵌入空間中偏離，排名 #4500，僅作次要參考。）
 
@@ -338,7 +340,7 @@ seed 為各庫檔案偏移 0x0c 的 `audio_id`（本作固定為 `0xAF4905A9`）
 | `parse_bare_ktsr.py` | 解析裸 KTSR 庫（戰鬥庫）→ 解密 cue 名稱 |
 | `kovs_to_ogg.py` | 單一 KOVS 區塊去混淆 → 標準 Ogg（`--cue N` 用索引） |
 | `ktsr_ref.c` | vgmstream 的 ktsr.c 原始碼（格式對照參考） |
-| `spk_model.py` | ECAPA-TDNN 嵌入（GPU，TF32 關閉避免記憶體損壞） |
+| `spk_model.py` | ECAPA-TDNN 嵌入（GPU，TF32 關閉；源於其他環境過往經驗，本機未發生） |
 | `encode_chunk.py` / `run_encode.sh` | 分段 GPU 編碼（崩潰重試，不退 CPU） |
 | `encode_all.py` | 單進程完整編碼（穩定環境用） |
 | `final_index.py` / `export_ryza.py` | 評分、索引產出、分級子集匯出 |
