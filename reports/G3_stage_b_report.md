@@ -2,7 +2,7 @@
 
 日期：2026-10-05
 回報依據：計畫 §10、§15 回報格式
-分支：`feat/tts-v4-lora-prep`（`<RYZA>`）；`<GPT>` 無分支、無修改
+分支：`feat/tts-v4-lora-prep`（`<RYZA>`）；`<GPT>` 在 `main` 分支（commit `48b1a01`）、無修改
 
 ---
 
