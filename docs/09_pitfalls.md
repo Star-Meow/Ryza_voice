@@ -55,7 +55,7 @@
 - **狀態**：已解
 - **證據**：`reports/G1_t0_t1_report.md` T0-1～T0-8、§2 明細表；`tools/t0_validate.py`
 
-#### PK-011 推論端缺 `jieba_fast`，且 `fast_langdetect` 想連網下載模型
+#### PK-011 上游 import 鏈強迫依賴 `jieba_fast`（永久不採用，2026-10-05 PM 決定）
 - **日期**：2026-10-05（階段 C）
 - **現象**：推論冒煙 E1 首次執行直接 `ModuleNotFoundError: No module named 'jieba_fast'`，整個 `TTS_infer_pack` 無法 import；繞過後又遇 `FileNotFoundError: fast-langdetect: Cache directory not found: H:\git\GPT-SoVITS\GPT_SoVITS\pretrained_models\fast_langdetect`。
 - **根因**：兩個**模組層級**的依賴，與語言無關——
@@ -66,10 +66,11 @@
   2. 把 `fast_langdetect.infer._default_detector` 改指向**套件自己內附**的 `resources/lid.176.ftz`（938 KB），經由 `LangDetectConfig(custom_model_path=...)`。
   實作見 `tools/infer_smoke.py` 的 `install_jieba_fast_alias()` 與 `point_fast_langdetect_at_bundled_model()`。
 - **證據等級**：【實測】＋【讀碼】
-- **狀態**：已解（繞過），但**根因仍在環境中**，新環境需重做上述設定
+- **狀態**：已解。`fast_langdetect` 部分於階段 D 以放置正式模型檔根治；`jieba_fast` 部分經 **PM 裁示永久不採用**（中文專用，本專案 language=ja），維持行程內別名。**注意：別名程式碼不可刪**，否則整個推論管線無法 import
 - **證據**：`reports/G4_stage_c_report.md` SM-INF-1；`tools/infer_smoke.py`
 - **備註**：兩處設定都必須在 `from text.LangSegmenter import LangSegmenter` **之後**才生效——`langsegmenter.py:11` 會在 import 時把 `_default_detector` 重新指回壞路徑，順序寫反會靜默失效。
 - **教訓**：計畫 §12.3 曾把「jieba_fast 未安裝」列為**僅影響中文**的已知偏差，實測證明它擋下整個推論管線，連日文都用不了。「lang 假設」要實際跑一次才能確認。
+- **補記（階段 D）**：「中文專用所以不需要」在**功能上**成立，但**在 import 層不成立**——上游無條件 import 使該模組必須存在。兩者要分開談。
 
 ### 3.2 程式行為
 

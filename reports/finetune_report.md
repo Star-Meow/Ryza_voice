@@ -25,7 +25,7 @@
 | SD-11 | `<GPT>` 工作樹乾淨、未修改官方檔 | 【實測】 | 全階段 `git -C <GPT> status --short` 為空；`tts_infer.yaml` SHA256 於每次推論前後一致且 `git diff --quiet HEAD` 通過 | 相符 |
 | SD-12 | 訓練設定檔與 log 已提交（不含權重） | 【實測】 | `configs/`、`reports/finetune_report.md`、`reports/logs/stage_d_train.md`、`tools/stage_d_*.py` 已 commit；`reports/logs/raw/`（受 `.gitignore` 忽略）與所有模型權重**未**提交 | 相符 |
 | SD-13 | fast_langdetect 模型檔已就位、推論不再需要行程內繞過 | 【實測】 | `GPT_SoVITS/pretrained_models/fast_langdetect/lid.176.bin`（131,266,198 bytes，SHA256 `7e69ec54…62764e`）；離線實測 `LangSegmenter.getTexts()` 0.1 s 完成，無網路 | 相符 |
-| SD-14 | jieba_fast **無法安裝**，仍以行程內別名運作 | 【實測】 | `pip install jieba_fast` 建 wheel 失敗（需 MSVC 14.0）；`pip download --only-binary=:all:` 回報 **無任何 wheel**（僅 sdist）；`setup.py` 的 `ext_modules` 無條件建 C 擴充且套件內**無純 Python fallback** | **不相符**（見 §4-1，需 PM 裁示） |
+| SD-14 | `jieba_fast` **永久不採用**（PM 2026-10-05 裁示） | 【實測】 | 該套件為中文專用分詞器，本專案 language=ja 不需要。venv 內**從未安裝**（`find_spec` = None），故無任何東西需移除；我們的 `<RYZA>\requirements.txt` 從未列過它，`<GPT>\requirements.txt` 第 26 行則屬官方上游相依、未修改。惟上游 import 鏈無條件要求該模組存在，故**行程內別名不可刪**（實測拿掉後 `from TTS_infer_pack.TTS import TTS` 直接 ModuleNotFoundError） | **已依 PM 決定結案**（見 §7-1） |
 
 ---
 
@@ -254,11 +254,19 @@ S2 續訓由 `start training from epoch 9` 接續（`global_step` 由 952 續到
 
 ## 7. 與計畫不符處
 
-1. **`jieba_fast` 無法安裝**（SD-14）。指令要求「安裝 `jieba_fast` 到 `<GPT>\.venv`，加入 `requirements.txt`」，實測發現：
-   - `<GPT>\requirements.txt` **第 26 行已經有 `jieba_fast`**（連同 `jieba`、`split-lang`、`fast_langdetect>=0.3.1`），它是 GPT-SoVITS 的官方相依，本專案並非漏加，故未重複加入；
-   - `jieba_fast` 在 PyPI **不提供任何 wheel**（`pip download --only-binary=:all:` 回報無匹配版本），只有 sdist；安裝需以 MSVC 14.0 編譯 C 擴充，而本機無此工具鏈；
-   - 其 `setup.py` 的 `ext_modules` 無條件建 C 擴充，套件內**沒有純 Python fallback**（`__init__.py:20-22` 與 `finalseg/__init__.py:10-12` 都是無條件 import）。
-   **目前處置**：沿用階段 C 已驗證的行程內別名（`sys.modules["jieba_fast"]` → 已安裝的 `jieba`，API 相同）。因本專案為純日文，日文推論全程不呼叫 jieba（`cleaner.py` 的 `language_module_map["ja"] = "japanese"`），已用 20 句實證正確。**請 PM 裁示**：是否安裝 MSVC Build Tools 以取得真正的 `jieba_fast`，或接受現行別名（影響範圍僅中文，本專案用不到）。
+1. **`jieba_fast`：永久不採用（PM 2026-10-05 裁示）**。該套件為中文專用分詞器，本專案 language=ja 不需要，故不安裝。事實上它**從未安裝**（`importlib.util.find_spec` = None），沒有東西需要移除；我們自己的 `<RYZA>\requirements.txt` 從未列過它，`<GPT>\requirements.txt` 第 26 行的宣告則是 GPT-SoVITS 官方相依，本專案未新增也未修改。
+
+   **但有一項技術限制必須連帶記錄：別名程式碼不能刪。** `text/tone_sandhi.py:17`、`text/chinese.py:19,23`、`text/chinese2.py:20,24` 都在**模組層級**無條件 `import jieba_fast`，經由 `TTS_infer_pack/TextPreprocessor.py:13` 的 `from text import chinese` 影響整個推論管線。實測拿掉別名後：
+
+   ```text
+   >>> from TTS_infer_pack.TTS import TTS
+   ModuleNotFoundError: No module named 'jieba_fast'
+     File "GPT_SoVITS\GPT_SoVITS\text\tone_sandhi.py", line 17, in <module>
+   ```
+
+   **連純日文推論都起不來。** 所以「中文專用所以不需要」在**功能上**成立，在**import 層不成立**——上游把該模組當成硬性前提，與實際呼叫與否無關。
+
+   現行處置是把 `jieba_fast` 別名到**已安裝的 `jieba`**。`jieba` 本來就是官方第 27 行宣告、且日文推論路徑（`text/LangSegmenter/langsegmenter.py:5`）本來就在用的套件，因此**此別名不為本專案增加任何新相依**，只是繞開上游對 jieba_fast 的硬性 import。日文推論全程不呼叫 jieba（`cleaner.py` 的 `language_module_map["ja"] = "japanese"`），已用 20 句實證正確。若日後要徹底消除，唯一正路是安裝 MSVC Build Tools 後 `pip install jieba_fast`；對純日文專案而言不划算，故不做。
 2. **`docs/finetune.md` 已不存在**，上一個 session 改為編號命名。依賴版本與來源記錄改寫進 **`docs/07_finetune.md`**。
 3. **epochs 由定案的 8 改為 16**（§4-2），理由與回退方式如上。
 4. **`grad_ckpt` 由 false 改為 true**（§4-1），屬任務書指定的顯存調整第一順位，非偏離。

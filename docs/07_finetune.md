@@ -135,22 +135,33 @@ else:                        version = "v3"
 | 大小 | 131,266,198 bytes |
 | SHA256 | `7e69ec5451bc261cc7844e49e4792a85d7f09c06789ec800fc4a44aec362764e` |
 | 下載來源 | `https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin`（即 `fast_langdetect/infer.py` 的 `FASTTEXT_LARGE_MODEL_URL`，檔名常數 `FASTTEXT_LARGE_MODEL_NAME`） |
-| 套件版本 | `fast_langdetect>=0.3.1`（**已列於 `<GPT>equirements.txt` 第 29 行**，非本專案新增） |
+| 套件版本 | `fast_langdetect>=0.3.1`（**已列於 `<GPT>
+equirements.txt` 第 29 行**，非本專案新增） |
 | 取得方式 | 一次性下載。`fast_langdetect` 只在使用「套件預設 cache 目錄」時自動建立目錄；對自訂目錄會直接拋 `FileNotFoundError` 並轉而嘗試連網下載 |
 
 **替代做法（不需下載）**：套件本身內附 `resources/lid.176.ftz`（938 KB），可用 `LangDetectConfig(custom_model_path=...)` 指向它。階段 C 曾以此法離線驗證，階段 D 改為放置正式模型檔。
 注意：若走此路徑，必須在 `from text.LangSegmenter import LangSegmenter` **之後**才設定，因為 `langsegmenter.py:11` 會在 import 時把偵測器重新指回預設路徑。
 
-### 6.2 jieba_fast（無法安裝，維持行程內別名）
+### 6.2 jieba_fast（**永久不採用**，2026-10-05 PM 決定）
 
 | 項目 | 值 |
 |---|---|
-| 需求來源 | `text/chinese.py:19-23`、`text/tone_sandhi.py:17` 在 import 期就 `import jieba_fast`；`TTS_infer_pack/TextPreprocessor.py:13` 又直接 `from text import chinese` |
-| 宣告狀態 | **`<GPT>equirements.txt` 第 26 行已有 `jieba_fast`**，是 GPT-SoVITS 官方相依，本專案並非漏加 |
-| 現況 | venv 內只有 `jieba` 0.42.1；`jieba_fast` **未安裝** |
-| 為何裝不上 | PyPI **不提供 `jieba_fast` 的任何 wheel**（`pip download --only-binary=:all:` 回報無匹配版本），只有 sdist；安裝需 MSVC 14.0 編譯 C 擴充，本機無此工具鏈。其 `setup.py` 的 `ext_modules` 無條件建 C 擴充，且套件內**無純 Python fallback**（`__init__.py:20-22`、`finalseg/__init__.py:10-12` 都是無條件 import） |
-| 現行處置 | `tools/stage_d_infer.py` / `tools/infer_smoke.py` 的 `install_jieba_fast_alias()`：`sys.modules["jieba_fast"]` 別名到已安裝的 `jieba`（jieba_fast 本就是 jieba 的分支，API 相同），並掛上 `jieba_fast.posseg` |
-| 影響範圍 | **僅中文**。本專案 language=ja，日文推論走 `cleaner.py` 的 `language_module_map["ja"] = "japanese"`，全程不呼叫 jieba。已用 20 句實證正確 |
+| PM 決定 | jieba_fast 為中文專用分詞器，本專案 language=ja **不需要**，**永久不安裝**，不再列為待補齊的依賴 |
+| 現況 | venv 內**從未安裝**（`importlib.util.find_spec("jieba_fast")` = None），故無任何東西需要移除 |
+| 宣告位置 | 僅 `<GPT>equirements.txt` 第 26 行，且那是 **GPT-SoVITS 官方的上游相依**（第 27 行另有 `jieba`），非本專案新增——不修改官方檔案 |
+| 為何裝不上（背景） | PyPI 不提供 `jieba_fast` 的任何 wheel，只有 sdist；安裝需 MSVC 14.0 編譯 C 擴充，本機無此工具鏈。套件內無純 Python fallback |
+
+**⚠️ 但別名程式碼不能刪。** `text/tone_sandhi.py:17`、`text/chinese.py:19,23`、`text/chinese2.py:20,24` 都在**模組層級**無條件 `import jieba_fast`，而 `TTS_infer_pack/TextPreprocessor.py:13` 直接 `from text import chinese`，因此**整個推論管線連純日文也無法 import**：
+
+```text
+>>> from TTS_infer_pack.TTS import TTS
+ModuleNotFoundError: No module named 'jieba_fast'
+  File "GPT_SoVITS	ext	one_sandhi.py", line 17, in <module>
+```
+
+這不是「可選相依」，而是**上游 import 鏈強迫該模組必須存在**。目前的解法（`tools/infer_smoke.py`、`tools/stage_d_infer.py` 的 `install_jieba_fast_alias()`）把 `jieba_fast` 別名到**已安裝的 `jieba`**——而 `jieba` 本來就是官方第 27 行宣告、且日文推論路徑（`text/LangSegmenter/langsegmenter.py:5`）本來就在用的套件。**因此這個別名不為本專案增加任何新相依**，只是繞開上游對 jieba_fast 的硬性 import。
+
+日文推論全程不呼叫 jieba（`cleaner.py` 的 `language_module_map["ja"] = "japanese"`），已用 20 句實證正確。
 
 ---
 
