@@ -178,22 +178,53 @@
 - **證據**：`reports/logs/raw/s1_lr_check.json`；`reports/G4_stage_c_report.md` SM-S1-5；`GPT_SoVITS/AR/modules/lr_schedulers.py:38-62`
 - **教訓**：設定檔裡的 `optimizer.*` 五個欄位在 v4 官方實作中**全是無效設定**。日後若看到「學習率怎麼調都沒反應」，先確認排程器有沒有被鎖。
 
+#### PK-013 顯存接近上限不會丟 OOM，而是退化成「假死」
+- **日期**：2026-10-05（階段 D，第 2 輪 S2）
+- **現象**：`grad_ckpt=false` 跑正式 S2（467 筆），epoch 1 正常完成並存檔；epoch 2 進行到 46/119 後停滯。tqdm 停在 `[13:42<2:15:34, 116 s/it]`（正常 0.67 s/step，**慢 173 倍**），且 **15 分鐘內 `.out`／`train.log`／TensorBoard events 全部零增長**。同時 GPU utilization 持續 **100%**、顯存讀值平穩不動、行程 CPU 時間持續上升（約 200%）。
+- **根因**：整卡峰值達 **11958/12282 MiB（97.3%）**。PyTorch 的 caching allocator 在接近上限時不會直接拋 CUDA OOM，而是反覆 `cudaFree` 已快取的區塊並重試，配合同步點造成 GPU「忙碌但無進度」的狀態。**因此「沒看到 OOM 錯誤」不等於「沒爆顯存」。**
+- **處置**：依既定順序取第一順位 `grad_ckpt=true` 重跑（不動 batch_size／lora_rank／層數）。峰值降至 **4603 MiB（37.5%）**，16 epoch 順利完成。**`grad_ckpt=true` 是本機 12 GB 跑 v4 LoRA 的必要設定，不是可選項。**
+- **證據等級**：【實測】
+- **狀態**：已解
+- **證據**：`reports/finetune_report.md` §3 GPU 異常表、§4-1；`reports/logs/stage_d_train.md` §2.2；`reports/logs/raw/s2_train.gpu`（峰值樣本）
+- **教訓**：訓練「看起來卡住」時，先看**顯存佔比**再懷疑死鎖。判別法：GPU util 100% ＋ 顯存不動 ＋ CPU 時間持續增加 ＝ allocator 迴圈，非死鎖（真死鎖時 GPU util 會掉到 0）。另外 `nvidia-smi` 每 5 秒取樣在數十秒級的短輪次會漏掉峰值，**短輪次一律以 `torch.cuda.max_memory_allocated()` 為準**。
+
+#### PK-014 停滯 watchdog 會被 tqdm 的緩衝 flush 騙過
+- **日期**：2026-10-05（階段 D）
+- **現象**：第 2 輪 S2 卡死時，`tools/run_lora_train.py` 的停滯 watchdog（`--stall-timeout-min`）**沒有**在預定的 15 分鐘觸發。
+- **根因**：watchdog 監控的是 `.out` 與 `.err` 兩個檔案的**大小**。但 tqdm 在輸出不是 tty（重導向到檔案）時會緩衝約 8 KB 才落盤，因此即使訓練完全停滯，緩衝仍會不定期溢出寫入，讓「檔案大小有變化」這個條件被誤判為「仍在輸出」。實際觀測到：`.out`／`train.log` 停了 15 分鐘，但 `.err` 在第 13 分鐘時 flush 了 180 bytes，把計時器歸零。
+- **處置**：本階段由人工介入終止。**建議修正方向**：watchdog 應改為監控訓練腳本自己的 `train.log`（`<exp_dir>/train.log`，每筆 loss 都 flush），或同時要求 `.err` 的增長幅度超過 tqdm 一行的長度才算有進展。目前 `run_lora_train.py` 尚未修改。
+- **證據等級**：【實測】＋【讀碼】
+- **狀態**：**未解**（對策已確立但未實作）
+- **證據**：`reports/finetune_report.md` §3；`reports/logs/stage_d_train.md` §2.2 的時間軸
+- **備註**：本專案的 8 小時 watchdog 不受影響（它只看時間不看輸出量）。
+
 ---
 
 ## 4. GPU 不穩專區
 
 > 依 `docs/01_issue.md:55`：「訓練過程可穩定完成；若遇到既有的 GPU 不穩問題，須記錄處理方式。」本節專門記錄 GPU／CUDA 不穩的現象與處置，與 §3.5 分離維護。
 
-**截至階段 C（2026-10-05）：本機（RTX 4070 SUPER 12 GB，12282 MiB，driver 591.86，torch 2.5.1+cu121）未發生任何 GPU 不穩。** 階段 A 全程 fp16（`is_half=1`）零 NaN retry、零 CUDA 錯誤；階段 C 五輪（S2 epochs=1、S2 resume epochs=2、S1 epochs=1、推論 E1、推論 E2）共 52 個 S2 step 與 13 個 S1 step，**未出現 `illegal instruction`、`CUBLAS_STATUS_INTERNAL_ERROR`、CUDA context 遺失、無故 OOM，loss 無 NaN／Inf**（S2 52 筆逐筆檢查、S1 epoch loss 3972.732 為有限值）。S2 整卡顯存峰值最高 11146 MiB（約 91%），仍在 12 GB 內，無 OOM。**本節目前無本機事件，以下唯一一筆是其他環境的過往異常，本機無需理會。**
+**截至階段 D（2026-10-05）：本機（RTX 4070 SUPER 12 GB，12282 MiB，driver 591.86，torch 2.5.1+cu121）未發生 CUDA 層級不穩**——階段 A～D 全程無 `illegal instruction`／`CUBLAS_STATUS_INTERNAL_ERROR`／CUDA context 遺失／`device-side assert`／驅動重置，loss 無 NaN／Inf。
 
-### 冒煙實測顯存（階段 C，附 §11.2 SM-S2-7／§12.2 監測結果）
+**但發生過一次顯存容量事件（不是 CUDA 故障，詳見 PK-013）**：`grad_ckpt=false` 跑正式 S2 時整卡峰值 11958/12282 MiB（97.3%），PyTorch caching allocator 陷入 `cudaFree`／重試迴圈，進程呈現「GPU util 100% 但無進度」的假死且**不拋 OOM**；改 `grad_ckpt=true` 後峰值 4603 MiB，16 epoch 順利完成。
+
+本節目前無 CUDA 層級的本機事件；以下唯一一筆是其他環境的過往異常，本機無需理會。
+
+### 本機顯存實測彙總（階段 C ＋ 階段 D）
 
 | 輪次 | 整卡峰值（nvidia-smi） | `max_memory_allocated` | `max_memory_reserved` |
 |---|---|---|---|
+| **階段 C** | | | |
 | S2 epochs=1 | 10572 MiB | 8428.2 MiB | 8582.0 MiB |
 | S2 resume epochs=2 | 11146 MiB | 8295.7 MiB | 9190.0 MiB |
 | S1 epochs=1 | 2551 MiB（**取樣漏峰，見下**） | 3351.7 MiB | 4370.0 MiB |
 | 推論 E1／E2 | — | 1898.4 MiB | 2264.0 MiB |
+| **階段 D（正式，467 筆）** | | | |
+| S1 8 epoch | 10218 MiB（取樣漏峰） | 4642.3 MiB | 8294.0 MiB |
+| **S2 grad_ckpt=false** | **11958 MiB ❌ 假死** | 未取得 | 未取得 |
+| S2 grad_ckpt=true 8 epoch | 4603 MiB | 3507.5 MiB | 3928.0 MiB |
+| S1 8→16 epoch | 6465 MiB（取樣漏峰） | 4705.3 MiB | 5818.0 MiB |
+| S2 8→16 epoch | 5093 MiB | 3504.3 MiB | 4420.0 MiB |
 
 閒置基準實測 1734–1758 MiB（計畫 §11.1 寫的 1455 MiB 與本機不符，屬記錄誤差，非問題）。
 
@@ -239,3 +270,12 @@
 4. **計畫 §12.3 把「jieba_fast 未安裝」列為僅影響中文**——實測證明它擋下整個推論管線（見 PK-011）。已在本階段解決，但該文件的「已知偏差」章節需於階段 D 更正。
 5. **計畫 §10.1 預期「S1 冒煙實際 batch 會被壓到 5」**——實測為 8。原因是 `AR/data/data_module.py:51` 的 `len(dataset)//4` 作用在**已自動擴充為 100** 的資料集上（100//4 = 25），不是 20 條（20//4 = 5）。兩階段的資料集都會先被擴充到至少 100（`data_utils.py:546-551`、`AR/data/dataset.py`），所以這個下限在正式訓練時同樣不會生效。
 6. **計畫 §11.1 寫的顯存基準 1455 MiB** 與本機實測 1734–1758 MiB 不符，屬計畫側的記錄誤差，不影響任何判斷。
+
+---
+
+## 7. 階段 D 追加（2026-10-05）
+
+7. **「12 GB 有餘裕」不成立**：`docs/07_finetune.md` §5 原寫 v4 LoRA 在本機 12 GB 有餘裕。正式訓練實測 `grad_ckpt=false` 峰值達 11958/12282 MiB（97.3%）並假死；`grad_ckpt=true` 後為 4603 MiB。已改寫該文件 §7 並新增 PK-013。
+8. **epochs 8 不夠**：8 epoch 的成品聲線相似度只有真實基線的 86.9%（門檻 90%），續訓至 16 epoch 後為 91.5%。S1 的 loss 在第 8 epoch 仍在單調下降、top-3 準確率僅 0.628 且無平台期，可作為「尚未收斂」的預判訊號。已將 `configs/s1_ryza.yaml` 與 `configs/s2_lora_ryza.json` 的 `epochs` 改為 16（偏離 PM 原定案值 8，已在 `reports/finetune_report.md` §7-3 記錄）。
+9. **`jieba_fast` 在本機無法安裝**：非漏加相依（`<GPT>
+equirements.txt` 第 26 行已有），而是 PyPI 不提供 wheel、安裝需 MSVC 14.0。PK-011 的處置（行程內別名到 `jieba`）因此**繼續沿用**，而非如原預期改用正式依賴。同一坑的 `fast_langdetect` 部分已於階段 D 以放置正式模型檔解決（`GPT_SoVITS/pretrained_models/fast_langdetect/lid.176.bin`）。

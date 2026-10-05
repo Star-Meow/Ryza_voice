@@ -115,6 +115,52 @@ else:                        version = "v3"
 
 ## 5. 後續階段
 
-- **階段 B**：訓練配置與啟動腳本（等 G2 放行後開始）。
-- **階段 C**：冒煙測試——驗收以產出檔案數量與內容為準，**不可只看 exit code**（§4.1）。
-- v4 LoRA 顯存門檻 8 GB（官方），本機 12 GB 有餘裕；需以 `torch.cuda.max_memory_allocated()` 實測。
+- **階段 B**：訓練配置與啟動腳本 ✅ 已完成。
+- **階段 C**：冒煙測試 ✅ 已完成（驗收以產出檔案數量與內容為準，不可只看 exit code，§4.1）。
+- **階段 D**：正式訓練與品質評估 ✅ 已完成（2026-10-05，結果見 `../reports/finetune_report.md`）。
+- v4 LoRA 顯存門檻 8 GB（官方），本機 12 GB **實測不足**：見 §7。
+
+---
+
+## 6. 推論端隱性依賴（階段 D 補齊）
+
+推論（`TTS_infer_pack.TTS`）在**模組層級**依賴兩樣東西，與語言無關——即使只做日文推論也會被擋。
+
+### 6.1 fast_langdetect 語言偵測模型（已就位）
+
+| 項目 | 值 |
+|---|---|
+| 需求來源 | `GPT_SoVITS/text/LangSegmenter/langsegmenter.py:11` 把 `fast_langdetect` 的 `cache_dir` 指到 `GPT_SoVITS/pretrained_models/fast_langdetect/` |
+| 放置路徑 | `<GPT>\GPT_SoVITS\pretrained_modelsast_langdetect\lid.176.bin` |
+| 大小 | 131,266,198 bytes |
+| SHA256 | `7e69ec5451bc261cc7844e49e4792a85d7f09c06789ec800fc4a44aec362764e` |
+| 下載來源 | `https://dl.fbaipublicfiles.com/fasttext/supervised-models/lid.176.bin`（即 `fast_langdetect/infer.py` 的 `FASTTEXT_LARGE_MODEL_URL`，檔名常數 `FASTTEXT_LARGE_MODEL_NAME`） |
+| 套件版本 | `fast_langdetect>=0.3.1`（**已列於 `<GPT>equirements.txt` 第 29 行**，非本專案新增） |
+| 取得方式 | 一次性下載。`fast_langdetect` 只在使用「套件預設 cache 目錄」時自動建立目錄；對自訂目錄會直接拋 `FileNotFoundError` 並轉而嘗試連網下載 |
+
+**替代做法（不需下載）**：套件本身內附 `resources/lid.176.ftz`（938 KB），可用 `LangDetectConfig(custom_model_path=...)` 指向它。階段 C 曾以此法離線驗證，階段 D 改為放置正式模型檔。
+注意：若走此路徑，必須在 `from text.LangSegmenter import LangSegmenter` **之後**才設定，因為 `langsegmenter.py:11` 會在 import 時把偵測器重新指回預設路徑。
+
+### 6.2 jieba_fast（無法安裝，維持行程內別名）
+
+| 項目 | 值 |
+|---|---|
+| 需求來源 | `text/chinese.py:19-23`、`text/tone_sandhi.py:17` 在 import 期就 `import jieba_fast`；`TTS_infer_pack/TextPreprocessor.py:13` 又直接 `from text import chinese` |
+| 宣告狀態 | **`<GPT>equirements.txt` 第 26 行已有 `jieba_fast`**，是 GPT-SoVITS 官方相依，本專案並非漏加 |
+| 現況 | venv 內只有 `jieba` 0.42.1；`jieba_fast` **未安裝** |
+| 為何裝不上 | PyPI **不提供 `jieba_fast` 的任何 wheel**（`pip download --only-binary=:all:` 回報無匹配版本），只有 sdist；安裝需 MSVC 14.0 編譯 C 擴充，本機無此工具鏈。其 `setup.py` 的 `ext_modules` 無條件建 C 擴充，且套件內**無純 Python fallback**（`__init__.py:20-22`、`finalseg/__init__.py:10-12` 都是無條件 import） |
+| 現行處置 | `tools/stage_d_infer.py` / `tools/infer_smoke.py` 的 `install_jieba_fast_alias()`：`sys.modules["jieba_fast"]` 別名到已安裝的 `jieba`（jieba_fast 本就是 jieba 的分支，API 相同），並掛上 `jieba_fast.posseg` |
+| 影響範圍 | **僅中文**。本專案 language=ja，日文推論走 `cleaner.py` 的 `language_module_map["ja"] = "japanese"`，全程不呼叫 jieba。已用 20 句實證正確 |
+
+---
+
+## 7. v4 LoRA 顯存：實測結論（階段 D）
+
+階段 C 的「12 GB 有餘裕」判斷**不成立**。正式訓練（467 筆）的實測：
+
+| grad_ckpt | 整卡峰值 | 結果 |
+|---|---|---|
+| `false` | **11958 MiB / 12282 MiB（97.3%）** | ❌ epoch 2 起進程假死（caching allocator 反覆 `cudaFree`／重試），**不拋 OOM** |
+| `true` | **4603 MiB（37.5%）** | ✅ 16 epoch 順利完成 |
+
+**`grad_ckpt=true` 是本機跑 v4 LoRA 的必要設定**，不是可選項。詳見 `../reports/finetune_report.md` §3、§4-1 與 `09_pitfalls.md` PK-013。
