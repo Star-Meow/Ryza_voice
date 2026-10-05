@@ -49,7 +49,7 @@ wav/00028.wav|ryza|ja|そっか、わかった。
 
 1. **不要照 issue 字面範圍重建。** 若改用 `A_high + B_likely`（383，非 issue 所寫的 386），得到的是另一份資料集，與 `data/ryza_train.list` 不一致，下游預處理、訓練、評估數據全部會變。正確入口是 `--source-dir ryza_main/top500`。
 2. **issue 的 386 是過期數字**，`ryza_main/B_likely/` 實際為 **383**（`docs/04_speaker_id.md:145`、`README.md:64` 一致）。
-3. **`v` 前綴自動採納規則未排除 `D_flagged` 層**：`tools/select_samples.py:8` 讓各層中檔名帶 `v` 前綴者全部採用、不參與排序，導致 `v00596.wav`（`svm_dec = −0.4597`，該層自訂為「強烈疑似錯誤」）進入最終 491 段。詳見 [`../reports/issue_compliance.md`](../reports/issue_compliance.md) §1.4。
+3. **`v` 前綴自動採納規則未排除 `D_flagged` 層**：`tools/select_samples.py:8` 讓各層中檔名帶 `v` 前綴者全部採用、不參與排序，因此 `v00596.wav`（`svm_dec = −0.4597`，該層自訂為「強烈疑似錯誤」）也進入了最終 491 段。**PM 已於 2026-10-05 裁示不剔除此檔**（保留可維持 491 段，階段 A～D 數據全部有效）。複核記錄見 [`../reports/issue_compliance.md`](../reports/issue_compliance.md) §1.4。**日後複現時不應「順手修正」這條規則**——改了會得到不同的 491 段。
 4. **人工查核的逐筆紀錄未留在 repo 內**。`WRONG[]` 保留了人工判定的**結果**，但沒有逐檔的「音檔編號 → 判定 → 試聽者 → 日期」對照表。若日後需稽核，需另行補建。
 
 ---
