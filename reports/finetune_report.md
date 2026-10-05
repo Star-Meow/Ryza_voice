@@ -371,7 +371,38 @@ HF_HUB_OFFLINE=1 .venv\Scripts\python.exe tools/stage_d_eval.py \
 
 ---
 
-## 10. 停止點
+## 10. 版本與 commit hash 記錄（issue：須在 PR 中記錄使用的版本與 commit hash）
+
+### 基礎模型（本專案使用的上游版本）
+
+| 項目 | 值 |
+|---|---|
+| 基礎模型 | **GPT-SoVITS**（issue 指定） |
+| 上游 commit | `48b1a0169a28582a8984402f82cf438d3bfa6aca` |
+| 分支／修改狀態 | 無分支、工作樹乾淨、**無任何官方檔被修改** |
+| 模型權重 | v4：`GPT_SoVITS/pretrained_models/gsv-v4-pretrained/s2Gv4.pth`（769,025,545 B）、`vocoder.pth`（57,781,109 B） |
+| S1 底模 | `GPT_SoVITS/pretrained_models/s1v3.ckpt`（v4 沿用 v3 的 GPT 權重，`config.py:25`） |
+| BERT／HuBERT | `chinese-roberta-wwm-ext-large`、`chinese-hubert-base`，皆為 T0 轉檔後的 safetensors 版本 |
+
+### 本專案的產出 commit（分支 `feature/TTS-finetune`，**尚未 push、尚未開 PR**）
+
+| commit | 內容 |
+|---|---|
+| `49ca4b5` | 階段 D 正式訓練與品質評估（config 採 16 epoch、grad_ckpt=true、評估工具、報告） |
+| `8c0ef23` | jieba_fast 永久不採用的裁示記錄 |
+| `298bf4a` | 生成樣本 Whisper 文字稿 `reports/cer_generated.csv` ＋報告附錄 A |
+| `4f118e8` | 聲線相似度基線穩健性重算（9 種組合） |
+| `33ae53b` | SD-8 證據補充 |
+
+階段 A／B／C 的成果由 PM 合併於 `bb0a840`（階段 B/C）、`0b7c743`（G1）、`c7f2c77`（文件編號化）。
+
+**⚠️ 尚待完成**：本分支 5 個 commit **尚未 push，PR 尚未建立**。issue 的記錄動作是「在 PR 中記錄」，因此仍需：
+(1) 推送 `feature/TTS-finetune`；(2) 開啟 PR；(3) 於 PR 描述填入上表的基礎模型 commit `48b1a0169a28582a8984402f82cf438d3bfa6aca`
+與本專案當前 commit `33ae53b3804ff1e0c6abd69c757d3bbbf8451587`。以上屬版本控制與對外動作，**未經指示不執行**。
+
+---
+
+## 11. 停止點
 
 **停在階段 D 完成，等 PM 驗收。**
 
