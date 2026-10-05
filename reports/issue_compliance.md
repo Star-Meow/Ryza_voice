@@ -135,6 +135,7 @@ PM 說明：早期視聽與人工檢查樣本皆由人工執行；範圍改走 `
 | 7 | `README.md`、`docs/08_tools.md:115-128` | 「`07_finetune.md`、`09_pitfalls.md` 與 5 個 tools 腳本尚未納入版控」 | `git ls-files` 顯示**全部已追蹤**（2026-10-05 複核） |
 | 8 | `reports/asr_filter_report.md` 全文 | 被 `issue_reply_part1.md:20` 引為「排除原因」記錄 | 該檔為過期版本，且排除原因已被 `--prune-raw` 從 `asr_screening.json` 移除 |
 
+| 9 | `docs/07_finetune.md` §1、`reports/G2`／`G3`／`G4`／`finetune_report.md`／`smoke_test_stage_a.md`／`pr_description.md` | 「`<GPT>` **無分支**、無修改」 | ❌ **事實錯誤，已於 2026-10-05 修正**。`<GPT>` 實際位於 `main` 分支（`git symbolic-ref HEAD` = `refs/heads/main`、`git branch --contains 48b1a01` = `* main`），且 commit 正是 `48b1a01`。原意應為「無本地修改」，該敘述成立。此錯誤已在 issue 要求記錄「分支與 commit hash」的字段上發生，故優先修正 |
 ---
 
 ## 7. 需 PM 裁示的事項

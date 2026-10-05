@@ -100,7 +100,7 @@ ffprobe version 9.0.2-essentials_build-www.gyan.dev
 
 ## 區域 4：收尾（git 狀態與文件）
 
-### `<GPT>`（無分支，commit `48b1a01`）
+### `<GPT>`（`main` 分支，commit `48b1a01`）
 - 工作樹**完全乾淨**：`git status --short` 空、`git diff` 空
 - `logs\ryza_v4_lora`（399 MB）、`logs\ryza_v4_lora_eval10`（7.6 MB）、`.venv\Scripts\{ffmpeg,ffprobe}.exe` 全被 `.gitignore` 忽略
 - **`?? =0.4.1` 已不存在**：G1 報告記載該檔「始終存在」，PA-12 亦期望「仍只有 =0.4.1」，但現已消失。該檔從未入版控（`git log --all -- "=0.4.1"` 無結果），**無法還原、無法查證刪除時間**。PA-12 據實改記「工作樹全乾淨」——結果優於預期，但偏離計畫文字

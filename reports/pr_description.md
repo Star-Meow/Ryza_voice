@@ -21,31 +21,40 @@
 
 ---
 
-## 使用的版本與 commit hash（issue 字面要求）
+## 基礎模型
 
-### 基礎模型
+- **GPT-SoVITS**
+- **分支**：`main`
+- **Commit**：`48b1a0169a28582a8984402f82cf438d3bfa6aca`
 
-| 項目 | 值 |
-|---|---|
-| 框架 | **GPT-SoVITS**，main 分支，**無分支、無修改**（`git status` 全程乾淨，未改任何官方檔） |
-| **commit hash** | **`48b1a0169a28582a8984402f82cf438d3bfa6aca`**（短碼 `48b1a01`，commit 訊息「Fix Fun-ASR-Nano Transformers requirement (#2824)」） |
-| 目標版本 | **v4**（`model.version = "v4"`，config 硬性要求） |
-| SoVITS 底模 | `GPT_SoVITS/pretrained_models/gsv-v4-pretrained/s2Gv4.pth`（769,025,545 B） |
-| Vocoder | `GPT_SoVITS/pretrained_models/gsv-v4-pretrained/vocoder.pth`（57,781,109 B，**v4 路徑寫死於 `TTS.py:657`**） |
-| GPT／AR 底模 | `GPT_SoVITS/pretrained_models/s1v3.ckpt`（155,284,856 B，v4 沿用 v3 權重，`config.py:25`） |
-| 權重來源 | `huggingface.co/XXXXRT/GPT-SoVITS-Pretrained` |
-| BERT／HuBERT | `chinese-roberta-wwm-ext-large`、`chinese-hubert-base`，經 **T0 轉檔為 safetensors**（原因見下） |
+> 驗證：`git -C <GPT> symbolic-ref HEAD` = `refs/heads/main`；
+> `git branch --contains 48b1a01` = `* main`；`git status --short` 全程為空，
+> **無任何官方檔被修改**。上游：`https://github.com/RVC-Boss/GPT-SoVITS.git`。
 
-### 必要的模型轉檔（T0）
+### 模型權重
 
-transformers 4.57.6 因 **CVE-2025-32434** 拒絕以 `torch.load` 載入 `.bin`，而本環境 torch 2.5.1+cu121 未達 2.6 門檻、升級會破壞 cu121 綁定。故將兩個模型轉為 `model.safetensors`：
+| 用途 | 路徑（相對 `<GPT>\GPT_SoVITS\pretrained_models\`） | 大小 |
+|---|---|---|
+| SoVITS v4 底模（G） | `gsv-v4-pretrained/s2Gv4.pth` | 769,025,545 B |
+| v4 專用 vocoder | `gsv-v4-pretrained/vocoder.pth` | 57,781,109 B |
+| GPT／AR 底模 | `s1v3.ckpt` | 155,284,856 B |
+| BERT | `chinese-roberta-wwm-ext-large/` | 見下表 |
+| HuBERT | `chinese-hubert-base/` | 見下表 |
+
+權重來源：`huggingface.co/XXXXRT/GPT-SoVITS-Pretrained`。
+**v4 發行包只附 G 不附 D**（`gsv-v4-pretrained/` 只有 `s2Gv4.pth` 與 `vocoder.pth`）；
+config 中的 `pretrained_s2D` 指向不存在的 `s2Dv4.pth` 屬官方預設，`s2_train_v3_lora.py` 不讀該欄位，無害。
+
+### T0：`.bin` → safetensors 轉檔（必要）
+
+transformers 4.57.6 因 **CVE-2025-32434** 拒載 `.bin`，本環境 torch 2.5.1+cu121 未達 2.6 門檻、升級會破壞 cu121 綁定：
 
 | 模型 | `pytorch_model.bin` SHA256 | `model.safetensors` SHA256 |
 |---|---|---|
 | chinese-roberta-wwm-ext-large | `e53a693acc59ace251d143d068096ae0d7b79e4b1b503fa84c9dcf576448c1d8` | `ddb2d1e2aec45a149bb1b19213c0478cee464f9cc75531e70e673b5224ef4f05` |
 | chinese-hubert-base | `24164f129c66499d1346e2aa55f183250c223161ec2770c0da3d3b08cf432d3c` | `25adc31d1889ff5d3da262189433bdc755f0ddb9f194342583dbd17e447daefe` |
 
-驗證見 `reports/G1_t0_t1_report.md`。轉檔**未刪除也未修改**原始 `.bin`。
+轉檔未刪除也未修改原始 `.bin`。驗證見 `reports/G1_t0_t1_report.md`。
 
 ### 額外模型資產
 
@@ -55,10 +64,26 @@ transformers 4.57.6 因 **CVE-2025-32434** 拒絕以 `torch.load` 載入 `.bin`�
 
 ---
 
-## 詳細內容與本專案 commit hash
+## 交付內容
 
-> issue 的 commit hash 指的是**基礎模型**的（上方）。以下為**本專案交付內容**的 commit 對照，
-> 用途是把 PR 的內容釘定到確切版本。
+- **訓練設定檔**：`configs/s2_lora_ryza.json`、`configs/s1_ryza.yaml`
+- **訓練 log**：`reports/logs/stage_d_train.md`
+- **評估報告**：`reports/finetune_report.md`
+
+### 完整清單
+
+| 類別 | 檔案 |
+|---|---|
+| 訓練設定檔 | `configs/s1_ryza.yaml`、`configs/s2_lora_ryza.json`、`configs/s1_ryza_smoke.yaml`、`configs/s2_lora_ryza_smoke.json`、`configs/s2_lora_ryza_smoke_e2.json` |
+| 訓練／推論／評估工具 | `tools/run_lora_train.py`、`tools/vram_runner.py`、`tools/stage_d_infer.py`、`tools/stage_d_eval.py`、`tools/stage_c_collect.py`、`tools/s1_lr_check.py`、`tools/run_preprocess.py`、`tools/build_smoke_exp.py`、`tools/stage_a_validate.py` |
+| 重現文件 | `docs/07_finetune.md`（9 章，資料準備→推論）、`docs/09_pitfalls.md`（PK-001～015）、`docs/05_transcript_pipeline.md` |
+| 報告 | `reports/finetune_report.md`、`reports/defect_triage.md`、`reports/issue_compliance.md`、`reports/pr_description.md`、`reports/cer_generated.csv`、`reports/logs/stage_d_train.md`、`reports/G2_stage_a_report.md`、`reports/G4_stage_c_report.md`、`reports/smoke_test_stage_c.md` |
+| **不提交** | 模型權重、`reports/logs/raw/`（原始 log 與 metrics）、TensorBoard events、`ryza_main/`、`wav/` |
+
+### 本專案的交付 commit
+
+> 基礎模型的 commit hash 見上方「基礎模型」節；以下是本專案交付內容的 commit 對照，
+> 用途是把 PR 內容釘定到確切版本。
 
 | commit | 內容 |
 |---|---|
@@ -74,16 +99,8 @@ transformers 4.57.6 因 **CVE-2025-32434** 拒絕以 `torch.load` 載入 `.bin`�
 | `2c4db07` | 整併主觀試聽評語 ＋ 量化交叉檢視 |
 | `e53aab9`、`09e5810` | 主觀缺陷排查報告 `defect_triage.md`（P-1/P-2/P-3） |
 | `9c0c6ab`、`b9aab67` | issue 合規稽核 `issue_compliance.md` ＋ 文件修正 |
-
-**交付內容清單**（全部已 commit）：
-
-| 類別 | 檔案 |
-|---|---|
-| 訓練設定檔 | `configs/s1_ryza.yaml`、`configs/s2_lora_ryza.json`、`configs/s1_ryza_smoke.yaml`、`configs/s2_lora_ryza_smoke*.json` |
-| 訓練／推論／評估工具 | `tools/run_lora_train.py`、`tools/vram_runner.py`、`tools/stage_d_infer.py`、`tools/stage_d_eval.py`、`tools/stage_c_collect.py`、`tools/s1_lr_check.py`、`tools/run_preprocess.py`、`tools/build_smoke_exp.py`、`tools/stage_a_validate.py` |
-| 重現文件 | `docs/07_finetune.md`（9 章，資料準備→推論）、`docs/09_pitfalls.md`（PK-001～015） |
-| 報告 | `reports/finetune_report.md`、`reports/defect_triage.md`、`reports/issue_compliance.md`、`reports/cer_generated.csv`、`reports/logs/stage_d_train.md`、`reports/G2_stage_a_report.md`、`reports/G4_stage_c_report.md`、`reports/smoke_test_stage_c.md` |
-| **不提交** | 模型權重、`reports/logs/raw/`（原始 log 與 metrics）、TensorBoard events、快取模型 |
+| `238f381` | PR 描述草案 |
+| `fb2079d` | `v00596.wav` 剔除議題結案 |
 
 ---
 

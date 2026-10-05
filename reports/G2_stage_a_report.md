@@ -2,7 +2,7 @@
 
 日期：2026-10-05
 回報依據：計畫 §3 Gate G2、§9 階段 A、§15 回報格式
-分支：`feat/tts-v4-lora-prep`（`<RYZA>`）；`<GPT>` 無分支、無修改
+分支：`feat/tts-v4-lora-prep`（`<RYZA>`）；`<GPT>` 在 `main` 分支（commit `48b1a01`）、無修改
 工作目錄：CWD = `H:\git\GPT-SoVITS`（logs 為相對路徑），Python = `.venv\Scripts\python.exe`
 
 ---
@@ -71,7 +71,7 @@
 
 ## 5. 目前工作樹與產出
 
-### `<GPT>`（無分支）
+### `<GPT>`（`main` 分支，commit `48b1a01`）
 - 工作樹**完全乾淨**：`git status` 空、`git diff` 空。`logs\ryza_v4_lora`（399 MB）、`logs\ryza_v4_lora_eval10`（7.6 MB）、`.venv\Scripts\{ffmpeg,ffprobe}.exe` 全被 .gitignore 忽略。
 - 預處理產出（供後續階段 B/C 使用）：
   - `logs\ryza_v4_lora\`：`2-name2text.txt`（467）、`2-name2text-0.txt`（原檔保留）、`3-bert\`（空）、`4-cnhubert\`（467 個 .pt）、`5-wav32k\`（467 個 wav，179.9 MB）、`6-name2semantic.tsv`（468 行含表頭）、`6-name2semantic-0.tsv`（原檔保留）。

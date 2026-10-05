@@ -524,7 +524,8 @@ HF_HUB_OFFLINE=1 .venv\Scripts\python.exe tools/stage_d_eval.py \
 |---|---|
 | 基礎模型 | **GPT-SoVITS**（issue 指定） |
 | 上游 commit | `48b1a0169a28582a8984402f82cf438d3bfa6aca` |
-| 分支／修改狀態 | 無分支、工作樹乾淨、**無任何官方檔被修改** |
+| 分支 | **`main`**（`git symbolic-ref HEAD` = `refs/heads/main`） |
+| 修改狀態 | 工作樹乾淨、**無任何官方檔被修改** |
 | 模型權重 | v4：`GPT_SoVITS/pretrained_models/gsv-v4-pretrained/s2Gv4.pth`（769,025,545 B）、`vocoder.pth`（57,781,109 B） |
 | S1 底模 | `GPT_SoVITS/pretrained_models/s1v3.ckpt`（v4 沿用 v3 的 GPT 權重，`config.py:25`） |
 | BERT／HuBERT | `chinese-roberta-wwm-ext-large`、`chinese-hubert-base`，皆為 T0 轉檔後的 safetensors 版本 |

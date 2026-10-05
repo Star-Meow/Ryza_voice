@@ -31,7 +31,7 @@ issue Part 2 要求「從資料準備到推論的完整重現步驟，他人照�
 | OS | Windows 10 19045 x64 | |
 | Python | 3.10.11（`<GPT>\.venv`） | 獨立 venv，不繼承系統 site-packages |
 | GPU | RTX 4070 SUPER（12 GB） | `torch.cuda.is_available()` = True，cu121 |
-| GPT-SoVITS | main commit `48b1a01` | 無分支、無修改 |
+| GPT-SoVITS | 分支 `main`，commit `48b1a0169a28582a8984402f82cf438d3bfa6aca`（短碼 `48b1a01`） | 無本地修改（`git status` 全程乾淨） |
 | **ffmpeg** | **9.0.2-essentials_build（gyan.dev 靜態版）** | **隱性系統依賴，見下** |
 
 ### ffmpeg（隱性系統依賴）

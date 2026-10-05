@@ -2,7 +2,7 @@
 
 日期：2026-10-05
 回報依據：計畫 §11 階段 C、§15 回報格式
-分支：`feat/tts-v4-lora-prep`（`<RYZA>`）；`<GPT>` 無分支、工作樹乾淨
+分支：`feat/tts-v4-lora-prep`（`<RYZA>`）；`<GPT>` 在 `main` 分支（commit `48b1a01`）、工作樹乾淨
 樣本：冒煙 exp `logs/ryza_v4_lora_smoke`（20 筆，§10.1）
 工作目錄：CWD = `H:\git\GPT-SoVITS`，Python = `.venv\Scripts\python.exe`
 
