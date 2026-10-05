@@ -309,6 +309,23 @@ python tools/validate_pos_label.py --source-dir ryza_main/top500 \
 
 manifest 的 `bucket` 欄即 `f'{class}-d{bucket_index}'`，例如 `DECL-d1` = 平敘類、中時長三分位；`Q-d0` = 疑問類、最短三分位。
 
+> ⚠️ **`class` 欄位的三個性質，複現時務必先知道**（2026-10-05 階段 D 主觀試聽後補充）
+>
+> 1. **它只是文字推斷，不是聲學情緒。** 分類只看句末標點，而標點表達的是語法功能，不是聲優實際的語氣。
+>    主觀試聽已實證兩者會不符：Agent 為全新台詞 (b) 10 句下語氣標註用的正是同一套規則，
+>    而試聽結果顯示**至少 8/10 句標註與實際聲音不符，興奮與悲傷兩類全錯**。
+> 2. **它不進入任何訓練腳本。** `data/finetune_train.list` 仍為 4 欄（`路徑|ryza|ja|文字`），
+>    `prepare_datasets/1-get-text.py:129` 只解這 4 欄。模型**沒有**被灌入任何情緒標籤，
+>    不會「學會 DECL → 開心的聲音」。
+> 3. **但它決定了誰被留作測試集**，因此**評測軸是「文字看起來像什麼」而非「聲音實際是什麼」**。
+>    `class` 分布：eval10 為 DECL 6／Q 2／EXCL 1／ELL 1，test24 為 DECL 15／Q 4／ELL 3／EXCL 2。
+>    這是階段 D 的量化指標（cosine、CER）對「情緒偏開心」缺陷**結構性盲視**的成因——
+>    兩個 gate 指標都不衡量聲學情緒，卻是在一個聲學情緒未經驗證的集合上量的。
+>
+> 詳見 [`../reports/defect_triage.md`](../reports/defect_triage.md) §P-2 與
+> [`../reports/finetune_report.md`](../reports/finetune_report.md) §6-4。
+> **若要把語氣品質納入驗收，需要另建指標並以聲學情緒重新分層，不能沿用 cosine。**
+
 ### 9.2 產出與門檻
 
 | 檔案 | 內容 |
