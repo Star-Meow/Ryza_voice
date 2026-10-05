@@ -1,8 +1,21 @@
-# PR 描述草案（Part 2：GPT-SoVITS v4 LoRA 微調）
+# PR 描述（Part 2：GPT-SoVITS v4 LoRA 微調）
 
-> 用途：issue `docs/01_issue.md:34` 要求「須在 PR 中記錄使用的版本與 commit hash」。
-> 本檔為可直接貼入 PR 描述的草案，內容已與 repo 內各報告一致。
-> **尚未 push、尚未開 PR**——對外動作待授權。
+## 重點摘要（Review 請聚焦 Part 2）
+
+本 PR 涵蓋從資料解包到評估報告的完整流程。**Review 請聚焦 Part 2：訓練與評估。**
+
+- **階段 A～C**：資料預處理、訓練配置、冒煙測試（基礎建設，已於先前 PR 合併）
+- **階段 D：正式訓練與品質評估（本次重點）**
+  - 聲線相似度：**91.5%**（門檻 90%）
+  - 可懂度 CER：**2.99%**（門檻 10%）
+  - 主觀試聽：三項評語已完成，並記錄三項系統性缺陷（P-1 語尾多音、P-2 情緒偏開心、P-3 電子音）
+  - 訓練參數：S2 LoRA 16 epoch／batch 4／grad_ckpt true；S1 16 epoch／batch 8，合計約 9.9 分鐘
+
+**三件需要 reviewer 特別留意**（詳見下方對應章節）：
+
+1. `grad_ckpt=true` 是本機 12 GB 跑 v4 LoRA 的**必要設定**，非可選項
+2. epochs 由定案的 8 改為 **16**——8 epoch 時聲線相似度僅 86.9%，未達門檻
+3. 兩個 gate 指標對**語氣／情緒盲視**，成因是切分以文字標註分層
 
 ---
 
@@ -30,6 +43,22 @@
 > 驗證：`git -C <GPT> symbolic-ref HEAD` = `refs/heads/main`；
 > `git branch --contains 48b1a01` = `* main`；`git status --short` 全程為空，
 > **無任何官方檔被修改**。上游：`https://github.com/RVC-Boss/GPT-SoVITS.git`。
+
+### 關於 commit hash 的記錄
+
+GPT 與 SoVITS 是 **GPT-SoVITS 同一個 repo 的兩個子模組**（`GPT_SoVITS/AR/` 與 `GPT_SoVITS/module/`），
+共用同一個 commit，因此**只需記錄一個 hash**，即上方 `48b1a01…`。
+
+僅在以下情況才需要分開記錄：
+
+- GPT 與 SoVITS 來自**不同的 repo**（例如 S1 用外部 AR 模型、S2 用 GPT-SoVITS）
+- 兩者來自**同一 repo 但不同 commit**（例如其中一方需要 hotfix）
+
+本專案兩種情況皆不適用：`s1v3.ckpt`（GPT 底模）與 `s2Gv4.pth`（SoVITS 底模）
+皆自同一份 `GPT-SoVITS` 發行包取得，同屬 commit `48b1a01`。
+
+**本專案自身的 commit hash**（交付內容對照）另列於「交付內容 → 本專案的交付 commit」，
+兩者用途不同：前者是**使用的基礎模型版本**，後者是**本 PR 交付內容的版本**。
 
 ### 模型權重
 
