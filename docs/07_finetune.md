@@ -226,6 +226,13 @@ tools/vgmstream/vgmstream-cli.exe -s 1 -S 0 -o "battle_voice/015_?n.wav" \
 
 ### 8.2 說話者篩選 + ASR 漏斗（9,569 → 491）
 
+> ⚠️ **為何走 `ryza_main/top500/` 而非 issue 字面的 `A_high + B_likely`**（PM 2026-10-05 說明）：
+> 因擔心樣本數偏頗，**已人工確認的 `A_high`（A）全數保留，其餘層級直接以 `svm_dec` 排序取前 500**，
+> 再做去躁與正負樣本確認。**早期視聽與人工檢查樣本皆由人工執行。**
+> 複現時**不可照 issue 字面範圍重建**，否則會得到另一份資料集。完整說明見
+> [`05_transcript_pipeline.md`](05_transcript_pipeline.md) §1.5。
+> 另注意 issue 所寫的 `B_likely` 386 為過期數字，實際為 **383**。
+
 ```text
 9,569  wav/ 全部解包音檔
   ↓ ECAPA-TDNN 說話者嵌入（tools/spk_model.py），9570×192 @ tools/embeddings.npy
@@ -242,7 +249,6 @@ tools/vgmstream/vgmstream-cli.exe -s 1 -S 0 -o "battle_voice/015_?n.wav" \
 ```
 
 **重跑 ASR 的完整指令**（`05_transcript_pipeline.md:234-266`）：
-
 ```bash
 # 步驟 3：從 top500 造冊（497）
 python tools/build_pos_label.py --source-dir ryza_main/top500 --output tools/pos_label.py

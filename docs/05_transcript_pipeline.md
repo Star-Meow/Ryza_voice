@@ -32,6 +32,28 @@ wav/00028.wav|ryza|ja|そっか、わかった。
 
 **維護原則**：`asr_screening.json` 是唯一的事實來源，其餘兩檔皆由它推導。任何時候三者必須相等（見 §8）。
 
+## 1.5 為何走 `top500/` 而非 issue 字面寫的 `A_high/ + B_likely/`
+
+`docs/01_issue.md` 第 8 行的字面範圍是「`ryza_main/A_high/`（92）＋ `ryza_main/B_likely/`（386）＝約 478 段」。實際執行走的是 `ryza_main/top500/`。**這是刻意的決策，不是流程意外**（PM 2026-10-05 說明）：
+
+> 早期排序時，因為**擔心樣本數偏頗**，所以將 A（人工確認的樣本，即 `A_high`）以外的直接進行 `svm_dec` 排序並取出前 500，進行去躁以及正負樣本確認。
+
+| 面向 | 內容 |
+|---|---|
+| **動因** | 單靠 `A_high`（92 筆，已全數人工確認）樣本數偏少，不足以支撐後續 finetune；`B_likely` 又有 383 筆尚未全數人工確認 |
+| **做法** | `A_high` 全數保留 ＋ 其餘層級合併後依 `svm_dec` 排序取前 500（`tools/select_samples.py`），再逐階段做去重與正負樣本確認 |
+| **結果** | `A_high` 92/92 全數納入；另納入 `B_likely` 378 ＋ `C_possible` 20 → top500 497 → 去重後 **491** |
+| **人工查核** | **早期視聽與人工檢查樣本皆由人工執行**（PM 2026-10-05 確認）。`tools/neg_labels.py` 的 `WRONG[]` 為人工確認非ライザ的結果，`DUPLICATE[]` 為去重結果 |
+
+**複現時的注意事項**：
+
+1. **不要照 issue 字面範圍重建。** 若改用 `A_high + B_likely`（383，非 issue 所寫的 386），得到的是另一份資料集，與 `data/ryza_train.list` 不一致，下游預處理、訓練、評估數據全部會變。正確入口是 `--source-dir ryza_main/top500`。
+2. **issue 的 386 是過期數字**，`ryza_main/B_likely/` 實際為 **383**（`docs/04_speaker_id.md:145`、`README.md:64` 一致）。
+3. **`v` 前綴自動採納規則未排除 `D_flagged` 層**：`tools/select_samples.py:8` 讓各層中檔名帶 `v` 前綴者全部採用、不參與排序，導致 `v00596.wav`（`svm_dec = −0.4597`，該層自訂為「強烈疑似錯誤」）進入最終 491 段。詳見 [`../reports/issue_compliance.md`](../reports/issue_compliance.md) §1.4。
+4. **人工查核的逐筆紀錄未留在 repo 內**。`WRONG[]` 保留了人工判定的**結果**，但沒有逐檔的「音檔編號 → 判定 → 試聽者 → 日期」對照表。若日後需稽核，需另行補建。
+
+---
+
 ## 2. 編號正規化：v 前綴剝除
 
 `ryza_main/top500/` 的檔名格式為 `NNNN_原檔名.wav`，其中一部分原檔名帶 `v` 前綴：
