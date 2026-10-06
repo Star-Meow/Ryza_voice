@@ -23,7 +23,8 @@
 | `ryza_main_review.csv` | `B_review/` 40 檔的優先待審清單 |
 | `data/` | 訓練清單：`ryza_train.list`（491）、`finetune_{train,test,eval10}.list`、`split_manifest.csv` |
 | `docs/` | 各階段詳細文件與選型分析（見「文件地圖」） |
-| `configs/` | LoRA 訓練設定檔。**尚未納入版控** |
+| `configs/` | LoRA 訓練設定檔：`s1_ryza.yaml`、`s2_lora_ryza.json` 等 5 檔 |
+| `samples/` | Part 2 生成樣本（16 epoch）：(a) eval10 測試集 10 句＋(b) 全新台詞 10 句，共 20 個 WAV。見 [`samples/README.md`](samples/README.md) |
 | `reports/` | 環境準備、資料切分、ASR／CER 與 Gate 報告；`reports/logs/` 為訓練執行紀錄 |
 | `tools/` | 解包、嵌入、ASR、切分等全部工具（見「工具入口」） |
 | `requirements.txt` | Python 相依套件與版本 |
@@ -39,6 +40,38 @@
 | **Part 2** | GPT-SoVITS 微調萊莎聲線 TTS | v4 LoRA 路線 | 進行中；範圍、選型與資料切分見 [`docs/06_dataset.md`](docs/06_dataset.md) |
 
 Part 1 驗收要件已全數滿足：有效轉譯段數 491（門檻 450），且全數經人工確認為ライザ。
+
+## 需求與文件對照（issue [#1](https://github.com/Star-Meow/Ryza_voice/issues/1)）
+
+> 對應 PR：[#6](https://github.com/Star-Meow/Ryza_voice/pull/6)（已合併）。
+> 逐條判定（PASS／PARTIAL）與證據的獨立稽核見 [`issue_compliance.md`](reports/issue_compliance.md)。
+
+### Part 1：ASR 轉譯
+
+- ASR 模型與參數（Whisper large-v3） : [`asr_report.md`](reports/asr_report.md) §1
+- 轉譯工具（不寫死絕對路徑） : [`transcribe.py`](tools/transcribe.py)
+- 過濾規則與排除統計 : [`screen_asr.py`](tools/screen_asr.py)、[`asr_report.md`](reports/asr_report.md) §2
+- 訓練清單（491 段，`音檔路徑|ryza|ja|文字`） : [`ryza_train.list`](data/ryza_train.list)
+- ASR 報告（模型／統計／時長／50 段 CER） : [`asr_report.md`](reports/asr_report.md)
+- 50 段抽查 CER 資料 : [`cer_sample.csv`](reports/cer_sample.csv)
+- 專有名詞校正規則與差異 : [`glossary.py`](tools/glossary.py)、[`correction_diff.md`](reports/correction_diff.md)
+- 相依套件與版本 : [`requirements.txt`](requirements.txt)
+
+### Part 2：GPT-SoVITS finetune
+
+- 基礎模型版本與 commit hash : [`finetune_report.md`](reports/finetune_report.md) §10、[PR #6](https://github.com/Star-Meow/Ryza_voice/pull/6)
+- 測試集切分（467／24／10） : [`split_report.md`](reports/split_report.md)、[`finetune_train.list`](data/finetune_train.list)、[`finetune_test.list`](data/finetune_test.list)
+- 訓練設定檔 : [`s1_ryza.yaml`](configs/s1_ryza.yaml)、[`s2_lora_ryza.json`](configs/s2_lora_ryza.json)
+- 訓練 log : [`stage_d_train.md`](reports/logs/stage_d_train.md)
+- 重現步驟（資料準備→推論） : [`07_finetune.md`](docs/07_finetune.md)
+- 生成樣本 (a)：測試集 10 句 : [`samples/`](samples/)（`eval10_*.wav`）
+- 生成樣本 (b)：全新台詞 10 句 : [`samples/`](samples/)（`new_*.wav`）
+- 樣本說明與原音對照表 : [`samples/README.md`](samples/README.md)
+- 聲線相似度（0.8152／91.5%） : [`finetune_report.md`](reports/finetune_report.md) §5.2
+- 可懂度 CER（2.99%）逐句文字稿 : [`cer_generated.csv`](reports/cer_generated.csv)
+- 主觀試聽評語 : [`finetune_report.md`](reports/finetune_report.md) §6-3
+- 缺陷排查（P-1～P-3） : [`defect_triage.md`](reports/defect_triage.md)
+- GPU 不穩處置記錄 : [`09_pitfalls.md`](docs/09_pitfalls.md) PK-013
 
 ## Part 1 ①：語音解包
 
@@ -122,19 +155,17 @@ faster-whisper **large-v3**、`language=ja`、Silero VAD 開啟、beam size 5、
 | [`04_speaker_id.md`](docs/04_speaker_id.md) | Part 1 ② 說話者篩選 |
 | [`05_transcript_pipeline.md`](docs/05_transcript_pipeline.md) | Part 1 ③ ASR 轉譯與訓練清單 |
 | [`06_dataset.md`](docs/06_dataset.md) | Part 2 範圍、模型選型與資料切分 |
-| `07_finetune.md` | Part 2 從資料準備到推論的重現步驟 |
+| [`07_finetune.md`](docs/07_finetune.md) | Part 2 從資料準備到推論的重現步驟 |
 | [`08_tools.md`](docs/08_tools.md) | 參考：`tools/` 全部工具目錄 |
-| `09_pitfalls.md` | 參考：坑記錄（append-only） |
-
-> 序號 07、09 尚未納入版控，故未做成連結。
+| [`09_pitfalls.md`](docs/09_pitfalls.md) | 參考：坑記錄（append-only，PK-001～PK-015） |
 
 **`reports/`** — 各階段報告，依性質分五類
 
 - 環境與模型：[`01_env_model_prep.md`](reports/01_env_model_prep.md)
 - 資料切分：[`split_report.md`](reports/split_report.md)
 - ASR 與品質：[`asr_report.md`](reports/asr_report.md)、[`audio_quality.md`](reports/audio_quality.md)、[`correction_diff.md`](reports/correction_diff.md)
-- Gate 報告 G1–G4：[`G1_t0_t1_report.md`](reports/G1_t0_t1_report.md)
-  （G2／G3／G4 與 `smoke_test_stage_{a,c}.md` 尚未納入版控）
+- Gate 報告 G1–G4：[`G1_t0_t1_report.md`](reports/G1_t0_t1_report.md)、[`G2_stage_a_report.md`](reports/G2_stage_a_report.md)、[`G3_stage_b_report.md`](reports/G3_stage_b_report.md)、[`G4_stage_c_report.md`](reports/G4_stage_c_report.md)
+- 訓練與評估：[`finetune_report.md`](reports/finetune_report.md)、[`defect_triage.md`](reports/defect_triage.md)、[`issue_compliance.md`](reports/issue_compliance.md)、[`split_report.md`](reports/split_report.md)、[`cer_generated.csv`](reports/cer_generated.csv)、[`logs/stage_d_train.md`](reports/logs/stage_d_train.md)、[`pr_description.md`](reports/pr_description.md)
 - 歷史紀錄：[`issue_reply_part1.md`](reports/issue_reply_part1.md)；
   [`asr_filter_report.md`](reports/asr_filter_report.md) 已被 `asr_report.md` 取代
 
