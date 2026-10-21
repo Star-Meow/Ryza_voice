@@ -1,0 +1,447 @@
+﻿id,src_file,heading,level,lines,hash,category,action,dest,reason
+README-001,README.md,Atelier Ryza 2 萊莎聲線 TTS 專案,1,1-11,0078a7d7f7,專案說明,edit,,Part 2 由「進行中」改為已完成並列結果；需求來源改連結 issue #1
+README-002,README.md,目錄結構,2,12-32,61382e1b65,專案說明,edit,,加入 LICENSE
+README-003,README.md,專案流程總覽,2,33-43,ec166d12ec,專案說明,edit,,Part 2 列補方法與結果
+README-004,README.md,需求與文件對照（issue [#1](https://github.com/Star-Meow/Ryza_voice/issues/1)）,2,44-48,a3e84f10a2,協作產物,delete,,協作內容；reviewer 指示 README 只寫專案本身，連結問題應原地編輯 issue comment（https://github.com/Star-Meow/Ryza_voice/issues/1）
+README-005,README.md,Part 1：ASR 轉譯,3,49-59,838b36eb11,協作產物,delete,,同上（需求對照子節，https://github.com/Star-Meow/Ryza_voice/issues/1）
+README-006,README.md,Part 2：GPT-SoVITS finetune,3,60-75,fbf8dfe8f0,協作產物,delete,,同上（需求對照子節，https://github.com/Star-Meow/Ryza_voice/issues/1）
+README-007,README.md,Part 1 ①：語音解包,2,76-88,57841ea229,專案說明,keep,,
+README-008,README.md,Part 1 ②：說話者篩選（聲紋比對）,2,89-106,4d09d857af,專案說明,keep,,
+README-009,README.md,Part 1 ③：ASR 轉譯與訓練清單,2,107-108,da39a3ee5e,專案說明,keep,,
+README-010,README.md,3.1 ASR 引擎與逐字稿品質,3,109-124,c088c4982a,專案說明,edit,,CER 註明 reference＝人工校對 50 段、hypothesis＝Whisper 原始輸出
+README-011,README.md,3.2 訓練清單與三處一致性,3,125-135,42e5976d02,專案說明,keep,,
+README-012,README.md,工具入口,2,136-145,fa86ba03ee,專案說明,keep,,
+README-013,README.md,文件地圖,2,146-171,b5b4fbf076,專案說明,edit,,依新結構更新；列出預留的協作檔
+README-014,README.md,授權,2,172-175,d31ef53908,專案說明,edit,,連結新增的 LICENSE；註明 LICENSE 僅涵蓋程式碼
+01_issue-001,docs/01_issue.md,¶ 背景,0,1-4,96bcd0f704,協作產物,delete,,issue #1 原文，以 GitHub 為準（https://github.com/Star-Meow/Ryza_voice/issues/1）；README 改連結至 issue
+01_issue-002,docs/01_issue.md,¶ Part 1：ASR 轉譯（5%）,0,6-16,c32decec91,協作產物,delete,,issue #1 原文，以 GitHub 為準（https://github.com/Star-Meow/Ryza_voice/issues/1）；README 改連結至 issue
+01_issue-003,docs/01_issue.md,¶ 產出 GPT-SoVITS 格式清單 data/ryza_t,0,18-18,7d0df9bd5a,協作產物,delete,,issue #1 原文，以 GitHub 為準（https://github.com/Star-Meow/Ryza_voice/issues/1）；README 改連結至 issue
+01_issue-004,docs/01_issue.md,¶ 有效轉譯段數 ≥ 450 段（扣除過濾後），且全數經人工確認,0,20-20,a4a35c5a88,協作產物,delete,,issue #1 原文，以 GitHub 為準（https://github.com/Star-Meow/Ryza_voice/issues/1）；README 改連結至 issue
+01_issue-005,docs/01_issue.md,¶ 產出 reports/asr_report.md，內容須包含,0,22-25,3e172dd792,協作產物,delete,,issue #1 原文，以 GitHub 為準（https://github.com/Star-Meow/Ryza_voice/issues/1）；README 改連結至 issue
+01_issue-006,docs/01_issue.md,¶ 專有名詞（人名、地名、鍊金術用語）已人工校正；最終清單以校正,0,27-27,7df5cdba37,協作產物,delete,,issue #1 原文，以 GitHub 為準（https://github.com/Star-Meow/Ryza_voice/issues/1）；README 改連結至 issue
+01_issue-007,docs/01_issue.md,¶ 新增 requirements.txt，列出本階段所需套件與,0,29-29,13ca98ac98,協作產物,delete,,issue #1 原文，以 GitHub 為準（https://github.com/Star-Meow/Ryza_voice/issues/1）；README 改連結至 issue
+01_issue-008,docs/01_issue.md,¶ Part 2：GPT-SoVITS finetune,0,32-37,8603144a20,協作產物,delete,,issue #1 原文，以 GitHub 為準（https://github.com/Star-Meow/Ryza_voice/issues/1）；README 改連結至 issue
+01_issue-009,docs/01_issue.md,¶ 新增 docs/07_finetune.md：從資料準備到推,0,39-39,a844efc60e,協作產物,delete,,issue #1 原文，以 GitHub 為準（https://github.com/Star-Meow/Ryza_voice/issues/1）；README 改連結至 issue
+01_issue-010,docs/01_issue.md,¶ 提交訓練設定檔與訓練 log（不含模型權重）。,0,41-41,0937e846d4,協作產物,delete,,issue #1 原文，以 GitHub 為準（https://github.com/Star-Meow/Ryza_voice/issues/1）；README 改連結至 issue
+01_issue-011,docs/01_issue.md,¶ 生成樣本：,0,43-45,ead91d1cf3,協作產物,delete,,issue #1 原文，以 GitHub 為準（https://github.com/Star-Meow/Ryza_voice/issues/1）；README 改連結至 issue
+01_issue-012,docs/01_issue.md,¶ 聲線相似度：以既有 ECAPA-TDNN pipeline（,0,47-48,162edcb1c0,協作產物,delete,,issue #1 原文，以 GitHub 為準（https://github.com/Star-Meow/Ryza_voice/issues/1）；README 改連結至 issue
+01_issue-013,docs/01_issue.md,¶ 可懂度：以 Whisper 轉寫生成音訊，與輸入文字比對，平,0,50-50,3141d21ebf,協作產物,delete,,issue #1 原文，以 GitHub 為準（https://github.com/Star-Meow/Ryza_voice/issues/1）；README 改連結至 issue
+01_issue-014,docs/01_issue.md,¶ 產出 reports/finetune_report.md，,0,52-53,0f8f43442c,協作產物,delete,,issue #1 原文，以 GitHub 為準（https://github.com/Star-Meow/Ryza_voice/issues/1）；README 改連結至 issue
+01_issue-015,docs/01_issue.md,¶ 訓練過程可穩定完成；若遇到既有的 GPU 不穩問題，須記錄處,0,55-55,5d2c19df9d,協作產物,delete,,issue #1 原文，以 GitHub 為準（https://github.com/Star-Meow/Ryza_voice/issues/1）；README 改連結至 issue
+02_issue_part2-001,docs/02_issue_part2.md,GPT-SoVITS Part 2 模型選型,1,1-2,da39a3ee5e,設計,move,docs/02_model_selection.md#GPT-SoVITS Part 2 模型選型,改名：內容是選型設計，不是 issue
+02_issue_part2-002,docs/02_issue_part2.md,背景：版本篩選準則,2,3-17,d710c7d26e,設計,move,docs/02_model_selection.md#背景：版本篩選準則,改名：內容是選型設計，不是 issue
+02_issue_part2-003,docs/02_issue_part2.md,一、顯存與微調路徑（核心約束）,2,18-38,0a2718bc2b,設計,move,docs/02_model_selection.md#一、顯存與微調路徑（核心約束）,改名：內容是選型設計，不是 issue
+02_issue_part2-004,docs/02_issue_part2.md,二、版本規格與官方基準,2,39-52,348058c782,設計,move,docs/02_model_selection.md#二、版本規格與官方基準,改名：內容是選型設計，不是 issue
+02_issue_part2-005,docs/02_issue_part2.md,三、v2Pro 的具體風險,2,53-60,04e3e166c4,設計,move,docs/02_model_selection.md#三、v2Pro 的具體風險,改名：內容是選型設計，不是 issue
+02_issue_part2-006,docs/02_issue_part2.md,四、v3 路線不作為候選,2,61-66,1d4c96c19f,設計,move,docs/02_model_selection.md#四、v3 路線不作為候選,改名：內容是選型設計，不是 issue
+02_issue_part2-007,docs/02_issue_part2.md,五、選型結論,2,67-82,756ae127d8,設計,move,docs/02_model_selection.md#五、選型結論,改名：內容是選型設計，不是 issue
+02_issue_part2-008,docs/02_issue_part2.md,六、決策鏈摘要,2,83-115,469b4821b7,設計,move,docs/02_model_selection.md#六、決策鏈摘要,改名：內容是選型設計，不是 issue
+02_issue_part2-009,docs/02_issue_part2.md,七、待驗證項,2,116-120,9b2f8d264e,過程紀錄,delete,,待驗證項已全數解決（顯存已實測見 07 §7、TF32 本機未發生見 09 §4、參考音訊已定見 07 §9.3）
+03_unpack-001,docs/03_unpack.md,語音解包（Part 1 ①）,1,1-7,960598c7c1,流程,edit,,修正連結文字中的舊檔名
+03_unpack-002,docs/03_unpack.md,1. 資料來源與授權前提,2,8-14,0a699954c7,流程,keep,,
+03_unpack-003,docs/03_unpack.md,2. 兩種語音庫,2,15-25,02bede6086,流程,keep,,
+03_unpack-004,docs/03_unpack.md,為什麼主庫沒有名稱,3,26-34,c591e6f588,流程,keep,,
+03_unpack-005,docs/03_unpack.md,戰鬥庫為何有名稱,3,35-38,10d05b5cd9,流程,keep,,
+03_unpack-006,docs/03_unpack.md,3. 戰鬥庫的 `ryza_battle/`,2,39-55,796807b14b,流程,keep,,
+03_unpack-007,docs/03_unpack.md,4. 容器格式與加密,2,56-57,da39a3ee5e,流程,keep,,
+03_unpack-008,docs/03_unpack.md,4.1 KTSC 容器（主庫）,3,58-73,a2b5216a0e,流程,keep,,
+03_unpack-009,docs/03_unpack.md,4.2 裸 KTSR（戰鬥庫）,3,74-92,a45ad43a12,流程,keep,,
+03_unpack-010,docs/03_unpack.md,4.3 KOVS 雙層混淆（主庫音訊本體）,3,93-104,78c565dba1,流程,keep,,
+03_unpack-011,docs/03_unpack.md,5. 索引欄位對應,2,105-115,bdc382e5d3,流程,keep,,
+03_unpack-012,docs/03_unpack.md,6. 重新解出,2,116-137,73fd7e9e64,流程,keep,,
+03_unpack-013,docs/03_unpack.md,7. 相關產出,2,138-146,a1581414de,流程,keep,,
+04_speaker_id-001,docs/04_speaker_id.md,說話者篩選：說話者嵌入比對（Part 1 ②）,1,1-8,108ac4c82a,流程,keep,,
+04_speaker_id-002,docs/04_speaker_id.md,1. 動機,2,9-15,6505054ca7,流程,keep,,
+04_speaker_id-003,docs/04_speaker_id.md,2. 嵌入 pipeline,2,16-39,2b53fed7c8,流程,edit,,刪除「尚未納入版控」（已追蹤）；TF32 段縮為一行並連到 09 §4
+04_speaker_id-004,docs/04_speaker_id.md,3. 校準來源與評分,2,40-57,8485f7ab65,流程,keep,,
+04_speaker_id-005,docs/04_speaker_id.md,4. 關鍵驗證,2,58-59,da39a3ee5e,流程,keep,,
+04_speaker_id-006,docs/04_speaker_id.md,4.1 嵌入模型本身可靠,3,60-65,15e6facd11,流程,keep,,
+04_speaker_id-007,docs/04_speaker_id.md,4.2 跨條件比對不可靠,3,66-72,2f64aba28d,流程,keep,,
+04_speaker_id-008,docs/04_speaker_id.md,4.3 高分群是真實聚類,3,73-82,d3636842ae,流程,keep,,
+04_speaker_id-009,docs/04_speaker_id.md,5. 兩輪使用者回饋精煉,2,83-100,dd999ff9df,流程,keep,,
+04_speaker_id-010,docs/04_speaker_id.md,6. 方法學排除記錄,2,101-104,78b3b0fd3d,流程,keep,,
+04_speaker_id-011,docs/04_speaker_id.md,6.1 戰鬥庫 centroid 無法用於主庫精煉,3,105-109,55e46022df,流程,keep,,
+04_speaker_id-012,docs/04_speaker_id.md,6.2 kNN 無效，僅線性邊界可用,3,110-115,42589e9c08,流程,keep,,
+04_speaker_id-013,docs/04_speaker_id.md,6.3 分數平滑衰減，門檻為經驗值,3,116-126,b9842e616c,流程,keep,,
+04_speaker_id-014,docs/04_speaker_id.md,6.4 曾嘗試的其他聚類路徑,3,127-137,ccbdbe91d1,流程,keep,,
+04_speaker_id-015,docs/04_speaker_id.md,7. 產出,2,138-139,da39a3ee5e,流程,keep,,
+04_speaker_id-016,docs/04_speaker_id.md,7.1 分級目錄（`ryza_main/`）,3,140-154,75c6d1485b,流程,keep,,
+04_speaker_id-017,docs/04_speaker_id.md,7.2 索引檔,3,155-161,14952c5f6a,流程,keep,,
+05_transcript_pipeline-001,docs/05_transcript_pipeline.md,ASR 轉譯與訓練清單建構（Part 1 ③）,1,1-10,f7669e792e,流程,keep,,
+05_transcript_pipeline-002,docs/05_transcript_pipeline.md,1. 三個核心檔案,2,11-34,9169ef2c25,流程,keep,,
+05_transcript_pipeline-003,docs/05_transcript_pipeline.md,1.5 為何走 `top500/` 而非 issue 字面寫的 `A_high/ + B_likely/`,2,35-56,a1479a189f,流程,edit,docs/05_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,PM 字樣改中性敘述；移除對 issue_compliance 的連結與稽核口吻；吸收 v00596 來源說明
+05_transcript_pipeline-004,docs/05_transcript_pipeline.md,2. 編號正規化：v 前綴剝除,2,57-73,0ff993eb49,流程,keep,,
+05_transcript_pipeline-005,docs/05_transcript_pipeline.md,3. ASR 引擎與參數,2,74-94,2bfd3576a4,流程,keep,,
+05_transcript_pipeline-006,docs/05_transcript_pipeline.md,4. 過濾規則,2,95-96,da39a3ee5e,流程,keep,,
+05_transcript_pipeline-007,docs/05_transcript_pipeline.md,4.1 Issue 要求的規則,3,97-109,fa659d634e,流程,edit,docs/05_transcript_pipeline.md#4.1 必要過濾規則,標題去 issue 口吻
+05_transcript_pipeline-008,docs/05_transcript_pipeline.md,4.2 額外規則（非 Issue 要求）,3,110-119,078a9ae6bb,流程,edit,docs/05_transcript_pipeline.md#4.2 附加過濾規則,標題去 issue 口吻
+05_transcript_pipeline-009,docs/05_transcript_pipeline.md,5. 跨檔文本去重,2,120-138,baedc15cea,流程,keep,,
+05_transcript_pipeline-010,docs/05_transcript_pipeline.md,6. 專有名詞校正,2,139-169,bc62ef94d8,流程,keep,,
+05_transcript_pipeline-011,docs/05_transcript_pipeline.md,7. 七步資料流,2,170-223,7d392a6163,流程,keep,,
+05_transcript_pipeline-012,docs/05_transcript_pipeline.md,8. 三處一致性,2,224-251,a5c3ace60c,流程,keep,,
+05_transcript_pipeline-013,docs/05_transcript_pipeline.md,9. 執行順序,2,252-307,6afc5814a5,流程,keep,,
+05_transcript_pipeline-014,docs/05_transcript_pipeline.md,10. 歷史執行紀錄,2,308-319,1e606d866c,流程,keep,,
+06_dataset-001,docs/06_dataset.md,Part 2：GPT-SoVITS 微調,1,1-2,da39a3ee5e,流程,keep,,
+06_dataset-002,docs/06_dataset.md,一、定位與目標,2,3-12,3866f2a1c2,流程,edit,,去除「依 Issue 要求」口吻
+06_dataset-003,docs/06_dataset.md,二、模型選型,2,13-14,da39a3ee5e,設計,merge,docs/02_model_selection.md#五、選型結論,與 02 重複；06 改為一行連結
+06_dataset-004,docs/06_dataset.md,2.1 版本篩選,3,15-27,ffd10afbc7,設計,merge,docs/02_model_selection.md#背景：版本篩選準則,與 02 重複
+06_dataset-005,docs/06_dataset.md,2.2 v2Pro 與 v4 的關鍵差異,3,28-39,77de275d37,設計,merge,docs/02_model_selection.md#二、版本規格與官方基準,與 02 重複
+06_dataset-006,docs/06_dataset.md,2.3 選型結論：v4 LoRA,3,40-54,74a469b839,設計,merge,docs/02_model_selection.md#五、選型結論,與 02 重複；「預期相近低顯存」已被實測推翻
+06_dataset-007,docs/06_dataset.md,三、資料切分,2,55-56,da39a3ee5e,流程,keep,,
+06_dataset-008,docs/06_dataset.md,3.1 切分原則,3,57-71,a38f33ab15,流程,edit,,ELL 規則與 07 §9.1 對齊；補時長三分位分層
+06_dataset-009,docs/06_dataset.md,3.2 切分後的產出,3,72-83,df040be4ca,流程,keep,,
+06_dataset-010,docs/06_dataset.md,3.3 切分驗證,3,84-99,6f6c6b1d6f,流程,edit,,「五項驗證」改為 11 項
+06_dataset-011,docs/06_dataset.md,3.4 執行指令,3,100-111,7e7d518cff,流程,merge,docs/07_finetune.md#9. 切分重現（467 / 24 / 10）,指令有誤（--audio-root wav 會變 wav/wav）；以 07 §9 為唯一指令來源
+07_finetune-001,docs/07_finetune.md,GPT-SoVITS v4 LoRA 微調文件,1,1-4,4c53b4ad83,流程,keep,,
+07_finetune-002,docs/07_finetune.md,0. 章節導覽（重現工作流順序）,2,5-26,a72353e887,流程,edit,,刪除「對應 issue 要求」欄；PK 範圍改 001～015
+07_finetune-003,docs/07_finetune.md,1. 環境需求,2,27-36,5264192c2e,流程,edit,,吸收 01_env 的依賴偏差表
+07_finetune-004,docs/07_finetune.md,ffmpeg（隱性系統依賴）,3,37-60,89f98ebc73,流程,keep,,
+07_finetune-005,docs/07_finetune.md,2. 預處理三步（階段 A）,2,61-79,86309e4a01,流程,keep,,
+07_finetune-006,docs/07_finetune.md,版本推斷（v4 → v3 codepath）,3,80-94,2cbfe9cd76,流程,keep,,
+07_finetune-007,docs/07_finetune.md,合併分片,3,95-102,9d147ddf84,流程,keep,,
+07_finetune-008,docs/07_finetune.md,3. 階段 A 狀態（2026-10-05，G2 已驗收）,2,103-122,3413dcbafb,過程紀錄,edit,docs/07_finetune.md#3. 預處理完成條件,去除「G2 已驗收」敘事，保留可檢查的完成條件
+07_finetune-009,docs/07_finetune.md,4. 易錯點,2,123-135,03faa08272,流程,keep,,
+07_finetune-010,docs/07_finetune.md,5. 後續階段,2,136-144,204e1d8219,過程紀錄,delete,,階段進度清單，已全數完成；結果見 finetune_report
+07_finetune-011,docs/07_finetune.md,6. 推論端隱性依賴（階段 D 補齊）,2,145-148,5808c68523,流程,keep,,
+07_finetune-012,docs/07_finetune.md,6.1 fast_langdetect 語言偵測模型（已就位）,3,149-163,b1e3005fca,流程,keep,,
+07_finetune-013,docs/07_finetune.md,6.2 jieba_fast（**永久不採用**，2026-10-05 PM 決定）,3,164-186,7cf74adb55,流程,edit,docs/07_finetune.md#6.2 jieba_fast（不採用）,PM 字樣改中性敘述
+07_finetune-014,docs/07_finetune.md,7. v4 LoRA 顯存：實測結論（階段 D）,2,187-199,c4aa1b4c58,流程,keep,,
+07_finetune-015,docs/07_finetune.md,8. 資料準備（解包 → ryza_train.list）,2,200-201,da39a3ee5e,流程,keep,,
+07_finetune-016,docs/07_finetune.md,8.1 從遊戲解包語音,3,202-226,df20160a7f,流程,keep,,
+07_finetune-017,docs/07_finetune.md,"8.2 說話者篩選 + ASR 漏斗（9,569 → 491）",3,227-283,65fcf828a2,流程,edit,,PM 字樣改中性敘述
+07_finetune-018,docs/07_finetune.md,9. 切分重現（467 / 24 / 10）,2,284-299,3fb4192ca1,流程,keep,,
+07_finetune-019,docs/07_finetune.md,9.1 分層抽樣設計,3,300-334,d669c925f5,流程,keep,,
+07_finetune-020,docs/07_finetune.md,9.2 產出與門檻,3,335-349,d352616b65,流程,keep,,
+07_finetune-021,docs/07_finetune.md,9.3 參考音訊的選法,3,350-359,6573059818,流程,keep,,
+07_finetune-022,docs/07_finetune.md,10. 模型準備（權重 + safetensors 轉檔）,2,360-361,da39a3ee5e,流程,keep,,
+07_finetune-023,docs/07_finetune.md,10.1 必須存在的權重,3,362-379,999f8b490f,流程,edit,,吸收 01_env 模型清單
+07_finetune-024,docs/07_finetune.md,10.2 T0：`.bin` → safetensors（必要）,3,380-411,e613358d08,流程,keep,,
+07_finetune-025,docs/07_finetune.md,10.3 fast_langdetect 模型檔,3,412-417,180beb8aa5,流程,keep,,
+07_finetune-026,docs/07_finetune.md,11. 訓練重現,2,418-419,da39a3ee5e,流程,keep,,
+07_finetune-027,docs/07_finetune.md,11.1 執行環境與前置,3,420-431,c0ae858bb8,流程,keep,,
+07_finetune-028,docs/07_finetune.md,11.2 訓練指令（先 S1，再 S2）,3,432-451,cc9f1831fb,流程,keep,,
+07_finetune-029,docs/07_finetune.md,11.3 訓練參數,3,452-475,a3492408de,流程,edit,,吸收 G3 §3 欄位依據表、09 §6 的 batch 推導
+07_finetune-030,docs/07_finetune.md,11.4 產出,3,476-487,d87f764aa5,流程,keep,,
+07_finetune-031,docs/07_finetune.md,11.5 顯存不足時的調整順序,3,488-495,14603bd72d,流程,keep,,
+07_finetune-032,docs/07_finetune.md,12. 推論重現,2,496-497,da39a3ee5e,流程,keep,,
+07_finetune-033,docs/07_finetune.md,12.1 產生參考音訊,3,498-527,adf3ea356e,流程,edit,docs/07_finetune.md#12.1 產生樣本,標題與內容不符
+07_finetune-034,docs/07_finetune.md,12.2 推論前置依賴,3,528-531,c5319d1d9c,流程,keep,,
+07_finetune-035,docs/07_finetune.md,12.3 評估重現,3,532-557,eec1dd977d,流程,keep,,
+07_finetune-036,docs/07_finetune.md,13. 已知偏差,2,558-576,040366df39,流程,edit,,PM 字樣改中性；「主觀評語尚待提交」過時；#11 路徑 data/→docs/；刪 #12 待辦
+07_finetune-037,docs/07_finetune.md,14. 常見問題速查,2,577-595,7c1ee8e8a8,流程,keep,,
+07_finetune-038,docs/07_finetune.md,15. 相關文件,2,596-613,c9ca00def7,流程,edit,,PK 範圍；被刪檔的連結
+08_tools-001,docs/08_tools.md,工具總覽,1,1-10,6e7a5d684c,參考,edit,,刪除 L4 版控說明
+08_tools-002,docs/08_tools.md,1. Part 1 ①：語音解包,2,11-23,3c4619675e,參考,keep,,
+08_tools-003,docs/08_tools.md,2. Part 1 ②：說話者篩選,2,24-25,da39a3ee5e,參考,keep,,
+08_tools-004,docs/08_tools.md,2.1 嵌入計算,3,26-39,a519bf5316,參考,keep,,
+08_tools-005,docs/08_tools.md,2.2 評分、驗證與分級,3,40-57,3ca53dffb3,參考,keep,,
+08_tools-006,docs/08_tools.md,3. Part 1 ③：ASR 轉譯與訓練清單,2,58-79,9a6612e412,參考,edit,,「五項驗證」改為 11 項
+08_tools-007,docs/08_tools.md,4. 資料切分與品質量測,2,80-86,8173a6d480,參考,keep,,
+08_tools-008,docs/08_tools.md,5. 模型權重轉檔與 UNK 分析,2,87-96,60b4d94cb9,參考,keep,,
+08_tools-009,docs/08_tools.md,6. 生成產物（不納入版控）,2,97-107,97c393f283,參考,edit,,「体」改「體」
+08_tools-010,docs/08_tools.md,7. 附帶資源,2,108-114,baa1487361,參考,keep,,
+08_tools-011,docs/08_tools.md,8. 尚未納入版控的工具,2,115-129,bd450679e2,參考,merge,docs/08_tools.md#5. Part 2：訓練、推論與評估,「未納入版控」為事實錯誤（全已追蹤）；所列工具併入分類表，並補齊遺漏工具
+09_pitfalls-001,docs/09_pitfalls.md,訓練坑記錄（Pitfall Log）,1,1-10,f24c74828a,參考,edit,,更新檔頭定位（不再是「供階段 B、C」）
+09_pitfalls-002,docs/09_pitfalls.md,1. 欄位定義,2,11-25,54092603b2,參考,keep,,
+09_pitfalls-003,docs/09_pitfalls.md,2. 追加規則,2,26-34,fd940a4abe,參考,keep,,
+09_pitfalls-004,docs/09_pitfalls.md,3. 坑記錄,2,35-36,da39a3ee5e,參考,keep,,
+09_pitfalls-005,docs/09_pitfalls.md,3.1 環境依賴,3,37-38,da39a3ee5e,參考,keep,,
+09_pitfalls-006,docs/09_pitfalls.md,PK-001 ffmpeg 缺失導致 467 檔全 FileNotFoundError,4,39-48,6898d6fca9,參考,keep,,
+09_pitfalls-007,docs/09_pitfalls.md,PK-002 transformers 拒載 `.bin`（CVE-2025-32434）,4,49-57,4c115be516,參考,keep,,
+09_pitfalls-008,docs/09_pitfalls.md,PK-011 上游 import 鏈強迫依賴 `jieba_fast`（永久不採用，2026-10-05 PM 決定）,4,58-74,4bf96d6a46,參考,edit,docs/09_pitfalls.md#PK-011 上游 import 鏈強迫依賴 `jieba_fast`（不採用）,PM 字樣改中性；「不下載」與實際處置對齊
+09_pitfalls-009,docs/09_pitfalls.md,3.2 程式行為,3,75-76,da39a3ee5e,參考,keep,,
+09_pitfalls-010,docs/09_pitfalls.md,PK-003 `#` 音素映射為 UNK,4,77-86,342be8a8aa,參考,keep,,
+09_pitfalls-011,docs/09_pitfalls.md,PK-004 官方腳本裸 `except` 吞錯，exit code 恆 0,4,87-95,c433e7456b,參考,keep,,
+09_pitfalls-012,docs/09_pitfalls.md,PK-005 `ja_userdic` 的 `user.dict` 從未生成,4,96-104,990d284f9c,參考,keep,,
+09_pitfalls-013,docs/09_pitfalls.md,PK-010 推論權重目錄不存在 → `savee` 吞錯 → exit 0 卻沒有推論權重,4,105-119,43e3f79ba6,參考,keep,,
+09_pitfalls-014,docs/09_pitfalls.md,3.3 驗證腳本,3,120-121,da39a3ee5e,參考,keep,,
+09_pitfalls-015,docs/09_pitfalls.md,PK-006 validator PA-10 讀檔未 strip 換行（false failure）,4,122-131,6d1b97b1da,參考,keep,,
+09_pitfalls-016,docs/09_pitfalls.md,PK-007 validator PA-9 門檻誤把 `#` UNK 計入（false failure）,4,132-140,93479d209a,參考,keep,,
+09_pitfalls-017,docs/09_pitfalls.md,3.4 版控,3,141-142,da39a3ee5e,參考,keep,,
+09_pitfalls-018,docs/09_pitfalls.md,PK-008 `<GPT>` 根目錄 `=0.4.1` 檔案消失,4,143-152,6ca8989295,參考,keep,,
+09_pitfalls-019,docs/09_pitfalls.md,PK-009 `<RYZA>\tools\_ffmpeg_tmp\` 目錄被刪,4,153-163,e0b6198bce,參考,keep,,
+09_pitfalls-020,docs/09_pitfalls.md,3.5 GPU／CUDA,3,164-166,67445646d5,參考,keep,,
+09_pitfalls-021,docs/09_pitfalls.md,3.6 其他,3,167-168,da39a3ee5e,參考,keep,,
+09_pitfalls-022,docs/09_pitfalls.md,PK-012 S1 的學習率排程器被上游硬寫成常數 0.002,4,169-181,9e13dc7ebc,參考,keep,,
+09_pitfalls-023,docs/09_pitfalls.md,PK-015 以文字標註分層，會讓評測指標對某個面向結構性盲視,4,182-193,219f923e8d,參考,edit,,移到 PK-014 之後（append-only 順序）
+09_pitfalls-024,docs/09_pitfalls.md,PK-013 顯存接近上限不會丟 OOM，而是退化成「假死」,4,194-203,a0d58ddaa5,參考,keep,,
+09_pitfalls-025,docs/09_pitfalls.md,PK-014 停滯 watchdog 會被 tqdm 的緩衝 flush 騙過,4,204-215,de42c6b95d,參考,keep,,
+09_pitfalls-026,docs/09_pitfalls.md,4. GPU 不穩專區,2,216-225,cf05b80ef9,參考,keep,,
+09_pitfalls-027,docs/09_pitfalls.md,本機顯存實測彙總（階段 C ＋ 階段 D）,3,226-245,fac2d89de8,參考,keep,,
+09_pitfalls-028,docs/09_pitfalls.md,TF32 —— 其他環境過往異常，本機無需理會,3,246-257,283119ca6b,參考,edit,,PM 字樣改中性；成為 TF32 的唯一完整記載
+09_pitfalls-029,docs/09_pitfalls.md,觸發本節記錄的條件,3,258-270,e8688a52a6,參考,keep,,
+09_pitfalls-030,docs/09_pitfalls.md,5. 與前因／計畫不符處,2,271-278,2fbf71d26a,過程紀錄,delete,,與「前因」比對的過程敘事；內容已在 PK-002／003／005 與 §4
+09_pitfalls-031,docs/09_pitfalls.md,6. 階段 C 追加（2026-10-05）,2,279-288,67c618eed3,過程紀錄,merge,docs/07_finetune.md#11.3 訓練參數,#5 batch=8 推導移到 07 §11.3；#4 已在 PK-011；#6 為「計畫」側記錄誤差
+09_pitfalls-032,docs/09_pitfalls.md,7. 階段 D 追加（2026-10-05）,2,289-294,eaa25125fe,過程紀錄,delete,,重複：#7→PK-013／07 §7，#8→finetune_report §4-2，#9→PK-011
+01_env_model_prep-001,reports/01_env_model_prep.md,Part 2 環境與模型準備報告,1,1-2,da39a3ee5e,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+01_env_model_prep-002,reports/01_env_model_prep.md,執行摘要,2,3-10,78e7ae016f,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+01_env_model_prep-003,reports/01_env_model_prep.md,環境資訊,2,11-28,1e3ad5f1a2,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+01_env_model_prep-004,reports/01_env_model_prep.md,依賴清單,2,29-44,52ce86672a,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+01_env_model_prep-005,reports/01_env_model_prep.md,與 requirements.txt 的偏差（Windows 環境必要調整）,3,45-55,7d64010af0,流程,move,docs/07_finetune.md#1. 環境需求,Windows 依賴偏差屬重現資訊
+01_env_model_prep-006,reports/01_env_model_prep.md,模型清單與大小,2,56-71,279b6e6738,流程,merge,docs/07_finetune.md#10.1 必須存在的權重,權重表屬重現資訊
+01_env_model_prep-007,reports/01_env_model_prep.md,日文 G2P 驗證,2,72-97,c99f643f34,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+01_env_model_prep-008,reports/01_env_model_prep.md,TF32 記錄（不 patch）,2,98-114,94a5f9564c,參考,merge,docs/09_pitfalls.md#TF32 —— 其他環境過往異常，本機無需理會,TF32 統一記於 09 §4
+01_env_model_prep-009,reports/01_env_model_prep.md,門禁檢查,2,115-132,3d2cbc2e2a,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+01_env_model_prep-010,reports/01_env_model_prep.md,風險與待確認,2,133-144,313be9fa77,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+01_env_model_prep-011,reports/01_env_model_prep.md,聲明,2,145-147,0764355770,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G1_t0_t1_report-001,reports/G1_t0_t1_report.md,G1 回報：T0（BERT/HuBERT 轉 safetensors）＋ T1（UNK 來源分析）,1,1-9,33a48de1e3,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G1_t0_t1_report-002,reports/G1_t0_t1_report.md,1. 結果總表,2,10-30,79b191f2bf,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G1_t0_t1_report-003,reports/G1_t0_t1_report.md,2. T0 明細表,2,31-63,2b2f883d24,流程,merge,docs/07_finetune.md#10.2 T0：`.bin` → safetensors（必要）,SHA256 表屬重現資訊（07 §10.2 已有轉檔流程）
+G1_t0_t1_report-004,reports/G1_t0_t1_report.md,3. T1 統計明細,2,64-67,f39a5c1856,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G1_t0_t1_report-005,reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,3,68-85,20582daf97,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G1_t0_t1_report-006,reports/G1_t0_t1_report.md,eval10 `data\finetune_eval10.list`（10 行）,3,86-98,f860adff63,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G1_t0_t1_report-007,reports/G1_t0_t1_report.md,推論端比對（`#` → UNK 前提）,3,99-108,1e157d76a9,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G1_t0_t1_report-008,reports/G1_t0_t1_report.md,4. 與計畫不符或需 PM 留意的事項,2,109-119,5187dc1979,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G1_t0_t1_report-009,reports/G1_t0_t1_report.md,5. 風險與意外發現,2,120-128,5695c2cf1d,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G1_t0_t1_report-010,reports/G1_t0_t1_report.md,6. 無法判定的項目,2,129-134,1d9a7297de,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G1_t0_t1_report-011,reports/G1_t0_t1_report.md,7. 目前工作樹與產出,2,135-140,0e4e81ed32,過程紀錄,delete,,branch／untracked 快照，相關檔案已於 0b7c743 進版控
+G2_stage_a_report-001,reports/G2_stage_a_report.md,G2 回報：階段 A 預處理驗證（訓練集 467 ＋ eval10 10）,1,1-9,ea9ab9296f,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G2_stage_a_report-002,reports/G2_stage_a_report.md,1. 結果總表,2,10-31,468781af9e,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G2_stage_a_report-003,reports/G2_stage_a_report.md,2. 各步驟結束碼與耗時,2,32-48,7d37d05a20,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G2_stage_a_report-004,reports/G2_stage_a_report.md,3. 與計畫不符或需 PM 留意的事項,2,49-64,c217d3f921,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G2_stage_a_report-005,reports/G2_stage_a_report.md,4. 無法判定的項目,2,65-71,76529c90f9,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G2_stage_a_report-006,reports/G2_stage_a_report.md,5. 目前工作樹與產出,2,72-73,da39a3ee5e,過程紀錄,delete,,branch／untracked 快照，已過時
+G2_stage_a_report-007,reports/G2_stage_a_report.md,`<GPT>`（`main` 分支，commit `48b1a01`）,3,74-79,3d96f6d772,過程紀錄,delete,,同上
+G2_stage_a_report-008,reports/G2_stage_a_report.md,`<RYZA>`（`feat/tts-v4-lora-prep`，HEAD `0b7c743`）,3,80-88,e550e9825b,過程紀錄,delete,,同上
+G2_stage_a_report-009,reports/G2_stage_a_report.md,6. 風險與意外發現,2,89-97,97bbe573c9,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G2_stage_a_report-010,reports/G2_stage_a_report.md,7. docs/07_finetune.md 補充（ffmpeg 記錄）,2,98-110,516440c022,流程,merge,docs/07_finetune.md#ffmpeg（隱性系統依賴）,已寫入 07 §1 ffmpeg
+G3_stage_b_report-001,reports/G3_stage_b_report.md,階段 B 回報：訓練配置與啟動腳本,1,1-8,46d828c171,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G3_stage_b_report-002,reports/G3_stage_b_report.md,1. 結果總表,2,9-27,56c7898916,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G3_stage_b_report-003,reports/G3_stage_b_report.md,2. 產出檔案清單,2,28-49,a1c75a95fb,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G3_stage_b_report-004,reports/G3_stage_b_report.md,3. 讀碼依據（欄位為何這樣填）,2,50-51,da39a3ee5e,流程,move,docs/07_finetune.md#11.3 訓練參數,設定欄位為何這樣填，屬重現參考
+G3_stage_b_report-005,reports/G3_stage_b_report.md,S2（`s2_train_v3_lora.py` ＋ `webui.py:489-560` open1Ba）,3,52-71,1bef606ab5,流程,move,docs/07_finetune.md#11.3 訓練參數,同上
+G3_stage_b_report-006,reports/G3_stage_b_report.md,S1（`s1_train.py` ＋ `webui.py:590-650` open1Bb）,3,72-91,eccd77809e,流程,move,docs/07_finetune.md#11.3 訓練參數,同上
+G3_stage_b_report-007,reports/G3_stage_b_report.md,4. 與計畫不符處,2,92-101,4597eada9d,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G3_stage_b_report-008,reports/G3_stage_b_report.md,5. 無法判定項目,2,102-109,5f7270b581,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G3_stage_b_report-009,reports/G3_stage_b_report.md,6. 停止點,2,110-114,fb29abd157,過程紀錄,delete,,等待放行的狀態，已過時
+G4_stage_c_report-001,reports/G4_stage_c_report.md,階段 C 回報：冒煙測試（S2 LoRA ＋ S1 ＋ 推論）,1,1-13,8b3f6634c7,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G4_stage_c_report-002,reports/G4_stage_c_report.md,1. 結果總表,2,14-44,1814845e66,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G4_stage_c_report-003,reports/G4_stage_c_report.md,2. 產出檔案清單,2,45-46,da39a3ee5e,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G4_stage_c_report-004,reports/G4_stage_c_report.md,2.1 `<RYZA>` 新增／修改（皆未 commit）,3,47-60,0fc02a8107,過程紀錄,delete,,「皆未 commit」快照，已過時
+G4_stage_c_report-005,reports/G4_stage_c_report.md,2.2 `<GPT>` 產出（全部落在 §4.1 允許清單內，且 `logs`、`SoVITS_weights*/`、`GPT_weights*/` 皆被 `.gitignore` 忽略）,3,61-72,518e5816ae,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G4_stage_c_report-006,reports/G4_stage_c_report.md,2.3 `<RYZA>\reports\logs\raw\` 新增（`.gitignore` 忽略，不提交）,3,73-78,6a73858b37,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G4_stage_c_report-007,reports/G4_stage_c_report.md,3. 讀碼依據（本輪新增的關鍵行號）,2,79-101,fad9d021e0,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G4_stage_c_report-008,reports/G4_stage_c_report.md,4. 與計畫不符或需 PM 決定的事項,2,102-103,da39a3ee5e,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G4_stage_c_report-009,reports/G4_stage_c_report.md,4-1 SM-S2-5 首次失敗：推論權重目錄不存在（已自行修正，但根因值得記錄）,3,104-109,48eb955c77,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G4_stage_c_report-010,reports/G4_stage_c_report.md,4-2 推論端缺兩個依賴，需 PM 裁示處理方式,3,110-117,8f6e1ff4bc,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G4_stage_c_report-011,reports/G4_stage_c_report.md,4-3 S1 實際 batch 是 8，不是計畫預期的 5,3,118-123,ef34c21dcc,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G4_stage_c_report-012,reports/G4_stage_c_report.md,4-4 SM-S1-5：排程器被上游鎖死，學習率恆為 0.002,3,124-131,7146f7e2c2,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G4_stage_c_report-013,reports/G4_stage_c_report.md,4-5 `tts_infer.yaml` 曾被推論中途中斷污染（已修正，證據已重取）,3,132-137,2dc2306ded,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G4_stage_c_report-014,reports/G4_stage_c_report.md,4-6 需 PM 決定：S1 的 epochs,3,138-141,e4071697d2,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G4_stage_c_report-015,reports/G4_stage_c_report.md,4-7 記錄誤差（非問題）,3,142-147,f58f7d6d14,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G4_stage_c_report-016,reports/G4_stage_c_report.md,5. 無法判定的項目,2,148-156,19f723cd2d,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G4_stage_c_report-017,reports/G4_stage_c_report.md,6. 風險與意外發現,2,157-165,6a6699c86c,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G4_stage_c_report-018,reports/G4_stage_c_report.md,冒煙產物清理清單（依 PE-11 提交，Agent 不自行刪除）,3,166-182,7d8b5d3a24,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+G4_stage_c_report-019,reports/G4_stage_c_report.md,7. 停止點,2,183-191,a7fa76d446,過程紀錄,delete,,等待放行的狀態，已過時
+asr_filter_report-001,reports/asr_filter_report.md,ASR 預篩報告,1,1-6,bb30d61b47,結果,delete,,已被 asr_report.md §2 取代（docs/05 §10 已註明）；所引根目錄 ryza_train.list 已於 672e4e5 移除
+asr_filter_report-002,reports/asr_filter_report.md,摘要,2,7-14,4b2e3a0cdf,結果,delete,,已被 asr_report.md §2 取代（docs/05 §10 已註明）；所引根目錄 ryza_train.list 已於 672e4e5 移除
+asr_filter_report-003,reports/asr_filter_report.md,❌ 排除明細（依原因）,2,15-16,da39a3ee5e,結果,delete,,已被 asr_report.md §2 取代（docs/05 §10 已註明）；所引根目錄 ryza_train.list 已於 672e4e5 移除
+asr_filter_report-004,reports/asr_filter_report.md,DUPLICATE_TEXT（6）,3,17-27,3088288084,結果,delete,,已被 asr_report.md §2 取代（docs/05 §10 已註明）；所引根目錄 ryza_train.list 已於 672e4e5 移除
+asr_filter_report-005,reports/asr_filter_report.md,⚠️ 待人工確認明細,2,28-31,9ecc4ea4aa,結果,delete,,已被 asr_report.md §2 取代（docs/05 §10 已註明）；所引根目錄 ryza_train.list 已於 672e4e5 移除
+asr_filter_report-006,reports/asr_filter_report.md,時長分佈（通過者）,2,32-34,cb9ca7cdd9,結果,delete,,已被 asr_report.md §2 取代（docs/05 §10 已註明）；所引根目錄 ryza_train.list 已於 672e4e5 移除
+asr_report-001,reports/asr_report.md,ASR 語音轉文字報告（STT 階段）,1,1-5,948fb81839,結果,edit,,檔頭加 CER 定義框：reference＝人工校對 50 段，hypothesis＝Whisper 原始輸出（reviewer 建議 highlight）
+asr_report-002,reports/asr_report.md,1. 模型與參數,2,6-22,77e37380bb,結果,keep,,
+asr_report-003,reports/asr_report.md,2. 處理量與過濾統計,2,23-24,da39a3ee5e,結果,keep,,
+asr_report-004,reports/asr_report.md,資料漏斗,3,25-36,e156fcf4e9,結果,edit,,吸收 WRONG 23 vs 3 說明（來自 issue_reply_part1）
+asr_report-005,reports/asr_report.md,Issue 過濾規則觸發統計,3,37-51,43d4f87c93,結果,edit,reports/asr_report.md#必要過濾規則觸發統計,標題去 issue 口吻
+asr_report-006,reports/asr_report.md,額外過濾（非 Issue 要求）,3,52-64,b10a1be95c,結果,edit,reports/asr_report.md#附加過濾,標題去 issue 口吻
+asr_report-007,reports/asr_report.md,被排除的 6 段（DUPLICATE_TEXT）,3,65-77,6d1e2ddfca,結果,keep,,
+asr_report-008,reports/asr_report.md,有效總時長（491 段）,3,78-82,952cadde9a,結果,keep,,
+asr_report-009,reports/asr_report.md,3. 品質抽查：50 段人工校對 CER,2,83-84,da39a3ee5e,結果,keep,,
+asr_report-010,reports/asr_report.md,抽查方法,3,85-93,5599ac5eea,結果,edit,,「留空＝無異常」改為「reference 與 whisper 相同＝已審判定正確」；消除「計算基準」歧義
+asr_report-011,reports/asr_report.md,結果,3,94-102,17a554bc47,結果,edit,,刪除「非預設值」防衛措辭
+asr_report-012,reports/asr_report.md,6 段錯誤明細,3,103-113,5f9d0d29c8,結果,keep,,
+asr_report-013,reports/asr_report.md,錯誤類型分析,3,114-125,1bce8ec9c5,結果,keep,,
+asr_report-014,reports/asr_report.md,最差 5 段完整台詞,3,126-129,b42aaf3f2f,結果,keep,,
+asr_report-015,reports/asr_report.md,`wav/03173.wav`（CER 18.2%）,4,130-135,89953bcd51,結果,keep,,
+asr_report-016,reports/asr_report.md,`wav/09557.wav`（CER 11.1%）,4,136-141,8ad8bd57ac,結果,keep,,
+asr_report-017,reports/asr_report.md,`wav/01124.wav`（CER 10.3%）,4,142-147,810c1d1a2c,結果,keep,,
+asr_report-018,reports/asr_report.md,`wav/05954.wav`（CER 5.6%）,4,148-153,28adc5dd00,結果,keep,,
+asr_report-019,reports/asr_report.md,`wav/08204.wav`（CER 4.2%）,4,154-159,3159f3b78c,結果,keep,,
+asr_report-020,reports/asr_report.md,4. 專有名詞校正與本階段涵蓋範圍,2,160-188,51e0d55a6b,結果,edit,,刪除「驗收要件全數滿足」宣告
+asr_report-021,reports/asr_report.md,附錄：相關檔案,2,189-195,935b864ef8,結果,keep,,
+audio_quality-001,reports/audio_quality.md,音訊品質實測報告,1,1-2,da39a3ee5e,設計,merge,docs/02_model_selection.md#附錄：音訊品質實測,選型的佐證，併入 02 附錄；「V2Pro 優先」結論依最終選型修正
+audio_quality-002,reports/audio_quality.md,目的,2,3-6,96da5dfeb3,設計,merge,docs/02_model_selection.md#附錄：音訊品質實測,選型的佐證，併入 02 附錄；「V2Pro 優先」結論依最終選型修正
+audio_quality-003,reports/audio_quality.md,方法,2,7-12,99aeb38e96,設計,merge,docs/02_model_selection.md#附錄：音訊品質實測,選型的佐證，併入 02 附錄；「V2Pro 優先」結論依最終選型修正
+audio_quality-004,reports/audio_quality.md,官方判定條件對照,2,13-19,5e657bbcbf,設計,merge,docs/02_model_selection.md#附錄：音訊品質實測,選型的佐證，併入 02 附錄；「V2Pro 優先」結論依最終選型修正
+audio_quality-005,reports/audio_quality.md,LTAS 長時平均頻譜（相對 0.5–4k 頻帶，dB）,2,20-31,0a36837e41,設計,merge,docs/02_model_selection.md#附錄：音訊品質實測,選型的佐證，併入 02 附錄；「V2Pro 優先」結論依最終選型修正
+audio_quality-006,reports/audio_quality.md,結論,2,32-39,147af62851,設計,merge,docs/02_model_selection.md#附錄：音訊品質實測,選型的佐證，併入 02 附錄；「V2Pro 優先」結論依最終選型修正
+correction_diff-001,reports/correction_diff.md,專有名詞校正前後對照表,1,1-7,e4782356e5,結果,keep,,
+correction_diff-002,reports/correction_diff.md,規則命中統計,2,8-26,65991294d8,結果,keep,,
+correction_diff-003,reports/correction_diff.md,14 段校正明細,2,27-44,b814073002,結果,keep,,
+defect_triage-001,reports/defect_triage.md,主觀缺陷排查報告（defect triage）,1,1-8,8cf004b152,結果,keep,,
+defect_triage-002,reports/defect_triage.md,本文件的定位,2,9-23,766bee1dd6,結果,edit,,刪除依「計畫 §15」拆檔的說明
+defect_triage-003,reports/defect_triage.md,P-1：語尾多音（でしょか → でしょかい）,2,24-25,da39a3ee5e,結果,keep,,
+defect_triage-004,reports/defect_triage.md,我發現了什麼,3,26-29,4f0989e44b,結果,edit,reports/defect_triage.md#現象,「我」指涉不明，改中性
+defect_triage-005,reports/defect_triage.md,我判斷可能是哪部分錯,3,30-34,12b49e943e,結果,edit,reports/defect_triage.md#可能成因,同上
+defect_triage-006,reports/defect_triage.md,我想怎麼排查,3,35-39,00e47b37f1,結果,edit,reports/defect_triage.md#排查方式,同上
+defect_triage-007,reports/defect_triage.md,已知限制,3,40-42,ae5fda1156,結果,keep,,
+defect_triage-008,reports/defect_triage.md,【唯讀覆核】候選一可大幅收斂,3,43-67,2cddc2a511,結果,edit,,內文「我」改中性
+defect_triage-009,reports/defect_triage.md,P-2：情緒標籤與實際聲音脫鉤,2,68-69,da39a3ee5e,結果,keep,,
+defect_triage-010,reports/defect_triage.md,我發現了什麼,3,70-75,61e08f37b6,結果,edit,reports/defect_triage.md#現象,「我」指涉不明，改中性
+defect_triage-011,reports/defect_triage.md,我判斷可能是哪部分錯,3,76-83,fff8d5df6d,結果,edit,reports/defect_triage.md#可能成因,同上
+defect_triage-012,reports/defect_triage.md,我想怎麼排查,3,84-89,669c43bff6,結果,edit,reports/defect_triage.md#排查方式,同上
+defect_triage-013,reports/defect_triage.md,【唯讀覆核】標註只影響切分，但正因如此讓評測對情緒是盲的,3,90-116,9126506d95,結果,edit,,內文「我」改中性
+defect_triage-014,reports/defect_triage.md,最有力的實證：Agent 自己的標註被自己的評語推翻,4,117-132,219107ba57,結果,keep,,
+defect_triage-015,reports/defect_triage.md,修正後的根因層級,4,133-156,a6c9272191,結果,keep,,
+defect_triage-016,reports/defect_triage.md,P-3：S2／vocoder 波形合成不穩（電子音）,2,157-158,da39a3ee5e,結果,keep,,
+defect_triage-017,reports/defect_triage.md,我發現了什麼,3,159-163,bbdba0e18d,結果,edit,reports/defect_triage.md#現象,「我」指涉不明，改中性
+defect_triage-018,reports/defect_triage.md,我判斷可能是哪部分錯,3,164-168,345683ea9e,結果,edit,reports/defect_triage.md#可能成因,同上
+defect_triage-019,reports/defect_triage.md,我想怎麼排查,3,169-174,34b71198d9,結果,edit,reports/defect_triage.md#排查方式,同上
+defect_triage-020,reports/defect_triage.md,風險登記,3,175-177,8d5156b40b,結果,keep,,
+defect_triage-021,reports/defect_triage.md,【唯讀覆核】兩點澄清,3,178-195,c5ff9909bb,結果,edit,,內文「我」改中性
+defect_triage-022,reports/defect_triage.md,歸納表,2,196-205,839dac8918,結果,keep,,
+defect_triage-023,reports/defect_triage.md,結論,2,206-231,6bff1a908f,結果,edit,,刪除「若 PM 授權」；P-3 掃描標為未執行
+defect_triage-024,reports/defect_triage.md,相關文件,2,232-240,4316593963,結果,keep,,
+finetune_report-001,reports/finetune_report.md,階段 D 回報：正式訓練與品質評估,1,1-10,ee2903c2c9,結果,edit,reports/finetune_report.md#Part 2 訓練與品質評估報告,標題去回報口吻；刪除「計畫 §15 回報格式」
+finetune_report-002,reports/finetune_report.md,1. 結果表,2,11-31,e6b7c9265c,結果,keep,,
+finetune_report-003,reports/finetune_report.md,2. 訓練歷程,2,32-33,da39a3ee5e,結果,keep,,
+finetune_report-004,reports/finetune_report.md,2.1 最終採用參數,3,34-53,d9e9ce206c,結果,keep,,
+finetune_report-005,reports/finetune_report.md,2.2 各輪執行結果,3,54-65,885cda2d14,結果,edit,,縮為摘要並連到 logs/stage_d_train
+finetune_report-006,reports/finetune_report.md,2.3 S1 loss 曲線（16 epoch，59 step/epoch）,3,66-80,c9130310c8,結果,keep,,
+finetune_report-007,reports/finetune_report.md,2.4 S2 loss 曲線（16 epoch，119 step/epoch，log_interval=20）,3,81-90,23f032ad63,結果,keep,,
+finetune_report-008,reports/finetune_report.md,3. GPU 異常表,2,91-104,754fa81c53,結果,edit,,縮為摘要並連到 logs/stage_d_train
+finetune_report-009,reports/finetune_report.md,4. 調整記錄,2,105-106,da39a3ee5e,結果,keep,,
+finetune_report-010,reports/finetune_report.md,4-1 調整 1：`grad_ckpt` false → true（顯存，強制）,3,107-118,99ea0f30b3,結果,keep,,
+finetune_report-011,reports/finetune_report.md,4-2 調整 2：epochs 8 → 16（品質）,3,119-135,5d3822bb09,結果,keep,,
+finetune_report-012,reports/finetune_report.md,4-3 未使用的調整（依指定順序，逐項說明為何不需）,3,136-146,293c3220d7,結果,keep,,
+finetune_report-013,reports/finetune_report.md,5. 評估結果,2,147-148,da39a3ee5e,結果,keep,,
+finetune_report-014,reports/finetune_report.md,5.1 樣本清單,3,149-184,ad9fca1f31,結果,keep,,
+finetune_report-015,reports/finetune_report.md,5.2 聲線相似度（ECAPA-TDNN vs A_high 中心點）,3,185-197,e136b4a9c1,結果,keep,,
+finetune_report-016,reports/finetune_report.md,5.2.1 基線穩健性檢查（2026-10-05 重算）,3,198-229,07c6511a77,結果,keep,,
+finetune_report-017,reports/finetune_report.md,5.3 可懂度（Whisper large-v3 → CER）,3,230-255,094e38e1d0,結果,edit,,ボース 規則與附錄 A 不一致
+finetune_report-018,reports/finetune_report.md,6. 結論,2,256-257,da39a3ee5e,結果,keep,,
+finetune_report-019,reports/finetune_report.md,6-1 是否達專案目標,3,258-272,9d511a0d4d,結果,keep,,
+finetune_report-020,reports/finetune_report.md,6-2 量化品質評估,3,273-278,b33bdc73cc,結果,keep,,
+finetune_report-021,reports/finetune_report.md,6-3 主觀試聽評語,3,279-285,75be015cea,結果,keep,,
+finetune_report-022,reports/finetune_report.md,聲線,4,286-293,bb378e8dd6,結果,keep,,
+finetune_report-023,reports/finetune_report.md,發音,4,294-302,8ec870f799,結果,keep,,
+finetune_report-024,reports/finetune_report.md,語氣自然度,4,303-312,f8db7e7863,結果,keep,,
+finetune_report-025,reports/finetune_report.md,逐檔記錄,4,313-344,ef97f375df,結果,keep,,
+finetune_report-026,reports/finetune_report.md,系統性現象（多檔共通）,4,345-355,6c73974141,結果,keep,,
+finetune_report-027,reports/finetune_report.md,個案（單檔異常）,4,356-363,d3e380c768,結果,keep,,
+finetune_report-028,reports/finetune_report.md,結論（PM 原文）,4,364-372,e6b15a8e5c,結果,edit,reports/finetune_report.md#結論（試聽原文）,PM 字樣改中性
+finetune_report-029,reports/finetune_report.md,6-4 主觀評語 × 量化數據 交叉檢視,3,373-407,dbd83a7e2b,結果,keep,,
+finetune_report-030,reports/finetune_report.md,6-5 這份主觀評語的不足（需補齊）,3,408-421,d1d7e034e2,結果,keep,,
+finetune_report-031,reports/finetune_report.md,6-6 本階段未能驗證的事項,3,422-430,e5bfafeb59,結果,keep,,
+finetune_report-032,reports/finetune_report.md,7. 與計畫不符處,2,431-452,1065582d4a,結果,edit,reports/finetune_report.md#7. 與原定設定的差異,「計畫」不在 repo；刪除 session 敘事
+finetune_report-033,reports/finetune_report.md,8. 無法判定的項目,2,453-461,aa270b69fd,結果,keep,,
+finetune_report-034,reports/finetune_report.md,9. 重現步驟,2,462-463,da39a3ee5e,結果,keep,,
+finetune_report-035,reports/finetune_report.md,9.1 環境前置,3,464-476,f721e0d927,結果,keep,,
+finetune_report-036,reports/finetune_report.md,9.2 訓練（S1 先行，再 S2）,3,477-486,4b87494bc0,結果,keep,,
+finetune_report-037,reports/finetune_report.md,9.3 產生樣本,3,487-500,5d72c2aae1,結果,keep,,
+finetune_report-038,reports/finetune_report.md,9.4 評估,3,501-509,6497b46265,結果,keep,,
+finetune_report-039,reports/finetune_report.md,9.5 原始資料,3,510-518,7f28257dbe,結果,edit,,修正 \r 被吃掉的路徑
+finetune_report-040,reports/finetune_report.md,10. 版本與 commit hash 記錄（issue：須在 PR 中記錄使用的版本與 commit hash）,2,519-520,da39a3ee5e,結果,edit,reports/finetune_report.md#10. 版本與 commit hash 記錄,標題去 issue 口吻
+finetune_report-041,reports/finetune_report.md,基礎模型（本專案使用的上游版本）,3,521-532,878815872d,結果,keep,,
+finetune_report-042,reports/finetune_report.md,本專案的產出 commit（分支 `feature/TTS-finetune`，**尚未 push、尚未開 PR**）,3,533-550,356b9a42ad,結果,edit,reports/finetune_report.md#本專案的產出 commit,「尚未 push、尚未開 PR」過時（PR #6 已合併）
+finetune_report-043,reports/finetune_report.md,11. 停止點,2,551-558,d3e218a23f,過程紀錄,delete,,等待驗收的狀態，已過時；epochs 16 採認狀態併入 §7
+finetune_report-044,reports/finetune_report.md,附錄 A：生成樣本文字稿（Whisper large-v3 逐句轉寫）,2,559-573,086afe1ebc,結果,keep,,
+finetune_report-045,reports/finetune_report.md,A-1　(a) eval10 原台詞 10 句,3,574-588,3973ca3134,結果,keep,,
+finetune_report-046,reports/finetune_report.md,A-2　(b) 全新台詞 10 句,3,589-603,34564d1ffa,結果,keep,,
+finetune_report-047,reports/finetune_report.md,A-3　逐句差異解讀,3,604-618,d83d04d8b9,結果,keep,,
+issue_compliance-001,reports/issue_compliance.md,Issue 合規稽核報告,1,1-14,ee40afe903,協作產物,delete,,對 issue #1 的合規自我稽核（審查產物）；需求與驗收討論在 https://github.com/Star-Meow/Ryza_voice/issues/1、https://github.com/Star-Meow/Ryza_voice/pull/6
+issue_compliance-002,reports/issue_compliance.md,0. 摘要,2,15-40,cbe5ea4573,協作產物,delete,,對 issue #1 的合規自我稽核（審查產物）；需求與驗收討論在 https://github.com/Star-Meow/Ryza_voice/issues/1、https://github.com/Star-Meow/Ryza_voice/pull/6
+issue_compliance-003,reports/issue_compliance.md,1. Part 1 範圍（issue 第 8–10 行）,2,41-48,e84e2a15b5,協作產物,delete,,對 issue #1 的合規自我稽核（審查產物）；需求與驗收討論在 https://github.com/Star-Meow/Ryza_voice/issues/1、https://github.com/Star-Meow/Ryza_voice/pull/6
+issue_compliance-004,reports/issue_compliance.md,1.4 額外發現：1 筆「強烈疑似錯誤」層的音檔進入訓練集（**已結案：PM 決定不剔除**）,3,49-77,b0a0825484,流程,merge,docs/05_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,v00596 的來源與保留理由；05 §1.5 注意事項 3 已有，補足缺漏
+issue_compliance-005,reports/issue_compliance.md,2. Part 1 要求（issue 第 12–15 行）,2,78-87,d00a47488b,協作產物,delete,,對 issue #1 的合規自我稽核（審查產物）；需求與驗收討論在 https://github.com/Star-Meow/Ryza_voice/issues/1、https://github.com/Star-Meow/Ryza_voice/pull/6
+issue_compliance-006,reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,2,88-100,be1b39040e,協作產物,delete,,對 issue #1 的合規自我稽核（審查產物）；需求與驗收討論在 https://github.com/Star-Meow/Ryza_voice/issues/1、https://github.com/Star-Meow/Ryza_voice/pull/6
+issue_compliance-007,reports/issue_compliance.md,4. Part 2 要求（issue 第 34–36 行）,2,101-110,49461fbe25,協作產物,delete,,對 issue #1 的合規自我稽核（審查產物）；需求與驗收討論在 https://github.com/Star-Meow/Ryza_voice/issues/1、https://github.com/Star-Meow/Ryza_voice/pull/6
+issue_compliance-008,reports/issue_compliance.md,5. Part 2 驗收要件（issue 第 39–55 行）,2,111-125,71260df378,協作產物,delete,,對 issue #1 的合規自我稽核（審查產物）；需求與驗收討論在 https://github.com/Star-Meow/Ryza_voice/issues/1、https://github.com/Star-Meow/Ryza_voice/pull/6
+issue_compliance-009,reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,2,126-143,f6a41d8bea,協作產物,delete,,所列過期宣稱於 Step 2／3 在原處修正（#4→asr_report §3、#5／#8→asr_filter_report 刪除、#7→08 §8）；稽核脈絡見 https://github.com/Star-Meow/Ryza_voice/issues/1
+issue_compliance-010,reports/issue_compliance.md,7. 需 PM 裁示的事項,2,144-158,2ca453c5ce,結果,merge,reports/asr_report.md#5. 已知限制,#1 人工試聽無逐筆紀錄、#2 cer_sample 無審閱欄、#3 ボース 規則無人工依據、#5 --prune-raw 抹除排除原因 → 已知限制；#7 指標對語氣盲視已在 defect_triage P-2
+issue_compliance-011,reports/issue_compliance.md,8. 判定為 PASS／UNKNOWN 所需的外部資訊,2,159-169,d840a8021b,結果,merge,reports/asr_report.md#5. 已知限制,同上（缺哪些紀錄）
+issue_compliance-012,reports/issue_compliance.md,9. 相關文件,2,170-182,542ac347f2,協作產物,delete,,對 issue #1 的合規自我稽核（審查產物）；需求與驗收討論在 https://github.com/Star-Meow/Ryza_voice/issues/1、https://github.com/Star-Meow/Ryza_voice/pull/6
+issue_reply_part1-001,reports/issue_reply_part1.md,Part 1：ASR 轉譯進度回報,2,1-2,da39a3ee5e,協作產物,delete,,issue #1 的進度回報 comment 草稿，已張貼於 https://github.com/Star-Meow/Ryza_voice/issues/1
+issue_reply_part1-002,reports/issue_reply_part1.md,背景,3,3-6,1af4434e1f,協作產物,delete,,issue #1 的進度回報 comment 草稿，已張貼於 https://github.com/Star-Meow/Ryza_voice/issues/1
+issue_reply_part1-003,reports/issue_reply_part1.md,目前進度,3,7-97,997345a73c,結果,merge,reports/asr_report.md#資料漏斗,唯一獨有內容為 WRONG 23 vs 3 口徑說明；其餘與 asr_report／correction_diff 重複
+issue_reply_part1-004,reports/issue_reply_part1.md,實作決策,3,98-101,36c4b89644,流程,merge,docs/05_transcript_pipeline.md#6. 專有名詞校正,詞彙表規則取捨理由
+stage_d_train-001,reports/logs/stage_d_train.md,階段 D 訓練 log 歸檔,1,1-11,eb91c53fe2,結果,edit,,刪除「依計畫 §12.4」
+stage_d_train-002,reports/logs/stage_d_train.md,1. 執行環境,2,12-25,1c38df6839,結果,keep,,
+stage_d_train-003,reports/logs/stage_d_train.md,2. 各輪指令與結果,2,26-27,da39a3ee5e,結果,keep,,
+stage_d_train-004,reports/logs/stage_d_train.md,2.1 第 1 輪 — S1，8 epoch,3,28-52,aa23f40c17,結果,keep,,
+stage_d_train-005,reports/logs/stage_d_train.md,2.2 第 2 輪 — S2，grad_ckpt=**false**，8 epoch（**崩潰**）,3,53-81,508444dcc8,結果,keep,,
+stage_d_train-006,reports/logs/stage_d_train.md,2.3 第 3 輪 — S2，grad_ckpt=**true**，8 epoch,3,82-106,7002c46f64,結果,edit,,釐清 s/it 與 finetune_report 的差異
+stage_d_train-007,reports/logs/stage_d_train.md,2.4 第 4 輪 — S1 續訓 8 → 16,3,107-122,ca54a688a6,結果,keep,,
+stage_d_train-008,reports/logs/stage_d_train.md,2.5 第 5 輪 — S2 續訓 8 → 16,3,123-147,e29d9d643f,結果,keep,,
+stage_d_train-009,reports/logs/stage_d_train.md,3. Loss 摘錄,2,148-149,da39a3ee5e,結果,keep,,
+stage_d_train-010,reports/logs/stage_d_train.md,3.1 S1（16 epoch，59 step/epoch）,3,150-163,614359f183,結果,keep,,
+stage_d_train-011,reports/logs/stage_d_train.md,3.2 S2（16 epoch，119 step/epoch，log_interval=20）,3,164-179,055788a064,結果,keep,,
+stage_d_train-012,reports/logs/stage_d_train.md,4. 顯存峰值彙總,2,180-192,d483534700,結果,keep,,
+stage_d_train-013,reports/logs/stage_d_train.md,5. 產出權重,2,193-200,3befd381ff,結果,keep,,
+pr_description-001,reports/pr_description.md,PR 描述（Part 2：GPT-SoVITS v4 LoRA 微調）,1,1-2,da39a3ee5e,協作產物,delete,,PR #6 內文，已在 https://github.com/Star-Meow/Ryza_voice/pull/6
+pr_description-002,reports/pr_description.md,重點摘要（Review 請聚焦 Part 2）,2,3-21,7e9c87f1c0,協作產物,delete,,PR #6 內文，已在 https://github.com/Star-Meow/Ryza_voice/pull/6
+pr_description-003,reports/pr_description.md,選型：為何是 GPT-SoVITS v4 LoRA,2,22-36,0e370897ab,協作產物,delete,,PR #6 內文，已在 https://github.com/Star-Meow/Ryza_voice/pull/6
+pr_description-004,reports/pr_description.md,基礎模型,2,37-46,5b3f5e1827,協作產物,delete,,PR #6 內文，已在 https://github.com/Star-Meow/Ryza_voice/pull/6
+pr_description-005,reports/pr_description.md,關於 commit hash 的記錄,3,47-62,47536d42ea,結果,move,reports/finetune_report.md#10. 版本與 commit hash 記錄,commit hash 記錄方式說明，pr_description 獨有
+pr_description-006,reports/pr_description.md,模型權重,3,63-76,0f270d358b,協作產物,delete,,PR #6 內文，已在 https://github.com/Star-Meow/Ryza_voice/pull/6
+pr_description-007,reports/pr_description.md,T0：`.bin` → safetensors 轉檔（必要）,3,77-87,1520568288,協作產物,delete,,PR #6 內文，已在 https://github.com/Star-Meow/Ryza_voice/pull/6
+pr_description-008,reports/pr_description.md,額外模型資產,3,88-95,02c6dcbede,協作產物,delete,,PR #6 內文，已在 https://github.com/Star-Meow/Ryza_voice/pull/6
+pr_description-009,reports/pr_description.md,交付內容,2,96-101,51bb2f62a1,協作產物,delete,,PR #6 內文，已在 https://github.com/Star-Meow/Ryza_voice/pull/6
+pr_description-010,reports/pr_description.md,完整清單,3,102-111,98ef8caecd,協作產物,delete,,PR #6 內文，已在 https://github.com/Star-Meow/Ryza_voice/pull/6
+pr_description-011,reports/pr_description.md,本專案的交付 commit,3,112-135,65aa2424c0,協作產物,delete,,PR #6 內文，已在 https://github.com/Star-Meow/Ryza_voice/pull/6
+pr_description-012,reports/pr_description.md,驗收結果,2,136-154,9ded2ff86e,協作產物,delete,,PR #6 內文，已在 https://github.com/Star-Meow/Ryza_voice/pull/6
+pr_description-013,reports/pr_description.md,需要 reviewers 注意的三件事,2,155-167,bd7370c58e,協作產物,delete,,PR #6 內文，已在 https://github.com/Star-Meow/Ryza_voice/pull/6
+pr_description-014,reports/pr_description.md,未解決事項,2,168-175,36158aa1c4,協作產物,delete,,「PR 尚未建立」過時（已合併 https://github.com/Star-Meow/Ryza_voice/pull/6）；人工紀錄缺口併入 asr_report §5；P-1～3 在 defect_triage
+pr_description-015,reports/pr_description.md,已結案的決策,2,176-183,99acb596e5,協作產物,delete,,已記錄於 docs/05 §1.5（v00596）與 docs/07 §6.2（jieba_fast）；原文在 https://github.com/Star-Meow/Ryza_voice/pull/6
+smoke_test_stage_a-001,reports/smoke_test_stage_a.md,煙霧測試：ffmpeg 就位 ＋ 階段 A 端到端跑通,1,1-10,d6b9af003c,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_a-002,reports/smoke_test_stage_a.md,區域 1：環境修正（ffmpeg 缺失）,2,11-12,da39a3ee5e,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_a-003,reports/smoke_test_stage_a.md,問題,3,13-17,91b98c5463,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_a-004,reports/smoke_test_stage_a.md,處置（方案 A，PM 放行）,3,18-23,c6cee2e6f2,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_a-005,reports/smoke_test_stage_a.md,本 session 實測（2026-10-05）,3,24-41,47aeee186f,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_a-006,reports/smoke_test_stage_a.md,區域 2：階段 A 重跑,2,42-43,da39a3ee5e,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_a-007,reports/smoke_test_stage_a.md,首次失敗的殘留清理,3,44-46,36f91b12b1,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_a-008,reports/smoke_test_stage_a.md,各步驟結束碼與耗時,3,47-65,a7eafe0ce8,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_a-009,reports/smoke_test_stage_a.md,區域 3：產出驗收（PA-1～PA-11）,2,66-85,9528a07940,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_a-010,reports/smoke_test_stage_a.md,validator 的兩個 false-failure bug（已修）,3,86-94,a6a485f09b,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_a-011,reports/smoke_test_stage_a.md,json 與腳本不同步（本 session 修正）,3,95-100,048a2e4ef4,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_a-012,reports/smoke_test_stage_a.md,區域 4：收尾（git 狀態與文件）,2,101-102,da39a3ee5e,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_a-013,reports/smoke_test_stage_a.md,`<GPT>`（`main` 分支，commit `48b1a01`）,3,103-107,e765d06f97,過程紀錄,delete,,branch／untracked 快照，已過時
+smoke_test_stage_a-014,reports/smoke_test_stage_a.md,`<RYZA>`（`feat/tts-v4-lora-prep`，HEAD `0b7c743`）,3,108-126,0c9bc5887b,過程紀錄,delete,,同上
+smoke_test_stage_a-015,reports/smoke_test_stage_a.md,產出目錄結構（供階段 B/C 使用）,3,127-142,17dfc02758,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_a-016,reports/smoke_test_stage_a.md,區域 5：不符事項／無法判定／風險,2,143-144,da39a3ee5e,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_a-017,reports/smoke_test_stage_a.md,與計畫不符（含本次新增）,3,145-155,de82c0c8c2,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_a-018,reports/smoke_test_stage_a.md,無法判定,3,156-160,2061b99ed0,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_a-019,reports/smoke_test_stage_a.md,風險與意外發現,3,161-168,5e315570e8,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_a-020,reports/smoke_test_stage_a.md,結論,2,169-173,6b38adbc5e,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_c-001,reports/smoke_test_stage_c.md,煙霧測試：階段 C（S2 LoRA ＋ S1 ＋ 推論）,1,1-12,58ccf8fe30,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_c-002,reports/smoke_test_stage_c.md,1. 測試輪次對照表,2,13-43,99220f43d6,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_c-003,reports/smoke_test_stage_c.md,2. loss 趨勢表,2,44-45,da39a3ee5e,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_c-004,reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",3,46-56,d086281190,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_c-005,reports/smoke_test_stage_c.md,S1（Lightning 只在 epoch 層記錄，逐步值僅見於進度棒）,3,57-68,ed4d88d99c,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_c-006,reports/smoke_test_stage_c.md,3. 最終採用參數,2,69-86,6a2b2ba60a,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_c-007,reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,2,87-108,43172b8ad4,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_c-008,reports/smoke_test_stage_c.md,5. 觀察,2,109-110,da39a3ee5e,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_c-009,reports/smoke_test_stage_c.md,5.1 顯存,3,111-123,a9cbedb5bc,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_c-010,reports/smoke_test_stage_c.md,5.2 速度,3,124-127,2a5d96d1ad,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_c-011,reports/smoke_test_stage_c.md,5.3 資料載入行為,3,128-132,7c8291ebe3,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_c-012,reports/smoke_test_stage_c.md,5.4 resume 結果（SM-S2-6）,3,133-140,1384edc6ca,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_c-013,reports/smoke_test_stage_c.md,5.5 SM-S1-5 學習率結論,3,141-163,3bfa9a8d0b,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_c-014,reports/smoke_test_stage_c.md,6. GPU 異常表,2,164-175,a3ae3f5bb7,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_c-015,reports/smoke_test_stage_c.md,7. 結論,2,176-187,2f502f1d4b,過程紀錄,edit,,過程紀錄；Step 3 決定是否併入 reports/dev_log.md，去除停止點／放行／branch 狀態
+smoke_test_stage_c-016,reports/smoke_test_stage_c.md,8. 實際訓練（待訓練後補）,2,188-191,96127a4f97,過程紀錄,delete,,空白模板從未填寫；實際結果在 finetune_report 與 logs/stage_d_train
+smoke_test_stage_c-017,reports/smoke_test_stage_c.md,8.1 測試輪次對照表（空白）,3,192-198,854e806944,過程紀錄,delete,,同上（空白）
+smoke_test_stage_c-018,reports/smoke_test_stage_c.md,8.2 loss 趨勢表（空白）,3,199-205,2adb90e547,過程紀錄,delete,,同上（空白）
+smoke_test_stage_c-019,reports/smoke_test_stage_c.md,8.3 GPU 異常表（空白）,3,206-210,d7f005f292,過程紀錄,delete,,同上（空白）
+split_report-001,reports/split_report.md,Part 2 資料切分報告,1,1-2,da39a3ee5e,結果,keep,,
+split_report-002,reports/split_report.md,執行摘要,2,3-8,3c7e225cea,結果,edit,,刪除「尚未開始訓練」
+split_report-003,reports/split_report.md,輸入完整性,2,9-13,97bfd46874,結果,keep,,
+split_report-004,reports/split_report.md,分層配額實際達成,2,14-23,caed0350d4,結果,keep,,
+split_report-005,reports/split_report.md,切分統計,2,24-35,79eb82c3ad,結果,keep,,
+split_report-006,reports/split_report.md,參考音訊,2,36-45,9f732208f7,結果,edit,,00042 改為實際使用的 03536，註明變更
+split_report-007,reports/split_report.md,門禁檢查,2,46-61,27ae2fdade,結果,keep,,
+split_report-008,reports/split_report.md,分桶明細（test 抽樣分配）,2,62-78,92de7995e8,結果,keep,,
+split_report-009,reports/split_report.md,分桶明細（eval10 抽樣分配）,2,79-95,cfcf2264d6,結果,keep,,
+split_report-010,reports/split_report.md,風險與待確認,2,96-104,7022ea1ef9,結果,edit,,刪除「待確認」的已結事項
+split_report-011,reports/split_report.md,下一步,2,105-107,e7294f972d,過程紀錄,delete,,「等待使用者確認後開始訓練」已過時
+samples-001,samples/README.md,生成樣本（repo 展示用）,1,1-6,bc3c2f0eca,專案說明,edit,,「供 reviewer」改中性
+samples-002,samples/README.md,產生條件,2,7-18,c83bf89bea,專案說明,keep,,
+samples-003,samples/README.md,檔案,2,19-20,da39a3ee5e,專案說明,keep,,
+samples-004,samples/README.md,(a) eval10 測試集 10 句 — 以原台詞文字生成，檔名沿用原音編號,3,21-35,073da910fc,專案說明,keep,,
+samples-005,samples/README.md,(b) 全新台詞 10 句 — 遊戲語料庫中不存在，語氣為本專案設計時指定,3,36-53,ce63ad0291,專案說明,keep,,
+samples-006,samples/README.md,評估結果,2,54-66,878cbb4025,專案說明,edit,,修正「1 epoch 級別」（實為 16 epoch）
+ADD-001,,,,,,新增,add,README.md#Part 2：GPT-SoVITS v4 LoRA 微調,與 Part 1 ①②③ 同格式的 Part 2 短節
+ADD-002,,,,,,新增,add,README.md#安裝與執行,通用 README 應有的入口，連到 07
+ADD-003,,,,,,新增,add,docs/02_model_selection.md#附錄：音訊品質實測,承接 reports/audio_quality.md
+ADD-004,,,,,,新增,add,docs/08_tools.md#5. Part 2：訓練、推論與評估,承接 08 §8 與遺漏工具
+ADD-005,,,,,,新增,add,reports/asr_report.md#5. 已知限制,承接 issue_compliance §7／§8
