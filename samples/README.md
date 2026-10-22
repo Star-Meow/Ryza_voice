@@ -1,6 +1,6 @@
-# 生成樣本（repo 展示用）
+# 生成樣本
 
-本目錄是 **16 epoch 正式訓練**產生的參考音訊副本，供 reviewer 直接聆聽評估。
+本目錄是 **16 epoch 正式訓練**模型的推論樣本，共 20 句，可直接聆聽。
 音檔原始位置：`<GPT>\logs\ryza_v4_lora\infer_e16\`；本目錄為**複製件**，
 20/20 檔案的 SHA256 與來源完全一致。
 
@@ -33,7 +33,7 @@
 | `eval10_02119.wav` | `wav/02119.wav` | あの部屋の家賃ってどれくらいするの? | 3.68 s |
 | `eval10_01498.wav` | `wav/01498.wav` | そのことなんだけど… | 2.60 s |
 
-### (b) 全新台詞 10 句 — 遊戲語料庫中不存在，語氣為本專案設計時指定
+### (b) 全新台詞 10 句 — 遊戲語料庫中不存在，語氣依句末標點標註
 
 | 檔名 | 語氣 | 台詞 | 時長 |
 |---|---|---|---|
@@ -51,16 +51,10 @@
 > (b) 的 10 句以 8–10 字特徵片語逐句 grep `data/split_manifest.csv`（491 列）驗證 **0 命中**，
 > 確認不存在於遊戲語料庫。
 
-## 評估結果
+## 評估
 
-| 指標 | 數值 | 門檻 | 判定 |
-|---|---|---|---|
-| 聲線相似度（20 句平均，對 A_high 中心點） | **0.8152／91.5%** | ≥ 90% | ✅ |
-| 可懂度 CER（逐句平均） | **2.99%** | ≤ 10% | ✅ |
+聲線相似度、可懂度 CER 與主觀試聽評語見 [`../reports/finetune_report.md`](../reports/finetune_report.md) §5、§6；
+逐句的 cosine、CER 與 Whisper 轉寫見 [`../reports/cer_generated.csv`](../reports/cer_generated.csv)；
+主觀試聽發現的缺陷見 [`../reports/defect_triage.md`](../reports/defect_triage.md)。
 
-**主觀試聽已發現三項系統性缺陷**（語尾多音、情緒偏開心、帶 a 母音的電子音），
-歸因與排查方向見 [`../reports/defect_triage.md`](../reports/defect_triage.md)。
-**本樣本僅供管線與音色評估，1 epoch 級別的微調不評估音質優劣。**
-
-逐句的 cosine、CER 與 Whisper 轉寫全文見 [`../reports/cer_generated.csv`](../reports/cer_generated.csv)
-與 [`../reports/finetune_report.md`](../reports/finetune_report.md) §5、附錄 A。
+> (b) 的語氣是依句末標點的文字標註，試聽顯示與實際聲音多有不符，見 defect_triage 的 P-2。

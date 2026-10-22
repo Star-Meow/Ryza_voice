@@ -1,16 +1,16 @@
-# ASR 轉譯與訓練清單建構（Part 1 ③）
+# 轉譯資料集：ASR 與訓練清單建構
 
-> 承接 [`speaker_id.md`](04_speaker_id.md) 的 top500 候選，將音訊轉成 GPT-SoVITS 可用的逐字稿訓練清單。
-> 本階段的核心是**三處編號集合的一致性**——這是全文最需要注意的地方。
+> 承接 [`03_speaker_id.md`](03_speaker_id.md) 的 top500 候選，將音訊轉成 GPT-SoVITS 可用的逐字稿訓練清單。
+> 本模塊的核心是**三處編號集合的一致性**——這是全文最需要注意的地方。
 >
 > ASR 引擎參數、過濾統計與 CER 抽查的完整報告見 [`reports/asr_report.md`](../reports/asr_report.md)；
-> 專有名詞校正的逐段前後對照見 [`reports/correction_diff.md`](../reports/correction_diff.md)。
+> 專有名詞校正的逐段前後對照見該報告的附錄 A。訓練清單的格式見 [`data/README.md`](../data/README.md)。
 
 ---
 
 ## 1. 三個核心檔案
 
-整個階段的資料鏈是：
+整個模塊的資料鏈是：
 
 ```
 ryza_main/top500/  →  tools/pos_label.py  →  tools/asr_screening.json  →  data/ryza_train.list
@@ -18,7 +18,7 @@ ryza_main/top500/  →  tools/pos_label.py  →  tools/asr_screening.json  →  
 
 | 檔案 | 角色 |
 |---|---|
-| [`tools/pos_label.py`](../tools/pos_label.py) | **正樣本編號清單** `SVM_DEC[]`，定義 STT 階段的處理範圍 |
+| [`tools/pos_label.py`](../tools/pos_label.py) | **正樣本編號清單** `SVM_DEC[]`，定義轉譯的處理範圍 |
 | [`tools/asr_screening.json`](../tools/asr_screening.json) | **ASR 逐字稿與過濾紀錄**，每筆含 `status`／`reason`／分數／`text`／`core` |
 | [`data/ryza_train.list`](../data/ryza_train.list) | **最終訓練清單**，491 行 |
 | [`tools/neg_labels.py`](../tools/neg_labels.py) | `WRONG[]`（人工確認非ライザ）與 `DUPLICATE[]`（ASR 文本重複排除） |
@@ -32,25 +32,37 @@ wav/00028.wav|ryza|ja|そっか、わかった。
 
 **維護原則**：`asr_screening.json` 是唯一的事實來源，其餘兩檔皆由它推導。任何時候三者必須相等（見 §8）。
 
-## 1.5 為何走 `top500/` 而非 issue 字面寫的 `A_high/ + B_likely/`
+## 1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`
 
-`docs/01_issue.md` 第 8 行的字面範圍是「`ryza_main/A_high/`（92）＋ `ryza_main/B_likely/`（386）＝約 478 段」。實際執行走的是 `ryza_main/top500/`。**這是刻意的決策，不是流程意外**（PM 2026-10-05 說明）：
+原需求（見 [`01_overview.md`](01_overview.md) §5）的轉譯範圍是「`ryza_main/A_high/`（92）＋ `ryza_main/B_likely/`（386）＝約 478 段」。實際執行走的是 `ryza_main/top500/`，**這是刻意的決定，不是流程意外**（2026-10-05 確認）：
 
 > 早期排序時，因為**擔心樣本數偏頗**，所以將 A（人工確認的樣本，即 `A_high`）以外的直接進行 `svm_dec` 排序並取出前 500，進行去躁以及正負樣本確認。
 
 | 面向 | 內容 |
 |---|---|
 | **動因** | 單靠 `A_high`（92 筆，已全數人工確認）樣本數偏少，不足以支撐後續 finetune；`B_likely` 又有 383 筆尚未全數人工確認 |
-| **做法** | `A_high` 全數保留 ＋ 其餘層級合併後依 `svm_dec` 排序取前 500（`tools/select_samples.py`），再逐階段做去重與正負樣本確認 |
+| **做法** | `A_high` 全數保留 ＋ 其餘層級合併後依 `svm_dec` 排序取前 500（`tools/select_samples.py`），再逐步做去重與正負樣本確認 |
 | **結果** | `A_high` 92/92 全數納入；另納入 `B_likely` 378 ＋ `C_possible` 20 → top500 497 → 去重後 **491** |
-| **人工查核** | **早期視聽與人工檢查樣本皆由人工執行**（PM 2026-10-05 確認）。`tools/neg_labels.py` 的 `WRONG[]` 為人工確認非ライザ的結果，`DUPLICATE[]` 為去重結果 |
+| **人工查核** | 早期視聽與人工檢查樣本皆由人工執行。`tools/neg_labels.py` 的 `WRONG[]` 為人工確認非ライザ的結果，`DUPLICATE[]` 為去重結果 |
 
 **複現時的注意事項**：
 
-1. **不要照 issue 字面範圍重建。** 若改用 `A_high + B_likely`（383，非 issue 所寫的 386），得到的是另一份資料集，與 `data/ryza_train.list` 不一致，下游預處理、訓練、評估數據全部會變。正確入口是 `--source-dir ryza_main/top500`。
-2. **issue 的 386 是過期數字**，`ryza_main/B_likely/` 實際為 **383**（`docs/04_speaker_id.md:145`、`README.md:64` 一致）。
-3. **`v` 前綴自動採納規則未排除 `D_flagged` 層**：`tools/select_samples.py:8` 讓各層中檔名帶 `v` 前綴者全部採用、不參與排序，因此 `v00596.wav`（`svm_dec = −0.4597`，該層自訂為「強烈疑似錯誤」）也進入了最終 491 段。**PM 已於 2026-10-05 裁示不剔除此檔**（保留可維持 491 段，階段 A～D 數據全部有效）。複核記錄見 [`../reports/issue_compliance.md`](../reports/issue_compliance.md) §1.4。**日後複現時不應「順手修正」這條規則**——改了會得到不同的 491 段。
-4. **人工查核的逐筆紀錄未留在 repo 內**。`WRONG[]` 保留了人工判定的**結果**，但沒有逐檔的「音檔編號 → 判定 → 試聽者 → 日期」對照表。若日後需稽核，需另行補建。
+1. **不要照需求原寫的範圍重建。** 若改用 `A_high + B_likely`（383，非需求所寫的 386），得到的是另一份資料集，與 `data/ryza_train.list` 不一致，下游預處理、訓練、評估數據全部會變。正確入口是 `--source-dir ryza_main/top500`。
+2. **需求中的 386 是過期數字**，`ryza_main/B_likely/` 實際為 **383**（與 [`03_speaker_id.md`](03_speaker_id.md) §7.1 一致）。
+3. **`v` 前綴自動採納規則未排除 `D_flagged` 層，`v00596.wav` 因此留在訓練集內（決定不剔除）。**
+
+   | 檢查 | 結果 |
+   |---|---|
+   | 進入最終清單 | `data/ryza_train.list:97` = `wav/00596.wav\|ryza\|ja\|あれって、フィルフサじゃん。…` |
+   | 該檔 `svm_dec` | **−0.4597**（`ryza_main_index.csv:911`） |
+   | `D_flagged` 定義 | 165 檔，`svm_dec < −0.433`，「比任何已確認誤判都更負，強烈疑似錯誤」（[`03_speaker_id.md`](03_speaker_id.md) §7.1） |
+   | 為何進入 | `tools/select_samples.py:8`：各排序層中檔名以 `v` 前綴者全部採用、不參與排序 |
+
+   - `v` 前綴自動採納是刻意的選樣規則，作用是讓聲優自行標記的高信心樣本不因排序遭排除，所以這是**規則一致的結果**，不是流程漏接。`tools/validate_pos_label.py` 的檢查也不涵蓋「來源 tier 合法性」。
+   - 影響為 1/491（0.2%）。該檔通過預處理的全部驗證（PA-1～PA-11，見 [`07_finetune.md`](07_finetune.md) §3），聲線相似度與 CER 兩項評估也達標。
+   - 保留可維持 `data/ryza_train.list` 為 491 段，預處理、訓練、相似度 91.5%、CER 2.99% 等數據全部維持有效，無須重跑。
+   - **日後複現時不應「順手修正」這條規則**，改了會得到不同的 491 段。
+4. **人工查核的逐筆紀錄未留在 repo 內**。`WRONG[]` 保留了人工判定的**結果**，但沒有逐檔的「音檔編號 → 判定 → 試聽者 → 日期」對照表（見 [`asr_report.md`](../reports/asr_report.md) §5 已知限制）。
 
 ---
 
@@ -94,7 +106,7 @@ top500 中此類 v 前綴共 **6 個**：`v00086`、`v00105`、`v00142`、`v0033
 
 ## 4. 過濾規則
 
-### 4.1 Issue 要求的規則
+### 4.1 必要過濾規則
 
 | 規則 | 門檻 | 觸發數 |
 |---|---|---|
@@ -105,16 +117,16 @@ top500 中此類 v 前綴共 **6 個**：`v00086`、`v00105`、`v00142`、`v0033
 | `REPETITION` | 同字元連續 ≥ 4 | 0 |
 | `NON_SPEECH` | `core` 為感嘆詞 | 0（標 REVIEW 交人工） |
 
-**這六條規則本批次全數未觸發**——497 段音訊在 Issue 要求的條件下品質乾淨。
+**這六條規則本批次全數未觸發**——497 段音訊在必要過濾條件下品質乾淨。
 
-### 4.2 額外規則（非 Issue 要求）
+### 4.2 附加過濾規則
 
 | 規則 | 門檻 | 觸發數 | 說明 |
 |---|---|---|---|
 | `HIGH_COMPRESSION` | compression_ratio > 3.0 | 0（REVIEW） | Whisper 幻覺指標；實測最高僅 1.54 |
 | `DUPLICATE_TEXT` | `core` 跨檔 ≥ 2 | **6（EXCLUDE）** | 跨檔同一台詞重複錄製，見 §5 |
 
-> **`DUPLICATE_TEXT` 與 Issue 的「重複」是不同概念**：Issue 的「重複」指單一檔案內 ASR 輸出的
+> **`DUPLICATE_TEXT` 與必要規則中的「重複」是不同概念**：後者指單一檔案內 ASR 輸出的
 > 重複幻覺（即 `REPETITION`，觸發 0）；`DUPLICATE_TEXT` 指**不同音檔收錄了同一句台詞**。
 
 ## 5. 跨檔文本去重
@@ -205,8 +217,7 @@ CER 抽查發現的 6 段錯誤中，**5 段為專有名詞／固定詞組**（�
         │       ├── apply_glossary.py 套用並重算 core
         │       └── transcribe.py 重產清單（491 行）
         ▼
-reports/asr_report.md      模型參數、過濾統計、有效時長、CER 抽查
-reports/correction_diff.md 專有名詞校正前後對照（14 段）
+reports/asr_report.md      模型參數、過濾統計、有效時長、CER 抽查、校正前後對照（附錄 A）
 ```
 
 **數量關係**（每一步都必須對得上）：
@@ -219,7 +230,7 @@ reports/correction_diff.md 專有名詞校正前後對照（14 段）
 = 491（最終清單）
 ```
 
-`WRONG[]` 共 23 筆，其中 **20 筆落在 top500 之外**，不影響本階段計算。
+`WRONG[]` 共 23 筆，其中 **20 筆落在 top500 之外**，不影響本模塊計算。
 
 ## 8. 三處一致性
 
@@ -304,16 +315,3 @@ python tools/validate_pos_label.py \
   --train-list data/ryza_train.list \
   --audio-root wav
 ```
-
-## 10. 歷史執行紀錄
-
-以下為資料鏈改道當時已執行完畢的一次性動作，**僅供追溯，不是可重跑的流程**。
-
-| 紀錄 | 說明 |
-|---|---|
-| STT 資料鏈改道 top500，去重後 491 段訓練清單 | commit `672e4e5` |
-| 刪除根目錄舊清單 `git rm ryza_train.list` | 清單已改道至 `data/`，根目錄檔案已刪除。**再次執行會失敗** |
-| 491 段完整清單的 **Whisper 原始輸出**（校正前） | git 歷史 commit `672e4e5` 的 `tools/asr_screening.json` |
-
-> 舊版篩選報告 [`reports/asr_filter_report.md`](../reports/asr_filter_report.md)
-> 已被 `reports/asr_report.md` 取代，保留作為歷史紀錄。

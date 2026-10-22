@@ -1,11 +1,9 @@
-# 訓練坑記錄（Pitfall Log）
+# 疑難排解（坑記錄）
 
-> 持續累積文件。記錄 GPT-SoVITS v4 微調（Ryza 語音）從資料準備到正式訓練遭遇的坑、根因與處置，供後續階段 B（訓練配置）、C（冒煙測試）、正式訓練與新環境重現時查閱。
-
-**issue 引用**：`docs/01_issue.md:55` —「訓練過程可穩定完成；若遇到既有的 GPU 不穩問題，須記錄處理方式。」
-
-**相關文件**：[finetune.md](07_finetune.md)（環境與流程）、[../reports/G1_t0_t1_report.md](../reports/G1_t0_t1_report.md)、[../reports/G2_stage_a_report.md](../reports/G2_stage_a_report.md)、[../reports/smoke_test_stage_a.md](../reports/smoke_test_stage_a.md)
-
+> 記錄 GPT-SoVITS v4 微調從資料準備到正式訓練遭遇的坑、根因與處置，供重現與新環境排查時查閱。
+> 依症狀查找請看 §5「症狀速查」；完整流程見 [`07_finetune.md`](07_finetune.md)。
+>
+> 訓練穩定性是評估標準之一（[`01_overview.md`](01_overview.md) §4），GPU／CUDA 相關事件集中在 §4。
 ---
 
 ## 1. 欄位定義
@@ -23,11 +21,13 @@
 | **狀態** | 已解／觀察中／無法判定 |
 | **證據** | 檔案與行號，或指令與輸出摘要 |
 
+引用的開發過程報告（G1～G4、冒煙測試、環境準備）已不在現行版本中，證據連結指向整理前的固定版本（commit `262adda`）。
+
 ## 2. 追加規則
 
 1. **新坑依編號往下連號**（不插隊、不改既有編號），寫在所屬分類節的**最末**。
 2. **既有記錄原則上不修改**；僅狀態變化時在原記錄補一行「▶ YYYY-MM-DD 更新：…」，不覆寫原文。
-3. 「GPU／CUDA」分類另見 §4 專區，該專區獨立維護（issue 特別要求）。
+3. 「GPU／CUDA」分類另見 §4 專區，該專區獨立維護。
 4. 無法判定根因者一律標【缺失】或【推斷】並寫明缺什麼資訊，不可補腦成已解。
 
 ---
@@ -37,13 +37,13 @@
 ### 3.1 環境依賴
 
 #### PK-001 ffmpeg 缺失導致 467 檔全 FileNotFoundError
-- **日期**：2026-10-05（追溯，首次發生於階段 A 第 2 步首次執行）
+- **日期**：2026-10-05（追溯，首次發生於預處理第 2 步首次執行）
 - **現象**：`2-get-hubert-wav32k.py` 對 467 個 wav 全部 `FileNotFoundError: [WinError 2]`，log 中 934 次 traceback（467×2，`load_audio` 內部 except 重跑一次）。`4-cnhubert\`／`5-wav32k\` 為空目錄，`6-name2semantic-0.tsv` 為 0 byte。
 - **根因**：`tools/my_utils.py:16-37` 的 `load_audio` 透過 `ffmpeg-python` 以 `cmd=["ffmpeg","-nostdin"]` 起 subprocess，**只認 PATH 上的 `ffmpeg`**，無 Python fallback；本機系統 PATH 無 ffmpeg。
-- **處置**：依 PM 放行（方案 A），下載 gyan.dev 靜態版 `ffmpeg 9.0.2-essentials_build`，將 `ffmpeg.exe`／`ffprobe.exe` 放入 `<GPT>\.venv\Scripts\`（不改名、不做 .cmd shim），使 venv 啟動即生效；驅動程式 `run_preprocess.py` 另把該目錄加進子行程 PATH。刪除失敗產出後重跑第 2、3 步成功。
+- **處置**：採方案 A：下載 gyan.dev 靜態版 `ffmpeg 9.0.2-essentials_build`，將 `ffmpeg.exe`／`ffprobe.exe` 放入 `<GPT>\.venv\Scripts\`（不改名、不做 .cmd shim），使 venv 啟動即生效；驅動程式 `run_preprocess.py` 另把該目錄加進子行程 PATH。刪除失敗產出後重跑第 2、3 步成功。
 - **證據等級**：【實測】
 - **狀態**：已解
-- **證據**：`reports/smoke_test_stage_a.md` 區域 1；`docs/07_finetune.md` §1；`shutil.which('ffmpeg')` = `H:\git\GPT-SoVITS\.venv\Scripts\ffmpeg.EXE`，`ffmpeg -version` = `9.0.2-essentials_build-www.gyan.dev`
+- **證據**：[`reports/smoke_test_stage_a.md`](https://github.com/Star-Meow/Ryza_voice/blob/262addab90ce98bc8229741ce2353c0d6fe8a8a8/reports/smoke_test_stage_a.md) 區域 1；`docs/07_finetune.md` §1；`shutil.which('ffmpeg')` = `H:\git\GPT-SoVITS\.venv\Scripts\ffmpeg.EXE`，`ffmpeg -version` = `9.0.2-essentials_build-www.gyan.dev`
 - **備註**：首次失敗完全未寫出任何檔案（`load_audio` 在寫檔前丟例外），故無「部分損壞」；與 PK-004（exit code 恆 0）複合，才使問題可被檔案計數檢查抓到。
 
 #### PK-002 transformers 拒載 `.bin`（CVE-2025-32434）
@@ -53,24 +53,24 @@
 - **處置**：執行 T0——將 `chinese-roberta-wwm-ext-large`／`chinese-hubert-base` 的 `pytorch_model.bin` 轉為 `model.safetensors`（`tools/t0_convert_safetensors.py`），以 `tools/t0_validate.py` 驗 key/dtype/shape 全保留、`from_pretrained` 乾淨載入、輸出最大絕對差 0.0，並附 negative fixture 證明驗證能辨識損壞。
 - **證據等級**：【實測】
 - **狀態**：已解
-- **證據**：`reports/G1_t0_t1_report.md` T0-1～T0-8、§2 明細表；`tools/t0_validate.py`
+- **證據**：[`reports/G1_t0_t1_report.md`](https://github.com/Star-Meow/Ryza_voice/blob/262addab90ce98bc8229741ce2353c0d6fe8a8a8/reports/G1_t0_t1_report.md) T0-1～T0-8、§2 明細表；`tools/t0_validate.py`
 
-#### PK-011 上游 import 鏈強迫依賴 `jieba_fast`（永久不採用，2026-10-05 PM 決定）
-- **日期**：2026-10-05（階段 C）
+#### PK-011 上游 import 鏈強迫依賴 `jieba_fast`（不採用，別名不可刪）
+- **日期**：2026-10-05（冒煙測試）
 - **現象**：推論冒煙 E1 首次執行直接 `ModuleNotFoundError: No module named 'jieba_fast'`，整個 `TTS_infer_pack` 無法 import；繞過後又遇 `FileNotFoundError: fast-langdetect: Cache directory not found: H:\git\GPT-SoVITS\GPT_SoVITS\pretrained_models\fast_langdetect`。
 - **根因**：兩個**模組層級**的依賴，與語言無關——
   1. `text/chinese.py:19-23` 與 `text/tone_sandhi.py:17` 在 import 期就 `import jieba_fast`，而 `TTS_infer_pack/TextPreprocessor.py:13` 又直接 `from text import chinese`，故**即使只做日文推論也會被擋下**。venv 內只有 `jieba` 0.42.1，沒有 `jieba_fast`。
-  2. `text/LangSegmenter/langsegmenter.py:11` 把 `fast_langdetect` 的 `cache_dir` 指到 `GPT_SoVITS/pretrained_models/fast_langdetect/`，該目錄不存在。`fast_langdetect` 只在使用「套件預設 cache 目錄」時才自動建立；對自訂目錄會直接拋錯並轉而嘗試從 `dl.fbaipublicfiles.com` 下載 `lid.176.bin`——而本專案 §4.2 禁止連網。
+  2. `text/LangSegmenter/langsegmenter.py:11` 把 `fast_langdetect` 的 `cache_dir` 指到 `GPT_SoVITS/pretrained_models/fast_langdetect/`，該目錄不存在。`fast_langdetect` 只在使用「套件預設 cache 目錄」時才自動建立；對自訂目錄會直接拋錯並轉而嘗試從 `dl.fbaipublicfiles.com` 下載 `lid.176.bin`——而本專案在當時規定推論不連網。
 - **處置**：**不安裝任何套件、不下載、不複製模型檔**，改在推論行程內做兩處設定：
   1. `sys.modules["jieba_fast"]` 別名到已安裝的 `jieba`（jieba_fast 本就是 jieba 的分支，API 相同），並一併掛上 `jieba_fast.posseg`。
   2. 把 `fast_langdetect.infer._default_detector` 改指向**套件自己內附**的 `resources/lid.176.ftz`（938 KB），經由 `LangDetectConfig(custom_model_path=...)`。
   實作見 `tools/infer_smoke.py` 的 `install_jieba_fast_alias()` 與 `point_fast_langdetect_at_bundled_model()`。
 - **證據等級**：【實測】＋【讀碼】
-- **狀態**：已解。`fast_langdetect` 部分於階段 D 以放置正式模型檔根治；`jieba_fast` 部分經 **PM 裁示永久不採用**（中文專用，本專案 language=ja），維持行程內別名。**注意：別名程式碼不可刪**，否則整個推論管線無法 import
-- **證據**：`reports/G4_stage_c_report.md` SM-INF-1；`tools/infer_smoke.py`
+- **狀態**：已解。`fast_langdetect` 部分於正式推論前以放置正式模型檔 `lid.176.bin` 根治（不再走內附 `.ftz`，見 [`07_finetune.md`](07_finetune.md) §6.2.1）；`jieba_fast` 部分於 2026-10-05 決定不採用（中文專用，本專案 language=ja），維持行程內別名。**注意：別名程式碼不可刪**，否則整個推論管線無法 import
+- **證據**：[`reports/G4_stage_c_report.md`](https://github.com/Star-Meow/Ryza_voice/blob/262addab90ce98bc8229741ce2353c0d6fe8a8a8/reports/G4_stage_c_report.md) SM-INF-1；`tools/infer_smoke.py`
 - **備註**：兩處設定都必須在 `from text.LangSegmenter import LangSegmenter` **之後**才生效——`langsegmenter.py:11` 會在 import 時把 `_default_detector` 重新指回壞路徑，順序寫反會靜默失效。
-- **教訓**：計畫 §12.3 曾把「jieba_fast 未安裝」列為**僅影響中文**的已知偏差，實測證明它擋下整個推論管線，連日文都用不了。「lang 假設」要實際跑一次才能確認。
-- **補記（階段 D）**：「中文專用所以不需要」在**功能上**成立，但**在 import 層不成立**——上游無條件 import 使該模組必須存在。兩者要分開談。
+- **教訓**：原本把「jieba_fast 未安裝」列為**僅影響中文**的已知偏差，實測證明它擋下整個推論管線，連日文都用不了。「lang 假設」要實際跑一次才能確認。
+- **補記（正式訓練）**：「中文專用所以不需要」在**功能上**成立，但**在 import 層不成立**——上游無條件 import 使該模組必須存在。兩者要分開談。
 
 ### 3.2 程式行為
 
@@ -81,7 +81,7 @@
 - **處置**：不過濾。T1 證明推論端同一 `clean_text` 路徑（`TextPreprocessor.py:15`、`TTS.py:1171` 帶 v4）亦產生同樣 UNK，**訓練／推論兩端一致**，故無害。
 - **證據等級**：【實測】＋【讀碼】
 - **狀態**：已解（確認無害，不需處置）
-- **證據**：`reports/G1_t0_t1_report.md` T1-1～T1-4、§3；`tools/t1_unk_analysis.py`
+- **證據**：[`reports/G1_t0_t1_report.md`](https://github.com/Star-Meow/Ryza_voice/blob/262addab90ce98bc8229741ce2353c0d6fe8a8a8/reports/G1_t0_t1_report.md) T1-1～T1-4、§3；`tools/t1_unk_analysis.py`
 - **備註**：PA-9 門檻因此只計「非 # 來源」（見 PK-007）。
 
 #### PK-004 官方腳本裸 `except` 吞錯，exit code 恆 0
@@ -91,7 +91,7 @@
 - **處置**：不改官方腳本。確立原則：**所有驗收與冒煙測試不可只看 exit code，必須以「預期產出檔案數量與內容」為準**（本專案 PA／SM 檢查表即此設計）。`load_audio` 的 except 另會把真錯誤包裝成 `RuntimeError("音频加载失败")`，排查 ffmpeg 問題時先 `shutil.which('ffmpeg')`。
 - **證據等級**：【讀碼】＋【實測】
 - **狀態**：已解（對策確立）
-- **證據**：`reports/G2_stage_a_report.md` §3.1、§6.1；`docs/07_finetune.md` §4.1
+- **證據**：[`reports/G2_stage_a_report.md`](https://github.com/Star-Meow/Ryza_voice/blob/262addab90ce98bc8229741ce2353c0d6fe8a8a8/reports/G2_stage_a_report.md) §3.1、§6.1；`docs/07_finetune.md` §4
 
 #### PK-005 `ja_userdic` 的 `user.dict` 從未生成
 - **日期**：2026-10-04（G1）
@@ -100,20 +100,20 @@
 - **處置**：觀察。目前訓練預處理與推論若都在本環境跑會一致；**風險是**若某次成功建立 user dict，G2P 結果可能改變，是重現性觀察點。
 - **證據等級**：【實測】（觀察到缺失）＋【推斷】（根因）
 - **狀態**：觀察中
-- **證據**：`reports/G1_t0_t1_report.md` §5.1；`git status` 確認 `<GPT>` 無新增檔案
+- **證據**：[`reports/G1_t0_t1_report.md`](https://github.com/Star-Meow/Ryza_voice/blob/262addab90ce98bc8229741ce2353c0d6fe8a8a8/reports/G1_t0_t1_report.md) §5.1；`git status` 確認 `<GPT>` 無新增檔案
 
 #### PK-010 推論權重目錄不存在 → `savee` 吞錯 → exit 0 卻沒有推論權重
-- **日期**：2026-10-05（階段 C，04:57 首次重現）
+- **日期**：2026-10-05（冒煙測試，04:57 首次重現）
 - **現象**：S2 冒煙跑完 26 step、寫出 `logs_s2_v4_lora_32\G_233333333333.pth`、**結束碼 0**、無任何 Traceback，但 `SoVITS_weights_v4\` 下**沒有**推論權重。`train.log` 只有一行看起來像 INFO 的
   `saving ckpt ryza_v4_lora_smoke_e1:Traceback (most recent call last): ... FileNotFoundError: [Errno 2] No such file or directory: 'SoVITS_weights_v4/ryza_v4_lora_smoke_e1_s26_l32.pth'`。
 - **根因**：三段式——
   1. `SoVITS_weights_v4`／`GPT_weights_v4` 這兩個推論權重目錄，在整個 repo 裡**只有 `webui.py:200-201` 會建立**；`config.py` 沒有任何 `os.makedirs`，訓練腳本也只 `os.makedirs(save_root)`（`s2_train_v3_lora.py:143`，那是 ckpt 目錄）。手動驅動繞過 webui，目錄就不存在。
   2. `process_ckpt.py:37` 的 `my_save2` 直接 `open(path, "wb")`，不做 `makedirs`。
   3. `process_ckpt.py:59-60` 的 `savee` 以裸 `except` 收尾並 `return traceback.format_exc()`；呼叫端 `s2_train_v3_lora.py:370-386` 只把回傳字串丟給 `logger.info`。**於是 traceback 被當成 INFO 訊息印出，訓練照常結束，exit code 維持 0。**
-- **處置**：在自有的啟動腳本 `tools/run_lora_train.py` 加 preflight，於每輪訓練前建立 `SoVITS_weights_v4`／`GPT_weights_v4`（§4.1 明列允許寫入），並在 summary json 回報 `weight_dirs_created`。建立後同一份 config 重跑，`saving ckpt ...:Success.`，權重 75,550,062 bytes、檔頭 `04`。
+- **處置**：在自有的啟動腳本 `tools/run_lora_train.py` 加 preflight，於每輪訓練前建立 `SoVITS_weights_v4`／`GPT_weights_v4`，並在 summary json 回報 `weight_dirs_created`。建立後同一份 config 重跑，`saving ckpt ...:Success.`，權重 75,550,062 bytes、檔頭 `04`。
 - **證據等級**：【實測】＋【讀碼】
 - **狀態**：已解
-- **證據**：`logs/ryza_v4_lora_smoke/_archive_pre_stagec/train.log`（失敗現場）；`reports/G4_stage_c_report.md` SM-S2-5；`tools/run_lora_train.py` 的 `preflight()`
+- **證據**：`logs/ryza_v4_lora_smoke/_archive_pre_stagec/train.log`（失敗現場）；[`reports/G4_stage_c_report.md`](https://github.com/Star-Meow/Ryza_voice/blob/262addab90ce98bc8229741ce2353c0d6fe8a8a8/reports/G4_stage_c_report.md) SM-S2-5；`tools/run_lora_train.py` 的 `preflight()`
 - **備註**：這是 PK-004「裸 `except` 吞錯、exit code 恆 0」的第二次實例，**同一個坑在訓練端與預處理端各中一次**，再次證明驗收必須看產出檔而不看結束碼。
 - **教訓**：手動驅動官方腳本時，凡是把權重寫進「由 webui 建立」的目錄的路徑，都要自己補 `makedirs`；否則錯誤會被 INFO log 吞掉。
 
@@ -126,38 +126,38 @@
 - **處置**：改為預載 list 時 `read().strip("\n").split("\n")`（與官方 `1-get-text.py:108` 讀法一致）。修正後 0 mismatch。**資料本身正確**，純驗證腳本 bug。
 - **證據等級**：【實測】
 - **狀態**：已解
-- **證據**：`reports/smoke_test_stage_a.md` 區域 3；`tools/stage_a_validate.py:124-131`
+- **證據**：[`reports/smoke_test_stage_a.md`](https://github.com/Star-Meow/Ryza_voice/blob/262addab90ce98bc8229741ce2353c0d6fe8a8a8/reports/smoke_test_stage_a.md) 區域 3；`tools/stage_a_validate.py:124-131`
 - **備註**：同類陷阱——任何「重跑 G2P 並與儲存結果比對」的驗證都必須比照官方讀法 strip 換行。
 
 #### PK-007 validator PA-9 門檻誤把 `#` UNK 計入（false failure）
 - **日期**：2026-10-05（G2）
 - **現象**：PA-9 train 判 `pass:false`（`affected_lines=451 > 10`）。
-- **根因**：validator 門檻把所有含 UNK 的行算進「影響行數」，但計畫 §9.4 的停止條件是「**非 # 的 UNK** 總數 > 20 或影響行數 > 10」；`#` 是韻律邊界（PK-003），不應計入。
+- **根因**：validator 門檻把所有含 UNK 的行算進「影響行數」，但預處理檢查的停止條件是「**非 # 的 UNK** 總數 > 20 或影響行數 > 10」；`#` 是韻律邊界（PK-003），不應計入。
 - **處置**：`affected` 只收集含**非 #** 來源 UNK 的行；`unk_symbols` 統計不變（仍記錄 `#` 供參）。修正後 train／eval10 皆 pass（非 # UNK = 0）。
 - **證據等級**：【實測】
 - **狀態**：已解
-- **證據**：`reports/smoke_test_stage_a.md` 區域 3；`tools/stage_a_validate.py:121-156`
+- **證據**：[`reports/smoke_test_stage_a.md`](https://github.com/Star-Meow/Ryza_voice/blob/262addab90ce98bc8229741ce2353c0d6fe8a8a8/reports/smoke_test_stage_a.md) 區域 3；`tools/stage_a_validate.py:121-156`
 
 ### 3.4 版控
 
 #### PK-008 `<GPT>` 根目錄 `=0.4.1` 檔案消失
-- **日期**：2026-10-05（G2 收尾發現）
-- **現象**：G1 報告多次記載 `<GPT>` 工作樹「始終只有預先存在的 `?? =0.4.1`」，PA-12 亦期望「仍只有 =0.4.1」；G2 收尾時該檔**已不存在**，`git status --short` 全空。
+- **日期**：2026-10-05（預處理收尾發現）
+- **現象**：T0／T1 檢查時多次記載 `<GPT>` 工作樹「始終只有預先存在的 `?? =0.4.1`」，PA-12 亦期望「仍只有 =0.4.1」；預處理收尾時該檔**已不存在**，`git status --short` 全空。
 - **根因**：待查。該檔從未入版控（`git log --all -- "=0.4.1"` 無結果），repo 僅單一 squashed commit `48b1a01`，reflog 只有 `clone` 一筆，**無任何軌跡可還原或查證刪除時間**。
-- **處置**：PA-12 據實改記「工作樹全乾淨」。結果優於預期，但偏離計畫文字。
+- **處置**：PA-12 據實改記「工作樹全乾淨」。結果優於預期，但與原先預期不同。
 - **證據等級**：【缺失】
 - **狀態**：無法判定
-- **證據**：`reports/smoke_test_stage_a.md` 區域 4；`git log --all -- "=0.4.1"` 無結果
+- **證據**：[`reports/smoke_test_stage_a.md`](https://github.com/Star-Meow/Ryza_voice/blob/262addab90ce98bc8229741ce2353c0d6fe8a8a8/reports/smoke_test_stage_a.md) 區域 4；`git log --all -- "=0.4.1"` 無結果
 - **缺什麼**：刪除時間與執行者的任何記錄。
 
 #### PK-009 `<RYZA>\tools\_ffmpeg_tmp\` 目錄被刪
-- **日期**：2026-10-05（本 session 收尾發現）
-- **現象**：對話開始時 git status 仍列 `?? tools/_ffmpeg_tmp/`（內含 114 MB `ffmpeg.zip` 與解壓目錄），收尾時已消失，且無任何 .gitignore 規則涵蓋。
-- **根因**：待查。刪除發生在本 session 期間，無 git 軌跡可查。
+- **日期**：2026-10-05（預處理收尾發現）
+- **現象**：作業開始時 git status 仍列 `?? tools/_ffmpeg_tmp/`（內含 114 MB `ffmpeg.zip` 與解壓目錄），收尾時已消失，且無任何 .gitignore 規則涵蓋。
+- **根因**：待查。刪除發生在預處理作業期間，無 git 軌跡可查。
 - **處置**：觀察。ffmpeg 功能不受影響（`.venv\Scripts` 二進體仍在，md5 已驗證）；代價是**失去可重現的 zip 實體**，日後新環境重放需憑 `docs/07_finetune.md` 記錄的 gyan.dev URL 與 SHA256 重新下載（一次連網限定）。
 - **證據等級**：【缺失】
 - **狀態**：無法判定
-- **證據**：`reports/smoke_test_stage_a.md` 區域 4 註；`git check-ignore tools/_ffmpeg_tmp` 無輸出
+- **證據**：[`reports/smoke_test_stage_a.md`](https://github.com/Star-Meow/Ryza_voice/blob/262addab90ce98bc8229741ce2353c0d6fe8a8a8/reports/smoke_test_stage_a.md) 區域 4 註；`git check-ignore tools/_ffmpeg_tmp` 無輸出
 - **缺什麼**：刪除時間與執行者的任何記錄。
 - **教訓**：下載型暫存若需保留作重現依據，應在文件建立時就明確標註保留策略，並避免放在 untracked 目錄被誤清。
 
@@ -167,32 +167,20 @@
 ### 3.6 其他
 
 #### PK-012 S1 的學習率排程器被上游硬寫成常數 0.002
-- **日期**：2026-10-05（階段 C，SM-S1-5）
+- **日期**：2026-10-05（冒煙測試，SM-S1-5）
 - **現象**：S1 冒煙只跑了 13 step，`warmup_steps=2000` 根本不可能走完，但進度棒與 TensorBoard 的 `lr_step` 顯示 **0.002**，而不是應有的約 7.5e-05。
 - **根因**：`AR/modules/lr_schedulers.py` 的 `WarmupCosineLRSchedule` 被上游改寫過——
   - `set_lr()`（`:38-42`）直接 `g["lr"] = self.end_lr`，完全忽略傳入的 `lr`；
   - `step()`（`:58`）在算完 warmup/cosen 公式之後，又執行 `self.lr = lr = self.end_lr = 0.002  ###锁定用线性###不听话，直接锁定！`，把剛算出來的值覆蓋掉。
   故不論 `lr_init`／`lr`／`lr_end`／`warmup_steps`／`decay_steps` 怎麼設，**每一步實際套用到 optimizer 的學習率都是 0.002**。
-- **處置**：不修改官方排程器（§4.2）。`tools/s1_lr_check.py` 以實測取代推論：分別模擬 13／472／1180／2000 step，確認四種長度的學習率軌跡都只有單一值 0.002，並與「若排程器正常」的理論值對照（2000 step 的理論值為 0.01）。**計畫 §11.3 SM-S1-5 的待驗證推論（「warmup_steps=2000 是否使正式訓練全程停留在 warmup」）答案是否定的，但原因不是 warmup 太長，而是排程器根本不會 warmup。**
+- **處置**：不修改官方排程器。`tools/s1_lr_check.py` 以實測取代推論：分別模擬 13／472／1180／2000 step，確認四種長度的學習率軌跡都只有單一值 0.002，並與「若排程器正常」的理論值對照（2000 step 的理論值為 0.01）。**冒煙測試 SM-S1-5 的待驗證推論（「warmup_steps=2000 是否使正式訓練全程停留在 warmup」）答案是否定的，但原因不是 warmup 太長，而是排程器根本不會 warmup。**
 - **證據等級**：【實測】＋【讀碼】
 - **狀態**：已解（機制已查明，無需處置）
-- **證據**：`reports/logs/raw/s1_lr_check.json`；`reports/G4_stage_c_report.md` SM-S1-5；`GPT_SoVITS/AR/modules/lr_schedulers.py:38-62`
+- **證據**：`reports/logs/raw/s1_lr_check.json`；[`reports/G4_stage_c_report.md`](https://github.com/Star-Meow/Ryza_voice/blob/262addab90ce98bc8229741ce2353c0d6fe8a8a8/reports/G4_stage_c_report.md) SM-S1-5；`GPT_SoVITS/AR/modules/lr_schedulers.py:38-62`
 - **教訓**：設定檔裡的 `optimizer.*` 五個欄位在 v4 官方實作中**全是無效設定**。日後若看到「學習率怎麼調都沒反應」，先確認排程器有沒有被鎖。
 
-#### PK-015 以文字標註分層，會讓評測指標對某個面向結構性盲視
-- **日期**：2026-10-05（階段 D，主觀試聽後釐清）
-- **現象**：`split_train_test.py` 以**句末標點**推導 `class`（DECL／EXCL／ELL／Q）並用它分層抽樣 24／10。主觀試聽發現 6/20 句生成音訊「情緒被帶往開心方向」，但兩個 gate 指標（cosine、CER）**完全沒有反應**。
-- **根因**：兩件事疊加——
-  1. `class` 是**文字推斷**，表達語法功能而非聲學情緒。實證：Agent 為全新台詞 10 句下語氣標註用的是同一套規則，而試聽結果顯示 **至少 8/10 句標註與實際聲音不符，興奮與悲傷兩類全錯**。
-  2. 該欄位**不進入訓練**（`finetune_train.list` 為 4 欄，`1-get-text.py:129` 只解 4 欄），所以模型**沒有**被灌入標籤、不會學到「DECL → 開心」；但它**決定了誰被留作測試集**。
-- **處置**：不修改已交付的切分結果（seed 與配額均可重現，改動會使階段 A～D 的數據失效）。改為**明確記錄此限制**：評測軸是「文字看起來像什麼」，不是「聲音實際是什麼」；語氣品質**不在**目前兩個 gate 指標的涵蓋範圍內。若要把語氣納入驗收，需另建聲學情緒指標並以人工複核的情緒標註重新分層。
-- **證據等級**：【實測】＋【讀碼】
-- **狀態**：已解（限制已記錄並寫入文件）
-- **證據**：`reports/defect_triage.md` §P-2【唯讀覆核】；`reports/finetune_report.md` §6-4；`docs/07_finetune.md` §9.1
-- **教訓**：**分層標註所用的特徵，決定了指標能看見什麼。** 用文字推導的分層，對「語氣／情緒」這個面向就是隱形的——指標沒報警不代表缺陷不存在，只代表沒有人在它看得到的地方量。驗收指標的盲區應與缺陷清單交叉檢查。
-
 #### PK-013 顯存接近上限不會丟 OOM，而是退化成「假死」
-- **日期**：2026-10-05（階段 D，第 2 輪 S2）
+- **日期**：2026-10-05（正式訓練，第 2 輪 S2）
 - **現象**：`grad_ckpt=false` 跑正式 S2（467 筆），epoch 1 正常完成並存檔；epoch 2 進行到 46/119 後停滯。tqdm 停在 `[13:42<2:15:34, 116 s/it]`（正常 0.67 s/step，**慢 173 倍**），且 **15 分鐘內 `.out`／`train.log`／TensorBoard events 全部零增長**。同時 GPU utilization 持續 **100%**、顯存讀值平穩不動、行程 CPU 時間持續上升（約 200%）。
 - **根因**：整卡峰值達 **11958/12282 MiB（97.3%）**。PyTorch 的 caching allocator 在接近上限時不會直接拋 CUDA OOM，而是反覆 `cudaFree` 已快取的區塊並重試，配合同步點造成 GPU「忙碌但無進度」的狀態。**因此「沒看到 OOM 錯誤」不等於「沒爆顯存」。**
 - **處置**：依既定順序取第一順位 `grad_ckpt=true` 重跑（不動 batch_size／lora_rank／層數）。峰值降至 **4603 MiB（37.5%）**，16 epoch 順利完成。**`grad_ckpt=true` 是本機 12 GB 跑 v4 LoRA 的必要設定，不是可選項。**
@@ -202,50 +190,62 @@
 - **教訓**：訓練「看起來卡住」時，先看**顯存佔比**再懷疑死鎖。判別法：GPU util 100% ＋ 顯存不動 ＋ CPU 時間持續增加 ＝ allocator 迴圈，非死鎖（真死鎖時 GPU util 會掉到 0）。另外 `nvidia-smi` 每 5 秒取樣在數十秒級的短輪次會漏掉峰值，**短輪次一律以 `torch.cuda.max_memory_allocated()` 為準**。
 
 #### PK-014 停滯 watchdog 會被 tqdm 的緩衝 flush 騙過
-- **日期**：2026-10-05（階段 D）
+- **日期**：2026-10-05（正式訓練）
 - **現象**：第 2 輪 S2 卡死時，`tools/run_lora_train.py` 的停滯 watchdog（`--stall-timeout-min`）**沒有**在預定的 15 分鐘觸發。
 - **根因**：watchdog 監控的是 `.out` 與 `.err` 兩個檔案的**大小**。但 tqdm 在輸出不是 tty（重導向到檔案）時會緩衝約 8 KB 才落盤，因此即使訓練完全停滯，緩衝仍會不定期溢出寫入，讓「檔案大小有變化」這個條件被誤判為「仍在輸出」。實際觀測到：`.out`／`train.log` 停了 15 分鐘，但 `.err` 在第 13 分鐘時 flush 了 180 bytes，把計時器歸零。
-- **處置**：本階段由人工介入終止。**建議修正方向**：watchdog 應改為監控訓練腳本自己的 `train.log`（`<exp_dir>/train.log`，每筆 loss 都 flush），或同時要求 `.err` 的增長幅度超過 tqdm 一行的長度才算有進展。目前 `run_lora_train.py` 尚未修改。
+- **處置**：由人工介入終止。**建議修正方向**：watchdog 應改為監控訓練腳本自己的 `train.log`（`<exp_dir>/train.log`，每筆 loss 都 flush），或同時要求 `.err` 的增長幅度超過 tqdm 一行的長度才算有進展。目前 `run_lora_train.py` 尚未修改。
 - **證據等級**：【實測】＋【讀碼】
 - **狀態**：**未解**（對策已確立但未實作）
 - **證據**：`reports/finetune_report.md` §3；`reports/logs/stage_d_train.md` §2.2 的時間軸
 - **備註**：本專案的 8 小時 watchdog 不受影響（它只看時間不看輸出量）。
 
+#### PK-015 以文字標註分層，會讓評測指標對某個面向結構性盲視
+- **日期**：2026-10-05（正式訓練後的主觀試聽釐清）
+- **現象**：`split_train_test.py` 以**句末標點**推導 `class`（DECL／EXCL／ELL／Q）並用它分層抽樣 24／10。主觀試聽發現 6/20 句生成音訊「情緒被帶往開心方向」，但兩個 gate 指標（cosine、CER）**完全沒有反應**。
+- **根因**：兩件事疊加——
+  1. `class` 是**文字推斷**，表達語法功能而非聲學情緒。實證：Agent 為全新台詞 10 句下語氣標註用的是同一套規則，而試聽結果顯示 **至少 8/10 句標註與實際聲音不符，興奮與悲傷兩類全錯**。
+  2. 該欄位**不進入訓練**（`finetune_train.list` 為 4 欄，`1-get-text.py:129` 只解 4 欄），所以模型**沒有**被灌入標籤、不會學到「DECL → 開心」；但它**決定了誰被留作測試集**。
+- **處置**：不修改已交付的切分結果（seed 與配額均可重現，改動會使預處理到評估的所有數據失效）。改為**明確記錄此限制**：評測軸是「文字看起來像什麼」，不是「聲音實際是什麼」；語氣品質**不在**聲線相似度與 CER 的涵蓋範圍內。若要把語氣納入評估，需另建聲學情緒指標並以人工複核的情緒標註重新分層。
+- **證據等級**：【實測】＋【讀碼】
+- **狀態**：已解（限制已記錄並寫入文件）
+- **證據**：`reports/defect_triage.md` §P-2【唯讀覆核】；`reports/finetune_report.md` §6-4；`docs/05_dataset_split.md` §2
+- **教訓**：**分層標註所用的特徵，決定了指標能看見什麼。** 用文字推導的分層，對「語氣／情緒」這個面向就是隱形的——指標沒報警不代表缺陷不存在，只代表沒有人在它看得到的地方量。驗收指標的盲區應與缺陷清單交叉檢查。
+
 ---
 
 ## 4. GPU 不穩專區
 
-> 依 `docs/01_issue.md:55`：「訓練過程可穩定完成；若遇到既有的 GPU 不穩問題，須記錄處理方式。」本節專門記錄 GPU／CUDA 不穩的現象與處置，與 §3.5 分離維護。
+> 評估標準要求「訓練過程可穩定完成；若遇到既有的 GPU 不穩問題，須記錄處理方式」（[`01_overview.md`](01_overview.md) §4）。本節專門記錄 GPU／CUDA 不穩的現象與處置，與 §3.5 分離維護。
 
-**截至階段 D（2026-10-05）：本機（RTX 4070 SUPER 12 GB，12282 MiB，driver 591.86，torch 2.5.1+cu121）未發生 CUDA 層級不穩**——階段 A～D 全程無 `illegal instruction`／`CUBLAS_STATUS_INTERNAL_ERROR`／CUDA context 遺失／`device-side assert`／驅動重置，loss 無 NaN／Inf。
+**截至正式訓練完成（2026-10-05）：本機（RTX 4070 SUPER 12 GB，12282 MiB，driver 591.86，torch 2.5.1+cu121）未發生 CUDA 層級不穩**——預處理、冒煙測試、正式訓練全程無 `illegal instruction`／`CUBLAS_STATUS_INTERNAL_ERROR`／CUDA context 遺失／`device-side assert`／驅動重置，loss 無 NaN／Inf。
 
 **但發生過一次顯存容量事件（不是 CUDA 故障，詳見 PK-013）**：`grad_ckpt=false` 跑正式 S2 時整卡峰值 11958/12282 MiB（97.3%），PyTorch caching allocator 陷入 `cudaFree`／重試迴圈，進程呈現「GPU util 100% 但無進度」的假死且**不拋 OOM**；改 `grad_ckpt=true` 後峰值 4603 MiB，16 epoch 順利完成。
 
 本節目前無 CUDA 層級的本機事件；以下唯一一筆是其他環境的過往異常，本機無需理會。
 
-### 本機顯存實測彙總（階段 C ＋ 階段 D）
+### 本機顯存實測彙總（冒煙測試 ＋ 正式訓練）
 
 | 輪次 | 整卡峰值（nvidia-smi） | `max_memory_allocated` | `max_memory_reserved` |
 |---|---|---|---|
-| **階段 C** | | | |
+| **冒煙測試（20 筆）** | | | |
 | S2 epochs=1 | 10572 MiB | 8428.2 MiB | 8582.0 MiB |
 | S2 resume epochs=2 | 11146 MiB | 8295.7 MiB | 9190.0 MiB |
 | S1 epochs=1 | 2551 MiB（**取樣漏峰，見下**） | 3351.7 MiB | 4370.0 MiB |
 | 推論 E1／E2 | — | 1898.4 MiB | 2264.0 MiB |
-| **階段 D（正式，467 筆）** | | | |
+| **正式訓練（467 筆）** | | | |
 | S1 8 epoch | 10218 MiB（取樣漏峰） | 4642.3 MiB | 8294.0 MiB |
 | **S2 grad_ckpt=false** | **11958 MiB ❌ 假死** | 未取得 | 未取得 |
 | S2 grad_ckpt=true 8 epoch | 4603 MiB | 3507.5 MiB | 3928.0 MiB |
 | S1 8→16 epoch | 6465 MiB（取樣漏峰） | 4705.3 MiB | 5818.0 MiB |
 | S2 8→16 epoch | 5093 MiB | 3504.3 MiB | 4420.0 MiB |
 
-閒置基準實測 1734–1758 MiB（計畫 §11.1 寫的 1455 MiB 與本機不符，屬記錄誤差，非問題）。
+閒置基準實測 1734–1758 MiB（先前估計的 1455 MiB 與本機不符，屬記錄誤差，非問題）。
 
 ⚠️ **nvidia-smi 每 5 秒取樣會漏掉短輪次的峰值**：S1 整輪僅 30.6 秒、實際訓練不到 2 秒，取樣點沒有落在顯存高點上，導致整卡讀值 2551 MiB **小於** torch 自己的 3351.7 MiB——這在物理上不可能，證明該讀數不可信。**短輪次一律以 `torch.cuda.max_memory_allocated()` 為準**（本次由 `tools/vram_runner.py` 以 `runpy` 載入官方腳本、於 `atexit` 印出，未修改任何官方檔案）。
 
 ### TF32 —— 其他環境過往異常，本機無需理會
 
-> ⚠️ **本筆記錄的是其他環境（RTX 3060）的過往異常，非本機經驗。本機（RTX 4070 SUPER）從未發生，本地環境跑訓練時不需要理會 TF32，依官方預設設定即可。記錄僅為符合 issue「既有 GPU 不穩問題須記錄處理方式」之要求，並供未來若移地到其他環境時參考。**
+> ⚠️ **本筆記錄的是其他環境（RTX 3060）的過往異常，非本機經驗。本機（RTX 4070 SUPER）從未發生，本地環境跑訓練時不需要理會 TF32，依官方預設設定即可。依評估標準「既有 GPU 不穩問題須記錄處理方式」保留此記錄，供未來移地到其他環境時參考。**
 
 - **來源記錄**：`tools/spk_model.py:14-19` — TF32 matmul **曾在其他環境（RTX 3060／當時 driver）造成 CUDA 記憶體損壞**（跑約 20–30 個檔後 `illegal instruction`／`CUBLAS_STATUS_INTERNAL_ERROR`），該環境關閉 TF32 後 3200 檔連續測試穩定。
 - **本機狀態**：**未發生、不適用。** `spk_model.py` 關閉 TF32 僅沿用該其他環境的穩定設定，非本機已確認的問題；本機訓練腳本維持官方預設（`allow_tf32 = True`，`GPT_SoVITS/GPT_SoVITS/s2_train_v3_lora.py:44-45`、`s2_train.py:44-45`、`s2_train_v3.py:44-45`；推論端 `TTS_infer_pack/TTS.py:210` 為 `False`），**不 patch、不預防、不監控 TF32**。
@@ -253,11 +253,11 @@
 - **處置（若未來移地至其他環境，且發生 CUDA 損壞）**：於該環境的 `s2_train_v3_lora.py` TF32 設定之後補關閉（**保留 `cudnn.enabled` 開啟**，僅關 TF32 matmul 與 cudnn TF32；`spk_model.py` 連 `cudnn.enabled` 都關是推論專用做法，訓練不可照抄）。此為其他環境的應急方案，**本機不需 preemptive 套用**。
 - **狀態**：本機不適用（過往其他環境經驗）
 - **證據等級**：【推斷】（過往其他環境經驗，非本機實測）
-- **證據**：`tools/spk_model.py:14-19`；`reports/01_env_model_prep.md`「TF32 記錄（不 patch）」；`reports/G1_t0_t1_report.md` §5.4
+- **證據**：`tools/spk_model.py:14-19`；[`reports/01_env_model_prep.md`](https://github.com/Star-Meow/Ryza_voice/blob/262addab90ce98bc8229741ce2353c0d6fe8a8a8/reports/01_env_model_prep.md)「TF32 記錄（不 patch）」；[`reports/G1_t0_t1_report.md`](https://github.com/Star-Meow/Ryza_voice/blob/262addab90ce98bc8229741ce2353c0d6fe8a8a8/reports/G1_t0_t1_report.md) §5.4
 
 ### 觸發本節記錄的條件
 
-正式訓練（階段 D）或冒煙測試（階段 C）**在本機**出現以下任一徵兆時，才在此新增本機記錄（含發生 epoch／step、GPU 溫度與顯存占用、driver／torch 版本、當時 batch size）：
+正式訓練或冒煙測試**在本機**出現以下任一徵兆時，才在此新增本機記錄（含發生 epoch／step、GPU 溫度與顯存占用、driver／torch 版本、當時 batch size）：
 
 - `illegal instruction` 或 `CUBLAS_STATUS_INTERNAL_ERROR`
 - CUDA context 遺失／`device-side assert`
@@ -268,27 +268,21 @@
 
 ---
 
-## 5. 與前因／計畫不符處
+## 5. 症狀速查
 
-1. **前因所列「transformers 拒載 .bin」**：非本次新發現，已於 G1（2026-10-04）以 T0 解決，本文件追填為 PK-002。
-2. **前因所列「`#`→UNK」**：同為 G1 已確認無害，追填為 PK-003（狀態=已解，處置=不需處置）。
-3. **前因未列的兩筆**：本文件補入 PK-005（`ja_userdic` user.dict 未生成，G1 風險項，觀察中）與 §4 的 TF32 記錄。後者依 PM 指示明確標註為**其他環境（RTX 3060）過往異常、本機無需理會**，狀態為「本機不適用」，不列為本機觀察項。
+依症狀找原因與處理；括號內為對應的坑記錄或流程章節。
 
----
-
-## 6. 階段 C 追加（2026-10-05）
-
-計畫 §11／§12 與實際執行的落差，詳見 `reports/G4_stage_c_report.md` §4；本節只列與坑記錄直接相關者。
-
-4. **計畫 §12.3 把「jieba_fast 未安裝」列為僅影響中文**——實測證明它擋下整個推論管線（見 PK-011）。已在本階段解決，但該文件的「已知偏差」章節需於階段 D 更正。
-5. **計畫 §10.1 預期「S1 冒煙實際 batch 會被壓到 5」**——實測為 8。原因是 `AR/data/data_module.py:51` 的 `len(dataset)//4` 作用在**已自動擴充為 100** 的資料集上（100//4 = 25），不是 20 條（20//4 = 5）。兩階段的資料集都會先被擴充到至少 100（`data_utils.py:546-551`、`AR/data/dataset.py`），所以這個下限在正式訓練時同樣不會生效。
-6. **計畫 §11.1 寫的顯存基準 1455 MiB** 與本機實測 1734–1758 MiB 不符，屬計畫側的記錄誤差，不影響任何判斷。
-
----
-
-## 7. 階段 D 追加（2026-10-05）
-
-7. **「12 GB 有餘裕」不成立**：`docs/07_finetune.md` §5 原寫 v4 LoRA 在本機 12 GB 有餘裕。正式訓練實測 `grad_ckpt=false` 峰值達 11958/12282 MiB（97.3%）並假死；`grad_ckpt=true` 後為 4603 MiB。已改寫該文件 §7 並新增 PK-013。
-8. **epochs 8 不夠**：8 epoch 的成品聲線相似度只有真實基線的 86.9%（門檻 90%），續訓至 16 epoch 後為 91.5%。S1 的 loss 在第 8 epoch 仍在單調下降、top-3 準確率僅 0.628 且無平台期，可作為「尚未收斂」的預判訊號。已將 `configs/s1_ryza.yaml` 與 `configs/s2_lora_ryza.json` 的 `epochs` 改為 16（偏離 PM 原定案值 8，已在 `reports/finetune_report.md` §7-3 記錄）。
-9. **`jieba_fast` 在本機無法安裝**：非漏加相依（`<GPT>
-equirements.txt` 第 26 行已有），而是 PyPI 不提供 wheel、安裝需 MSVC 14.0。PK-011 的處置（行程內別名到 `jieba`）因此**繼續沿用**，而非如原預期改用正式依賴。同一坑的 `fast_langdetect` 部分已於階段 D 以放置正式模型檔解決（`GPT_SoVITS/pretrained_models/fast_langdetect/lid.176.bin`）。
+| 症狀 | 原因 | 處理 |
+|---|---|---|
+| 預處理 exit code 0，但 `4-cnhubert\`／`5-wav32k\` 為空 | 官方腳本裸 `except` 吞錯（`1-get-text.py:102-103` 等）。缺 ffmpeg 時 467 檔全 `FileNotFoundError`，exit code 仍 0 | **不要看 exit code**，看產出檔數量。查 `shutil.which('ffmpeg')`（PK-001、PK-004） |
+| `FileNotFoundError: 'SoVITS_weights_v4/xxx.pth'`，但 log 只印一行 INFO | `process_ckpt.savee` 的裸 `except` 把 traceback 當回傳字串，呼叫端只 `logger.info` | 建立 `SoVITS_weights_v4`／`GPT_weights_v4`（`run_lora_train.py` 已自動做）（PK-010） |
+| 訓練進入 epoch 2 後停滯，GPU util 100%、顯存不動、無 OOM | 顯存接近上限，caching allocator 陷入 `cudaFree`／重試迴圈 | 開 `grad_ckpt=true`；判別法：util 100% ＋ 顯存平 ＋ CPU 時間持續上升＝allocator 迴圈（真死鎖時 util 會掉 0）（PK-013） |
+| 訓練「無輸出」但 watchdog 沒反應 | watchdog 看 `.out`/`.err` **檔案大小**，tqdm 在非 tty 時緩衝約 8 KB，週期性 flush 會把計時器歸零 | 目前**未解**。應改為監控 `<exp_dir>/train.log`（PK-014） |
+| `ModuleNotFoundError: No module named 'jieba_fast'` | 上游 import 鏈無條件要求該模組存在，與語言無關 | 不可刪別名；用 `install_jieba_fast_alias()`（[`07_finetune.md`](07_finetune.md) §6.2.2、PK-011） |
+| `FileNotFoundError: fast-langdetect: Cache directory not found` | `langsegmenter.py:11` 指向的 cache 目錄不存在，套件轉而嘗試連網下載 | 放置 `lid.176.bin`（[`07_finetune.md`](07_finetune.md) §6.2.1） |
+| 自訂權重路徑沒生效，跑出來是底模 | `TTS_Config` 只讀 `custom` 鍵，頂層傳入被靜默忽略（`TTS.py:318`） | 包成 `{"custom": {...}}`，並印出實際生效路徑核對（[`07_finetune.md`](07_finetune.md) §6.1） |
+| `git status` 出現 `tts_infer.yaml` | 推論的 `save_configs()` 每次都會改寫它 | 推論後 `git checkout --` 該單檔（[`07_finetune.md`](07_finetune.md) §6.1） |
+| S2 續訓時挑錯 checkpoint | `utils.latest_checkpoint_path` 的排序鍵是**整條絕對路徑**的所有數字，不是檔名 | 確認 `logs_s2_*/` 內只有預期的 `G_*.pth` |
+| `transformers` 報 CVE-2025-32434 | `.bin` 載入被禁 | 執行 T0 轉檔（[`07_finetune.md`](07_finetune.md) §2.2、PK-002） |
+| 顯存取樣讀值小於 torch 自報值 | nvidia-smi 每 5 秒取樣，短輪次會漏掉峰值 | 以 `torch.cuda.max_memory_allocated()` 為準 |
+| `tools/select_samples.py --output ryza_train.list` 寫錯位置 | 該腳本 docstring 的 `--output` 範例已過時 | 正式清單是 `data/ryza_train.list`，由 `transcribe.py` 產出（[`04_transcript_pipeline.md`](04_transcript_pipeline.md)） |
