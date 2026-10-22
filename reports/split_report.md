@@ -1,10 +1,11 @@
-# Part 2 資料切分報告
+# 資料切分報告
+
+> 切分設計與指令見 [`docs/05_dataset_split.md`](../docs/05_dataset_split.md)。
 
 ## 執行摘要
 - 自 `data/ryza_train.list`（491 行）切出 train / test / eval10。
 - 方法：句尾標點分層（Q/EXCL/ELL/DECL）× 時長三等分桶，桶內隨機抽樣，seed = 42。
 - 參考音訊規則：4–8s 無削波，清單最早列。
-- **尚未開始訓練，未執行任何預處理腳本。**
 
 ## 輸入完整性
 - 輸入 SHA256（前 8 碼）：`9f56934b`
@@ -41,9 +42,9 @@
 - 文字：レントだよ。私たちの幼馴染。とっても頼りになる人、かな。
 - 峰值：31488 / 32767（未削波）
 - 輸出：`data/ref/ref.wav`、`data/ref/ref.txt`
-- 後續相似度與生成測試固定使用此參考音訊，跨版本一致。
+- 此為切分當時選出的參考音訊。**之後 `data/ref/ref.wav` 被覆蓋為 `wav/03536.wav`**，訓練後的推論實際使用 03536，`ref.txt` 則仍是 00042 的台詞。詳見 [`docs/05_dataset_split.md`](../docs/05_dataset_split.md) §3。
 
-## 門禁檢查
+## 驗證結果
 
 - [x] PASS：輸入 491 行
 - [x] PASS：train ∩ test = ∅
@@ -93,15 +94,9 @@
 | Q | d1 | 1 | 1 |
 | Q | d2 | 1 | 0 |
 
-## 風險與待確認
+## 已知限制
 
-- **清單檔名**：本切分依夜跑規格輸出 `data/finetune_train.list`、`data/finetune_test.list`、`data/finetune_eval10.list`；未追蹤的 `docs/06_dataset.md` 草稿曾規劃 `ryza_train_finetune.list` 等不同檔名，兩者待統一（待確認）。
 - **清單使用絕對路徑**：為讓 GPT-SoVITS（獨立目錄）直接讀取，三份清單與 manifest 的音檔路徑為絕對路徑；manifest 另存 `source_rel` 原始相對路徑以便重建。
 - **句尾標點為情緒代理**：Q/EXCL/ELL/DECL 僅反映句尾標點，非語音情緒標註；如「どうかな? ちょっと恥ずましいんだけど」句尾非問號但語義上偏疑問，此類邊界案例未特別處理。
-- **MD5 重複**：偵測到 0 組音訊內容完全重複，本階段不剔除（Part 1 已以文字去重移除 6 段）；若需更嚴格去重，待確認是否重新切分。
+- **MD5 重複**：偵測到 0 組音訊內容完全重複，不剔除（轉譯資料集已以文字去重移除 6 段）。
 - **測試集不參與訓練**：`finetune_train.list` 為 WebUI 1Aa–1Ac 與 1B 唯一輸入；`finetune_test.list` 嚴禁進入任何訓練步驟。
-- **尚未訓練**：本階段只產出資料切分與參考音訊，未啟動任何訓練或預處理腳本。
-
-## 下一步
-
-- 等待使用者確認切分結果後，才進入 GPT-SoVITS v4 LoRA 環境與訓練配置（模塊二：環境與模型）。

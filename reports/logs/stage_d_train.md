@@ -1,10 +1,10 @@
-# 階段 D 訓練 log 歸檔
+# 正式訓練紀錄
 
 日期：2026-10-05
-分支：`feature/TTS-finetune`
-格式：依計畫 §12.4（指令與參數、起訖時間、結束碼、關鍵輸出摘要、完整 log 的關鍵段落、顯存峰值）
+內容：各輪的指令與參數、起訖時間、結束碼、關鍵輸出摘要、log 關鍵段落、顯存峰值
+結果分析見 [`../finetune_report.md`](../finetune_report.md)；重現步驟見 [`../../docs/07_finetune.md`](../../docs/07_finetune.md) §5
 
-> 原始 log（`*.out`／`*.err`／`*.gpu`／`*_summary.json`）在 `reports/logs/raw/`，受 `.gitignore` 忽略，依 §12.4 不提交。
+> 原始 log（`*.out`／`*.err`／`*.gpu`／`*_summary.json`）在 `reports/logs/raw/`，受 `.gitignore` 忽略，不提交。
 > 模型權重同樣不提交。
 
 ---
@@ -15,7 +15,7 @@
 |---|---|
 | 工作目錄 | `H:\git\GPT-SoVITS`（`exp_dir` 為相對路徑，CWD 必須在此） |
 | Python | `H:\git\GPT-SoVITS\.venv\Scripts\python.exe`（3.10.11、torch 2.5.1+cu121、numpy 1.26.4） |
-| 驅動 | `tools/run_lora_train.py`（階段 B 產物，階段 D 沿用） |
+| 驅動 | `tools/run_lora_train.py` |
 | 環境變數 | `PYTHONUTF8=1`、`PYTHONIOENCODING=utf-8`、`PYTHONPATH=<GPT>;<GPT>\GPT_SoVITS`、`version=v4`、`is_half=True`、`hz=25hz`、`_CUDA_VISIBLE_DEVICES=0`、`.venv\Scripts` 在 PATH |
 | GPU | RTX 4070 SUPER，12282 MiB，driver 591.86 |
 | 顯存量測 | `--vram` 經 `tools/vram_runner.py` 於 `atexit` 印 `torch.cuda.max_memory_allocated()`（官方腳本本身無此輸出，未修改官方檔）；另每 5 秒以 nvidia-smi 取整卡用量 |
@@ -159,7 +159,7 @@ INFO:ryza_v4_lora:saving ckpt ryza_v4_lora_e16:Success.
 | 12 | 2345.79 | 0.7110 | 0.002 |
 | 16 | **1876.81** | **0.7948** | 0.002 |
 
-**−53.7%，至第 16 epoch 尚未收斂。** `lr_epoch` 恆為 0.002，與階段 C SM-S1-5 發現的排程器鎖死一致。
+**−53.7%，至第 16 epoch 尚未收斂。** `lr_epoch` 恆為 0.002，與冒煙測試 SM-S1-5 發現的排程器鎖死一致（[PK-012](../../docs/08_troubleshooting.md)）。
 
 ### 3.2 S2（16 epoch，119 step/epoch，log_interval=20）
 
