@@ -56,7 +56,7 @@ train 467／test 24（含 eval10 10）
 | TTS 微調 | 選型，以及 v4 LoRA 的預處理、訓練、推論 | [`06_model_selection.md`](06_model_selection.md)、[`07_finetune.md`](07_finetune.md) | [`finetune_report.md`](../reports/finetune_report.md) |
 | 評估 | 聲線相似度、可懂度、主觀試聽 | [`07_finetune.md`](07_finetune.md) §7 | [`finetune_report.md`](../reports/finetune_report.md)、[`defect_triage.md`](../reports/defect_triage.md) |
 
-遇到問題時查 [`08_troubleshooting.md`](08_troubleshooting.md)，工具清單見 [`tools/README.md`](../tools/README.md)。
+遇到問題時查 [`08_troubleshooting.md`](08_troubleshooting.md)，工具清單見 [`tools/README.md`](../tools/README.md)，各階段作者與 AI 的分工見 [`09_contributions.md`](09_contributions.md)。
 
 ## 4. 評估標準
 
