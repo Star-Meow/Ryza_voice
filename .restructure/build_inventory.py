@@ -260,6 +260,22 @@ ADDS = [
     ("reports/asr_report.md#5. 已知限制", "承接 issue_compliance §7／§8"),
 ]
 
+# 檔案改名：RULES 裡的 dest 一律換成新檔名
+DEST_RENAMES = {
+    "docs/02_model_selection.md": "docs/06_model_selection.md",
+    "docs/03_unpack.md": "docs/02_unpack.md",
+    "docs/04_speaker_id.md": "docs/03_speaker_id.md",
+    "docs/05_transcript_pipeline.md": "docs/04_transcript_pipeline.md",
+    "docs/06_dataset.md": "docs/05_dataset_split.md",
+    "docs/08_tools.md": "tools/README.md",
+    "docs/09_pitfalls.md": "docs/08_troubleshooting.md",
+}
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from step2_rules import STEP2_ADDS, STEP2_FILE_DEFAULTS, STEP2_RULES  # noqa: E402
+
+ADDS = STEP2_ADDS
+
 HEADING = re.compile(r"^(#{1,4})\s+(.*?)\s*$")
 
 
@@ -311,11 +327,10 @@ def split_sections(text):
 
 
 def classify(path, heading):
-    for f, pat, cat, act, dest, reason in RULES:
+    for f, pat, cat, act, dest, reason in STEP2_RULES + RULES:
         if f == path and re.search(pat, heading):
             return cat, act, dest, reason
-    cat, act, dest, reason = FILE_DEFAULTS[path]
-    return cat, act, dest, reason
+    return STEP2_FILE_DEFAULTS.get(path) or FILE_DEFAULTS[path]
 
 
 def file_key(path):
@@ -330,6 +345,9 @@ def main():
         for n, (lvl, head, start, end, body) in enumerate(split_sections(git_show(path)), 1):
             cat, act, dest, reason = classify(path, head)
             dest = dest.replace("<same>", head)
+            if dest:
+                f, _, h = dest.partition("#")
+                dest = f"{DEST_RENAMES.get(f, f)}#{h}"
             rows.append({
                 "id": f"{file_key(path)}-{n:03d}", "src_file": path, "heading": head,
                 "level": lvl, "lines": f"{start}-{end}",

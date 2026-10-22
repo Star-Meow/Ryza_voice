@@ -22,9 +22,17 @@ ROOT = Path(__file__).resolve().parent.parent
 INV = ROOT / ".restructure" / "inventory.csv"
 BASELINE = "docs-baseline"
 ACTIONS = {"keep", "edit", "move", "merge", "delete", "add"}
-SKIP_PREFIX = ("tools/vgmstream/", ".restructure/")
+SKIP_PREFIX = ("tools/vgmstream/", ".restructure/", ".zcode/")
 # 整檔改名：源章節改到新檔名下查找
-RENAMES = {"docs/02_issue_part2.md": "docs/02_model_selection.md"}
+RENAMES = {
+    "docs/02_issue_part2.md": "docs/06_model_selection.md",
+    "docs/03_unpack.md": "docs/02_unpack.md",
+    "docs/04_speaker_id.md": "docs/03_speaker_id.md",
+    "docs/05_transcript_pipeline.md": "docs/04_transcript_pipeline.md",
+    "docs/06_dataset.md": "docs/05_dataset_split.md",
+    "docs/08_tools.md": "tools/README.md",
+    "docs/09_pitfalls.md": "docs/08_troubleshooting.md",
+}
 
 sys.path.insert(0, str(ROOT / ".restructure"))
 from build_inventory import norm, split_sections  # noqa: E402
@@ -186,7 +194,7 @@ def link_check(rows):
     gone = [f for f, acts in by_file.items() if not acts & {"keep", "edit"}]
     stale = []
     for p in current_md_files():
-        text = (ROOT / p).read_text(encoding="utf-8")
+        text = re.sub(r"\[[^\]]*\]\(https?://[^)]*\)|https?://\S+", "", (ROOT / p).read_text(encoding="utf-8"))  # 指向固定版本的連結不算殘留
         for f in gone:
             if p != f and Path(f).name in text:
                 stale.append(f"{p} 仍提到 {Path(f).name}")

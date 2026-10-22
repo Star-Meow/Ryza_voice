@@ -5,15 +5,17 @@
 | 檔案 | 用途 |
 |---|---|
 | `inventory.csv` | 基準版本（tag `docs-baseline` = `origin/main` 262adda）每個 `.md` 章節一列，記錄去向。可用 Excel 開啟（UTF-8 BOM） |
-| `build_inventory.py` | 由 `RULES` 產生 `inventory.csv`。調整去向時改 `RULES` 再重跑 |
+| `build_inventory.py` | 由規則產生 `inventory.csv`。調整去向時改 `step2_rules.py` 再重跑 |
 | `check.py` | 唯讀比對 inventory 與工作樹，每一步結束執行 |
+| `target_outline.md` | 各文件應有內容的框架（定案版），修改以此為準 |
+| `step2_rules.py` | 依定案框架更新的去向規則，優先於 `build_inventory.py` 內的舊規則 |
 
 ## 欄位
 
 - `action`：
   - `keep`：不動，內容 hash 必須不變。
   - `edit`：原處修改，內容必須改變；若 `dest` 有值，代表要改標題。
-  - `move`／`merge`：移到 `dest`（`檔案#標題`）。`merge` 表示與既有內容合併。
+  - `move`／`merge`：移到 `dest`（`檔案#標題`）。`merge` 表示與既有內容合併。目標關鍵字命中不到一半時，`reason` 須寫「人工確認：」說明缺的是什麼。
   - `delete`：必須寫 `reason`；協作產物還要附上 GitHub 位置。
   - `add`：計畫新增的章節。
 - `category`：專案說明／流程／設計／結果／參考／過程紀錄／協作產物／新增。
@@ -31,7 +33,7 @@
 另外三項檢查：
 - `UNMAPPED`：目前的章節對不回 inventory，代表來路不明的新內容。
 - `BROKEN`：相對連結的目標不存在。
-- `STALE`：仍在引用已整檔移出的檔案。
+- `STALE`：仍在引用已整檔移出的檔案（指向固定版本 permalink 的連結不算）。
 
 有 FAIL、UNMAPPED 或 BROKEN 時，exit code 為 1。
 
