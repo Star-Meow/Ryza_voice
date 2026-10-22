@@ -45,6 +45,8 @@ wav/00028.wav|ryza|ja|そっか、わかった。
 | **結果** | `A_high` 92/92 全數納入；另納入 `B_likely` 378 ＋ `C_possible` 20 → top500 497 → 去重後 **491** |
 | **人工查核** | 早期視聽與人工檢查樣本皆由人工執行。`tools/neg_labels.py` 的 `WRONG[]` 為人工確認非ライザ的結果，`DUPLICATE[]` 為去重結果 |
 
+**語氣分布的取捨**：2026-09-29 人工比對時已觀察到，低分區間的萊莎樣本帶有悲傷、急躁等語氣，而高分樣本的語氣較集中；只依 `svm_dec` 取樣可能讓訓練資料的語氣偏向單一情緒（[issue #1 留言](https://github.com/Star-Meow/Ryza_voice/issues/1#issuecomment-5896708657)）。當時以先完成資料收集為優先，仍依 `svm_dec` 取樣。生成後的主觀試聽確實出現情緒偏開心，見 [`defect_triage.md`](../reports/defect_triage.md) P-2。
+
 **複現時的注意事項**：
 
 1. **不要照需求原寫的範圍重建。** 若改用 `A_high + B_likely`（383，非需求所寫的 386），得到的是另一份資料集，與 `data/ryza_train.list` 不一致，下游預處理、訓練、評估數據全部會變。正確入口是 `--source-dir ryza_main/top500`。
