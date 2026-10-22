@@ -2,7 +2,7 @@
 
 > 持續累積文件。記錄 GPT-SoVITS v4 微調（Ryza 語音）從資料準備到正式訓練遭遇的坑、根因與處置，供後續階段 B（訓練配置）、C（冒煙測試）、正式訓練與新環境重現時查閱。
 
-**issue 引用**：`docs/01_issue.md:55` —「訓練過程可穩定完成；若遇到既有的 GPU 不穩問題，須記錄處理方式。」
+**需求來源**：[issue #1](https://github.com/Star-Meow/Ryza_voice/issues/1) Part 2 驗收要件 —「訓練過程可穩定完成；若遇到既有的 GPU 不穩問題，須記錄處理方式。」
 
 **相關文件**：[finetune.md](07_finetune.md)（環境與流程）、[../reports/G1_t0_t1_report.md](../reports/G1_t0_t1_report.md)、[../reports/G2_stage_a_report.md](../reports/G2_stage_a_report.md)、[../reports/smoke_test_stage_a.md](../reports/smoke_test_stage_a.md)
 
@@ -215,7 +215,7 @@
 
 ## 4. GPU 不穩專區
 
-> 依 `docs/01_issue.md:55`：「訓練過程可穩定完成；若遇到既有的 GPU 不穩問題，須記錄處理方式。」本節專門記錄 GPU／CUDA 不穩的現象與處置，與 §3.5 分離維護。
+> 依 [issue #1](https://github.com/Star-Meow/Ryza_voice/issues/1) Part 2 驗收要件：「訓練過程可穩定完成；若遇到既有的 GPU 不穩問題，須記錄處理方式。」本節專門記錄 GPU／CUDA 不穩的現象與處置，與 §3.5 分離維護。
 
 **截至階段 D（2026-10-05）：本機（RTX 4070 SUPER 12 GB，12282 MiB，driver 591.86，torch 2.5.1+cu121）未發生 CUDA 層級不穩**——階段 A～D 全程無 `illegal instruction`／`CUBLAS_STATUS_INTERNAL_ERROR`／CUDA context 遺失／`device-side assert`／驅動重置，loss 無 NaN／Inf。
 

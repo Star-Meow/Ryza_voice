@@ -23,6 +23,8 @@ INV = ROOT / ".restructure" / "inventory.csv"
 BASELINE = "docs-baseline"
 ACTIONS = {"keep", "edit", "move", "merge", "delete", "add"}
 SKIP_PREFIX = ("tools/vgmstream/", ".restructure/")
+# 整檔改名：源章節改到新檔名下查找
+RENAMES = {"docs/02_issue_part2.md": "docs/02_model_selection.md"}
 
 sys.path.insert(0, str(ROOT / ".restructure"))
 from build_inventory import norm, split_sections  # noqa: E402
@@ -88,7 +90,8 @@ def baseline_body(row):
 
 
 def judge(row, heads, texts):
-    act, src, head = row["action"], row["src_file"], row["heading"]
+    act, head = row["action"], row["heading"]
+    src = RENAMES.get(row["src_file"], row["src_file"])
     dest = row["dest"] or (f"{src}#{head}" if src else "")
     dfile, dhead = split_dest(dest)
     src_present = src in heads and norm(head) in heads[src]
@@ -134,6 +137,8 @@ def judge(row, heads, texts):
     if not dest_present:
         return "FAIL", f"源已移除但 {dest} 不存在"
     if keys and len(hit) * 2 < len(keys):
+        if "人工確認：" in row["reason"]:
+            return "OK", f"{ratio}（已人工確認）"
         return "PARTIAL", f"源已移除，但 dest 僅{ratio}，請人工確認是否遺漏"
     return "OK", ratio
 
@@ -144,9 +149,9 @@ def reverse_check(rows, heads):
         if r["action"] in {"keep", "edit"}:
             f, h = split_dest(r["dest"] or f"{r['src_file']}#{r['heading']}")
             mapped[f].add(norm(h))
-            mapped[r["src_file"]].add(norm(r["heading"]))  # edit 尚未改標題時
+            mapped[RENAMES.get(r["src_file"], r["src_file"])].add(norm(r["heading"]))  # edit 尚未改標題時
         elif r["action"] == "delete":
-            mapped[r["src_file"]].add(norm(r["heading"]))  # 尚未刪除時
+            mapped[RENAMES.get(r["src_file"], r["src_file"])].add(norm(r["heading"]))  # 尚未刪除時
         elif r["action"] in {"move", "merge", "add"}:
             f, h = split_dest(r["dest"])
             mapped[f].add(norm(h))

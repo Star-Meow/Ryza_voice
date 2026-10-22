@@ -1,6 +1,6 @@
 # GPT-SoVITS v4 LoRA 微調文件
 
-> 本文為萊莎（ライザ）日文語音 v4 LoRA 微調的環境與流程文件。資料集準備見 [06_dataset.md](06_dataset.md)，選型分析見 [02_issue_part2.md](02_issue_part2.md)，G2 預處理驗收見 [../reports/G2_stage_a_report.md](../reports/G2_stage_a_report.md)。
+> 本文為萊莎（ライザ）日文語音 v4 LoRA 微調的環境與流程文件。資料集準備見 [06_dataset.md](06_dataset.md)，選型分析見 [02_model_selection.md](02_model_selection.md)，G2 預處理驗收見 [../reports/G2_stage_a_report.md](../reports/G2_stage_a_report.md)。
 
 ## 0. 章節導覽（重現工作流順序）
 
@@ -597,8 +597,7 @@ python tools\cer_report.py --input reports\cer_generated.csv --output reports\ce
 
 | 文件 | 內容 |
 |---|---|
-| [`01_issue.md`](01_issue.md) | issue 全文（Part 1 ASR、Part 2 finetune 的驗收要件） |
-| [`02_issue_part2.md`](02_issue_part2.md) | 基礎模型選型分析、fallback 方案 |
+| [`02_model_selection.md`](02_model_selection.md) | 基礎模型選型分析、fallback 方案 |
 | [`03_unpack.md`](03_unpack.md) | 語音解包細節（KTSR/KOVS、vgmstream 參數） |
 | [`04_speaker_id.md`](04_speaker_id.md) | 說話者識別與分層 |
 | [`05_transcript_pipeline.md`](05_transcript_pipeline.md) | ASR pipeline 與過濾規則 |

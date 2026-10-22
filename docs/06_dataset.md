@@ -48,7 +48,7 @@ GPT-SoVITS 主分支可選版本為 v1 / v2 / v4 / v2Pro / v2ProPlus。篩選依
 
 **備選**：v2ProPlus。若 v4 LoRA 實測無法滿足驗收條件，再評估此路徑；屆時需先實測其實際 VRAM 使用量，並以相同資料切分與驗收流程比較。
 
-完整選型論證見 [`docs/02_issue_part2.md`](02_issue_part2.md)。
+完整選型論證見 [`02_model_selection.md`](02_model_selection.md)。
 
 ---
 

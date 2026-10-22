@@ -4,7 +4,10 @@
 
 - **Part 1** — 語音解包、說話者篩選與 ASR 轉譯，產出 `data/ryza_train.list`
   （491 段日文語音，約 51.5 分鐘，48 kHz mono，格式 `音檔路徑|ryza|ja|文字`）。**已完成。**
-- **Part 2** — 以此為基礎使用 GPT-SoVITS 微調萊莎聲線 TTS（RTX 4070 SUPER 12 GB）。**進行中。**
+- **Part 2** — 以此為基礎使用 GPT-SoVITS v4 LoRA 微調萊莎聲線 TTS（RTX 4070 SUPER 12 GB），
+  聲線相似度達真實基線的 **91.5%**、可懂度 CER **2.99%**。**已完成。**
+
+需求來源：[issue #1](https://github.com/Star-Meow/Ryza_voice/issues/1)。
 
 資料來源 `D:\SteamLibrary\steamapps\common\Atelier Ryza 2` **全程唯讀**，未做任何變更。
 音聲內容版權屬 Koei Tecmo／Gust，僅供個人用途。
@@ -28,6 +31,7 @@
 | `reports/` | 環境準備、資料切分、ASR／CER 與 Gate 報告；`reports/logs/` 為訓練執行紀錄 |
 | `tools/` | 解包、嵌入、ASR、切分等全部工具（見「工具入口」） |
 | `requirements.txt` | Python 相依套件與版本 |
+| `LICENSE` | 程式碼授權（MIT），不涵蓋遊戲音訊與生成樣本 |
 | `.gitignore` | 排除音訊、模型權重與中間產物的規則 |
 
 ## 專案流程總覽
@@ -37,41 +41,9 @@
 | **Part 1 ①** | 語音解包 | vgmstream r2117 批次解出 KTSR 音聲庫 | 9,569 + 646 個 WAV |
 | **Part 1 ②** | 說話者篩選 | ECAPA-TDNN 嵌入比對 + LinearSVC 決策邊界 | `A_high` 92 檔全數人工確認為ライザ |
 | **Part 1 ③** | ASR 轉譯 | faster-whisper large-v3 + 過濾、去重、專有名詞校正 | **491 段／51.5 分鐘，CER 1.0%** |
-| **Part 2** | GPT-SoVITS 微調萊莎聲線 TTS | v4 LoRA 路線 | 進行中；範圍、選型與資料切分見 [`docs/06_dataset.md`](docs/06_dataset.md) |
+| **Part 2** | GPT-SoVITS 微調萊莎聲線 TTS | v4 LoRA（S1 ＋ S2 LoRA 各 16 epoch） | **相似度 91.5%（門檻 90%）、CER 2.99%（上限 10%）** |
 
-Part 1 驗收要件已全數滿足：有效轉譯段數 491（門檻 450），且全數經人工確認為ライザ。
-
-## 需求與文件對照（issue [#1](https://github.com/Star-Meow/Ryza_voice/issues/1)）
-
-> 對應 PR：[#6](https://github.com/Star-Meow/Ryza_voice/pull/6)（已合併）。
-> 逐條判定（PASS／PARTIAL）與證據的獨立稽核見 [`issue_compliance.md`](reports/issue_compliance.md)。
-
-### Part 1：ASR 轉譯
-
-- ASR 模型與參數（Whisper large-v3） : [`asr_report.md`](reports/asr_report.md) §1
-- 轉譯工具（不寫死絕對路徑） : [`transcribe.py`](tools/transcribe.py)
-- 過濾規則與排除統計 : [`screen_asr.py`](tools/screen_asr.py)、[`asr_report.md`](reports/asr_report.md) §2
-- 訓練清單（491 段，`音檔路徑|ryza|ja|文字`） : [`ryza_train.list`](data/ryza_train.list)
-- ASR 報告（模型／統計／時長／50 段 CER） : [`asr_report.md`](reports/asr_report.md)
-- 50 段抽查 CER 資料 : [`cer_sample.csv`](reports/cer_sample.csv)
-- 專有名詞校正規則與差異 : [`glossary.py`](tools/glossary.py)、[`correction_diff.md`](reports/correction_diff.md)
-- 相依套件與版本 : [`requirements.txt`](requirements.txt)
-
-### Part 2：GPT-SoVITS finetune
-
-- 基礎模型版本與 commit hash : [`finetune_report.md`](reports/finetune_report.md) §10、[PR #6](https://github.com/Star-Meow/Ryza_voice/pull/6)
-- 測試集切分（467／24／10） : [`split_report.md`](reports/split_report.md)、[`finetune_train.list`](data/finetune_train.list)、[`finetune_test.list`](data/finetune_test.list)
-- 訓練設定檔 : [`s1_ryza.yaml`](configs/s1_ryza.yaml)、[`s2_lora_ryza.json`](configs/s2_lora_ryza.json)
-- 訓練 log : [`stage_d_train.md`](reports/logs/stage_d_train.md)
-- 重現步驟（資料準備→推論） : [`07_finetune.md`](docs/07_finetune.md)
-- 生成樣本 (a)：測試集 10 句 : [`samples/`](samples/)（`eval10_*.wav`）
-- 生成樣本 (b)：全新台詞 10 句 : [`samples/`](samples/)（`new_*.wav`）
-- 樣本說明與原音對照表 : [`samples/README.md`](samples/README.md)
-- 聲線相似度（0.8152／91.5%） : [`finetune_report.md`](reports/finetune_report.md) §5.2
-- 可懂度 CER（2.99%）逐句文字稿 : [`cer_generated.csv`](reports/cer_generated.csv)
-- 主觀試聽評語 : [`finetune_report.md`](reports/finetune_report.md) §6-3
-- 缺陷排查（P-1～P-3） : [`defect_triage.md`](reports/defect_triage.md)
-- GPU 不穩處置記錄 : [`09_pitfalls.md`](docs/09_pitfalls.md) PK-013
+Part 1 有效轉譯段數 491（目標 ≥ 450），全數經人工確認為ライザ。
 
 ## Part 1 ①：語音解包
 
@@ -118,8 +90,9 @@ faster-whisper **large-v3**、`language=ja`、Silero VAD 開啟、beam size 5、
 = 491（有效段數）
 ```
 
-- Issue 要求的五類過濾規則（時長／非說話聲／空輸出／重複／幻覺）**本批次 0 觸發**
+- 五類必要過濾規則（時長／非說話聲／空輸出／重複／幻覺）**本批次 0 觸發**
 - **CER 抽查 50 段：平均 1.0%，44/50 完全正確**；6 段錯誤中 5 段為遊戲專有名詞
+  - CER 的 reference（ground truth）是**這 50 段經人工校對後的文字**，hypothesis 是 **Whisper 原始輸出**（seed 42 抽樣）
 - 專有名詞校正：6 條規則套用後共修正 14 筆，校正後與人工校對 **47/50 完全一致**
 
 ### 3.2 訓練清單與三處一致性
@@ -133,6 +106,34 @@ faster-whisper **large-v3**、`language=ja`、Silero VAD 開啟、beam size 5、
 
 七步資料流、完整執行指令、歷史執行紀錄：[`docs/05_transcript_pipeline.md`](docs/05_transcript_pipeline.md)
 
+## Part 2：GPT-SoVITS v4 LoRA 微調
+
+- **選型**：v4 LoRA。12 GB 顯存下有官方 LoRA 微調路徑，且原生 48 kHz 與語料一致；
+  v2ProPlus 列為備選。完整論證見 [`docs/02_model_selection.md`](docs/02_model_selection.md)
+- **切分**：491 段依句型與時長分層，切成 train 467／test 24／eval10 10（[`docs/06_dataset.md`](docs/06_dataset.md)）
+- **訓練**：基礎模型 GPT-SoVITS `main` @ `48b1a01`。S2 LoRA（rank 32、batch 4、`grad_ckpt=true`）與
+  S1（batch 8）各 16 epoch，合計約 10 分鐘。12 GB 下不開 `grad_ckpt` 會顯存假死（[`docs/09_pitfalls.md`](docs/09_pitfalls.md) PK-013）
+
+| 評估項目 | 結果 | 門檻 |
+|---|---|---|
+| 聲線相似度（ECAPA-TDNN 對 A_high 中心點） | 0.8152，真實基線的 **91.5%** | ≥ 90% |
+| 可懂度（Whisper large-v3 CER） | **2.99%** | ≤ 10% |
+| 主觀試聽 | 音色可辨識為萊莎；有語尾多音、情緒偏開心、電子音三項缺陷 | — |
+
+生成樣本 20 句（測試集 10 句＋全新台詞 10 句）在 [`samples/`](samples/README.md)；
+完整評估見 [`reports/finetune_report.md`](reports/finetune_report.md)，缺陷分析見 [`reports/defect_triage.md`](reports/defect_triage.md)。
+
+## 安裝與執行
+
+本 repo **不含遊戲音訊與模型權重**，需自備《Atelier Ryza 2》遊戲檔，並另行取得 GPT-SoVITS。
+
+| 環境 | 用途 | 安裝 |
+|---|---|---|
+| 本 repo 的 `.venv` | Part 1 工具（解包、篩選、ASR、切分、評估） | `pip install -r requirements.txt` |
+| GPT-SoVITS 的 `.venv` | Part 2 預處理、訓練、推論 | clone [GPT-SoVITS](https://github.com/RVC-Boss/GPT-SoVITS) 並 checkout `48b1a01`；另需 ffmpeg |
+
+從解包到推論的完整重現步驟，依 [`docs/07_finetune.md`](docs/07_finetune.md) §0 的工作流順序執行。
+
 ## 工具入口
 
 | 模塊 | 主要工具 | 產出 |
@@ -145,31 +146,35 @@ faster-whisper **large-v3**、`language=ja`、Silero VAD 開啟、beam size 5、
 
 ## 文件地圖
 
-**`docs/`** — 檔名序號即閱讀順序，依「需求 → 流程 → 參考」排列
+**`docs/`** — 檔名序號即閱讀順序，依「設計 → 流程 → 參考」排列
 
 | 文件 | 定位 |
 |---|---|
-| [`01_issue.md`](docs/01_issue.md) | 需求：原始 issue 與驗收要件 |
-| [`02_issue_part2.md`](docs/02_issue_part2.md) | 需求：Part 2 選型論證 |
+| [`02_model_selection.md`](docs/02_model_selection.md) | Part 2 模型選型論證 |
 | [`03_unpack.md`](docs/03_unpack.md) | Part 1 ① 語音解包 |
 | [`04_speaker_id.md`](docs/04_speaker_id.md) | Part 1 ② 說話者篩選 |
 | [`05_transcript_pipeline.md`](docs/05_transcript_pipeline.md) | Part 1 ③ ASR 轉譯與訓練清單 |
-| [`06_dataset.md`](docs/06_dataset.md) | Part 2 範圍、模型選型與資料切分 |
+| [`06_dataset.md`](docs/06_dataset.md) | Part 2 範圍與資料切分 |
 | [`07_finetune.md`](docs/07_finetune.md) | Part 2 從資料準備到推論的重現步驟 |
 | [`08_tools.md`](docs/08_tools.md) | 參考：`tools/` 全部工具目錄 |
 | [`09_pitfalls.md`](docs/09_pitfalls.md) | 參考：坑記錄（append-only，PK-001～PK-015） |
 
-**`reports/`** — 各階段報告，依性質分五類
+**`reports/`** — 各階段的結果與紀錄
 
-- 環境與模型：[`01_env_model_prep.md`](reports/01_env_model_prep.md)
-- 資料切分：[`split_report.md`](reports/split_report.md)
-- ASR 與品質：[`asr_report.md`](reports/asr_report.md)、[`audio_quality.md`](reports/audio_quality.md)、[`correction_diff.md`](reports/correction_diff.md)
-- Gate 報告 G1–G4：[`G1_t0_t1_report.md`](reports/G1_t0_t1_report.md)、[`G2_stage_a_report.md`](reports/G2_stage_a_report.md)、[`G3_stage_b_report.md`](reports/G3_stage_b_report.md)、[`G4_stage_c_report.md`](reports/G4_stage_c_report.md)
-- 訓練與評估：[`finetune_report.md`](reports/finetune_report.md)、[`defect_triage.md`](reports/defect_triage.md)、[`issue_compliance.md`](reports/issue_compliance.md)、[`split_report.md`](reports/split_report.md)、[`cer_generated.csv`](reports/cer_generated.csv)、[`logs/stage_d_train.md`](reports/logs/stage_d_train.md)、[`pr_description.md`](reports/pr_description.md)
-- 歷史紀錄：[`issue_reply_part1.md`](reports/issue_reply_part1.md)；
-  [`asr_filter_report.md`](reports/asr_filter_report.md) 已被 `asr_report.md` 取代
+- 結果：
+  - ASR：[`asr_report.md`](reports/asr_report.md)、[`correction_diff.md`](reports/correction_diff.md)
+  - 切分：[`split_report.md`](reports/split_report.md)
+  - 訓練與評估：[`finetune_report.md`](reports/finetune_report.md)、[`logs/stage_d_train.md`](reports/logs/stage_d_train.md)、[`cer_generated.csv`](reports/cer_generated.csv)
+  - 缺陷分析：[`defect_triage.md`](reports/defect_triage.md)
+- 開發過程紀錄：[`01_env_model_prep.md`](reports/01_env_model_prep.md)、[`G1_t0_t1_report.md`](reports/G1_t0_t1_report.md)、[`G2_stage_a_report.md`](reports/G2_stage_a_report.md)、[`G3_stage_b_report.md`](reports/G3_stage_b_report.md)、[`G4_stage_c_report.md`](reports/G4_stage_c_report.md)、[`smoke_test_stage_a.md`](reports/smoke_test_stage_a.md)、[`smoke_test_stage_c.md`](reports/smoke_test_stage_c.md)、[`audio_quality.md`](reports/audio_quality.md)
+- 已取代：[`asr_filter_report.md`](reports/asr_filter_report.md)，由 `asr_report.md` 取代
+
+**協作文件（預留）** — 有其他人參與時再建立：`CONTRIBUTING.md`（協作慣例）、
+`.github/pull_request_template.md`、`.github/ISSUE_TEMPLATE/`、`AGENTS.md`（AI 協作者守則）。
 
 ## 授權
 
-- 解出的音聲內容版權屬 Koei Tecmo／Gust，僅供個人用途。
+- 本 repo 的程式碼與文件採 MIT 授權，見 [`LICENSE`](LICENSE)。
+- 解出的音聲內容版權屬 Koei Tecmo／Gust，**不在 MIT 授權範圍內**，僅供個人用途，不進版控。
+  `samples/` 的生成樣本衍生自該音聲，僅供評估。
 - vgmstream 為其作者所有（ISC-style license），見 `tools/vgmstream/COPYING`。

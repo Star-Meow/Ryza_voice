@@ -2,7 +2,7 @@
 
 日期：2026-10-05
 分支：`feature/TTS-finetune`
-回報依據：計畫 §15 回報格式；`docs/01_issue.md` Part 2 驗收要件（生成樣本、聲線相似度、可懂度、主觀試聽、GPU 穩定性）
+回報依據：計畫 §15 回報格式；[issue #1](https://github.com/Star-Meow/Ryza_voice/issues/1) Part 2 驗收要件（生成樣本、聲線相似度、可懂度、主觀試聽、GPU 穩定性）
 範圍：`<GPT>` = `H:\git\GPT-SoVITS`，`<RYZA>` = `H:\git\Ryza_voice`
 樣本：正式 exp `logs/ryza_v4_lora`（467 筆）
 
@@ -272,7 +272,7 @@ issue 原文「生成樣本平均值須 ≥ **測試集真實音訊**平均值�
 
 ### 6-2 量化品質評估
 
-- **聲線**：91.5% 的達成率代表音色明確、可辨識為萊莎，但尚未進入 A_high 真實音訊的分布本體（真實平均 0.8908 vs 生成 0.8152）。若要再往上，`docs/02_issue_part2.md:79` 提到的 fallback（改評 v2ProPlus）尚未啟用。
+- **聲線**：91.5% 的達成率代表音色明確、可辨識為萊莎，但尚未進入 A_high 真實音訊的分布本體（真實平均 0.8908 vs 生成 0.8152）。若要再往上，[`02_model_selection.md`](../docs/02_model_selection.md) §五 提到的 fallback（改評 v2ProPlus）尚未啟用。
 - **發音**：CER 2.99%，但**主觀試聽顯示這個數字低估了實際發音問題率**——詳見 §6-4。
 - **語氣自然度**：量化指標**完全無法偵測**這個面向（兩個指標都不衡量情緒是否正確）。主觀試聽發現這是最明顯的缺陷，詳見 §6-3。
 
@@ -516,13 +516,13 @@ HF_HUB_OFFLINE=1 .venv\Scripts\python.exe tools/stage_d_eval.py \
 
 ---
 
-## 10. 版本與 commit hash 記錄（issue：須在 PR 中記錄使用的版本與 commit hash）
+## 10. 版本與 commit hash 記錄
 
 ### 基礎模型（本專案使用的上游版本）
 
 | 項目 | 值 |
 |---|---|
-| 基礎模型 | **GPT-SoVITS**（issue 指定） |
+| 基礎模型 | **GPT-SoVITS**（上游 `https://github.com/RVC-Boss/GPT-SoVITS.git`） |
 | 上游 commit | `48b1a0169a28582a8984402f82cf438d3bfa6aca` |
 | 分支 | **`main`**（`git symbolic-ref HEAD` = `refs/heads/main`） |
 | 修改狀態 | 工作樹乾淨、**無任何官方檔被修改** |
@@ -530,21 +530,28 @@ HF_HUB_OFFLINE=1 .venv\Scripts\python.exe tools/stage_d_eval.py \
 | S1 底模 | `GPT_SoVITS/pretrained_models/s1v3.ckpt`（v4 沿用 v3 的 GPT 權重，`config.py:25`） |
 | BERT／HuBERT | `chinese-roberta-wwm-ext-large`、`chinese-hubert-base`，皆為 T0 轉檔後的 safetensors 版本 |
 
-### 本專案的產出 commit（分支 `feature/TTS-finetune`，**尚未 push、尚未開 PR**）
+**為何只記錄一個 hash**：GPT 與 SoVITS 是 GPT-SoVITS **同一個 repo 的兩個子模組**（`GPT_SoVITS/AR/` 與 `GPT_SoVITS/module/`），共用同一個 commit。
+只有在以下情況才需要分開記錄：
+
+- GPT 與 SoVITS 來自**不同的 repo**（例如 S1 用外部 AR 模型、S2 用 GPT-SoVITS）
+- 兩者來自**同一 repo 但不同 commit**（例如其中一方需要 hotfix）
+
+本專案兩種情況皆不適用：`s1v3.ckpt`（GPT 底模）與 `s2Gv4.pth`（SoVITS 底模）皆自同一份 GPT-SoVITS 發行包取得，同屬 commit `48b1a01`。
+上表是**使用的基礎模型版本**；下表是**本專案產出的版本**，兩者用途不同。
+
+### 本專案的產出 commit
+
+Part 2 的產出經 [PR #6](https://github.com/Star-Meow/Ryza_voice/pull/6) 合併進 `main`（merge commit `87a3dd2`）：
 
 | commit | 內容 |
 |---|---|
 | `49ca4b5` | 階段 D 正式訓練與品質評估（config 採 16 epoch、grad_ckpt=true、評估工具、報告） |
-| `8c0ef23` | jieba_fast 永久不採用的裁示記錄 |
+| `8c0ef23` | jieba_fast 不採用的記錄 |
 | `298bf4a` | 生成樣本 Whisper 文字稿 `reports/cer_generated.csv` ＋報告附錄 A |
 | `4f118e8` | 聲線相似度基線穩健性重算（9 種組合） |
 | `33ae53b` | SD-8 證據補充 |
 
-階段 A／B／C 的成果由 PM 合併於 `bb0a840`（階段 B/C）、`0b7c743`（G1）、`c7f2c77`（文件編號化）。
-
-**⚠️ 尚待完成**：本分支 5 個 commit **尚未 push，PR 尚未建立**。issue 的記錄動作是「在 PR 中記錄」，因此仍需：
-(1) 推送 `feature/TTS-finetune`；(2) 開啟 PR；(3) 於 PR 描述填入上表的基礎模型 commit `48b1a0169a28582a8984402f82cf438d3bfa6aca`
-與本專案當前 commit `33ae53b3804ff1e0c6abd69c757d3bbbf8451587`。以上屬版本控制與對外動作，**未經指示不執行**。
+階段 A～C 的成果：`0b7c743`（G1）經 PR #4（`f7d6724`）合併；`bb0a840`（階段 B/C）與 `c7f2c77`（文件編號化）經 PR #5（`f901af5`）合併。
 
 ---
 

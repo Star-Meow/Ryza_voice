@@ -82,6 +82,12 @@ RULES = [
     # ---------- docs/02 ----------
     ("docs/02_issue_part2.md", r"^七、待驗證項", "過程紀錄", "delete", "",
      "待驗證項已全數解決（顯存已實測見 07 §7、TF32 本機未發生見 09 §4、參考音訊已定見 07 §9.3）"),
+    # ---------- Step 1 連帶修改（連結指向已刪除／改名檔） ----------
+    ("docs/07_finetune.md", r"^GPT-SoVITS v4 LoRA 微調文件", "流程", "edit", "", "選型連結改指 02_model_selection.md"),
+    ("docs/09_pitfalls.md", r"^4\. GPU 不穩專區", "參考", "edit", "", "issue 引用改連結 issue #1"),
+    ("reports/finetune_report.md", r"^6-2 ", "結果", "edit", "", "02 連結改名"),
+    ("reports/finetune_report.md", r"^基礎模型（本專案", "結果", "edit", "",
+     "吸收 pr_description 的 commit hash 說明與上游 URL"),
     # ---------- docs/03 ----------
     ("docs/03_unpack.md", r"^語音解包", "流程", "edit", "", "修正連結文字中的舊檔名"),
     # ---------- docs/04 ----------
@@ -215,7 +221,8 @@ RULES = [
      "v00596 的來源與保留理由；05 §1.5 注意事項 3 已有，補足缺漏"),
     ("reports/issue_compliance.md", r"^7\. 需 PM 裁示", "結果", "merge", "reports/asr_report.md#5. 已知限制",
      "#1 人工試聽無逐筆紀錄、#2 cer_sample 無審閱欄、#3 ボース 規則無人工依據、#5 --prune-raw 抹除排除原因 → 已知限制；"
-     "#7 指標對語氣盲視已在 defect_triage P-2"),
+     "#7 指標對語氣盲視已在 defect_triage P-2。"
+     "人工確認：未命中的關鍵字為已結案項（#4 v00596→docs/05 §1.5、#6 samples 對照表、#8 PR #6）與文件行號引用，不需搬"),
     ("reports/issue_compliance.md", r"^8\. 判定為", "結果", "merge", "reports/asr_report.md#5. 已知限制", "同上（缺哪些紀錄）"),
     ("reports/issue_compliance.md", r"^6\. 交叉檢查", "協作產物", "delete", "",
      f"所列過期宣稱於 Step 2／3 在原處修正（#4→asr_report §3、#5／#8→asr_filter_report 刪除、#7→08 §8）；稽核脈絡見 {ISSUE1}"),

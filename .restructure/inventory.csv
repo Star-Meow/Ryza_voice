@@ -92,7 +92,7 @@ README-014,README.md,授權,2,172-175,d31ef53908,專案說明,edit,,連結新增
 06_dataset-009,docs/06_dataset.md,3.2 切分後的產出,3,72-83,df040be4ca,流程,keep,,
 06_dataset-010,docs/06_dataset.md,3.3 切分驗證,3,84-99,6f6c6b1d6f,流程,edit,,「五項驗證」改為 11 項
 06_dataset-011,docs/06_dataset.md,3.4 執行指令,3,100-111,7e7d518cff,流程,merge,docs/07_finetune.md#9. 切分重現（467 / 24 / 10）,指令有誤（--audio-root wav 會變 wav/wav）；以 07 §9 為唯一指令來源
-07_finetune-001,docs/07_finetune.md,GPT-SoVITS v4 LoRA 微調文件,1,1-4,4c53b4ad83,流程,keep,,
+07_finetune-001,docs/07_finetune.md,GPT-SoVITS v4 LoRA 微調文件,1,1-4,4c53b4ad83,流程,edit,,選型連結改指 02_model_selection.md
 07_finetune-002,docs/07_finetune.md,0. 章節導覽（重現工作流順序）,2,5-26,a72353e887,流程,edit,,刪除「對應 issue 要求」欄；PK 範圍改 001～015
 07_finetune-003,docs/07_finetune.md,1. 環境需求,2,27-36,5264192c2e,流程,edit,,吸收 01_env 的依賴偏差表
 07_finetune-004,docs/07_finetune.md,ffmpeg（隱性系統依賴）,3,37-60,89f98ebc73,流程,keep,,
@@ -166,7 +166,7 @@ README-014,README.md,授權,2,172-175,d31ef53908,專案說明,edit,,連結新增
 09_pitfalls-023,docs/09_pitfalls.md,PK-015 以文字標註分層，會讓評測指標對某個面向結構性盲視,4,182-193,219f923e8d,參考,edit,,移到 PK-014 之後（append-only 順序）
 09_pitfalls-024,docs/09_pitfalls.md,PK-013 顯存接近上限不會丟 OOM，而是退化成「假死」,4,194-203,a0d58ddaa5,參考,keep,,
 09_pitfalls-025,docs/09_pitfalls.md,PK-014 停滯 watchdog 會被 tqdm 的緩衝 flush 騙過,4,204-215,de42c6b95d,參考,keep,,
-09_pitfalls-026,docs/09_pitfalls.md,4. GPU 不穩專區,2,216-225,cf05b80ef9,參考,keep,,
+09_pitfalls-026,docs/09_pitfalls.md,4. GPU 不穩專區,2,216-225,cf05b80ef9,參考,edit,,issue 引用改連結 issue #1
 09_pitfalls-027,docs/09_pitfalls.md,本機顯存實測彙總（階段 C ＋ 階段 D）,3,226-245,fac2d89de8,參考,keep,,
 09_pitfalls-028,docs/09_pitfalls.md,TF32 —— 其他環境過往異常，本機無需理會,3,246-257,283119ca6b,參考,edit,,PM 字樣改中性；成為 TF32 的唯一完整記載
 09_pitfalls-029,docs/09_pitfalls.md,觸發本節記錄的條件,3,258-270,e8688a52a6,參考,keep,,
@@ -312,7 +312,7 @@ finetune_report-016,reports/finetune_report.md,5.2.1 基線穩健性檢查（202
 finetune_report-017,reports/finetune_report.md,5.3 可懂度（Whisper large-v3 → CER）,3,230-255,094e38e1d0,結果,edit,,ボース 規則與附錄 A 不一致
 finetune_report-018,reports/finetune_report.md,6. 結論,2,256-257,da39a3ee5e,結果,keep,,
 finetune_report-019,reports/finetune_report.md,6-1 是否達專案目標,3,258-272,9d511a0d4d,結果,keep,,
-finetune_report-020,reports/finetune_report.md,6-2 量化品質評估,3,273-278,b33bdc73cc,結果,keep,,
+finetune_report-020,reports/finetune_report.md,6-2 量化品質評估,3,273-278,b33bdc73cc,結果,edit,,02 連結改名
 finetune_report-021,reports/finetune_report.md,6-3 主觀試聽評語,3,279-285,75be015cea,結果,keep,,
 finetune_report-022,reports/finetune_report.md,聲線,4,286-293,bb378e8dd6,結果,keep,,
 finetune_report-023,reports/finetune_report.md,發音,4,294-302,8ec870f799,結果,keep,,
@@ -333,7 +333,7 @@ finetune_report-037,reports/finetune_report.md,9.3 產生樣本,3,487-500,5d72c2
 finetune_report-038,reports/finetune_report.md,9.4 評估,3,501-509,6497b46265,結果,keep,,
 finetune_report-039,reports/finetune_report.md,9.5 原始資料,3,510-518,7f28257dbe,結果,edit,,修正 \r 被吃掉的路徑
 finetune_report-040,reports/finetune_report.md,10. 版本與 commit hash 記錄（issue：須在 PR 中記錄使用的版本與 commit hash）,2,519-520,da39a3ee5e,結果,edit,reports/finetune_report.md#10. 版本與 commit hash 記錄,標題去 issue 口吻
-finetune_report-041,reports/finetune_report.md,基礎模型（本專案使用的上游版本）,3,521-532,878815872d,結果,keep,,
+finetune_report-041,reports/finetune_report.md,基礎模型（本專案使用的上游版本）,3,521-532,878815872d,結果,edit,,吸收 pr_description 的 commit hash 說明與上游 URL
 finetune_report-042,reports/finetune_report.md,本專案的產出 commit（分支 `feature/TTS-finetune`，**尚未 push、尚未開 PR**）,3,533-550,356b9a42ad,結果,edit,reports/finetune_report.md#本專案的產出 commit,「尚未 push、尚未開 PR」過時（PR #6 已合併）
 finetune_report-043,reports/finetune_report.md,11. 停止點,2,551-558,d3e218a23f,過程紀錄,delete,,等待驗收的狀態，已過時；epochs 16 採認狀態併入 §7
 finetune_report-044,reports/finetune_report.md,附錄 A：生成樣本文字稿（Whisper large-v3 逐句轉寫）,2,559-573,086afe1ebc,結果,keep,,
@@ -349,7 +349,7 @@ issue_compliance-006,reports/issue_compliance.md,3. Part 1 驗收要件（issue 
 issue_compliance-007,reports/issue_compliance.md,4. Part 2 要求（issue 第 34–36 行）,2,101-110,49461fbe25,協作產物,delete,,對 issue #1 的合規自我稽核（審查產物）；需求與驗收討論在 https://github.com/Star-Meow/Ryza_voice/issues/1、https://github.com/Star-Meow/Ryza_voice/pull/6
 issue_compliance-008,reports/issue_compliance.md,5. Part 2 驗收要件（issue 第 39–55 行）,2,111-125,71260df378,協作產物,delete,,對 issue #1 的合規自我稽核（審查產物）；需求與驗收討論在 https://github.com/Star-Meow/Ryza_voice/issues/1、https://github.com/Star-Meow/Ryza_voice/pull/6
 issue_compliance-009,reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,2,126-143,f6a41d8bea,協作產物,delete,,所列過期宣稱於 Step 2／3 在原處修正（#4→asr_report §3、#5／#8→asr_filter_report 刪除、#7→08 §8）；稽核脈絡見 https://github.com/Star-Meow/Ryza_voice/issues/1
-issue_compliance-010,reports/issue_compliance.md,7. 需 PM 裁示的事項,2,144-158,2ca453c5ce,結果,merge,reports/asr_report.md#5. 已知限制,#1 人工試聽無逐筆紀錄、#2 cer_sample 無審閱欄、#3 ボース 規則無人工依據、#5 --prune-raw 抹除排除原因 → 已知限制；#7 指標對語氣盲視已在 defect_triage P-2
+issue_compliance-010,reports/issue_compliance.md,7. 需 PM 裁示的事項,2,144-158,2ca453c5ce,結果,merge,reports/asr_report.md#5. 已知限制,#1 人工試聽無逐筆紀錄、#2 cer_sample 無審閱欄、#3 ボース 規則無人工依據、#5 --prune-raw 抹除排除原因 → 已知限制；#7 指標對語氣盲視已在 defect_triage P-2。人工確認：未命中的關鍵字為已結案項（#4 v00596→docs/05 §1.5、#6 samples 對照表、#8 PR #6）與文件行號引用，不需搬
 issue_compliance-011,reports/issue_compliance.md,8. 判定為 PASS／UNKNOWN 所需的外部資訊,2,159-169,d840a8021b,結果,merge,reports/asr_report.md#5. 已知限制,同上（缺哪些紀錄）
 issue_compliance-012,reports/issue_compliance.md,9. 相關文件,2,170-182,542ac347f2,協作產物,delete,,對 issue #1 的合規自我稽核（審查產物）；需求與驗收討論在 https://github.com/Star-Meow/Ryza_voice/issues/1、https://github.com/Star-Meow/Ryza_voice/pull/6
 issue_reply_part1-001,reports/issue_reply_part1.md,Part 1：ASR 轉譯進度回報,2,1-2,da39a3ee5e,協作產物,delete,,issue #1 的進度回報 comment 草稿，已張貼於 https://github.com/Star-Meow/Ryza_voice/issues/1
