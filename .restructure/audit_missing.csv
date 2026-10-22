@@ -1,0 +1,890 @@
+﻿src_file,heading,lines,action,dest,fact
+README.md,專案流程總覽,33-43,merge,docs/01_overview.md#3. 模塊架構,docs/06_dataset.md
+README.md,需求與文件對照（issue [#1](https://github.com/Star-Meow/Ryza_voice/issues/1)）,44-48,delete,,issue_compliance.md
+README.md,需求與文件對照（issue [#1](https://github.com/Star-Meow/Ryza_voice/issues/1)）,44-48,delete,,reports/issue_compliance.md
+README.md,Part 1：ASR 轉譯,49-59,delete,,correction_diff.md
+README.md,Part 1：ASR 轉譯,49-59,delete,,reports/correction_diff.md
+README.md,Part 2：GPT-SoVITS finetune,60-75,delete,,eval10_*.wav
+README.md,Part 2：GPT-SoVITS finetune,60-75,delete,,new_*.wav
+README.md,Part 2：GPT-SoVITS finetune,60-75,delete,,09_pitfalls.md
+README.md,Part 2：GPT-SoVITS finetune,60-75,delete,,docs/09_pitfalls.md
+README.md,Part 1 ①：語音解包,76-88,merge,docs/02_unpack.md#2. 兩種語音庫,docs/03_unpack.md
+README.md,Part 1 ②：說話者篩選（聲紋比對）,89-106,merge,docs/03_speaker_id.md#7.1 分級目錄（`ryza_main/`）,docs/04_speaker_id.md
+README.md,3.1 ASR 引擎與逐字稿品質,109-124,merge,reports/asr_report.md#1. 模型與參數,"500（top500）
+  − 3（top500 內人工確認非ライザ）
+= 497（ASR 輸入）
+  − 6（跨檔文本重複）
+= 491（有效段數）"
+README.md,3.2 訓練清單與三處一致性,125-135,merge,docs/04_transcript_pipeline.md#8. 三處一致性,docs/05_transcript_pipeline.md
+README.md,工具入口,136-145,merge,README.md#模塊,docs/08_tools.md
+README.md,文件地圖,146-171,edit,README.md#文件,02_issue_part2.md
+README.md,文件地圖,146-171,edit,README.md#文件,03_unpack.md
+README.md,文件地圖,146-171,edit,README.md#文件,04_speaker_id.md
+README.md,文件地圖,146-171,edit,README.md#文件,05_transcript_pipeline.md
+README.md,文件地圖,146-171,edit,README.md#文件,06_dataset.md
+README.md,文件地圖,146-171,edit,README.md#文件,08_tools.md
+README.md,文件地圖,146-171,edit,README.md#文件,09_pitfalls.md
+README.md,文件地圖,146-171,edit,README.md#文件,audio_quality.md
+README.md,文件地圖,146-171,edit,README.md#文件,correction_diff.md
+README.md,文件地圖,146-171,edit,README.md#文件,G3_stage_b_report.md
+README.md,文件地圖,146-171,edit,README.md#文件,issue_compliance.md
+README.md,文件地圖,146-171,edit,README.md#文件,pr_description.md
+README.md,文件地圖,146-171,edit,README.md#文件,issue_reply_part1.md
+README.md,文件地圖,146-171,edit,README.md#文件,asr_filter_report.md
+README.md,文件地圖,146-171,edit,README.md#文件,docs/02_issue_part2.md
+README.md,文件地圖,146-171,edit,README.md#文件,docs/03_unpack.md
+README.md,文件地圖,146-171,edit,README.md#文件,docs/04_speaker_id.md
+README.md,文件地圖,146-171,edit,README.md#文件,docs/05_transcript_pipeline.md
+README.md,文件地圖,146-171,edit,README.md#文件,docs/06_dataset.md
+README.md,文件地圖,146-171,edit,README.md#文件,docs/08_tools.md
+README.md,文件地圖,146-171,edit,README.md#文件,docs/09_pitfalls.md
+README.md,文件地圖,146-171,edit,README.md#文件,reports/audio_quality.md
+README.md,文件地圖,146-171,edit,README.md#文件,reports/correction_diff.md
+README.md,文件地圖,146-171,edit,README.md#文件,reports/G3_stage_b_report.md
+README.md,文件地圖,146-171,edit,README.md#文件,reports/issue_compliance.md
+README.md,文件地圖,146-171,edit,README.md#文件,reports/pr_description.md
+README.md,文件地圖,146-171,edit,README.md#文件,reports/issue_reply_part1.md
+README.md,文件地圖,146-171,edit,README.md#文件,reports/asr_filter_report.md
+docs/03_unpack.md,語音解包（Part 1 ①）,1-7,edit,docs/02_unpack.md#語音解包,04_speaker_id.md
+docs/03_unpack.md,語音解包（Part 1 ①）,1-7,edit,docs/02_unpack.md#語音解包,05_transcript_pipeline.md
+docs/03_unpack.md,為什麼主庫沒有名稱,26-34,edit,,04_speaker_id.md
+docs/04_speaker_id.md,說話者篩選：說話者嵌入比對（Part 1 ②）,1-8,edit,docs/03_speaker_id.md#說話者篩選：說話者嵌入比對,03_unpack.md
+docs/04_speaker_id.md,說話者篩選：說話者嵌入比對（Part 1 ②）,1-8,edit,docs/03_speaker_id.md#說話者篩選：說話者嵌入比對,05_transcript_pipeline.md
+docs/04_speaker_id.md,1. 動機,9-15,edit,,03_unpack.md
+docs/04_speaker_id.md,2. 嵌入 pipeline,16-39,edit,,"。
+> 這是**其他環境（RTX 3060）曾發生 CUDA 記憶體損壞的過往經驗，本機（RTX 4070 SUPER）從未發生**。
+> 完整記錄見"
+docs/04_speaker_id.md,2. 嵌入 pipeline,16-39,edit,,docs/09_pitfalls.md
+docs/05_transcript_pipeline.md,ASR 轉譯與訓練清單建構（Part 1 ③）,1-10,edit,docs/04_transcript_pipeline.md#轉譯資料集：ASR 與訓練清單建構,reports/correction_diff.md
+docs/05_transcript_pipeline.md,ASR 轉譯與訓練清單建構（Part 1 ③）,1-10,edit,docs/04_transcript_pipeline.md#轉譯資料集：ASR 與訓練清單建構,04_speaker_id.md
+docs/05_transcript_pipeline.md,ASR 轉譯與訓練清單建構（Part 1 ③）,1-10,edit,docs/04_transcript_pipeline.md#轉譯資料集：ASR 與訓練清單建構,../reports/correction_diff.md
+docs/05_transcript_pipeline.md,1. 三個核心檔案,11-34,edit,,"，定義 STT 階段的處理範圍 |
+| ["
+docs/05_transcript_pipeline.md,1.5 為何走 `top500/` 而非 issue 字面寫的 `A_high/ + B_likely/`,35-56,edit,docs/04_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,docs/04_speaker_id.md:145
+docs/05_transcript_pipeline.md,1.5 為何走 `top500/` 而非 issue 字面寫的 `A_high/ + B_likely/`,35-56,edit,docs/04_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,README.md:64
+docs/05_transcript_pipeline.md,1.5 為何走 `top500/` 而非 issue 字面寫的 `A_high/ + B_likely/`,35-56,edit,docs/04_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,讓各層中檔名帶
+docs/05_transcript_pipeline.md,1.5 為何走 `top500/` 而非 issue 字面寫的 `A_high/ + B_likely/`,35-56,edit,docs/04_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,前綴者全部採用、不參與排序，因此
+docs/05_transcript_pipeline.md,1.5 為何走 `top500/` 而非 issue 字面寫的 `A_high/ + B_likely/`,35-56,edit,docs/04_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,../reports/issue_compliance.md
+docs/05_transcript_pipeline.md,1.5 為何走 `top500/` 而非 issue 字面寫的 `A_high/ + B_likely/`,35-56,edit,docs/04_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,docs/04_speaker_id.md
+docs/05_transcript_pipeline.md,7. 七步資料流,170-223,edit,,"[步驟 1] 依 svm_dec 排序 → ryza_main/top500/（497 檔）
+        │  實際檔名為 NNNN_原檔名.wav，已剔除 3 個人工確認負樣本
+        ▼
+[步驟 2] 人工篩查負樣本（top"
+docs/05_transcript_pipeline.md,7. 七步資料流,170-223,edit,,reports/correction_diff.md
+docs/05_transcript_pipeline.md,10. 歷史執行紀錄,308-319,delete,,git rm ryza_train.list
+docs/05_transcript_pipeline.md,10. 歷史執行紀錄,308-319,delete,,reports/asr_filter_report.md
+docs/05_transcript_pipeline.md,10. 歷史執行紀錄,308-319,delete,,../reports/asr_filter_report.md
+docs/06_dataset.md,2.3 選型結論：v4 LoRA,40-54,merge,docs/06_model_selection.md#五、選型結論,docs/02_issue_part2.md
+docs/06_dataset.md,2.3 選型結論：v4 LoRA,40-54,merge,docs/06_model_selection.md#五、選型結論,02_issue_part2.md
+docs/06_dataset.md,3.1 切分原則,57-71,merge,docs/05_dataset_split.md#2. 分層抽樣設計,"| 4 |
+| EXCL 興奮／感嘆 | 結尾為"
+docs/06_dataset.md,3.1 切分原則,57-71,merge,docs/05_dataset_split.md#2. 分層抽樣設計,"| 2 |
+| ELL 猶豫／餘韻／悲傷 | 結尾為"
+docs/06_dataset.md,3.4 執行指令,100-111,merge,docs/05_dataset_split.md#5. 執行指令,"bash
+.venv/Scripts/python.exe tools/split_train_test.py \
+  --input data/ryza_train.list \
+  --train-out data/finetune_t"
+docs/07_finetune.md,GPT-SoVITS v4 LoRA 微調文件,1-4,edit,docs/07_finetune.md#TTS 微調與推論：GPT-SoVITS v4 LoRA,06_dataset.md
+docs/07_finetune.md,GPT-SoVITS v4 LoRA 微調文件,1-4,edit,docs/07_finetune.md#TTS 微調與推論：GPT-SoVITS v4 LoRA,02_issue_part2.md
+docs/07_finetune.md,0. 章節導覽（重現工作流順序）,5-26,edit,docs/07_finetune.md#0. 全流程總覽,09_pitfalls.md
+docs/07_finetune.md,4. 易錯點,123-135,edit,docs/07_finetune.md#4. 易錯點,預設開啟。**TF32 損壞是其他環境（RTX 3060）的過往異常，本機（RTX 4070 SUPER）從未發生，本地訓練不需要理會**——依官方原版設定跑即可，不 patch、不預防、不監控。記錄僅供未來移地至其他環境時應急參考（見
+docs/07_finetune.md,4. 易錯點,123-135,edit,docs/07_finetune.md#4. 易錯點,docs/09_pitfalls.md
+docs/07_finetune.md,7. v4 LoRA 顯存：實測結論（階段 D）,187-199,move,docs/07_finetune.md#5.6 顯存,09_pitfalls.md
+docs/07_finetune.md,8.1 從遊戲解包語音,202-226,merge,docs/02_unpack.md#6. 重新解出,03_unpack.md:93-98
+docs/07_finetune.md,8.1 從遊戲解包語音,202-226,merge,docs/02_unpack.md#6. 重新解出,"bash
+# 主庫（必須指向 .ktsl2asbin）
+tools/vgmstream/vgmstream-cli.exe -s 1 -S 0 -o ""wav/?05s.wav"" \
+  ""D:\SteamLibrary\steamapps"
+docs/07_finetune.md,8.1 從遊戲解包語音,202-226,merge,docs/02_unpack.md#6. 重新解出,五位數索引、
+docs/07_finetune.md,8.1 從遊戲解包語音,202-226,merge,docs/02_unpack.md#6. 重新解出,"cue 名稱。
+
+> ⚠️ **此指令會覆寫既有輸出目錄**（"
+docs/07_finetune.md,8.1 從遊戲解包語音,202-226,merge,docs/02_unpack.md#6. 重新解出,03_unpack.md
+docs/07_finetune.md,"8.2 說話者篩選 + ASR 漏斗（9,569 → 491）",227-283,merge,docs/04_transcript_pipeline.md#9. 執行順序,05_transcript_pipeline.md
+docs/07_finetune.md,"8.2 說話者篩選 + ASR 漏斗（9,569 → 491）",227-283,merge,docs/04_transcript_pipeline.md#9. 執行順序,"text
+9,569  wav/ 全部解包音檔
+  ↓ ECAPA-TDNN 說話者嵌入（tools/spk_model.py），9570×192 @ tools/embeddings.npy
+  ↓ 錨點 wav/00030.wav + "
+docs/07_finetune.md,"8.2 說話者篩選 + ASR 漏斗（9,569 → 491）",227-283,merge,docs/04_transcript_pipeline.md#9. 執行順序,**重跑 ASR 的完整指令**（
+docs/07_finetune.md,"8.2 說話者篩選 + ASR 漏斗（9,569 → 491）",227-283,merge,docs/04_transcript_pipeline.md#9. 執行順序,"bash
+# 步驟 3：從 top500 造冊（497）
+python tools/build_pos_label.py --source-dir ryza_main/top500 --output tools/pos_label.py
+
+"
+docs/07_finetune.md,"8.2 說話者篩選 + ASR 漏斗（9,569 → 491）",227-283,merge,docs/04_transcript_pipeline.md#9. 執行順序,**產出格式**：
+docs/07_finetune.md,"8.2 說話者篩選 + ASR 漏斗（9,569 → 491）",227-283,merge,docs/04_transcript_pipeline.md#9. 執行順序,"，**相對路徑**，491 行。
+
+> **專有名詞校正**："
+docs/07_finetune.md,"8.2 說話者篩選 + ASR 漏斗（9,569 → 491）",227-283,merge,docs/04_transcript_pipeline.md#9. 執行順序,套用 6 條規則（15 hits / 14 檔，
+docs/07_finetune.md,"8.2 說話者篩選 + ASR 漏斗（9,569 → 491）",227-283,merge,docs/04_transcript_pipeline.md#9. 執行順序,命中兩條），重算 core 後再由
+docs/07_finetune.md,9. 切分重現（467 / 24 / 10）,284-299,merge,docs/05_dataset_split.md#5. 執行指令,另記錄一版省略
+docs/07_finetune.md,9. 切分重現（467 / 24 / 10）,284-299,merge,docs/05_dataset_split.md#5. 執行指令,06_dataset.md
+docs/07_finetune.md,9.1 分層抽樣設計,300-334,move,docs/05_dataset_split.md#2. 分層抽樣設計,"欄位的三個性質，複現時務必先知道**（2026-10-05 階段 D 主觀試聽後補充）
+>
+> 1. **它只是文字推斷，不是聲學情緒。** 分類只看句末標點，而標點表達的是語法功能，不是聲優實際的語氣。
+>    主觀試聽已實證兩者會不符"
+docs/07_finetune.md,9.1 分層抽樣設計,300-334,move,docs/05_dataset_split.md#2. 分層抽樣設計,"分布：eval10 為 DECL 6／Q 2／EXCL 1／ELL 1，test24 為 DECL 15／Q 4／ELL 3／EXCL 2。
+>    這是階段 D 的量化指標（cosine、CER）對「情緒偏開心」缺陷**結構性盲視**的"
+docs/07_finetune.md,10.2 T0：`.bin` → safetensors（必要）,380-411,move,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,**驗收數據**（
+docs/07_finetune.md,10.2 T0：`.bin` → safetensors（必要）,380-411,move,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,"§2）：
+
+| 項目 | chinese-roberta-wwm-ext-large | chinese-hubert-base |
+|---|---|---|
+|"
+docs/07_finetune.md,12.1 產生參考音訊,498-527,move,docs/07_finetune.md#6.1 產生樣本,"**，見 §9.3） |
+| 版本／裝置／精度 |"
+docs/07_finetune.md,13. 已知偏差,558-576,move,docs/07_finetune.md#8. 已知偏差,"，而 torch 2.5.1+cu121 未達 2.6 門檻；升級 torch 會破壞 cu121 綁定 | 已由 T0 轉檔解決（§10.2），不升級 torch |
+| 3 | **"
+docs/07_finetune.md,13. 已知偏差,558-576,move,docs/07_finetune.md#8. 已知偏差,"** | 計畫預期的「工作樹僅 =0.4.1」；該檔已在階段 A 期間消失，現為**完全乾淨** | 否，僅記錄 |
+| 5 | **jieba_fast 未安裝** | 中文專用分詞器，本專案 language=ja **不需要**，20"
+docs/07_finetune.md,13. 已知偏差,558-576,move,docs/07_finetune.md#8. 已知偏差,"**五個欄位全部無效** | 接受，不修改官方排程器 |
+| 7 | **epochs 8 → 16** | PM 原定案 8，但 8 epoch 的成品聲線相似度僅達真實基線的 **86.9%**（門檻 90%）。續訓至 16 後為 **"
+docs/07_finetune.md,13. 已知偏差,558-576,move,docs/07_finetune.md#8. 已知偏差,"改回 8 即可，但相似度會未達標 |
+| 8 | **"
+docs/07_finetune.md,13. 已知偏差,558-576,move,docs/07_finetune.md#8. 已知偏差,"導致顯存假死（§7、§11.5） | 已採 true，屬必要設定 |
+| 9 | **v4 無 D 模型** | 官方 v4 發行包只附"
+docs/07_finetune.md,13. 已知偏差,558-576,move,docs/07_finetune.md#8. 已知偏差,"全程不讀該欄位 |
+| 10 | **"
+docs/07_finetune.md,13. 已知偏差,558-576,move,docs/07_finetune.md#8. 已知偏差,"（§12.1） |
+| 11 | **"
+docs/07_finetune.md,13. 已知偏差,558-576,move,docs/07_finetune.md#8. 已知偏差,的切分指令與腳本 docstring 不一致** | 前者省略
+docs/07_finetune.md,13. 已知偏差,558-576,move,docs/07_finetune.md#8. 已知偏差,08_tools.md
+docs/07_finetune.md,13. 已知偏差,558-576,move,docs/07_finetune.md#8. 已知偏差,09_pitfalls.md
+docs/07_finetune.md,13. 已知偏差,558-576,move,docs/07_finetune.md#8. 已知偏差,git ls-files
+docs/07_finetune.md,13. 已知偏差,558-576,move,docs/07_finetune.md#8. 已知偏差,data/06_dataset.md
+docs/07_finetune.md,15. 相關文件,596-613,move,docs/07_finetune.md#10. 相關文件,02_issue_part2.md
+docs/07_finetune.md,15. 相關文件,596-613,move,docs/07_finetune.md#10. 相關文件,03_unpack.md
+docs/07_finetune.md,15. 相關文件,596-613,move,docs/07_finetune.md#10. 相關文件,04_speaker_id.md
+docs/07_finetune.md,15. 相關文件,596-613,move,docs/07_finetune.md#10. 相關文件,05_transcript_pipeline.md
+docs/07_finetune.md,15. 相關文件,596-613,move,docs/07_finetune.md#10. 相關文件,06_dataset.md
+docs/07_finetune.md,15. 相關文件,596-613,move,docs/07_finetune.md#10. 相關文件,08_tools.md
+docs/07_finetune.md,15. 相關文件,596-613,move,docs/07_finetune.md#10. 相關文件,09_pitfalls.md
+docs/08_tools.md,工具總覽,1-10,edit,tools/README.md#tools/,03_unpack.md
+docs/08_tools.md,工具總覽,1-10,edit,tools/README.md#tools/,04_speaker_id.md
+docs/08_tools.md,工具總覽,1-10,edit,tools/README.md#tools/,05_transcript_pipeline.md
+docs/08_tools.md,1. Part 1 ①：語音解包,11-23,move,tools/README.md#1. 語音解包,03_unpack.md
+docs/08_tools.md,2.1 嵌入計算,26-39,edit,tools/README.md#2.1 嵌入計算,../tools/encode_chunk.py
+docs/08_tools.md,2.1 嵌入計算,26-39,edit,tools/README.md#2.1 嵌入計算,../tools/spk_feats.py
+docs/08_tools.md,2.2 評分、驗證與分級,40-57,edit,tools/README.md#2.2 評分、驗證與分級,../tools/export_ryza.py
+docs/08_tools.md,2.2 評分、驗證與分級,40-57,edit,tools/README.md#2.2 評分、驗證與分級,../tools/ryza_scores.npy
+docs/08_tools.md,2.2 評分、驗證與分級,40-57,edit,tools/README.md#2.2 評分、驗證與分級,../tools/svm_dec.npy
+docs/08_tools.md,2.2 評分、驗證與分級,40-57,edit,tools/README.md#2.2 評分、驗證與分級,04_speaker_id.md
+docs/08_tools.md,3. Part 1 ③：ASR 轉譯與訓練清單,58-79,move,tools/README.md#3. 轉譯資料集,../tools/make_cer_sample.py
+docs/08_tools.md,3. Part 1 ③：ASR 轉譯與訓練清單,58-79,move,tools/README.md#3. 轉譯資料集,../tools/voice_cues.csv
+docs/08_tools.md,3. Part 1 ③：ASR 轉譯與訓練清單,58-79,move,tools/README.md#3. 轉譯資料集,05_transcript_pipeline.md
+docs/08_tools.md,4. 資料切分與品質量測,80-86,merge,tools/README.md#4. 資料切分,"reports/audio_quality.{md,json}"
+docs/08_tools.md,8. 尚未納入版控的工具,115-129,merge,tools/README.md#5. TTS 微調與推論,docs/09_pitfalls.md
+docs/09_pitfalls.md,訓練坑記錄（Pitfall Log）,1-10,edit,docs/08_troubleshooting.md#疑難排解（坑記錄）,docs/01_issue.md:55
+docs/09_pitfalls.md,4. GPU 不穩專區,216-225,edit,,docs/01_issue.md:55
+docs/09_pitfalls.md,5. 與前因／計畫不符處,271-278,delete,,"→UNK」**：同為 G1 已確認無害，追填為 PK-003（狀態=已解，處置=不需處置）。
+3. **前因未列的兩筆**：本文件補入 PK-005（"
+docs/09_pitfalls.md,7. 階段 D 追加（2026-10-05）,289-294,delete,,"<GPT>
+equirements.txt"
+reports/01_env_model_prep.md,環境資訊,11-28,delete,,2824
+reports/01_env_model_prep.md,依賴清單,29-44,delete,,--index-url https://download.pytorch.org/whl/cu121
+reports/01_env_model_prep.md,依賴清單,29-44,delete,,//download.py
+reports/01_env_model_prep.md,模型清單與大小,56-71,merge,docs/07_finetune.md#2.1 必須存在的權重,963
+reports/01_env_model_prep.md,日文 G2P 驗證,72-97,delete,,經 GPT-SoVITS 自身程式碼路徑驗證（
+reports/01_env_model_prep.md,日文 G2P 驗證,72-97,delete,,"python
+clean_text('こんにちは、ライザです。', 'ja', 'v2')
+# -> phones: k o [ N n i ch i w a , r a ] i z a d e s u .
+
+clean_text('今日も"
+reports/01_env_model_prep.md,日文 G2P 驗證,72-97,delete,,"- **pyopenjtalk 基礎 G2P：通過**（音素序列正確，OpenJTalk 字典自動下載至 venv）。
+- **clean_text 日文全鏈：通過**（"
+reports/01_env_model_prep.md,日文 G2P 驗證,72-97,delete,,"路徑的 import 鏈完整可運作）。
+- 待確認（不影響本階段門禁）：clean_text 輸出中可見"
+reports/01_env_model_prep.md,日文 G2P 驗證,72-97,delete,,韻律標記與
+reports/01_env_model_prep.md,TF32 記錄（不 patch）,98-114,merge,docs/08_troubleshooting.md#TF32 —— 其他環境過往異常，本機無需理會,GPT_SoVITS/s2_train.py:44-45
+reports/01_env_model_prep.md,TF32 記錄（不 patch）,98-114,merge,docs/08_troubleshooting.md#TF32 —— 其他環境過往異常，本機無需理會,GPT_SoVITS/s2_train_v3.py:44-45
+reports/01_env_model_prep.md,TF32 記錄（不 patch）,98-114,merge,docs/08_troubleshooting.md#TF32 —— 其他環境過往異常，本機無需理會,GPT_SoVITS/TTS_infer_pack/TTS.py:210
+reports/01_env_model_prep.md,TF32 記錄（不 patch）,98-114,merge,docs/08_troubleshooting.md#TF32 —— 其他環境過往異常，本機無需理會,GPT_SoVITS/s2_train.py
+reports/01_env_model_prep.md,TF32 記錄（不 patch）,98-114,merge,docs/08_troubleshooting.md#TF32 —— 其他環境過往異常，本機無需理會,GPT_SoVITS/s2_train_v3.py
+reports/01_env_model_prep.md,TF32 記錄（不 patch）,98-114,merge,docs/08_troubleshooting.md#TF32 —— 其他環境過往異常，本機無需理會,GPT_SoVITS/TTS_infer_pack/TTS.py
+reports/01_env_model_prep.md,風險與待確認,133-144,delete,,"與 UNK**：需在訓練階段首次執行 1Aa 時確認 version 環境變數與符號表對應是否正確。
+5. **未下載 G2PWModel**（"
+reports/01_env_model_prep.md,風險與待確認,133-144,delete,,"，install.sh 另行下載 589 MB）：用於中文 G2P 加速；日文路徑不需要，未下載。若需中文路徑再補。
+6. **v4 LoRA 實測顯存**：本階段不訓練，未量測。訓練階段需以"
+reports/G1_t0_t1_report.md,G1 回報：T0（BERT/HuBERT 轉 safetensors）＋ T1（UNK 來源分析）,1-9,delete,,feat/tts-v4-data-prep
+reports/G1_t0_t1_report.md,G1 回報：T0（BERT/HuBERT 轉 safetensors）＋ T1（UNK 來源分析）,1-9,delete,,24153eb
+reports/G1_t0_t1_report.md,G1 回報：T0（BERT/HuBERT 轉 safetensors）＋ T1（UNK 來源分析）,1-9,delete,,24153
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,"<GPT>\GPT_SoVITS\pretrained_models\chinese-{roberta-wwm-ext-large,hubert-base}\model.safetensors"
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,warnings: []
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,"[1,10,21128]"
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,"[1,49,768]"
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,detects_failure: true
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,pretrained_models/.gitignore
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,git ls-files --others --ignored
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,"torch.load(..., weights_only=True)"
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,，無其他符號 | 【實測】 |
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,：訓練集 UNK 來源
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,；全部分類為
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,"（韻律邊界插入，非文字中的符號） | 相符 |
+| T1-2 | 停止條件不觸發 | 【實測】 | 非"
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,"的 UNK 總數 = 0（門檻 > 20），影響行數 = 0（門檻 > 10） | 相符 |
+| T1-3 | 推論端使用同一個"
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,與日文 G2P，前提成立 | 【讀碼】 |
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,from text.cleaner import clean_text
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,clean_text_inf
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,"clean_text(text, language, version)"
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,self.configs.version
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,text.japanese.g2p
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,japanese.py:267
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,不在 symbols2（732 符號），兩端同時產生 UNK | 【實測】 |
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,len(symbols2.symbols) == 732
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,'[' in symbols2.symbols == True
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,"不會變 UNK） | 相符 |
+| T1-5 | 無空輸出、無異常短行 | 【實測】 | 訓練集音素數 min 15／median 58／max 120，空輸出 0，"
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,音素 0；eval10 min 24／median 52／max 104，空輸出 0，
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,"0 | 相符 |
+| T1-6 | 版控紀錄查詢完成 | 【實測】 |"
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,全庫僅 1 commit（
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,text/symbols2.py
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,"git log -S""with_prosody"""
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,"325,545,608"
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,"94,371,712"
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,"1,10,21128"
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,"1,49,768"
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,1.226
+reports/G1_t0_t1_report.md,1. 結果總表,10-30,delete,,6.126
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,pretrained_models\chinese-hubert-base\pytorch_model.bin
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,bert.embeddings.word_embeddings.weight
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,cls.predictions.decoder.weight
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,cls.predictions.bias
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,cls.predictions.decoder.bias
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,"{""format"": ""pt""}"
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,1-get-text.py:62
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,feature_extractor/cnhubert.py:31
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,（error_msgs
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,，無警告） |
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,（error_msgs
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,"，無警告） |
+| 輸出最大絕對差（vs 手動讀"
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,"） | 0.0（logits，output_abs_max 6.88） | 0.0（last_hidden_state，output_abs_max 4.54） |
+| 複製到正式目錄後重驗 | 全 V1–V4 通過（與溫存目錄結果相同） "
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,（實作）先在
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,暫存目錄轉檔（只複製 config 類檔案），
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,（獨立驗證，只看 input
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,與 output
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,）在暫存目錄驗證＋negative fixture，通過後才複製進 pretrained 目錄，並於最終位置重跑完整驗證；溫存目錄與偵察腳本（
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,t0_recon_tmp.py
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,..._BROKEN
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,feature_extractor/cnhubert.py
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,6.88
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,1.226
+reports/G1_t0_t1_report.md,2. T0 明細表,31-63,merge,docs/07_finetune.md#2.2 T0：`.bin` → safetensors（必要）,6.126
+reports/G1_t0_t1_report.md,3. T1 統計明細,64-67,delete,,"clean_text(text.replace(""%"", ""-"").replace(""￥"", "",""), ""ja"", ""v4"")"
+reports/G1_t0_t1_report.md,3. T1 統計明細,64-67,delete,,text.japanese.g2p
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,"×1776（100%） |
+| 來源類別 |"
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,×1776（韻律邊界，
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,插入，不在原文中）／
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,"的 UNK | 0 |
+| 空輸出（0 音素）行數 | 0 |
+| 異常短行（<3 音素） | 0 |
+| 含"
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,"的行數 | 0 |
+
+UNK 最多前 5 行："
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,(11/106)、
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,(10/120)、
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,(9/107)、
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,06844.wav
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,03166.wav
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,08365.wav
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,02700.wav
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,96.6%
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,0.0633
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,0.1224
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,06844
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,03166
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,08365
+reports/G1_t0_t1_report.md,訓練集 `data\finetune_train.list`（467 行）,68-85,delete,,02700
+reports/G1_t0_t1_report.md,eval10 `data\finetune_eval10.list`（10 行）,86-98,delete,,"×35（100%，全為 prosody_insert） |
+| 非"
+reports/G1_t0_t1_report.md,eval10 `data\finetune_eval10.list`（10 行）,86-98,delete,,0.0256
+reports/G1_t0_t1_report.md,eval10 `data\finetune_eval10.list`（10 行）,86-98,delete,,0.0681
+reports/G1_t0_t1_report.md,eval10 `data\finetune_eval10.list`（10 行）,86-98,delete,,0.0889
+reports/G1_t0_t1_report.md,推論端比對（`#` → UNK 前提）,99-108,delete,,GPT_SoVITS\TTS_infer_pack\TextPreprocessor.py:15
+reports/G1_t0_t1_report.md,推論端比對（`#` → UNK 前提）,99-108,delete,,from text.cleaner import clean_text
+reports/G1_t0_t1_report.md,推論端比對（`#` → UNK 前提）,99-108,delete,,TextPreprocessor.py:206-210
+reports/G1_t0_t1_report.md,推論端比對（`#` → UNK 前提）,99-108,delete,,clean_text_inf
+reports/G1_t0_t1_report.md,推論端比對（`#` → UNK 前提）,99-108,delete,,"phones, word2ph, norm_text = clean_text(text, language, version)"
+reports/G1_t0_t1_report.md,推論端比對（`#` → UNK 前提）,99-108,delete,,"phones = cleaned_text_to_sequence(phones, version)"
+reports/G1_t0_t1_report.md,推論端比對（`#` → UNK 前提）,99-108,delete,,GPT_SoVITS\TTS_infer_pack\TTS.py:1171
+reports/G1_t0_t1_report.md,推論端比對（`#` → UNK 前提）,99-108,delete,,"self.text_preprocessor.preprocess(text, text_lang, text_split_method, self.configs.version)"
+reports/G1_t0_t1_report.md,推論端比對（`#` → UNK 前提）,99-108,delete,,update_version
+reports/G1_t0_t1_report.md,推論端比對（`#` → UNK 前提）,99-108,delete,,japanese.py:267
+reports/G1_t0_t1_report.md,推論端比對（`#` → UNK 前提）,99-108,delete,,的 accent phrase border 插入（
+reports/G1_t0_t1_report.md,推論端比對（`#` → UNK 前提）,99-108,delete,,共 732 個符號，不含
+reports/G1_t0_t1_report.md,推論端比對（`#` → UNK 前提）,99-108,delete,,同樣映射為 UNK — 兩端行為一致，**「不過濾
+reports/G1_t0_t1_report.md,推論端比對（`#` → UNK 前提）,99-108,delete,,GPT_SoVITS\TTS_infer_pack\TextPreprocessor.py
+reports/G1_t0_t1_report.md,推論端比對（`#` → UNK 前提）,99-108,delete,,GPT_SoVITS\TTS_infer_pack\TTS.py
+reports/G1_t0_t1_report.md,4. 與計畫不符或需 PM 留意的事項,109-119,delete,,RobertaForMaskedLM
+reports/G1_t0_t1_report.md,4. 與計畫不符或需 PM 留意的事項,109-119,delete,,load_info_b_unexpected
+reports/G1_t0_t1_report.md,4. 與計畫不符或需 PM 留意的事項,109-119,delete,,cls.predictions.decoder.weight
+reports/G1_t0_t1_report.md,4. 與計畫不符或需 PM 留意的事項,109-119,delete,,cls.predictions.decoder.bias
+reports/G1_t0_t1_report.md,4. 與計畫不符或需 PM 留意的事項,109-119,delete,,word_embeddings.weight
+reports/G1_t0_t1_report.md,4. 與計畫不符或需 PM 留意的事項,109-119,delete,,的行數皆為 0，**無實際影響**；列為觀察供
+reports/G1_t0_t1_report.md,5. 風險與意外發現,120-128,delete,,userdict.md5
+reports/G1_t0_t1_report.md,5. 風險與意外發現,120-128,delete,,Fix Fun-ASR-Nano Transformers requirement (#2824)
+reports/G1_t0_t1_report.md,5. 風險與意外發現,120-128,delete,,text/symbols2.py
+reports/G1_t0_t1_report.md,5. 風險與意外發現,120-128,delete,,git log -S
+reports/G1_t0_t1_report.md,5. 風險與意外發現,120-128,delete,,"相關的其他提交，無法追溯歷史變更。
+3. **"
+reports/G1_t0_t1_report.md,5. 風險與意外發現,120-128,delete,,工作樹狀態**：始終只有預先存在的
+reports/G1_t0_t1_report.md,5. 風險與意外發現,120-128,delete,,（計畫 §2.1 已列為「工作樹乾淨」的唯一例外）；兩個
+reports/G1_t0_t1_report.md,5. 風險與意外發現,120-128,delete,,userdict.md
+reports/G1_t0_t1_report.md,5. 風險與意外發現,120-128,delete,,2824
+reports/G1_t0_t1_report.md,7. 目前工作樹與產出,135-140,delete,,feat/tts-v4-data-prep
+reports/G1_t0_t1_report.md,7. 目前工作樹與產出,135-140,delete,,24153eb
+reports/G1_t0_t1_report.md,7. 目前工作樹與產出,135-140,delete,,24153
+reports/G2_stage_a_report.md,G2 回報：階段 A 預處理驗證（訓練集 467 ＋ eval10 10）,1-9,delete,,feat/tts-v4-lora-prep
+reports/G2_stage_a_report.md,1. 結果總表,10-31,merge,docs/07_finetune.md#3.3 完成條件（PA 檢查）,1776 次）；eval10 非 # 來源 0（
+reports/G2_stage_a_report.md,1. 結果總表,10-31,merge,docs/07_finetune.md#3.3 完成條件（PA 檢查）,"35 次）；門檻只計非 # 來源（總數 ≤20、影響行數 ≤10） | 相符 |
+| PA-10 | 音素序列與 T1 的 G2P 輸出一致 | 【實測】 | 兩 exp 各抽 5 行（seed 固定），mismatches=[] | 相符"
+reports/G2_stage_a_report.md,1. 結果總表,10-31,merge,docs/07_finetune.md#3.3 完成條件（PA 檢查）,"| 相符（§9.1 已預期） |
+| PA-12 |"
+reports/G2_stage_a_report.md,1. 結果總表,10-31,merge,docs/07_finetune.md#3.3 完成條件（PA 檢查）,工作樹乾淨 | 【實測】 |
+reports/G2_stage_a_report.md,1. 結果總表,10-31,merge,docs/07_finetune.md#3.3 完成條件（PA 檢查）,空；logs/、.venv\Scripts\ffmpeg.exe 均被 .gitignore 忽略 | 相符（優於預期：
+reports/G2_stage_a_report.md,1. 結果總表,10-31,merge,docs/07_finetune.md#3.3 完成條件（PA 檢查）,現已完全乾淨，
+reports/G2_stage_a_report.md,1. 結果總表,10-31,merge,docs/07_finetune.md#3.3 完成條件（PA 檢查）,"已刪） |
+| PA-13 | 兩 repo 無被修改的追蹤檔 | 【實測】 |"
+reports/G2_stage_a_report.md,1. 結果總表,10-31,merge,docs/07_finetune.md#3.3 完成條件（PA 檢查）,無任何追蹤檔變動；
+reports/G2_stage_a_report.md,1. 結果總表,10-31,merge,docs/07_finetune.md#3.3 完成條件（PA 檢查）,07935
+reports/G2_stage_a_report.md,1. 結果總表,10-31,merge,docs/07_finetune.md#3.3 完成條件（PA 檢查）,"1,768,120"
+reports/G2_stage_a_report.md,1. 結果總表,10-31,merge,docs/07_finetune.md#3.3 完成條件（PA 檢查）,03166
+reports/G2_stage_a_report.md,1. 結果總表,10-31,merge,docs/07_finetune.md#3.3 完成條件（PA 檢查）,"1,768,601"
+reports/G2_stage_a_report.md,2. 各步驟結束碼與耗時,32-48,delete,,"<RYZA>\reports\logs\raw\{train,eval10}_step{1,2,3}.{out,err}"
+reports/G2_stage_a_report.md,3. 與計畫不符或需 PM 留意的事項,49-64,delete,,tools/my_utils.py:24-28
+reports/G2_stage_a_report.md,3. 與計畫不符或需 PM 留意的事項,49-64,delete,,造成的 UNK 行數（451）也計入「影響行數」門檻而誤判 FAIL。修正後門檻只計非 # 來源（計畫 §9.4 明定），通過。**這是驗證腳本的 bug，不是資料問題**——資料的非 # UNK 本就是 0（T1 已證明，PA-9 再確認
+reports/G2_stage_a_report.md,3. 與計畫不符或需 PM 留意的事項,49-64,delete,,"）後 5/5 一致。同樣是驗證腳本 bug，非資料問題。
+4. **"
+reports/G2_stage_a_report.md,3. 與計畫不符或需 PM 留意的事項,49-64,delete,,原始檔無結尾換行**：腳本以
+reports/G2_stage_a_report.md,3. 與計畫不符或需 PM 留意的事項,49-64,delete,,顯示 466 而非 467。合併時已正規化（補 LF 結尾），最終
+reports/G2_stage_a_report.md,3. 與計畫不符或需 PM 留意的事項,49-64,delete,,"為 468 行（含表頭）。
+5. **"
+reports/G2_stage_a_report.md,3. 與計畫不符或需 PM 留意的事項,49-64,delete,,為 CRLF**：官方腳本在 Windows 寫出 CRLF（467 行皆含
+reports/G2_stage_a_report.md,4. 無法判定的項目,65-71,delete,,07935
+reports/G2_stage_a_report.md,4. 無法判定的項目,65-71,delete,,03166
+reports/G2_stage_a_report.md,4. 無法判定的項目,65-71,delete,,"1,768,120"
+reports/G2_stage_a_report.md,4. 無法判定的項目,65-71,delete,,"1,768,601"
+reports/G2_stage_a_report.md,4. 無法判定的項目,65-71,delete,,12.042
+reports/G2_stage_a_report.md,`<GPT>`（`main` 分支，commit `48b1a01`）,74-79,delete,,logs\ryza_v4_lora_eval10
+reports/G2_stage_a_report.md,`<GPT>`（`main` 分支，commit `48b1a01`）,74-79,delete,,".venv\Scripts\{ffmpeg,ffprobe}.exe"
+reports/G2_stage_a_report.md,`<GPT>`（`main` 分支，commit `48b1a01`）,74-79,delete,,2-name2text-0.txt
+reports/G2_stage_a_report.md,`<GPT>`（`main` 分支，commit `48b1a01`）,74-79,delete,,logs\ryza_v4_lora_eval10\
+reports/G2_stage_a_report.md,`<RYZA>`（`feat/tts-v4-lora-prep`，HEAD `0b7c743`）,80-88,delete,,raw\*.out/.err
+reports/G2_stage_a_report.md,`<RYZA>`（`feat/tts-v4-lora-prep`，HEAD `0b7c743`）,80-88,delete,,tools\t0_*.py
+reports/G2_stage_a_report.md,6. 風險與意外發現,89-97,delete,,nan_fails
+reports/G3_stage_b_report.md,階段 B 回報：訓練配置與啟動腳本,1-8,delete,,feat/tts-v4-lora-prep
+reports/G3_stage_b_report.md,1. 結果總表,9-27,delete,,os.getcwd()
+reports/G3_stage_b_report.md,1. 結果總表,9-27,delete,,sample_gpu()
+reports/G3_stage_b_report.md,1. 結果總表,9-27,delete,,<tag>.gpu
+reports/G3_stage_b_report.md,1. 結果總表,9-27,delete,,git diff --stat
+reports/G3_stage_b_report.md,1. 結果總表,9-27,delete,,s1longer-v2.yaml
+reports/G3_stage_b_report.md,2. 產出檔案清單,28-49,delete,,s1longer-v2.yaml
+reports/G3_stage_b_report.md,2. 產出檔案清單,28-49,delete,,"bash
+cd <GPT>
+# 正式訓練（8 小時 watchdog 預設開啟）
+python <RYZA>/tools/run_lora_train.py --stage s2
+python <RYZA>/tools/run_lora_t"
+reports/G3_stage_b_report.md,4. 與計畫不符處,92-101,delete,,webui.py:528
+reports/G3_stage_b_report.md,4. 與計畫不符處,92-101,delete,,"if ""s2Dv3"" not in i and ""s2Dv4"" not in i"
+reports/G3_stage_b_report.md,4. 與計畫不符處,92-101,delete,,GPT_SoVITS/AR/models/t2s_lightning_module.py:45
+reports/G3_stage_b_report.md,4. 與計畫不符處,92-101,delete,,docs/09_pitfalls.md
+reports/G3_stage_b_report.md,4. 與計畫不符處,92-101,delete,,GPT_SoVITS/AR/models/t2s_lightning_module.py
+reports/G3_stage_b_report.md,5. 無法判定項目,102-109,delete,,s1_train.py:134-135
+reports/G3_stage_b_report.md,5. 無法判定項目,102-109,delete,,s1_train.py:68-80
+reports/G3_stage_b_report.md,5. 無法判定項目,102-109,delete,,docs/09_pitfalls.md
+reports/G4_stage_c_report.md,階段 C 回報：冒煙測試（S2 LoRA ＋ S1 ＋ 推論）,1-13,delete,,feat/tts-v4-lora-prep
+reports/G4_stage_c_report.md,階段 C 回報：冒煙測試（S2 LoRA ＋ S1 ＋ 推論）,1-13,delete,,smoke_test_stage_c.md
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,s2_smoke_summary.json
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,s2_smoke.err
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,s2_smoke.out
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,phoneme_data_len: 20
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,wav_data_len: 100
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,total left: 100
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,"[loss, step, lr]"
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,0.0216744449
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,0.0193039812
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,logs/ryza_v4_lora_smoke/logs_s2_v4_lora_32/G_233333333333.pth
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,Saving model and optimizer state at iteration 1
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,；大小遠小於底模 | 【實測】 |
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,"75,550,062 bytes；前 2 bytes ="
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,（ASCII
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,"info=""1epoch_26iteration"""
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,enc_q
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,saving ckpt ryza_v4_lora_smoke_e1:Success.
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,start training from epoch 2
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,saving ckpt ryza_v4_lora_smoke_e2:Success.
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,ryza_v4_lora_smoke_e2_s52_l32.pth
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,"） | 相符 |
+| SM-S2-7 | 顯存峰值（整張卡）、每 step 平均秒數已記錄 | 【實測】 | 整卡峰值 10572 MiB（"
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,smoke_test_stage_c.md
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,s1_smoke_summary.json
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,s1_smoke.out
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,total_loss_step
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,GPT_weights_v4\ryza_v4_lora_smoke-e*.ckpt
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,epoch=0-step=3.ckpt
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,GPT_weights_v4/ryza_v4_lora_smoke-e1.ckpt
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,"torch.load(map_location=""cpu"")"
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,"info=""GPT-e1"""
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,infer_base.log
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,Loading BERT weights from ...chinese-roberta-wwm-ext-large
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,Loading CNHuBERT weights from ...chinese-hubert-base
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,infer_smoke.log
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,[ACTUAL] t2s=s1v3.ckpt
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,vits=s2Gv4.pth
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,[ACTUAL] t2s=GPT_weights_v4/ryza_v4_lora_smoke-e1.ckpt
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,vits=SoVITS_weights_v4/ryza_v4_lora_smoke_e2_s52_l32.pth
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,custom 生效 = True
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,base_01498
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,base_00045
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,base_00638
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,smoke_01498
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,smoke_00045
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,smoke_00638
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,nan=False
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,本輪是否改動 = True
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,b9481d69…5e9af5
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,"infer_{base,smoke}_summary.json"
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,git diff --stat
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,<GPT>\SoVITS_weights_v4\
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,<GPT>\GPT_weights_v4\
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,SoVITS_weights_v4/ryza_v4_lora_smoke_e2_s52_l32.pth
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,3034
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,0.5425
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,0.5386
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,3972.732178
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,0.49297
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,1564.616
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,"310,538,850"
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,0.109769
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,0.110901
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,7.200
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,0.121733
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,0.108040
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,0.110746
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,7.200
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,0.120973
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,9481
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,0216744449
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,0193039812
+reports/G4_stage_c_report.md,1. 結果總表,14-44,merge,docs/07_finetune.md#5.2 冒煙測試,b9481d69
+reports/G4_stage_c_report.md,2.1 `<RYZA>` 新增／修改（皆未 commit）,47-60,delete,,tools/stage_c_collect.py
+reports/G4_stage_c_report.md,2.1 `<RYZA>` 新增／修改（皆未 commit）,47-60,delete,,reports/logs/raw/stage_c_metrics.json
+reports/G4_stage_c_report.md,2.1 `<RYZA>` 新增／修改（皆未 commit）,47-60,delete,,reports/smoke_test_stage_c.md
+reports/G4_stage_c_report.md,2.1 `<RYZA>` 新增／修改（皆未 commit）,47-60,delete,,docs/09_pitfalls.md
+reports/G4_stage_c_report.md,2.2 `<GPT>` 產出（全部落在 §4.1 允許清單內，且 `logs`、`SoVITS_weights*/`、`GPT_weights*/` 皆被 `.gitignore` 忽略）,61-72,delete,,"| 155,312,957 bytes，CPU 載入驗證通過 |
+|"
+reports/G4_stage_c_report.md,2.2 `<GPT>` 產出（全部落在 §4.1 允許清單內，且 `logs`、`SoVITS_weights*/`、`GPT_weights*/` 皆被 `.gitignore` 忽略）,61-72,delete,,"| 1,845,612,582 bytes（epoch 2 覆寫後） |
+|"
+reports/G4_stage_c_report.md,2.2 `<GPT>` 產出（全部落在 §4.1 允許清單內，且 `logs`、`SoVITS_weights*/`、`GPT_weights*/` 皆被 `.gitignore` 忽略）,61-72,delete,,"| 310,538,850 bytes |
+|"
+reports/G4_stage_c_report.md,2.2 `<GPT>` 產出（全部落在 §4.1 允許清單內，且 `logs`、`SoVITS_weights*/`、`GPT_weights*/` 皆被 `.gitignore` 忽略）,61-72,delete,,"| 6 個 wav（E1 3 個 ＋ E2 3 個） |
+|"
+reports/G4_stage_c_report.md,2.2 `<GPT>` 產出（全部落在 §4.1 允許清單內，且 `logs`、`SoVITS_weights*/`、`GPT_weights*/` 皆被 `.gitignore` 忽略）,61-72,delete,,| 04:57 那次失敗的 ckpt 與
+reports/G4_stage_c_report.md,2.2 `<GPT>` 產出（全部落在 §4.1 允許清單內，且 `logs`、`SoVITS_weights*/`、`GPT_weights*/` 皆被 `.gitignore` 忽略）,61-72,delete,,SoVITS_weights_v4/ryza_v4_lora_smoke_e2_s52_l32.pth
+reports/G4_stage_c_report.md,2.2 `<GPT>` 產出（全部落在 §4.1 允許清單內，且 `logs`、`SoVITS_weights*/`、`GPT_weights*/` 皆被 `.gitignore` 忽略）,61-72,delete,,GPT_weights_v4/ryza_v4_lora_smoke-e1.ckpt
+reports/G4_stage_c_report.md,2.2 `<GPT>` 產出（全部落在 §4.1 允許清單內，且 `logs`、`SoVITS_weights*/`、`GPT_weights*/` 皆被 `.gitignore` 忽略）,61-72,delete,,logs/ryza_v4_lora_smoke/logs_s2_v4_lora_32/G_233333333333.pth
+reports/G4_stage_c_report.md,2.2 `<GPT>` 產出（全部落在 §4.1 允許清單內，且 `logs`、`SoVITS_weights*/`、`GPT_weights*/` 皆被 `.gitignore` 忽略）,61-72,delete,,"310,538,850"
+reports/G4_stage_c_report.md,2.3 `<RYZA>\reports\logs\raw\` 新增（`.gitignore` 忽略，不提交）,73-78,delete,,"s2_smoke.{out,err,gpu}"
+reports/G4_stage_c_report.md,2.3 `<RYZA>\reports\logs\raw\` 新增（`.gitignore` 忽略，不提交）,73-78,delete,,s2_smoke_summary.json
+reports/G4_stage_c_report.md,2.3 `<RYZA>\reports\logs\raw\` 新增（`.gitignore` 忽略，不提交）,73-78,delete,,"s2_smoke_resume.{out,err,gpu}"
+reports/G4_stage_c_report.md,2.3 `<RYZA>\reports\logs\raw\` 新增（`.gitignore` 忽略，不提交）,73-78,delete,,s2_smoke_resume_summary.json
+reports/G4_stage_c_report.md,2.3 `<RYZA>\reports\logs\raw\` 新增（`.gitignore` 忽略，不提交）,73-78,delete,,"s1_smoke.{out,err,gpu}"
+reports/G4_stage_c_report.md,2.3 `<RYZA>\reports\logs\raw\` 新增（`.gitignore` 忽略，不提交）,73-78,delete,,s1_smoke_summary.json
+reports/G4_stage_c_report.md,2.3 `<RYZA>\reports\logs\raw\` 新增（`.gitignore` 忽略，不提交）,73-78,delete,,infer_base.log
+reports/G4_stage_c_report.md,2.3 `<RYZA>\reports\logs\raw\` 新增（`.gitignore` 忽略，不提交）,73-78,delete,,infer_smoke.log
+reports/G4_stage_c_report.md,2.3 `<RYZA>\reports\logs\raw\` 新增（`.gitignore` 忽略，不提交）,73-78,delete,,"infer_{base,smoke}_summary.json"
+reports/G4_stage_c_report.md,2.3 `<RYZA>\reports\logs\raw\` 新增（`.gitignore` 忽略，不提交）,73-78,delete,,stage_c_metrics.json
+reports/G4_stage_c_report.md,3. 讀碼依據（本輪新增的關鍵行號）,79-101,delete,,@torch.no_grad()
+reports/G4_stage_c_report.md,3. 讀碼依據（本輪新增的關鍵行號）,79-101,delete,,yield
+reports/G4_stage_c_report.md,4-1 SM-S2-5 首次失敗：推論權重目錄不存在（已自行修正，但根因值得記錄）,104-109,delete,,docs/09_pitfalls.md
+reports/G4_stage_c_report.md,4-3 S1 實際 batch 是 8，不是計畫預期的 5,118-123,delete,,"min(8, 25) = 8"
+reports/G4_stage_c_report.md,4-5 `tts_infer.yaml` 曾被推論中途中斷污染（已修正，證據已重取）,132-137,delete,,本輪是否改動 = True
+reports/G4_stage_c_report.md,4-5 `tts_infer.yaml` 曾被推論中途中斷污染（已修正，證據已重取）,132-137,delete,,finally
+reports/G4_stage_c_report.md,4-6 需 PM 決定：S1 的 epochs,138-141,delete,,smoke_test_stage_c.md
+reports/G4_stage_c_report.md,5. 無法判定的項目,148-156,delete,,total_loss_step
+reports/G4_stage_c_report.md,5. 無法判定的項目,148-156,delete,,9.60it/s
+reports/G4_stage_c_report.md,5. 無法判定的項目,148-156,delete,,num_workers=4
+reports/G4_stage_c_report.md,5. 無法判定的項目,148-156,delete,,persistent_workers=True
+reports/G4_stage_c_report.md,5. 無法判定的項目,148-156,delete,,docs/09_pitfalls.md
+reports/G4_stage_c_report.md,6. 風險與意外發現,157-165,delete,,G_<step>.pth
+reports/G4_stage_c_report.md,6. 風險與意外發現,157-165,delete,,reports/NIGHTLY_STATUS.md
+reports/G4_stage_c_report.md,6. 風險與意外發現,157-165,delete,,reports/NIGHTLY_SUMMARY.md
+reports/G4_stage_c_report.md,6. 風險與意外發現,157-165,delete,,docs/speaker_id.md
+reports/G4_stage_c_report.md,6. 風險與意外發現,157-165,delete,,docs/tools.md
+reports/G4_stage_c_report.md,6. 風險與意外發現,157-165,delete,,docs/transcript_pipeline.md
+reports/G4_stage_c_report.md,6. 風險與意外發現,157-165,delete,,docs/unpack.md
+reports/G4_stage_c_report.md,6. 風險與意外發現,157-165,delete,,439
+reports/G4_stage_c_report.md,冒煙產物清理清單（依 PE-11 提交，Agent 不自行刪除）,166-182,delete,,logs/ryza_v4_lora_smoke/_archive_pre_stagec/G_233333333333.pth
+reports/G4_stage_c_report.md,冒煙產物清理清單（依 PE-11 提交，Agent 不自行刪除）,166-182,delete,,logs/ryza_v4_lora_smoke/logs_s2_v4_lora_32/G_233333333333.pth
+reports/G4_stage_c_report.md,冒煙產物清理清單（依 PE-11 提交，Agent 不自行刪除）,166-182,delete,,logs/ryza_v4_lora_smoke/logs_s1_v4/ckpt/epoch=0-step=3.ckpt
+reports/G4_stage_c_report.md,冒煙產物清理清單（依 PE-11 提交，Agent 不自行刪除）,166-182,delete,,"SoVITS_weights_v4/ryza_v4_lora_smoke_e{1,2}_*.pth"
+reports/G4_stage_c_report.md,冒煙產物清理清單（依 PE-11 提交，Agent 不自行刪除）,166-182,delete,,GPT_weights_v4/ryza_v4_lora_smoke-e1.ckpt
+reports/G4_stage_c_report.md,冒煙產物清理清單（依 PE-11 提交，Agent 不自行刪除）,166-182,delete,,logs/ryza_v4_lora_smoke/infer/
+reports/G4_stage_c_report.md,冒煙產物清理清單（依 PE-11 提交，Agent 不自行刪除）,166-182,delete,,"logs/ryza_v4_lora_smoke/{2-name2text*,6-name2semantic*,4-cnhubert,5-wav32k,3-bert}"
+reports/G4_stage_c_report.md,7. 停止點,183-191,delete,,docs/09_pitfalls.md
+reports/asr_report.md,附錄：相關檔案,189-195,edit,reports/asr_report.md#附錄 B：相關檔案,reports/correction_diff.md
+reports/asr_report.md,附錄：相關檔案,189-195,edit,reports/asr_report.md#附錄 B：相關檔案,reports/correction_diff.csv
+reports/correction_diff.md,專有名詞校正前後對照表,1-7,merge,reports/asr_report.md#附錄 A：專有名詞校正前後對照,reports/correction_diff.csv
+reports/defect_triage.md,【唯讀覆核】候選一可大幅收斂,43-67,edit,reports/defect_triage.md#覆核結果：候選一可大幅收斂,"。**
+故多出的「い」**不是 G2P 產生的**，候選一基本可排除，問題落在 **S1（語意／韻律）或 S2（波形）**。
+
+**對排查計畫的修正建議**：原計畫第 1 步「單獨跑 G2P 乾跑」**可省略**——訓練 phoneme 已"
+reports/defect_triage.md,相關文件,232-240,edit,,smoke_test_stage_c.md
+reports/defect_triage.md,相關文件,232-240,edit,,../docs/09_pitfalls.md
+reports/finetune_report.md,階段 D 回報：正式訓練與品質評估,1-10,edit,reports/finetune_report.md#TTS 微調與評估報告,feature/TTS-finetune
+reports/finetune_report.md,6-2 量化品質評估,273-278,edit,,docs/02_issue_part2.md:79
+reports/finetune_report.md,6-2 量化品質評估,273-278,edit,,docs/02_issue_part2.md
+reports/finetune_report.md,6-3 主觀試聽評語,279-285,edit,,C:\Users\sss37\Desktop\test.md
+reports/finetune_report.md,6-3 主觀試聽評語,279-285,edit,,\Users\sss37\Desktop\test.md
+reports/finetune_report.md,6-4 主觀評語 × 量化數據 交叉檢視,373-407,edit,,的促音脫落屬模型端語音瑕疵，其餘 4 筆為 ASR 端幻覺／標點／假名漢字差異」。主觀試聽推翻了一半：**
+reports/finetune_report.md,6-4 主觀評語 × 量化數據 交叉檢視,373-407,edit,,"（でしょうか→かい）是人耳可聞的錯音，但 Whisper 轉寫完全正確、CER = 0%**。可懂度達標是真實的，但**不能解讀成「只有一處語音瑕疵」**。
+
+2. **兩個量化指標都偵測不到最核心的缺陷，而盲視的成因是評測分層軸用錯。**"
+reports/finetune_report.md,6-4 主觀評語 × 量化數據 交叉檢視,373-407,edit,,"只解 4 欄）。**所以模型沒有被灌入情緒標籤，但評測集是由文字標註決定的**：
+   eval10 為 DECL 6／Q 2／EXCL 1／ELL 1，test24 為 DECL 15／Q 4／ELL 3／EXCL 2。
+
+   最有力的"
+reports/finetune_report.md,7. 與計畫不符處,431-452,edit,reports/finetune_report.md#7. 與原定設定的差異,已不存在**，上一個 session 改為編號命名。依賴版本與來源記錄改寫進 **
+reports/finetune_report.md,7. 與計畫不符處,431-452,edit,reports/finetune_report.md#7. 與原定設定的差異,"**。
+3. **epochs 由定案的 8 改為 16**（§4-2），理由與回退方式如上。
+4. **"
+reports/finetune_report.md,7. 與計畫不符處,431-452,edit,reports/finetune_report.md#7. 與原定設定的差異,docs/finetune.md
+reports/finetune_report.md,9.1 環境前置,464-476,merge,docs/07_finetune.md#6.2.1 fast_langdetect 語言偵測模型,"bash
+# 一次性：fast_langdetect 語言偵測模型（stage D 已放置，此處為新環境重放用）
+mkdir -p <GPT>/GPT_SoVITS/pretrained_models/fast_langdetect
+cur"
+reports/finetune_report.md,9.2 訓練（S1 先行，再 S2）,477-486,merge,docs/07_finetune.md#5.3 訓練指令（先 S1，再 S2）,"bash
+cd <GPT>
+python <RYZA>/tools/run_lora_train.py --stage s1 --config <RYZA>/configs/s1_ryza.yaml --tag s1_train --vra"
+reports/finetune_report.md,9.3 產生樣本,487-500,merge,docs/07_finetune.md#6.1 產生樣本,"bash
+cd <GPT>
+PYTHONUTF8=1 PYTHONIOENCODING=utf-8 \
+PYTHONPATH=""<GPT>;<GPT>\GPT_SoVITS"" version=v4 is_half=True hz=25hz "
+reports/finetune_report.md,9.4 評估,501-509,merge,docs/07_finetune.md#7. 評估,"bash
+cd <RYZA>
+HF_HUB_OFFLINE=1 .venv\Scripts\python.exe tools/stage_d_eval.py \
+  --summary stage_d_infer_summary_e16.j"
+reports/finetune_report.md,本專案的產出 commit（分支 `feature/TTS-finetune`，**尚未 push、尚未開 PR**）,533-550,edit,reports/finetune_report.md#本專案的產出 commit,feature/TTS-finetune
+reports/finetune_report.md,本專案的產出 commit（分支 `feature/TTS-finetune`，**尚未 push、尚未開 PR**）,533-550,edit,reports/finetune_report.md#本專案的產出 commit,33ae53b3804ff1e0c6abd69c757d3bbbf8451587
+reports/finetune_report.md,本專案的產出 commit（分支 `feature/TTS-finetune`，**尚未 push、尚未開 PR**）,533-550,edit,reports/finetune_report.md#本專案的產出 commit,3804
+reports/finetune_report.md,本專案的產出 commit（分支 `feature/TTS-finetune`，**尚未 push、尚未開 PR**）,533-550,edit,reports/finetune_report.md#本專案的產出 commit,757
+reports/finetune_report.md,本專案的產出 commit（分支 `feature/TTS-finetune`，**尚未 push、尚未開 PR**）,533-550,edit,reports/finetune_report.md#本專案的產出 commit,8451587
+reports/finetune_report.md,A-3　逐句差異解讀,604-618,edit,,"| **促音「ッ」脫落**——唯一一處真正的語音錯誤 |
+
+5 筆中僅"
+reports/finetune_report.md,A-3　逐句差異解讀,604-618,edit,,"的促音脫落屬模型端的語音瑕疵，其餘 4 筆為 ASR 層的幻覺、標點或假名漢字差異。
+若改採 canonical 化（假名漢字統一、去除 ASR 幻覺前綴），CER 會進一步下降，但那是**量測口徑的改變**，
+本階段未擅自更動，以維持與 "
+reports/issue_compliance.md,Issue 合規稽核報告,1-14,delete,,feature/TTS-finetune
+reports/issue_compliance.md,1. Part 1 範圍（issue 第 8–10 行）,41-48,delete,,docs/05_transcript_pipeline.md
+reports/issue_compliance.md,1. Part 1 範圍（issue 第 8–10 行）,41-48,delete,,ls ryza_main/B_likely
+reports/issue_compliance.md,1. Part 1 範圍（issue 第 8–10 行）,41-48,delete,,04_speaker_id.md:145
+reports/issue_compliance.md,1. Part 1 範圍（issue 第 8–10 行）,41-48,delete,,README.md:64
+reports/issue_compliance.md,1. Part 1 範圍（issue 第 8–10 行）,41-48,delete,,1220
+reports/issue_compliance.md,1. Part 1 範圍（issue 第 8–10 行）,41-48,delete,,3430
+reports/issue_compliance.md,1. Part 1 範圍（issue 第 8–10 行）,41-48,delete,,4055
+reports/issue_compliance.md,1. Part 1 範圍（issue 第 8–10 行）,41-48,delete,,6dba555
+reports/issue_compliance.md,1. Part 1 範圍（issue 第 8–10 行）,41-48,delete,,docs/04_speaker_id.md:122
+reports/issue_compliance.md,1. Part 1 範圍（issue 第 8–10 行）,41-48,delete,,04_speaker_id.md
+reports/issue_compliance.md,1. Part 1 範圍（issue 第 8–10 行）,41-48,delete,,docs/04_speaker_id.md
+reports/issue_compliance.md,1. Part 1 範圍（issue 第 8–10 行）,41-48,delete,,0485
+reports/issue_compliance.md,1. Part 1 範圍（issue 第 8–10 行）,41-48,delete,,0500
+reports/issue_compliance.md,1.4 額外發現：1 筆「強烈疑似錯誤」層的音檔進入訓練集（**已結案：PM 決定不剔除**）,49-77,merge,docs/04_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,ls ryza_main/D_flagged \| grep 596
+reports/issue_compliance.md,1.4 額外發現：1 筆「強烈疑似錯誤」層的音檔進入訓練集（**已結案：PM 決定不剔除**）,49-77,merge,docs/04_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,docs/04_speaker_id.md:147
+reports/issue_compliance.md,1.4 額外發現：1 筆「強烈疑似錯誤」層的音檔進入訓練集（**已結案：PM 決定不剔除**）,49-77,merge,docs/04_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,"前綴者，歸入 A（全部採用，不參與排序）」 |
+
+**PM 裁示（2026-10-05）：不需再考慮剔除此檔。** 決策已確認，本項**結案**。
+
+**保留記錄的理由**（供日後複核，非待辦）：
+
+- 事實成立——491 段中確有 1 段"
+reports/issue_compliance.md,1.4 額外發現：1 筆「強烈疑似錯誤」層的音檔進入訓練集（**已結案：PM 決定不剔除**）,49-77,merge,docs/04_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,未揭露其來源 tier，
+reports/issue_compliance.md,1.4 額外發現：1 筆「強烈疑似錯誤」層的音檔進入訓練集（**已結案：PM 決定不剔除**）,49-77,merge,docs/04_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,"的 6 項檢查亦未涵蓋「來源 tier 合法性」。
+- 但 **"
+reports/issue_compliance.md,1.4 額外發現：1 筆「強烈疑似錯誤」層的音檔進入訓練集（**已結案：PM 決定不剔除**）,49-77,merge,docs/04_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,前綴自動採納是刻意的選樣規則**（見
+reports/issue_compliance.md,1.4 額外發現：1 筆「強烈疑似錯誤」層的音檔進入訓練集（**已結案：PM 決定不剔除**）,49-77,merge,docs/04_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,"§1.5 的 top500 決策）：
+  該規則的作用是讓聲優自行標記的高信心樣本不因排序而遭排除。故此檔留在訓練集內是
+  **規則一致性的結果**，而非流程漏接。
+- **影響已量化且可接受**：1/491（0.2%）。該檔已通過階段 "
+reports/issue_compliance.md,1.4 額外發現：1 筆「強烈疑似錯誤」層的音檔進入訓練集（**已結案：PM 決定不剔除**）,49-77,merge,docs/04_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,"），且最終兩項量化 gate 均達標。
+- **對下游的實際影響**："
+reports/issue_compliance.md,1.4 額外發現：1 筆「強烈疑似錯誤」層的音檔進入訓練集（**已結案：PM 決定不剔除**）,49-77,merge,docs/04_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,docs/04_speaker_id.md
+reports/issue_compliance.md,1.4 額外發現：1 筆「強烈疑似錯誤」層的音檔進入訓練集（**已結案：PM 決定不剔除**）,49-77,merge,docs/04_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,docs/05_transcript_pipeline.md
+reports/issue_compliance.md,1.4 額外發現：1 筆「強烈疑似錯誤」層的音檔進入訓練集（**已結案：PM 決定不剔除**）,49-77,merge,docs/04_transcript_pipeline.md#1.5 為何走 `top500/` 而非 `A_high/ + B_likely/`,05_transcript_pipeline.md
+reports/issue_compliance.md,2. Part 1 要求（issue 第 12–15 行）,78-87,delete,,tools/screen_asr.py:127
+reports/issue_compliance.md,2. Part 1 要求（issue 第 12–15 行）,78-87,delete,,:192-194
+reports/issue_compliance.md,2. Part 1 要求（issue 第 12–15 行）,78-87,delete,,language=e['lang'] or 'ja'
+reports/issue_compliance.md,2. Part 1 要求（issue 第 12–15 行）,78-87,delete,,reports/asr_report.md:8-21
+reports/issue_compliance.md,2. Part 1 要求（issue 第 12–15 行）,78-87,delete,,asr_report.md:21
+reports/issue_compliance.md,2. Part 1 要求（issue 第 12–15 行）,78-87,delete,,"reports/issue_reply_part1.md:5,11-14"
+reports/issue_compliance.md,2. Part 1 要求（issue 第 12–15 行）,78-87,delete,,:49-58
+reports/issue_compliance.md,2. Part 1 要求（issue 第 12–15 行）,78-87,delete,,[A-Za-z]:[\\/]
+reports/issue_compliance.md,2. Part 1 要求（issue 第 12–15 行）,78-87,delete,,evidence
+reports/issue_compliance.md,2. Part 1 要求（issue 第 12–15 行）,78-87,delete,,screen_asr.py:216-218
+reports/issue_compliance.md,2. Part 1 要求（issue 第 12–15 行）,78-87,delete,,"screen_asr.py:27-39,97-98"
+reports/issue_compliance.md,2. Part 1 要求（issue 第 12–15 行）,78-87,delete,,build_pos_label.py:70-74
+reports/issue_compliance.md,2. Part 1 要求（issue 第 12–15 行）,78-87,delete,,reports/issue_reply_part1.md
+reports/issue_compliance.md,2. Part 1 要求（issue 第 12–15 行）,78-87,delete,,"39,97"
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,awk -F'\|'
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,reports/asr_report.md:185
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,docs/04_speaker_id.md:122
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,:23-81
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,:83-158
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,asr_report.md:89
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,"tools/cer_report.py:64-67,80"
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,_corrected
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,"。故「平均 CER 1.0%」的分母中有 44 項為**結構性為 0**，此數字代表「人工未發現錯誤」而非「零錯誤率」。見 §7-2 |
+| A5 | 專有名詞（人名、地名、鍊金術用語）**已人工校正** | **PARTIAL** |"
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,的 6 條
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,為**純自動字串取代**（
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,text.replace
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,reports/correction_diff.csv
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,faster-whisper==1.2.1
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,ctranslate2==4.8.2
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,torch==2.14.0+cu126
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,docs/04_speaker_id.md
+reports/issue_compliance.md,3. Part 1 驗收要件（issue 第 18–29 行）,88-100,delete,,"67,80"
+reports/issue_compliance.md,4. Part 2 要求（issue 第 34–36 行）,101-110,delete,,tools/split_train_test.py:279-318
+reports/issue_compliance.md,4. Part 2 要求（issue 第 34–36 行）,101-110,delete,,"reports/split_report.md:49-50,56"
+reports/issue_compliance.md,4. Part 2 要求（issue 第 34–36 行）,101-110,delete,,"50,56"
+reports/issue_compliance.md,5. Part 2 驗收要件（issue 第 39–55 行）,111-125,delete,,wav/00XXX.wav
+reports/issue_compliance.md,5. Part 2 驗收要件（issue 第 39–55 行）,111-125,delete,,ca66210
+reports/issue_compliance.md,5. Part 2 驗收要件（issue 第 39–55 行）,111-125,delete,,09_pitfalls.md
+reports/issue_compliance.md,5. Part 2 驗收要件（issue 第 39–55 行）,111-125,delete,,66210
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,reports/asr_report.md:185
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,reports/asr_report.md:187
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,reports/issue_reply_part1.md:93
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,README.md:41
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,reports/asr_report.md:89
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,reports/asr_filter_report.md:3
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,git rm
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,docs/05_transcript_pipeline.md:296-297
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,docs/05_transcript_pipeline.md:50
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,前綴檔「全數自動採納」 | 數量正確。
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,"的來源 tier 已於 §1.5 注意事項 3 補上揭露；**是否剔除已由 PM 於 2026-10-05 決定為不剔除**，本項結案 |
+| 7 |"
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,docs/08_tools.md:115-128
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,09_pitfalls.md
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,git ls-files
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,reports/asr_filter_report.md
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,issue_reply_part1.md:20
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,pr_description.md
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,git branch --contains 48b1a01
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,reports/issue_reply_part1.md
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,docs/05_transcript_pipeline.md
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,docs/08_tools.md
+reports/issue_compliance.md,6. 交叉檢查：與證據矛盾的過期／無佐證宣稱,126-143,delete,,issue_reply_part1.md
+reports/issue_compliance.md,7. 需 PM 裁示的事項,144-158,merge,reports/asr_report.md#5. 已知限制,docs/04_speaker_id.md:122
+reports/issue_compliance.md,7. 需 PM 裁示的事項,144-158,merge,reports/asr_report.md#5. 已知限制,asr_report.md:89
+reports/issue_compliance.md,7. 需 PM 裁示的事項,144-158,merge,reports/asr_report.md#5. 已知限制,reviewed: Y
+reports/issue_compliance.md,7. 需 PM 裁示的事項,144-158,merge,reports/asr_report.md#5. 已知限制,ca66210
+reports/issue_compliance.md,7. 需 PM 裁示的事項,144-158,merge,reports/asr_report.md#5. 已知限制,docs/04_speaker_id.md
+reports/issue_compliance.md,7. 需 PM 裁示的事項,144-158,merge,reports/asr_report.md#5. 已知限制,66210
+reports/issue_compliance.md,9. 相關文件,170-182,delete,,../docs/04_speaker_id.md
+reports/issue_compliance.md,9. 相關文件,170-182,delete,,asr_report.md:185
+reports/issue_compliance.md,9. 相關文件,170-182,delete,,../docs/09_pitfalls.md
+reports/issue_reply_part1.md,目前進度,7-97,merge,reports/asr_report.md#資料漏斗,"| 1 | CER id16 |
+|  | **合計** | **15 次 / 14 檔** | |
+
+與 CER 抽查的對應關係：
+
+| CER 錯誤段 | 對應規則 | 是否收入詞庫 |
+|---|---|---|
+| id13"
+reports/issue_reply_part1.md,目前進度,7-97,merge,reports/asr_report.md#資料漏斗,"| オート → 王都 | ✅ |
+| id16"
+reports/issue_reply_part1.md,目前進度,7-97,merge,reports/asr_report.md#資料漏斗,"| タレジャーハンター → トレジャーハンター | ✅ |
+| id32"
+reports/issue_reply_part1.md,目前進度,7-97,merge,reports/asr_report.md#資料漏斗,"| 諸子 → 書庫 | ✅ |
+| id38"
+reports/issue_reply_part1.md,目前進度,7-97,merge,reports/asr_report.md#資料漏斗,"| セイリ → セリ | ✅ |
+| id50"
+reports/issue_reply_part1.md,目前進度,7-97,merge,reports/asr_report.md#資料漏斗,"| ピー → フィー | ✅ |
+| id40"
+reports/issue_reply_part1.md,目前進度,7-97,merge,reports/asr_report.md#資料漏斗,"| （語頭語氣詞「な」，非專有名詞） | ❌ 不收 |
+
+亦即：CER 的 6 段錯誤有 5 段被詞庫覆蓋；詞庫的第 6 條"
+reports/issue_reply_part1.md,目前進度,7-97,merge,reports/asr_report.md#資料漏斗,"來自全庫掃描，不在 50 段抽樣內。
+
+6 條規則合計命中 15 次，落在 14 個不同音檔（"
+reports/issue_reply_part1.md,目前進度,7-97,merge,reports/asr_report.md#資料漏斗,兩條誤聽），此即「**14 筆逐字稿修正**」的由來。
+reports/issue_reply_part1.md,目前進度,7-97,merge,reports/asr_report.md#資料漏斗,"逐字稿欄以校正後文字為準。
+
+校正前後對照留存於"
+reports/issue_reply_part1.md,目前進度,7-97,merge,reports/asr_report.md#資料漏斗,（14 段完整前後文）與
+reports/issue_reply_part1.md,目前進度,7-97,merge,reports/asr_report.md#資料漏斗,（機器可讀），供直接查驗；完整 491 段的校正前輸出另可由 git 歷史（commit
+reports/issue_reply_part1.md,目前進度,7-97,merge,reports/asr_report.md#資料漏斗,"）還原。
+
+**交付物**
+
+*Issue 要求*
+
+-"
+reports/issue_reply_part1.md,目前進度,7-97,merge,reports/asr_report.md#資料漏斗,：491 行，格式
+reports/issue_reply_part1.md,目前進度,7-97,merge,reports/asr_report.md#資料漏斗,"：模型參數、過濾統計、有效時長、CER 抽查、錯誤類型分析。
+-"
+reports/issue_reply_part1.md,目前進度,7-97,merge,reports/asr_report.md#資料漏斗,reports/correction_diff.md
+reports/issue_reply_part1.md,目前進度,7-97,merge,reports/asr_report.md#資料漏斗,reports/correction_diff.csv
+reports/logs/stage_d_train.md,階段 D 訓練 log 歸檔,1-11,edit,reports/logs/stage_d_train.md#正式訓練紀錄,feature/TTS-finetune
+reports/pr_description.md,選型：為何是 GPT-SoVITS v4 LoRA,22-36,delete,,../docs/02_issue_part2.md
+reports/pr_description.md,基礎模型,37-46,delete,,git -C <GPT> symbolic-ref HEAD
+reports/pr_description.md,基礎模型,37-46,delete,,git branch --contains 48b1a01
+reports/pr_description.md,完整清單,102-111,delete,,tools/stage_c_collect.py
+reports/pr_description.md,完整清單,102-111,delete,,docs/09_pitfalls.md
+reports/pr_description.md,完整清單,102-111,delete,,docs/05_transcript_pipeline.md
+reports/pr_description.md,完整清單,102-111,delete,,reports/issue_compliance.md
+reports/pr_description.md,完整清單,102-111,delete,,reports/pr_description.md
+reports/pr_description.md,完整清單,102-111,delete,,reports/smoke_test_stage_c.md
+reports/pr_description.md,本專案的交付 commit,112-135,delete,,f9dc37f
+reports/pr_description.md,本專案的交付 commit,112-135,delete,,ea8a5bc
+reports/pr_description.md,本專案的交付 commit,112-135,delete,,2c4db07
+reports/pr_description.md,本專案的交付 commit,112-135,delete,,e53aab9
+reports/pr_description.md,本專案的交付 commit,112-135,delete,,09e5810
+reports/pr_description.md,本專案的交付 commit,112-135,delete,,9c0c6ab
+reports/pr_description.md,本專案的交付 commit,112-135,delete,,b9aab67
+reports/pr_description.md,本專案的交付 commit,112-135,delete,,issue_compliance.md
+reports/pr_description.md,本專案的交付 commit,112-135,delete,,238f381
+reports/pr_description.md,本專案的交付 commit,112-135,delete,,fb2079d
+reports/pr_description.md,本專案的交付 commit,112-135,delete,,238
+reports/pr_description.md,需要 reviewers 注意的三件事,155-167,delete,,docs/09_pitfalls.md
+reports/pr_description.md,未解決事項,168-175,delete,,origin/feature/TTS-finetune
+reports/pr_description.md,已結案的決策,176-183,delete,,"前綴自動採納規則進入
+  491 段訓練集。**保留可維持"
+reports/pr_description.md,已結案的決策,176-183,delete,,"為 491 段，階段 A～D 的全部數據維持有效、
+  無須重跑。**複核記錄見"
+reports/pr_description.md,已結案的決策,176-183,delete,,"§1.4。
+- **jieba_fast 永久不採用**（PM 2026-10-05）。中文專用分詞器，本專案 language=ja 不需要；
+  行程內別名指向已安裝的"
+reports/pr_description.md,已結案的決策,176-183,delete,,，不增加任何相依。見
+reports/pr_description.md,已結案的決策,176-183,delete,,reports/issue_compliance.md
+reports/smoke_test_stage_a.md,問題,13-17,delete,,<GPT>\tools\my_utils.py:16-37
+reports/smoke_test_stage_a.md,處置（方案 A，PM 放行）,18-23,delete,,"env[""PATH""]"
+reports/smoke_test_stage_a.md,處置（方案 A，PM 放行）,18-23,delete,,"105,423,872"
+reports/smoke_test_stage_a.md,處置（方案 A，PM 放行）,18-23,delete,,"105,221,120"
+reports/smoke_test_stage_a.md,本 session 實測（2026-10-05）,24-41,delete,,"bash
+source /h/git/GPT-SoVITS/.venv/Scripts/activate
+python -c ""import shutil; print(shutil.which('ffmpeg')); print(shut"
+reports/smoke_test_stage_a.md,本 session 實測（2026-10-05）,24-41,delete,,"ffmpeg  : H:\git\GPT-SoVITS\.venv\Scripts\ffmpeg.EXE
+ffprobe : H:\git\GPT-SoVITS\.venv\Scripts\ffprobe.EXE
+ffmpeg versio"
+reports/smoke_test_stage_a.md,本 session 實測（2026-10-05）,24-41,delete,,**判定：通過。** 兩路徑皆指向
+reports/smoke_test_stage_a.md,本 session 實測（2026-10-05）,24-41,delete,,"，版本正常印出。
+
+二進位完整性："
+reports/smoke_test_stage_a.md,本 session 實測（2026-10-05）,24-41,delete,,兩兩 md5 完全相同（ffmpeg
+reports/smoke_test_stage_a.md,本 session 實測（2026-10-05）,24-41,delete,,08751
+reports/smoke_test_stage_a.md,本 session 實測（2026-10-05）,24-41,delete,,4120
+reports/smoke_test_stage_a.md,本 session 實測（2026-10-05）,24-41,delete,,88302
+reports/smoke_test_stage_a.md,本 session 實測（2026-10-05）,24-41,delete,,684
+reports/smoke_test_stage_a.md,本 session 實測（2026-10-05）,24-41,delete,,acd08751bc4120a0c10c2da133ae1ed7
+reports/smoke_test_stage_a.md,本 session 實測（2026-10-05）,24-41,delete,,1f7afec013dacbc8b88302a8fdbdd684
+reports/smoke_test_stage_a.md,各步驟結束碼與耗時,47-65,delete,,"<RYZA>\reports\logs\raw\{train,eval10}_step{1,2,3}.{out,err}"
+reports/smoke_test_stage_a.md,區域 3：產出驗收（PA-1～PA-11）,66-85,delete,,"[1,768,N]"
+reports/smoke_test_stage_a.md,區域 3：產出驗收（PA-1～PA-11）,66-85,delete,,"185,550"
+reports/smoke_test_stage_a.md,區域 3：產出驗收（PA-1～PA-11）,66-85,delete,,"1,768,"
+reports/smoke_test_stage_a.md,validator 的兩個 false-failure bug（已修）,86-94,delete,,| 恆判 fail，**非資料問題**（手動以官方讀法重跑全量：train 467/467、eval10 10/10 一致） | 預載 list 時
+reports/smoke_test_stage_a.md,validator 的兩個 false-failure bug（已修）,86-94,delete,,"|
+| PA-9 affected_lines=451 | 門檻把"
+reports/smoke_test_stage_a.md,validator 的兩個 false-failure bug（已修）,86-94,delete,,（韻律邊界）造成的 UNK 行也算進「影響行數」 | train 誤判 fail（451 > 10） |
+reports/smoke_test_stage_a.md,validator 的兩個 false-failure bug（已修）,86-94,delete,,只收集含**非 #** 來源的行；
+reports/smoke_test_stage_a.md,`<GPT>`（`main` 分支，commit `48b1a01`）,103-107,delete,,logs\ryza_v4_lora_eval10
+reports/smoke_test_stage_a.md,`<GPT>`（`main` 分支，commit `48b1a01`）,103-107,delete,,".venv\Scripts\{ffmpeg,ffprobe}.exe"
+reports/smoke_test_stage_a.md,`<RYZA>`（`feat/tts-v4-lora-prep`，HEAD `0b7c743`）,108-126,delete,,03-01_dataset.md:9
+reports/smoke_test_stage_a.md,`<RYZA>`（`feat/tts-v4-lora-prep`，HEAD `0b7c743`）,108-126,delete,,issue.md:39
+reports/smoke_test_stage_a.md,`<RYZA>`（`feat/tts-v4-lora-prep`，HEAD `0b7c743`）,108-126,delete,,".venv\Scripts\{ffmpeg,ffprobe}.exe"
+reports/smoke_test_stage_a.md,`<RYZA>`（`feat/tts-v4-lora-prep`，HEAD `0b7c743`）,108-126,delete,,03-01_dataset.md
+reports/smoke_test_stage_a.md,產出目錄結構（供階段 B/C 使用）,127-142,delete,,"<GPT>\logs\ryza_v4_lora\          # train 467
+  2-name2text.txt      (467 行, CRLF)
+  2-name2text-0.txt    (原檔保留, md5 相同)"
+reports/smoke_test_stage_a.md,產出目錄結構（供階段 B/C 使用）,127-142,delete,,2-name2text-0.txt
+reports/smoke_test_stage_a.md,與計畫不符（含本次新增）,145-155,delete,,2-name2text-0.txt
+reports/smoke_test_stage_a.md,與計畫不符（含本次新增）,145-155,delete,,"open(..., ""w"")"
+reports/smoke_test_stage_a.md,風險與意外發現,161-168,delete,,nan_fails
+reports/smoke_test_stage_c.md,1. 測試輪次對照表,13-43,merge,docs/07_finetune.md#5.2 冒煙測試,ryza_v4_lora_smoke-e1.ckpt
+reports/smoke_test_stage_c.md,1. 測試輪次對照表,13-43,merge,docs/07_finetune.md#5.2 冒煙測試,ryza_v4_lora_smoke_e2_s52_l32.pth
+reports/smoke_test_stage_c.md,1. 測試輪次對照表,13-43,merge,docs/07_finetune.md#5.2 冒煙測試,13/13 … 9.60it/s
+reports/smoke_test_stage_c.md,1. 測試輪次對照表,13-43,merge,docs/07_finetune.md#5.2 冒煙測試,"bash
+cd <GPT>
+# 輪次 1／2／3（S2 resume 的 config 僅 train.epochs 由 1 改 2，其餘逐字相同）
+python <RYZA>/tools/run_lora_train.py --stage"
+reports/smoke_test_stage_c.md,1. 測試輪次對照表,13-43,merge,docs/07_finetune.md#5.2 冒煙測試,0.5425
+reports/smoke_test_stage_c.md,1. 測試輪次對照表,13-43,merge,docs/07_finetune.md#5.2 冒煙測試,0.5386
+reports/smoke_test_stage_c.md,1. 測試輪次對照表,13-43,merge,docs/07_finetune.md#5.2 冒煙測試,13.275
+reports/smoke_test_stage_c.md,1. 測試輪次對照表,13-43,merge,docs/07_finetune.md#5.2 冒煙測試,59.713
+reports/smoke_test_stage_c.md,1. 測試輪次對照表,13-43,merge,docs/07_finetune.md#5.2 冒煙測試,0.5425
+reports/smoke_test_stage_c.md,1. 測試輪次對照表,13-43,merge,docs/07_finetune.md#5.2 冒煙測試,20.462
+reports/smoke_test_stage_c.md,1. 測試輪次對照表,13-43,merge,docs/07_finetune.md#5.2 冒煙測試,06.998
+reports/smoke_test_stage_c.md,1. 測試輪次對照表,13-43,merge,docs/07_finetune.md#5.2 冒煙測試,0.5386
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,0.0216744449
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,0.0660839975
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,0.0193039812
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,0.0081972610
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,| step 51：
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,"| 無 |
+
+共 52 筆紀錄，逐筆檢查"
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,9.9962504687e-05
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,s2_train_v3_lora.py:319-333
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,segment_size=20480
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,0.0284611732
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,9.9962504687
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,20480
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,0216744449
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,0660839975
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,0193039812
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,0081972610
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,0284611732
+reports/smoke_test_stage_c.md,"S2（`log_interval=1`，log 鍵為 `[loss, global_step, learning_rate]`）",46-56,delete,,9962504687e
+reports/smoke_test_stage_c.md,S1（Lightning 只在 epoch 層記錄，逐步值僅見於進度棒）,57-68,delete,,total_loss_step
+reports/smoke_test_stage_c.md,S1（Lightning 只在 epoch 層記錄，逐步值僅見於進度棒）,57-68,delete,,reports/logs/raw/stage_c_metrics.json
+reports/smoke_test_stage_c.md,S1（Lightning 只在 epoch 層記錄，逐步值僅見於進度棒）,57-68,delete,,s1.tags
+reports/smoke_test_stage_c.md,S1（Lightning 只在 epoch 層記錄，逐步值僅見於進度棒）,57-68,delete,,1564.616
+reports/smoke_test_stage_c.md,S1（Lightning 只在 epoch 層記錄，逐步值僅見於進度棒）,57-68,delete,,3972.732
+reports/smoke_test_stage_c.md,S1（Lightning 只在 epoch 層記錄，逐步值僅見於進度棒）,57-68,delete,,0.49297
+reports/smoke_test_stage_c.md,S1（Lightning 只在 epoch 層記錄，逐步值僅見於進度棒）,57-68,delete,,0.00392
+reports/smoke_test_stage_c.md,S1（Lightning 只在 epoch 層記錄，逐步值僅見於進度棒）,57-68,delete,,"3,972"
+reports/smoke_test_stage_c.md,3. 最終採用參數,69-86,delete,,67.5
+reports/smoke_test_stage_c.md,3. 最終採用參數,69-86,delete,,168.7
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,segment_size=20480
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,num_workers=4
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,persistent_workers=True
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,0.5425
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,1.576
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,2.429
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,507.8
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,523.8
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,67.5
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,591.3
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,317.4
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,327.4
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,369.6
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,196.4
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,221.7
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,523.8
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,122.7
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,168.7
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,692.5
+reports/smoke_test_stage_c.md,4. §11.5 epoch 外推表,87-108,delete,,20480
+reports/smoke_test_stage_c.md,5.3 資料載入行為,128-132,delete,,"max(2, 100//20)=5"
+reports/smoke_test_stage_c.md,5.3 資料載入行為,128-132,delete,,"min(8, 25)=8"
+reports/smoke_test_stage_c.md,5.3 資料載入行為,128-132,delete,,bucket_sampler.py
+reports/smoke_test_stage_c.md,5.3 資料載入行為,128-132,delete,,num_samples=ceil(100/1)=100
+reports/smoke_test_stage_c.md,5.4 resume 結果（SM-S2-6）,133-140,delete,,start training from epoch 2
+reports/smoke_test_stage_c.md,5.4 resume 結果（SM-S2-6）,133-140,delete,,s2_train_v3_lora.py:183-188
+reports/smoke_test_stage_c.md,5.4 resume 結果（SM-S2-6）,133-140,delete,,Saving model and optimizer state at iteration 2
+reports/smoke_test_stage_c.md,5.4 resume 結果（SM-S2-6）,133-140,delete,,ryza_v4_lora_smoke_e2_s52_l32.pth
+reports/smoke_test_stage_c.md,5.4 resume 結果（SM-S2-6）,133-140,delete,,"info=""2epoch_52iteration"""
+reports/smoke_test_stage_c.md,5.4 resume 結果（SM-S2-6）,133-140,delete,,saving ckpt ryza_v4_lora_smoke_e2:Success.
+reports/smoke_test_stage_c.md,5.5 SM-S1-5 學習率結論,141-163,merge,docs/08_troubleshooting.md#PK-012 S1 的學習率排程器被上游硬寫成常數 0.002,lr_step: 0.002
+reports/smoke_test_stage_c.md,5.5 SM-S1-5 學習率結論,141-163,merge,docs/08_troubleshooting.md#PK-012 S1 的學習率排程器被上游硬寫成常數 0.002,lr_epoch: 0.00392
+reports/smoke_test_stage_c.md,5.5 SM-S1-5 學習率結論,141-163,merge,docs/08_troubleshooting.md#PK-012 S1 的學習率排程器被上游硬寫成常數 0.002,6.994
+reports/smoke_test_stage_c.md,5.5 SM-S1-5 學習率結論,141-163,merge,docs/08_troubleshooting.md#PK-012 S1 的學習率排程器被上游硬寫成常數 0.002,0.002363
+reports/smoke_test_stage_c.md,5.5 SM-S1-5 學習率結論,141-163,merge,docs/08_troubleshooting.md#PK-012 S1 的學習率排程器被上游硬寫成常數 0.002,0.005899
+reports/smoke_test_stage_c.md,5.5 SM-S1-5 學習率結論,141-163,merge,docs/08_troubleshooting.md#PK-012 S1 的學習率排程器被上游硬寫成常數 0.002,0.00392
+reports/split_report.md,風險與待確認,96-104,edit,reports/split_report.md#已知限制,docs/06_dataset.md
+reports/split_report.md,風險與待確認,96-104,edit,reports/split_report.md#已知限制,ryza_train_finetune.list

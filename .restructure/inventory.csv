@@ -457,3 +457,5 @@ ADD-014,,,,,,新增,add,docs/06_model_selection.md#七、實測後的修正,取�
 ADD-015,,,,,,新增,add,docs/07_finetune.md#9. 疑難排解,連到 08 §5 症狀速查
 ADD-016,,,,,,新增,add,tools/README.md#6. 評估,依模塊分組
 ADD-017,,,,,,新增,add,reports/asr_report.md#5. 已知限制,承接 issue_compliance §7／§8
+ADD-018,,,,,,新增,add,docs/07_finetune.md#1.3 日文 G2P 驗證,事實稽核補回：01_env「日文 G2P 驗證」的預期輸出
+ADD-019,,,,,,新增,add,docs/07_finetune.md#附錄 A：上游程式碼關鍵行號,事實稽核補回：G4 §3 讀碼依據、G1 推論端比對、G3 §4 的上游行號

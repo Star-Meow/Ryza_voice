@@ -71,6 +71,28 @@ ffmpeg -version | head -1
 | jieba_fast | `jieba_fast` | **未安裝**（保留 `jieba 0.42.1`） | 無 Windows 預編譯 wheel，原始碼建置需編譯器。`text/cleaner.py` 採延遲 import（`__import__("text." + lang)`），`ja` 路徑只載入 `text.japanese`，不載入 `chinese.py`／`chinese2.py`，訓練不需要；**推論端則因上游 import 鏈仍需別名**，見 §6.2.2 |
 | numpy | `numpy<2.0` | 1.26.4 | torch 安裝帶入 numpy 2.2.6 導致 pyopenjtalk-prebuilt 二進位不相容（`numpy.dtype size changed`）；降級至 1.26.4，同時符合 requirements.txt 的 `numpy<2.0` |
 
+### 1.3 日文 G2P 驗證
+
+安裝完成後，可用下列輸出確認日文 G2P 鏈正常（在 `<GPT>` 的 venv 內執行）：
+
+```python
+pyopenjtalk.g2p('こんにちは')
+# -> k o N n i ch i w a
+
+pyopenjtalk.g2p('錬金術の勉強は難しいけど、すごく楽しいんだ。')
+# -> r e N k i N j u ts u n o b e N ky o o w a m u z u k a sh i i k e d o pau s u g o k U t a n o sh i i N d a
+
+# 經 GPT-SoVITS 自身的路徑（text/cleaner.py → text/japanese.py）
+clean_text('こんにちは、ライザです。', 'ja', 'v2')
+# -> phones: k o [ N n i ch i w a , r a ] i z a d e s u .
+
+clean_text('今日も錬金術の研究を頑張るよ！', 'ja', 'v2')
+# -> ky o ] o m o UNK r e [ N k i ] ...
+```
+
+- OpenJTalk 字典會在首次執行時自動下載到 venv。
+- 輸出中的 `[`／`]` 是韻律標記；`UNK` 來自 `#` 韻律邊界，屬正常（見 §8 #1、[PK-003](08_troubleshooting.md)）。
+
 ---
 
 ## 2. 模型準備
@@ -126,6 +148,12 @@ python tools/t0_convert_safetensors.py \
 轉檔**不刪除也不修改** `.bin`，key 名稱不變；共用儲存的 tensor 以 `data_ptr` 偵測並從第二次出現起 clone（roberta 有 2 組：word_embeddings↔decoder.weight、bias↔decoder.bias；hubert 為 0 組）。驗證腳本 `tools/t0_validate.py` 會比對 key/dtype/shape 並附 negative fixture。
 
 > ⚠️ **新環境注意**：下載 HuggingFace 預設格式通常只有 `pytorch_model.bin`。若轉檔後仍報 CVE 錯誤，檢查 `model.safetensors` 是否真的落在 `from_pretrained` 指向的目錄。
+
+其他載入細節（皆不影響使用）：
+- `chinese-roberta-wwm-ext-large` 的 `config.json` 指定 BERT 架構，`AutoModelForMaskedLM` 實際解析為 `BertForMaskedLM`。
+- roberta 的 safetensors 含 `bert.embeddings.position_ids`（int64）。`from_pretrained` 會吸收，但手動 `load_state_dict(strict=False)` 會把它列為 unexpected key。
+- `chinese-hubert-base` 為標準 transformers 命名（211 key），沒有 `weight_g`／`weight_v` 這類 weight_norm 參數。
+- safetensors 比 `.bin` 略大（roberta 694 MB vs 651 MB），是格式的 header／alignment 差異。
 
 ### 2.3 推論端模型檔
 
@@ -295,7 +323,8 @@ python <RYZA>\tools\run_lora_train.py --stage s2 \
 | 顯存（`max_memory_allocated`） | 3,504–3,508 MiB | 4,642–4,705 MiB |
 | 整卡峰值（nvidia-smi） | 4,603–5,093 MiB | 6,465–10,218 MiB |
 
-> **兩個 dataset 都會自動擴充到至少 100 筆**（S2 為 `module/data_utils.py:546-551`）。正式 467 > 100，故不擴充。
+> **兩個 dataset 都會自動擴充到至少 100 筆**（S2 為 `module/data_utils.py:546-551`，S1 為 `AR/data/dataset.py` 的同構寫法）。正式 467 > 100，故不擴充。
+> **S2 每 epoch 的 step 數不等於「筆數 ÷ batch」**：`DistributedBucketSampler` 依長度分桶並補齊（`data_utils.py:994-1016`），所以 467 筆、batch 4 是 119 step，而不是 117。
 > **S1 的實際 batch**由 `AR/data/data_module.py:51` 的 `max(min(batch_size, len(dataset)//4), 1)` 決定；467//4 = 116 > 8，故實際 batch 就是設定值 8。即使只有 20 筆（冒煙測試），資料集也會先擴充到 100（100//4 = 25 > 8），這個下限同樣不會生效。
 
 #### 設定欄位依據
@@ -351,6 +380,8 @@ python <RYZA>\tools\run_lora_train.py --stage s2 \
 | `<RYZA>\reports\logs\raw\{tag}.{out,err,gpu}`、`{tag}_summary.json` | 原始 log 與結構化摘要（受 `.gitignore` 忽略，不提交） |
 
 **resume 行為**：S2 啟動時若 `logs_s2_v4_lora_32/` 內有 `G_*.pth`，會自動從其 `iteration` 接續（`utils.latest_checkpoint_path`，注意其排序用整條絕對路徑的數字）。S1 由 Lightning 從 `output_dir/ckpt/` 挑最新的接續。兩者都**不會**清理舊 checkpoint。
+
+**S1 沒有逐步 loss**：Lightning module 的 `self.log` 未設 `on_step=True`，TensorBoard 只有 epoch 層的 tag，stdout 進度棒也只保留最後一步。要看 S1 的收斂只能看 epoch 層的 `total_loss_epoch`。
 
 ### 5.6 顯存
 
@@ -478,6 +509,7 @@ python tools\cer_report.py --input reports\cer_generated.csv --output reports\ce
 | 7 | **`grad_ckpt` false → true** | 正式訓練時 `false` 導致顯存假死（§5.6） | 已採 true，屬必要設定 |
 | 8 | **v4 無 D 模型** | 官方 v4 發行包只附 `s2Gv4.pth` 與 `vocoder.pth`；config 的 `pretrained_s2D` 指向不存在的 `s2Dv4.pth` | 否。`s2_train_v3_lora.py` 全程不讀該欄位 |
 | 9 | **`data/ref/ref.txt` 與 `ref.wav` 不同步** | `ref.txt` 是 `00042` 的台詞，`ref.wav` 實際是 `03536` | 推論時直接傳 03536 原文，不讀 `ref.txt`（§6.1） |
+| 10 | **推論端缺 `%`／`￥` 前處理** | 訓練端 `1-get-text.py:92` 會 `.replace("%","-").replace("￥",",")`，推論端 `TextPreprocessor` 沒有 | 否。本資料集 train／eval10 含這兩個字元的行數皆為 0；新台詞若含這兩個字元需自行替換 |
 
 ---
 
@@ -498,3 +530,34 @@ python tools\cer_report.py --input reports\cer_generated.csv --output reports\ce
 | [`../tools/README.md`](../tools/README.md) | 工具目錄 |
 | [`../reports/finetune_report.md`](../reports/finetune_report.md) | 訓練與評估結果（含生成樣本文字稿） |
 | [`../reports/logs/stage_d_train.md`](../reports/logs/stage_d_train.md) | 正式訓練紀錄 |
+
+---
+
+## 附錄 A：上游程式碼關鍵行號
+
+以下皆為 `<GPT>`（GPT-SoVITS @ `48b1a01`）內的位置。手動驅動官方腳本（不經 webui）時，這些是最容易踩到的地方。
+
+| 事項 | 位置 | 說明 |
+|---|---|---|
+| 推論權重目錄只有 webui 會建立 | `webui.py:200-201` | `config.py` 全文無 `os.makedirs`（[PK-010](08_troubleshooting.md)） |
+| `savee` 的裸 `except` | `process_ckpt.py:59-60` | `return traceback.format_exc()`，呼叫端只 `logger.info`，結束碼仍為 0 |
+| `my_save2` 不建目錄 | `process_ckpt.py:37` | `open(path, "wb")` 前沒有 `makedirs` |
+| S2 resume 分支 | `s2_train_v3_lora.py:177-189` | `utils.latest_checkpoint_path(save_root, "G_*.pth")`；**`:190` 的裸 `except` 會在 resume 失敗時靜默退回底模** |
+| checkpoint 排序 | `utils.py:114` | 排序鍵是整條絕對路徑中的數字，不是檔名 |
+| S2 樣本自動擴充 | `module/data_utils.py:546-551` | `min_num=100`，重複 `max(2, 100//leng)` 次 |
+| S2 時長過濾 | `module/data_utils.py:588` | `if 54 > duration > 0.6`，範圍外的樣本會被剔除 |
+| S2 分桶 | `module/data_utils.py:994-1016` | `DistributedBucketSampler` 依長度分桶並補齊 |
+| S2 需 webui 注入的欄位 | `s2_train_v3_lora.py:344`、`:361` | `save_every_epoch`、`if_save_every_weights` 官方 `s2.json` 沒有，是 webui open1Ba 注入（`webui.py:527-528`）；手動執行不補會 AttributeError |
+| S1 batch 下限 | `AR/data/data_module.py:51` | `max(min(batch_size, len(dataset)//4), 1)`，作用在已擴充的 dataset 上 |
+| S1 BERT 缺檔補零 | `AR/data/dataset.py:223-237`、`:276-282` | 缺檔 → `bert_feature=None` → collate 時 `zero_()` |
+| S1 `if_dpo` | `AR/models/t2s_lightning_module.py:45` | `s1_train.py` 不讀，但 lightning module 讀；webui open1Bb 會注入（`webui.py:622`） |
+| S1 checkpoint 三鍵 | `s1_train.py:62-81` | `weight`（fp16）／`config`／`info` |
+| S1 排程器硬寫常數 | `AR/modules/lr_schedulers.py:38-42`、`:58` | `self.lr = lr = self.end_lr = 0.002`（[PK-012](08_troubleshooting.md)） |
+| 推論與訓練共用 G2P | `TTS_infer_pack/TextPreprocessor.py:15`、`:206-210` | 與 `1-get-text.py:20` 同一個 `clean_text`；version 由 `TTS_Config` 傳入（`TTS.py:331-333`、`:399-401`、`:1171`） |
+| `#` 的來源 | `text/japanese.py:248`、`:267` | `g2p()` 預設 `with_prosody=True`，accent phrase 邊界插入 `#`；`symbols2.py:783-788` 的 732 個符號不含 `#` |
+| `TTS.run` 是 generator | `TTS.py:997` | 呼叫端須 `next()` 取得 `(sr, audio)`，`api_v2.py:441` 即如此 |
+| custom 陷阱 | `TTS.py:318` | `self.configs = configs_.get("custom", configs_["v2"])`；頂層傳入的鍵被靜默忽略 |
+| `tts_infer.yaml` 被改寫 | `TTS.py:384-385`、`:590`、`:597` | 每次 `init_vits_weights`／`init_t2s_weights` 都會 `save_configs()` |
+| `jieba_fast` 模組層級依賴 | `text/chinese.py:19-23`、`text/tone_sandhi.py:17`、`TTS_infer_pack/TextPreprocessor.py:13` | 日文推論也會被擋（[PK-011](08_troubleshooting.md)） |
+| `fast_langdetect` 路徑 | `text/LangSegmenter/langsegmenter.py:11` | 自訂 `cache_dir` 不存在時會改為連網下載 |
+| 官方腳本不輸出顯存 | 全 repo `grep -rn max_memory_allocated` 為 0 命中（排除 `.venv`） | 因此以 `tools/vram_runner.py` 量測 |
