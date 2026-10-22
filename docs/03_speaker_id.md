@@ -1,17 +1,17 @@
-# 說話者篩選：說話者嵌入比對（Part 1 ②）
+# 說話者篩選：說話者嵌入比對
 
-> 主語音庫的 cue 名稱欄位全為空（0/9569），無法從音聲庫本身分辨角色。本階段改用**說話者嵌入**在主庫內部互比，找出與已知ライザ語音同一說話者的音軌。
+> 主語音庫的 cue 名稱欄位全為空（0/9569），無法從音聲庫本身分辨角色。本模塊改用**說話者嵌入**在主庫內部互比，找出與已知ライザ語音同一說話者的音軌。
 >
-> 前置階段見 [`unpack.md`](03_unpack.md)，後續的 ASR 與訓練清單建構見 [`transcript_pipeline.md`](05_transcript_pipeline.md)。
+> 前一個模塊見 [`02_unpack.md`](02_unpack.md)，下一個模塊（ASR 與訓練清單）見 [`04_transcript_pipeline.md`](04_transcript_pipeline.md)。
 
 ---
 
 ## 1. 動機
 
-主庫 9,569 個 cue 沒有任何名稱資訊，只留下遞增的 `sound_id`（原因見 [`unpack.md`](03_unpack.md) §2）。
+主庫 9,569 個 cue 沒有任何名稱資訊，只留下遞增的 `sound_id`（原因見 [`unpack.md`](02_unpack.md) §2）。
 直接可行的做法有兩條：解 PAK 事件腳本比對 cue 引用（成本高、未做），或用**說話者嵌入**在主庫內部做無監督聚類（成本低、可立即執行）。
 
-本階段採後者：以使用者確認的 3 個ライザ對話語音為參考，在 9,569 檔主庫中找出同一名說話者。
+本模塊採後者：以使用者確認的 3 個ライザ對話語音為參考，在 9,569 檔主庫中找出同一名說話者。
 
 ## 2. 嵌入 pipeline
 
@@ -33,9 +33,7 @@ wav → Fbank(80mel) → sentence-norm → ECAPA_TDNN → global-norm → L2 正
   再由 [`tools/merge_chunks.py`](../tools/merge_chunks.py) 合併
 - 產出 `tools/embeddings.npy`，形狀 **9570 × 192**（index 0 保留不使用，實際檔號 = index + 1）
 
-> **TF32 設定**：`spk_model.py` 沿用 `torch.backends.cuda.matmul.allow_tf32 = False`。
-> 這是**其他環境（RTX 3060）曾發生 CUDA 記憶體損壞的過往經驗，本機（RTX 4070 SUPER）從未發生**。
-> 完整記錄見 `docs/09_pitfalls.md` §4（該檔尚未納入版控）。本機無需理會、不 patch、不預防、不監控。
+> **TF32 設定**：`spk_model.py` 沿用 `torch.backends.cuda.matmul.allow_tf32 = False`，屬其他環境的過往經驗，本機不需處理。見 [`08_troubleshooting.md`](08_troubleshooting.md) §4。
 
 ## 3. 校準來源與評分
 
@@ -68,7 +66,7 @@ wav → Fbank(80mel) → sentence-norm → ECAPA_TDNN → global-norm → L2 正
 以戰鬥庫 centroid 分類 3 個對話種子，**全部被判為 TAO**。
 原因是**領域偏移大於說話者差異**——戰鬥語音與對話語音的錄音條件差異，壓過了角色本身的特徵差異。
 
-**因此 Part 1 ② 的篩選一律只在主庫內部互比**，不使用任何戰鬥庫 centroid 作為判定依據。
+**因此說話者篩選一律只在主庫內部互比**，不使用任何戰鬥庫 centroid 作為判定依據。
 
 ### 4.3 高分群是真實聚類
 

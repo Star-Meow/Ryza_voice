@@ -1,4 +1,7 @@
-# GPT-SoVITS Part 2 模型選型
+# 基礎模型選型：GPT-SoVITS 版本與微調路線
+
+> 說明為什麼選擇 GPT-SoVITS **v4 LoRA**，以及 v2ProPlus 為何列為備選。
+> 選型的約束見 [`01_overview.md`](01_overview.md) §2；選定後的微調流程見 [`07_finetune.md`](07_finetune.md)。
 
 ## 背景：版本篩選準則
 
@@ -76,11 +79,13 @@ RTX 4070 SUPER 12GB 為硬體上限，兩候選的可行路徑有本質差異：
 
 **備選：v2ProPlus**
 
-若 v4 LoRA 實測無法滿足驗收條件，再評估 v2ProPlus；屆時需先實測其實際 VRAM 使用量，並以相同資料切分與驗收流程比較相似度、CER 及主觀音質。
+若 v4 LoRA 實測無法達到評估標準（[`01_overview.md`](01_overview.md) §4），再評估 v2ProPlus；屆時需先實測其實際 VRAM 使用量，並以相同資料切分與評估流程比較相似度、CER 及主觀音質。
 
 ---
 
 ## 六、決策鏈摘要
+
+```
 主分支版本
     │
     ├─ v1 → 淘汰：舊版本
@@ -107,14 +112,56 @@ RTX 4070 SUPER 12GB 為硬體上限，兩候選的可行路徑有本質差異：
          優先 v4 LoRA
              │
              ↓
-      實測 VRAM + 驗收
+      實測 VRAM + 評估
+```
 
 核心不是「v4 benchmark 比 v2Pro 好」，而是：**在 12GB GPU 的實際約束下，v4 提供官方明確的 LoRA 低顯存訓練路徑，而 v2Pro 沒有；同時 v4 的原生 48kHz 與資料集匹配，且官方 zero-shot SIM 與 v2ProPlus 接近。**
 
 ---
 
-## 七、待驗證項
+## 七、實測後的修正
 
-1. **v4 LoRA 實測顯存**：以 `torch.cuda.max_memory_allocated()` 確認 12GB 下的實際佔用，與官方標示的 8GB 門檻區分。
-2. **TF32 相容性**：本專案 `tools/spk_model.py` 記錄的 TF32 導致 CUDA 損壞屬**其他環境（RTX 3060）過往經驗，本機（RTX 4070 SUPER）未再發生**。官方訓練腳本預設開啟 TF32，先以原版設定訓練，若出現 CUDA 損壞徵兆再考慮 patch。
-3. **參考音訊規範**：issue (a) 項未規範參考音訊選擇，建議固定參考音訊並跨版本一致，避免相似度分數被參考選擇影響。
+選型當時的判斷，經實際訓練後有一項需要修正：
+
+| 選型時的判斷 | 實測結果 | 影響 |
+|---|---|---|
+| 「v4 LoRA 在 12 GB 下有約 4 GB 餘裕」（§一） | **不成立**。`grad_ckpt=false` 時整卡峰值達 11958/12282 MiB（97.3%），訓練在 epoch 2 假死且不丟 OOM；改 `grad_ckpt=true` 後峰值降到 4603 MiB | 12 GB 卡上 `grad_ckpt=true` 是**必要設定**，見 [`07_finetune.md`](07_finetune.md) §7、[`08_troubleshooting.md`](08_troubleshooting.md) PK-013 |
+
+其餘判斷維持：
+- **取樣率**：48 kHz 端到端一致。
+- **TF32**：本機訓練全程未出現 CUDA 損壞，維持官方預設，見 [`08_troubleshooting.md`](08_troubleshooting.md) §4。
+- **參考音訊**：已固定為 `wav/03536.wav`，見 [`05_dataset_split.md`](05_dataset_split.md) §3。
+
+v4 LoRA 已達到評估標準，因此未啟用 v2ProPlus 備選。結果見 [`reports/finetune_report.md`](../reports/finetune_report.md)。
+
+---
+
+## 附錄 A：音訊品質實測
+
+**目的**：確認訓練資料是否符合 GPT-SoVITS 官方 wiki 的「低音質」判定條件，判斷資料品質能不能作為選型的依據。
+
+**方法**：
+- 範圍：`data/ryza_train.list` 全數 491 段，涵蓋清單前、中、後段（164／164／163）。
+- 工具：[`tools/audio_quality.py`](../tools/audio_quality.py)，標準庫加 numpy 的純 CPU FFT，不載入模型、不使用 GPU。
+- 原始數據：[`reports/audio_quality.json`](../reports/audio_quality.json)。
+
+**官方判定條件對照**：
+
+| 條件 | 官方描述 | 量測結果 | 判定 |
+|---|---|---|---|
+| 16k 以下頻段缺失 | 壓縮造成低通 | -24.7 dB @16k，-60dB 頻寬中位數 23.5 kHz | 未觸發 |
+| 壓縮陡降 | 低通截斷懸崖 | 18/491 檔 >18dB，中位數 10.7 dB | 未觸發 |
+| 背景噪音 | 寬頻噪音 | 安靜段低/高頻 -34.3/-34.1 dB，0/491 寬頻特徵 | 未觸發 |
+
+**LTAS 長時平均頻譜**（相對 0.5–4k 頻帶，dB）：
+
+| 頻率 | 4 kHz | 8 kHz | 12 kHz | 14 kHz | 16 kHz | 18 kHz | 20 kHz |
+|---|---|---|---|---|---|---|---|
+| 相對能量 | -6.6 | -12.2 | -14.7 | -20.1 | -24.7 | -31.3 | -39.1 |
+
+**結論**：
+- 本批音訊**不符合**官方的「低音質」分類，資料品質不構成偏向任何版本的理由。
+- 選型因此回到顯存路徑與取樣率（§一、§五）。高頻能量延伸到 20 kHz 以上，也支持採用原生 48 kHz 的 v4。
+
+> 殘響尚無法由本工具精確量化。安靜段的語音染色輪廓只能排除「恆定寬頻背景噪音」，無法區分輕微空間感與無殘響。
+> 「少量音訊帶輕微空間感」屬於這一類尚未量化的殘留風險。
