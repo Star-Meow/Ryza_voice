@@ -34,7 +34,7 @@
 | A. 舊檔名、行號引用 | 173 | 例如 `03_unpack.md`、`docs/04_speaker_id.md:145`、`README.md:64`。檔案已改名或刪除，引用改指新檔名或章節 | 改名對照見 `check.py` 的 `RENAMES` |
 | B. 階段回報的當次明細 | 401 | G1～G4、冒煙測試、環境準備中的當次量測值、檔案清單、branch／HEAD 狀態、停止點、epoch 外推表、逐檢查項明細。結論已在 07、08；明細屬於執行紀錄 | 08 坑記錄的證據欄以固定版本連結指向原報告；其餘以 `git show 262adda:<路徑>` 查閱 |
 | C. 協作產物 | 84 | issue_compliance 的合規判定、pr_description 的交付清單、issue_reply 的進度回報 | issue #1、PR #6；`issue_compliance` 未曾張貼到 GitHub，只能用 `git show 262adda:reports/issue_compliance.md` 查閱 |
-| D. 保留檔的措辭與更正 | 67 | 去除 Part／階段／PM 字樣；更正錯誤（ボオス 的「促音」改「長音」、`・・・` 不屬 ELL、`--audio-root wav` 錯誤）；刪除本機桌面路徑；跨多行的程式碼片段因單行修改而整段比對不到 | 已逐筆人工檢查，抽查的兩筆（`NNNN_原檔名`、`eval10_*.wav`）確認內容仍在 |
+| D. 保留檔的措辭與更正 | 67 | 去除 Part／階段／PM 字樣；更正錯誤（`・・・` 不屬 ELL、`--audio-root wav` 錯誤）、差異描述與附錄 A 對齊；刪除本機桌面路徑；跨多行的程式碼片段因單行修改而整段比對不到 | 已逐筆人工檢查，抽查的兩筆（`NNNN_原檔名`、`eval10_*.wav`）確認內容仍在 |
 
 ## 結論
 

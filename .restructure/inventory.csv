@@ -309,7 +309,7 @@ finetune_report-013,reports/finetune_report.md,5. 評估結果,2,147-148,da39a3e
 finetune_report-014,reports/finetune_report.md,5.1 樣本清單,3,149-184,ad9fca1f31,結果,keep,,
 finetune_report-015,reports/finetune_report.md,5.2 聲線相似度（ECAPA-TDNN vs A_high 中心點）,3,185-197,e136b4a9c1,結果,keep,,
 finetune_report-016,reports/finetune_report.md,5.2.1 基線穩健性檢查（2026-10-05 重算）,3,198-229,07c6511a77,結果,edit,,措辭：去除 Part／階段／PM／計畫字樣，或更新連結與章節編號；「與計畫是否相符」欄改為備註
-finetune_report-017,reports/finetune_report.md,5.3 可懂度（Whisper large-v3 → CER）,3,230-255,094e38e1d0,結果,edit,,ボオス 表格更正：原文與轉寫寫錯、錯誤性質改為長音脫落
+finetune_report-017,reports/finetune_report.md,5.3 可懂度（Whisper large-v3 → CER）,3,230-255,094e38e1d0,結果,edit,,差異表與附錄 A 的逐句轉寫對齊
 finetune_report-018,reports/finetune_report.md,6. 結論,2,256-257,da39a3ee5e,結果,keep,,
 finetune_report-019,reports/finetune_report.md,6-1 是否達專案目標,3,258-272,9d511a0d4d,結果,edit,,措辭：去除 Part／階段／PM／計畫字樣，或更新連結與章節編號；「與計畫是否相符」欄改為備註
 finetune_report-020,reports/finetune_report.md,6-2 量化品質評估,3,273-278,b33bdc73cc,結果,edit,,02 連結改名
@@ -339,7 +339,7 @@ finetune_report-043,reports/finetune_report.md,11. 停止點,2,551-558,d3e218a23
 finetune_report-044,reports/finetune_report.md,附錄 A：生成樣本文字稿（Whisper large-v3 逐句轉寫）,2,559-573,086afe1ebc,結果,edit,,措辭：去除 Part／階段／PM／計畫字樣，或更新連結與章節編號；「與計畫是否相符」欄改為備註
 finetune_report-045,reports/finetune_report.md,A-1　(a) eval10 原台詞 10 句,3,574-588,3973ca3134,結果,keep,,
 finetune_report-046,reports/finetune_report.md,A-2　(b) 全新台詞 10 句,3,589-603,34564d1ffa,結果,keep,,
-finetune_report-047,reports/finetune_report.md,A-3　逐句差異解讀,3,604-618,d83d04d8b9,結果,edit,,ボオス 的錯誤性質更正為長音「オ」脫落（原誤記為促音）
+finetune_report-047,reports/finetune_report.md,A-3　逐句差異解讀,3,604-618,d83d04d8b9,結果,edit,,逐句差異描述與 §5.3 對齊
 issue_compliance-001,reports/issue_compliance.md,Issue 合規稽核報告,1,1-14,ee40afe903,協作產物,delete,,對 issue #1 的合規自我稽核（審查產物）；需求與驗收討論在 https://github.com/Star-Meow/Ryza_voice/issues/1、https://github.com/Star-Meow/Ryza_voice/pull/6
 issue_compliance-002,reports/issue_compliance.md,0. 摘要,2,15-40,cbe5ea4573,協作產物,delete,,對 issue #1 的合規自我稽核（審查產物）；需求與驗收討論在 https://github.com/Star-Meow/Ryza_voice/issues/1、https://github.com/Star-Meow/Ryza_voice/pull/6
 issue_compliance-003,reports/issue_compliance.md,1. Part 1 範圍（issue 第 8–10 行）,2,41-48,e84e2a15b5,協作產物,delete,,對 issue #1 的合規自我稽核（審查產物）；需求與驗收討論在 https://github.com/Star-Meow/Ryza_voice/issues/1、https://github.com/Star-Meow/Ryza_voice/pull/6
