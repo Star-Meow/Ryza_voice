@@ -56,7 +56,7 @@ train 467／test 24（含 eval10 10）
 | TTS 微調 | 選型，以及 v4 LoRA 的預處理、訓練、推論 | [`06_model_selection.md`](06_model_selection.md)、[`07_finetune.md`](07_finetune.md) | [`finetune_report.md`](../reports/finetune_report.md) |
 | 評估 | 聲線相似度、可懂度、主觀試聽 | [`07_finetune.md`](07_finetune.md) §7 | [`finetune_report.md`](../reports/finetune_report.md)、[`defect_triage.md`](../reports/defect_triage.md) |
 
-遇到問題時查 [`08_troubleshooting.md`](08_troubleshooting.md)，工具清單見 [`tools/README.md`](../tools/README.md)。
+遇到問題時查 [`08_troubleshooting.md`](08_troubleshooting.md)，工具清單見 [`tools/README.md`](../tools/README.md)，各階段作者與 AI 的分工見 [`09_contributions.md`](09_contributions.md)。
 
 ## 4. 評估標準
 
@@ -83,4 +83,5 @@ train 467／test 24（含 eval10 10）
 | 轉譯範圍為 `A_high`（92）＋ `B_likely`（386） | 改走 `top500/`，依 `svm_dec` 排序取前 500 | 避免樣本數偏頗；B_likely 實際為 383。見 [`04_transcript_pipeline.md`](04_transcript_pipeline.md) §1.5 |
 | 使用 Whisper large-v3 | 以 faster-whisper 載入同一份 large-v3 權重 | 權重相同，推論較快、顯存較省。見 [`asr_report.md`](../reports/asr_report.md) §1 |
 | 記錄每段的排除原因 | 統計有保留，但逐段原因被 `--prune-raw` 從 `asr_screening.json` 移除 | 見 [`asr_report.md`](../reports/asr_report.md) §5 |
+| 過濾時長、非說話聲、空輸出、重複、幻覺 | 另加跨檔文本去重（`DUPLICATE_TEXT`），排除 6 段 | 同一句台詞被不同音檔重複收錄，TTS 訓練保留一個版本即可。見 [`asr_report.md`](../reports/asr_report.md) §2 |
 | 生成樣本與原音並列 | repo 內只提供生成檔與原音的對照表 | 原音因版權不進版控。見 [`samples/README.md`](../samples/README.md) |

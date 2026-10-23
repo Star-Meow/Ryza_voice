@@ -84,6 +84,7 @@ python <RYZA>/tools/run_lora_train.py --stage s2 --config <RYZA>/configs/s2_lora
 | [`06_model_selection.md`](docs/06_model_selection.md) | 基礎模型選型：為什麼是 v4 LoRA |
 | [`07_finetune.md`](docs/07_finetune.md) | TTS 微調與推論：環境、預處理、訓練、推論、評估 |
 | [`08_troubleshooting.md`](docs/08_troubleshooting.md) | 疑難排解：坑記錄、GPU 專區、症狀速查 |
+| [`09_contributions.md`](docs/09_contributions.md) | 貢獻說明：各階段作者與 AI 的分工，以及作者的決策理由 |
 
 **`reports/`**
 
